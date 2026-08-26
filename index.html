@@ -8,10 +8,6 @@
 
 <style>
 
-/* ==================================================
-   BASE
-================================================== */
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -23,31 +19,31 @@ html {
 }
 
 body {
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: Georgia, 'Times New Roman', serif;
     background: #120d1f;
     color: #f8f1e7;
     overflow-x: hidden;
 }
 
-/* ==================================================
+/* =========================
    FONDO
-================================================== */
+========================= */
 
 body::before {
     content: "";
     position: fixed;
     inset: 0;
     background:
-        radial-gradient(circle at 20% 20%, rgba(111,61,132,.35), transparent 30%),
-        radial-gradient(circle at 80% 70%, rgba(45,65,130,.35), transparent 30%),
-        radial-gradient(circle at 50% 100%, rgba(92,45,30,.25), transparent 35%);
+        radial-gradient(circle at 20% 20%, rgba(111,61,132,.30), transparent 32%),
+        radial-gradient(circle at 80% 70%, rgba(45,65,130,.30), transparent 32%),
+        radial-gradient(circle at 50% 100%, rgba(92,45,30,.22), transparent 35%);
     pointer-events: none;
     z-index: -2;
 }
 
-/* ==================================================
+/* =========================
    ESTRELLAS
-================================================== */
+========================= */
 
 .stars {
     position: fixed;
@@ -60,7 +56,7 @@ body::before {
     position: absolute;
     width: 3px;
     height: 3px;
-    background: white;
+    background: #fff;
     border-radius: 50%;
     opacity: .6;
     animation: twinkle 3s infinite alternate;
@@ -101,18 +97,6 @@ body::before {
     animation-delay: 2.5s;
 }
 
-.star:nth-child(7) {
-    top: 15%;
-    left: 55%;
-    animation-delay: .8s;
-}
-
-.star:nth-child(8) {
-    top: 50%;
-    left: 90%;
-    animation-delay: 1.8s;
-}
-
 @keyframes twinkle {
 
     from {
@@ -127,9 +111,9 @@ body::before {
 
 }
 
-/* ==================================================
+/* =========================
    PORTADA
-================================================== */
+========================= */
 
 #inicio {
     min-height: 100vh;
@@ -142,32 +126,20 @@ body::before {
 
 .portada {
     max-width: 800px;
-    animation: aparecer 1.5s ease;
+    animation: aparecer 1.2s ease;
 }
 
 .ositos {
     font-size: 5rem;
     margin-bottom: 25px;
-}
-
-.osito-portada {
-    display: inline-block;
-    cursor: pointer;
     animation: flotar 3s ease-in-out infinite;
-}
-
-.osito-portada:nth-child(2) {
-    animation-delay: .5s;
-}
-
-.osito-portada:active {
-    transform: scale(1.3) rotate(8deg);
 }
 
 .portada h1 {
     font-size: clamp(3rem, 10vw, 6rem);
     letter-spacing: 5px;
-    color: white;
+    color: #fff;
+
     text-shadow:
         0 0 20px rgba(150,90,180,.6),
         0 0 40px rgba(80,100,180,.4);
@@ -192,16 +164,26 @@ body::before {
     border: none;
     padding: 15px 35px;
     border-radius: 50px;
-    background: linear-gradient(135deg,#7b3f91,#344f9b);
+
+    background: linear-gradient(
+        135deg,
+        #7b3f91,
+        #344f9b
+    );
+
     color: white;
     font-size: 1.05rem;
     cursor: pointer;
-    transition: .3s;
+
+    transition: transform .25s ease,
+                box-shadow .25s ease;
+
     box-shadow: 0 8px 30px rgba(0,0,0,.3);
 }
 
 .boton:hover {
-    transform: translateY(-4px) scale(1.04);
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 12px 35px rgba(120,70,160,.4);
 }
 
 @keyframes flotar {
@@ -220,7 +202,7 @@ body::before {
 
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(25px);
     }
 
     to {
@@ -230,9 +212,9 @@ body::before {
 
 }
 
-/* ==================================================
+/* =========================
    CONTENIDO
-================================================== */
+========================= */
 
 #contenido {
     display: none;
@@ -240,9 +222,9 @@ body::before {
     padding-bottom: 80px;
 }
 
-/* ==================================================
+/* =========================
    MENU
-================================================== */
+========================= */
 
 .menu {
     text-align: center;
@@ -262,30 +244,41 @@ body::before {
 .botones {
     max-width: 900px;
     margin: auto;
+
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
     gap: 18px;
 }
 
 .menu-boton {
     background: rgba(255,255,255,.06);
+
     border: 1px solid rgba(255,255,255,.12);
-    color: white;
+
+    color: #fff;
+
     padding: 25px 15px;
+
     border-radius: 20px;
+
     font-size: 1.1rem;
+
     cursor: pointer;
-    transition: .3s;
+
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        border-color .25s ease;
 }
 
 .menu-boton:hover {
     transform: translateY(-5px);
-    background: rgba(123,63,145,.25);
-    border-color: rgba(180,120,200,.5);
-}
 
-.menu-boton:active {
-    transform: scale(.96);
+    background: rgba(123,63,145,.20);
+
+    border-color: rgba(180,120,200,.5);
 }
 
 .icono {
@@ -294,18 +287,26 @@ body::before {
     margin-bottom: 10px;
 }
 
-/* ==================================================
+/* =========================
    SECCIONES
-================================================== */
+========================= */
 
 .seccion {
     max-width: 900px;
+
     margin: 40px auto;
+
     padding: 40px 25px;
+
     border-radius: 25px;
+
     background: rgba(255,255,255,.055);
+
     border: 1px solid rgba(255,255,255,.1);
+
     text-align: center;
+
+    /* Más ligero para celular/tablet */
 }
 
 .seccion h2 {
@@ -315,209 +316,318 @@ body::before {
 
 .seccion p {
     color: #ddd3df;
+
     line-height: 1.8;
+
     font-size: 1.05rem;
 }
 
 .osito-pequeno {
-    display: inline-block;
     font-size: 3rem;
     margin-bottom: 15px;
-    cursor: pointer;
-    transition: transform .3s;
 }
 
-.osito-pequeno:active {
-    transform: scale(1.3) rotate(-8deg);
-}
-
-/* ==================================================
-   COLORES DE LOS OSITOS
-================================================== */
-
-.colores {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin: 25px 0;
-}
-
-.color {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-}
-
-.morado {
-    background: #8b4aa8;
-}
-
-.azul {
-    background: #4667b8;
-}
-
-.rojo {
-    background: #c94c61;
-}
-
-.cafe {
-    background: #8b5a3c;
-}
-
-/* ==================================================
-   ESTADOS
-================================================== */
+/* =========================
+   TARJETAS DE ESTADO
+========================= */
 
 .estados {
+
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(140px, 1fr));
+
     gap: 15px;
+
     margin-top: 30px;
 }
 
 .estado {
+
     padding: 20px 10px;
+
     border-radius: 18px;
+
     background: rgba(255,255,255,.06);
+
     cursor: pointer;
-    transition: .3s;
+
+    transition:
+        transform .25s ease,
+        background .25s ease;
 }
 
 .estado:hover {
-    transform: scale(1.04);
-    background: rgba(123,63,145,.25);
-}
 
-.estado:active {
-    transform: scale(.95);
+    transform: scale(1.03);
+
+    background: rgba(123,63,145,.22);
 }
 
 .estado span {
+
     display: block;
+
     font-size: 2.5rem;
+
     margin-bottom: 8px;
 }
 
 .mensaje-estado {
+
     margin-top: 30px;
+
     padding: 25px;
+
     border-radius: 18px;
+
     background: rgba(92,45,30,.25);
+
     display: none;
-    animation: aparecer .5s ease;
+
+    animation: aparecer .4s ease;
 }
 
-/* ==================================================
+/* =========================
    RECUERDOS
-================================================== */
+========================= */
 
 .recuerdos {
-    margin-top: 30px;
+
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
-    gap: 15px;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(180px, 1fr));
+
+    gap: 18px;
+
+    margin-top: 30px;
 }
 
 .recuerdo {
+
     min-height: 150px;
+
+    padding: 25px 15px;
+
     border-radius: 20px;
-    background: rgba(123,63,145,.12);
-    border: 1px dashed rgba(255,255,255,.2);
+
+    background: rgba(255,255,255,.05);
+
+    border: 1px solid rgba(255,255,255,.08);
+
     display: flex;
-    align-items: center;
-    justify-content: center;
+
     flex-direction: column;
-    padding: 20px;
-    transition: .3s;
+
+    justify-content: center;
+
+    align-items: center;
+
+    cursor: pointer;
+
+    transition:
+        transform .25s ease,
+        background .25s ease;
 }
 
 .recuerdo:hover {
+
     transform: translateY(-5px);
+
+    background: rgba(123,63,145,.20);
 }
 
-.recuerdo span {
-    font-size: 2.5rem;
+.recuerdo .emoji {
+
+    font-size: 3rem;
+
     margin-bottom: 10px;
 }
 
-/* ==================================================
+/* =========================
    ARCHIVO
-================================================== */
+========================= */
 
-.archivo-caja {
+.archivo {
+
     margin-top: 25px;
-    display: none;
+
     padding: 25px;
+
     border-radius: 20px;
-    background: rgba(92,45,30,.22);
+
+    background: rgba(0,0,0,.18);
+
+    display: none;
+
     animation: aparecer .5s ease;
 }
 
-.archivo-caja h3 {
-    margin-bottom: 15px;
+.archivo p {
+
+    color: #ddd3df;
+
+    line-height: 1.8;
 }
 
-/* ==================================================
+/* =========================
    MENSAJES
-================================================== */
+========================= */
 
 .mensajes {
-    display: grid;
-    gap: 15px;
+
     margin-top: 30px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(180px, 1fr));
+
+    gap: 15px;
 }
 
-.mensaje {
+.mensaje-boton {
+
     padding: 20px;
+
     border-radius: 18px;
+
+    border: 1px solid rgba(255,255,255,.1);
+
     background: rgba(255,255,255,.05);
-    border-left: 3px solid #7b3f91;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 1rem;
+
+    transition: transform .25s ease,
+                background .25s ease;
 }
 
-/* ==================================================
+.mensaje-boton:hover {
+
+    transform: translateY(-4px);
+
+    background: rgba(123,63,145,.20);
+}
+
+.carta {
+
+    margin-top: 25px;
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    background: rgba(92,45,30,.22);
+
+    display: none;
+
+    line-height: 1.8;
+
+    animation: aparecer .5s ease;
+}
+
+/* =========================
    FINAL
-================================================== */
+========================= */
 
 .final-bloqueado {
+
+    margin-top: 30px;
+
     padding: 30px;
+
     border-radius: 20px;
-    background: rgba(0,0,0,.18);
+
+    background: rgba(0,0,0,.20);
+
+    border: 1px solid rgba(255,255,255,.08);
 }
 
-.final-bloqueado .candado {
-    font-size: 3rem;
-    margin-bottom: 15px;
-}
+.final-secreto {
 
-.final-mensaje {
     display: none;
+
+    margin-top: 25px;
+
     animation: aparecer .8s ease;
 }
 
-.final-mensaje h3 {
+.final-secreto h3 {
+
     font-size: 2rem;
-    margin-bottom: 20px;
+
+    margin-bottom: 15px;
 }
 
-/* ==================================================
+.contador {
+
+    margin-top: 20px;
+
+    font-size: .9rem;
+
+    color: #a99eac;
+}
+
+/* =========================
+   BOTON VOLVER ARRIBA
+========================= */
+
+.arriba {
+
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,.15);
+
+    background: rgba(30,20,45,.9);
+
+    color: white;
+
+    font-size: 1.2rem;
+
+    cursor: pointer;
+
+    display: none;
+
+    z-index: 10;
+}
+
+/* =========================
    FOOTER
-================================================== */
+========================= */
 
 footer {
+
     text-align: center;
+
     padding: 50px 20px;
+
     color: #a99eac;
 }
 
 footer .corazon {
+
     color: #c94c61;
 }
 
-/* ==================================================
+/* =========================
    CELULAR
-================================================== */
+========================= */
 
-@media (max-width:600px) {
+@media (max-width: 600px) {
 
     .ositos {
         font-size: 4rem;
@@ -548,20 +658,29 @@ footer .corazon {
         grid-template-columns: 1fr;
     }
 
+    .estados {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
 }
 
-/* ==================================================
-   REDUCIR ANIMACIONES SI EL DISPOSITIVO LO PIDE
-================================================== */
+/* =========================
+   REDUCIR ANIMACIONES
+   EN DISPOSITIVOS QUE LO PIDAN
+========================= */
 
 @media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
 
     *,
     *::before,
     *::after {
         animation-duration: .01ms !important;
         animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
     }
 
 }
@@ -571,9 +690,9 @@ footer .corazon {
 
 <body>
 
-<!-- ==================================================
+<!-- =========================
      ESTRELLAS
-================================================== -->
+========================= -->
 
 <div class="stars">
 
@@ -583,24 +702,20 @@ footer .corazon {
     <div class="star"></div>
     <div class="star"></div>
     <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
 
 </div>
 
-<!-- ==================================================
+
+<!-- =========================
      PORTADA
-================================================== -->
+========================= -->
 
 <section id="inicio">
 
     <div class="portada">
 
         <div class="ositos">
-
-            <span class="osito-portada">🐻</span>
-            <span class="osito-portada">🐻</span>
-
+            🐻 🐻
         </div>
 
         <h1>MÓNICA</h1>
@@ -610,11 +725,9 @@ footer .corazon {
         </div>
 
         <p class="frase">
-
             8 años de historias, risas, salidas,
             tonterías y momentos que simplemente
             no caben en una sola página.
-
         </p>
 
         <button class="boton" onclick="entrar()">
@@ -625,505 +738,603 @@ footer .corazon {
 
 </section>
 
-<!-- ==================================================
+
+<!-- =========================
      CONTENIDO
-================================================== -->
+========================= -->
 
 <main id="contenido">
 
-<!-- ==================================================
-     MENU
-================================================== -->
 
-<section class="menu">
+    <!-- MENU -->
 
-    <h2>Bienvenida, osita 🐻</h2>
+    <section class="menu">
 
-    <p>
-        Este pequeño lugar tiene algunas cosas
-        que quiero que recuerdes.
-    </p>
+        <h2>
+            Bienvenida, osita 🐻
+        </h2>
 
-    <div class="colores">
+        <p>
+            Este pequeño lugar tiene algunas cosas
+            que quiero que recuerdes.
+        </p>
 
-        <div class="color morado"></div>
-        <div class="color azul"></div>
-        <div class="color rojo"></div>
-        <div class="color cafe"></div>
+        <div class="botones">
 
-    </div>
+            <button
+                class="menu-boton"
+                onclick="irA('historia')">
 
-    <div class="botones">
+                <span class="icono">📖</span>
 
-        <button class="menu-boton"
-        onclick="irA('historia')">
+                Nuestra historia
 
-            <span class="icono">📖</span>
-            Nuestra historia
+            </button>
 
-        </button>
 
-        <button class="menu-boton"
-        onclick="irA('musica')">
+            <button
+                class="menu-boton"
+                onclick="irA('musica')">
 
-            <span class="icono">🎵</span>
-            Música
+                <span class="icono">🎵</span>
 
-        </button>
+                Música
 
-        <button class="menu-boton"
-        onclick="irEstado()">
+            </button>
 
-            <span class="icono">💭</span>
+
+            <button
+                class="menu-boton"
+                onclick="irA('estado')">
+
+                <span class="icono">💭</span>
+
+                ¿Cómo estás hoy?
+
+            </button>
+
+
+            <button
+                class="menu-boton"
+                onclick="irA('recuerdos')">
+
+                <span class="icono">📸</span>
+
+                Recuerdos
+
+            </button>
+
+
+            <button
+                class="menu-boton"
+                onclick="irA('archivo')">
+
+                <span class="icono">😂</span>
+
+                Archivo de los ositos
+
+            </button>
+
+
+            <button
+                class="menu-boton"
+                onclick="irA('mensajes')">
+
+                <span class="icono">💌</span>
+
+                Para cuando lo necesites
+
+            </button>
+
+
+            <button
+                class="menu-boton"
+                onclick="irA('final')">
+
+                <span class="icono">🎁</span>
+
+                Una última cosa
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ESTADO
+    ========================= -->
+
+    <section
+        class="seccion"
+        id="estado">
+
+        <div class="osito-pequeno">
+            🐻
+        </div>
+
+        <h2>
             ¿Cómo estás hoy?
+        </h2>
+
+        <p>
+            No importa cuál elijas.
+            Aquí no hay respuestas incorrectas.
+        </p>
+
+
+        <div class="estados">
+
+            <div
+                class="estado"
+                onclick="mostrarEstado('feliz')">
+
+                <span>😊</span>
+                Feliz
+
+            </div>
+
+
+            <div
+                class="estado"
+                onclick="mostrarEstado('triste')">
+
+                <span>😔</span>
+                Triste
+
+            </div>
+
+
+            <div
+                class="estado"
+                onclick="mostrarEstado('enojada')">
+
+                <span>😤</span>
+                Hasta la madre
+
+            </div>
+
+
+            <div
+                class="estado"
+                onclick="mostrarEstado('aburrida')">
+
+                <span>🥱</span>
+                Aburrida
+
+            </div>
+
+
+            <div
+                class="estado"
+                onclick="mostrarEstado('pensando')">
+
+                <span>🌙</span>
+                Pensando
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="mensajeEstado"
+            class="mensaje-estado">
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         HISTORIA
+    ========================= -->
+
+    <section
+        class="seccion"
+        id="historia">
+
+        <div class="osito-pequeno">
+            📖
+        </div>
+
+        <h2>
+            Nuestra historia
+        </h2>
+
+        <p>
+            Aquí vamos a contar esos ocho años.
+        </p>
+
+        <br>
+
+        <p>
+            Todavía faltan muchas historias por poner...
+            y créeme, sé que son demasiadas.
+        </p>
+
+        <br>
+
+        <p>
+            Este espacio va a crecer poco a poco,
+            como crecieron nuestras historias.
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         MUSICA
+    ========================= -->
+
+    <section
+        class="seccion"
+        id="musica">
+
+        <div class="osito-pequeno">
+            🎵
+        </div>
+
+        <h2>
+            Música
+        </h2>
+
+        <p>
+            Porque hay canciones que terminan
+            convirtiéndose en recuerdos.
+        </p>
+
+        <br>
+
+        <button
+            class="boton"
+            onclick="mostrarMusica()">
+
+            🎵 Abrir nuestro rincón musical
 
         </button>
 
-        <button class="menu-boton"
-        onclick="irA('recuerdos')">
+        <div
+            id="musicaTexto"
+            class="carta">
 
-            <span class="icono">📸</span>
+            <p>
+                Aquí después pondremos las canciones
+                que tengan algún significado especial.
+            </p>
+
+            <br>
+
+            <p>
+                Algunas serán para recordar,
+                otras para reírnos y probablemente
+                alguna que otra para cantar horrible. 😂🐻
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         RECUERDOS
+    ========================= -->
+
+    <section
+        class="seccion"
+        id="recuerdos">
+
+        <div class="osito-pequeno">
+            📸
+        </div>
+
+        <h2>
             Recuerdos
+        </h2>
 
-        </button>
+        <p>
+            Aquí vamos a guardar pequeños pedazos
+            de esos ocho años.
+        </p>
 
-        <button class="menu-boton"
-        onclick="irA('archivo')">
 
-            <span class="icono">😂</span>
+        <div class="recuerdos">
+
+            <div
+                class="recuerdo"
+                onclick="recuerdo(1)">
+
+                <div class="emoji">
+                    🐻
+                </div>
+
+                <span>
+                    Un recuerdo
+                </span>
+
+            </div>
+
+
+            <div
+                class="recuerdo"
+                onclick="recuerdo(2)">
+
+                <div class="emoji">
+                    📸
+                </div>
+
+                <span>
+                    Otro recuerdo
+                </span>
+
+            </div>
+
+
+            <div
+                class="recuerdo"
+                onclick="recuerdo(3)">
+
+                <div class="emoji">
+                    ❤️
+                </div>
+
+                <span>
+                    Uno especial
+                </span>
+
+            </div>
+
+        </div>
+
+        <div
+            id="recuerdoMensaje"
+            class="carta">
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ARCHIVO
+    ========================= -->
+
+    <section
+        class="seccion"
+        id="archivo">
+
+        <div class="osito-pequeno">
+            😂
+        </div>
+
+        <h2>
             Archivo de los ositos
+        </h2>
+
+        <p>
+            ⚠️ Algunas historias pueden causar
+            vergüenza, risa o negación de los hechos.
+        </p>
+
+        <br>
+
+        <button
+            class="boton"
+            onclick="abrirArchivo()">
+
+            🔐 Abrir archivo
 
         </button>
 
-        <button class="menu-boton"
-        onclick="irA('mensajes')">
 
-            <span class="icono">💌</span>
+        <div
+            id="archivoContenido"
+            class="archivo">
+
+            <h3>
+                ARCHIVO CLASIFICADO 🐻
+            </h3>
+
+            <br>
+
+            <p>
+                Aquí vamos a poner todas esas
+                cosas que solamente dos ositos
+                entenderían.
+            </p>
+
+            <br>
+
+            <p>
+                Historias absurdas.<br>
+                Frases que jamás deberían repetirse.<br>
+                Momentos de "¿por qué hicimos eso?".<br>
+                Y evidencia que probablemente
+                debería permanecer bajo llave. 😂
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         MENSAJES
+    ========================= -->
+
+    <section
+        class="seccion"
+        id="mensajes">
+
+        <div class="osito-pequeno">
+            💌
+        </div>
+
+        <h2>
             Para cuando lo necesites
-
-        </button>
-
-        <button class="menu-boton"
-        onclick="irA('final')">
-
-            <span class="icono">🎁</span>
-            Una última cosa
-
-        </button>
-
-    </div>
-
-</section>
-
-<!-- ==================================================
-     ESTADO
-================================================== -->
-
-<section class="seccion" id="estado">
-
-    <div class="osito-pequeno">🐻</div>
-
-    <h2>¿Cómo estás hoy?</h2>
-
-    <p>
-        No importa cuál elijas.
-        Aquí no hay respuestas incorrectas.
-    </p>
-
-    <div class="estados">
-
-        <div class="estado"
-        onclick="mostrarEstado('feliz')">
-
-            <span>😊</span>
-            Feliz
-
-        </div>
-
-        <div class="estado"
-        onclick="mostrarEstado('triste')">
-
-            <span>😔</span>
-            Triste
-
-        </div>
-
-        <div class="estado"
-        onclick="mostrarEstado('enojada')">
-
-            <span>😤</span>
-            Hasta la madre
-
-        </div>
-
-        <div class="estado"
-        onclick="mostrarEstado('aburrida')">
-
-            <span>🥱</span>
-            Aburrida
-
-        </div>
-
-        <div class="estado"
-        onclick="mostrarEstado('pensando')">
-
-            <span>🌙</span>
-            Pensando
-
-        </div>
-
-    </div>
-
-    <div id="mensajeEstado"
-    class="mensaje-estado"></div>
-
-</section>
-
-<!-- ==================================================
-     HISTORIA
-================================================== -->
-
-<section class="seccion" id="historia">
-
-    <div class="osito-pequeno">📖</div>
-
-    <h2>Nuestra historia</h2>
-
-    <p>
-        Ocho años no caben fácilmente en unas cuantas líneas.
-    </p>
-
-    <br>
-
-    <p>
-        Aquí vamos a guardar las historias,
-        las tonterías, las salidas y todos esos
-        momentos que hicieron que termináramos
-        llamándonos ositos.
-    </p>
-
-    <br>
-
-    <p>
-        Esta parte apenas comienza...
-    </p>
-
-</section>
-
-<!-- ==================================================
-     MUSICA
-================================================== -->
-
-<section class="seccion" id="musica">
-
-    <div class="osito-pequeno">🎵</div>
-
-    <h2>Nuestra música</h2>
-
-    <p>
-        Hay canciones que terminan guardando
-        recuerdos aunque nadie se los haya pedido.
-    </p>
-
-    <br>
-
-    <p>
-        Esta sección será nuestro pequeño
-        rincón musical.
-    </p>
-
-    <div class="recuerdos">
-
-        <div class="recuerdo">
-
-            <span>🎧</span>
-
-            <strong>
-                Canción de los ositos
-            </strong>
-
-            <small>
-                Próximamente...
-            </small>
-
-        </div>
-
-        <div class="recuerdo">
-
-            <span>🎶</span>
-
-            <strong>
-                Otra historia
-            </strong>
-
-            <small>
-                Próximamente...
-            </small>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ==================================================
-     RECUERDOS
-================================================== -->
-
-<section class="seccion" id="recuerdos">
-
-    <div class="osito-pequeno">📸</div>
-
-    <h2>Recuerdos</h2>
-
-    <p>
-        Aquí van a aparecer nuestras fotos,
-        como pequeños recuerdos flotando
-        dentro de este rincón.
-    </p>
-
-    <div class="recuerdos">
-
-        <div class="recuerdo">
-
-            <span>📷</span>
-
-            <strong>
-                Recuerdo #1
-            </strong>
-
-            <small>
-                Aquí irá una foto
-            </small>
-
-        </div>
-
-        <div class="recuerdo">
-
-            <span>🐻</span>
-
-            <strong>
-                Recuerdo #2
-            </strong>
-
-            <small>
-                Aquí irá otra historia
-            </small>
-
-        </div>
-
-        <div class="recuerdo">
-
-            <span>❤️</span>
-
-            <strong>
-                Recuerdo #3
-            </strong>
-
-            <small>
-                Reservado para nosotros
-            </small>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ==================================================
-     ARCHIVO
-================================================== -->
-
-<section class="seccion" id="archivo">
-
-    <div class="osito-pequeno">😂</div>
-
-    <h2>Archivo de los ositos</h2>
-
-    <p>
-        ⚠️ Algunas historias pueden causar
-        vergüenza, risa o negación de los hechos.
-    </p>
-
-    <br>
-
-    <button class="boton"
-    onclick="abrirArchivo()">
-
-        Abrir archivo 🔐
-
-    </button>
-
-    <div id="archivoCaja"
-    class="archivo-caja">
-
-        <h3>🔓 Archivo desbloqueado</h3>
+        </h2>
 
         <p>
-            Aquí vamos a guardar las cosas
-            que solamente dos ositos entenderían.
+            Escoge uno.
         </p>
 
-        <br>
 
-        <p>
-            Evidencia pendiente de ser agregada...
-            😂🐻
-        </p>
+        <div class="mensajes">
 
-    </div>
+            <button
+                class="mensaje-boton"
+                onclick="mostrarCarta('triste')">
 
-</section>
+                💙<br>
+                Para cuando estés triste
 
-<!-- ==================================================
-     MENSAJES
-================================================== -->
+            </button>
 
-<section class="seccion" id="mensajes">
 
-    <div class="osito-pequeno">💌</div>
+            <button
+                class="mensaje-boton"
+                onclick="mostrarCarta('feliz')">
 
-    <h2>Para cuando lo necesites</h2>
+                ❤️<br>
+                Para cuando estés feliz
 
-    <p>
-        Porque no todos los días son iguales.
-    </p>
+            </button>
 
-    <div class="mensajes">
 
-        <div class="mensaje">
+            <button
+                class="mensaje-boton"
+                onclick="mostrarCarta('reir')">
 
-            <strong>
-                💙 Para cuando estés triste
-            </strong>
+                😂<br>
+                Para cuando necesites reír
+
+            </button>
+
+
+            <button
+                class="mensaje-boton"
+                onclick="mostrarCarta('recordar')">
+
+                🐻<br>
+                Para cuando necesites recordar
+
+            </button>
+
+        </div>
+
+
+        <div
+            id="carta"
+            class="carta">
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FINAL
+    ========================= -->
+
+    <section
+        class="seccion"
+        id="final">
+
+        <div class="osito-pequeno">
+            🎁
+        </div>
+
+        <h2>
+            Una última cosa...
+        </h2>
+
+        <div class="final-bloqueado">
 
             <p>
-                Respira, osita.
-                No tienes que poder con todo
-                al mismo tiempo.
+                Llegaste hasta aquí.
             </p>
 
-        </div>
-
-        <div class="mensaje">
-
-            <strong>
-                💜 Para cuando necesites recordar
-            </strong>
+            <br>
 
             <p>
-                Hay personas que llegan a nuestra vida
-                y terminan convirtiéndose en parte
-                de nuestras historias favoritas.
+                Pero todavía no puedo enseñarte
+                lo que hay detrás.
             </p>
 
+            <br>
+
+            <button
+                class="boton"
+                onclick="desbloquearFinal()">
+
+                🔐 Intentar abrir
+
+            </button>
+
+            <div
+                id="finalSecreto"
+                class="final-secreto">
+
+                <h3>
+                    🐻❤️
+                </h3>
+
+                <p>
+                    Algunas cosas no se pueden
+                    explicar en una página.
+                </p>
+
+                <br>
+
+                <p>
+                    Esta parte la vamos a escribir
+                    juntos cuando llegue el momento.
+                </p>
+
+            </div>
+
         </div>
 
-        <div class="mensaje">
+    </section>
 
-            <strong>
-                ❤️ Para cuando estés feliz
-            </strong>
 
-            <p>
-                Disfrútalo.
-                Y si puedes, guarda un poquito
-                de esa felicidad para después.
-            </p>
+    <!-- =========================
+         FOOTER
+    ========================= -->
 
+    <footer>
+
+        Hecho por un osito para otra osita
+        <span class="corazon">♥</span>
+
+        <br><br>
+
+        8 años y contando 🐻
+
+        <div class="contador">
+            Versión 2.0
         </div>
 
-    </div>
-
-</section>
-
-<!-- ==================================================
-     FINAL
-================================================== -->
-
-<section class="seccion" id="final">
-
-    <div class="osito-pequeno">🎁</div>
-
-    <h2>Una última cosa...</h2>
-
-    <div class="final-bloqueado">
-
-        <div class="candado">
-            🔐
-        </div>
-
-        <p>
-            Esta parte todavía está cerrada.
-        </p>
-
-        <br>
-
-        <p>
-            Algunas cosas no deberían aparecer
-            simplemente porque alguien llegó
-            hasta abajo.
-        </p>
-
-        <br>
-
-        <button class="boton"
-        onclick="desbloquearFinal()">
-
-            Tengo curiosidad 🐻
-
-        </button>
-
-    </div>
-
-    <div id="finalMensaje"
-    class="final-mensaje">
-
-        <h3>
-            Para mi osita 🐻❤️
-        </h3>
-
-        <p>
-            Ocho años después,
-            todavía quedan historias por escribir.
-        </p>
-
-        <br>
-
-        <p>
-            Y esta página...
-            apenas es el comienzo.
-        </p>
-
-    </div>
-
-</section>
-
-<!-- ==================================================
-     FOOTER
-================================================== -->
-
-<footer>
-
-    Hecho por un osito para otra osita
-
-    <span class="corazon">
-        ♥
-    </span>
-
-    <br><br>
-
-    8 años y contando 🐻
-
-</footer>
+    </footer>
 
 </main>
 
+
+<!-- BOTON ARRIBA -->
+
+<button
+    id="botonArriba"
+    class="arriba"
+    onclick="volverArriba()">
+
+    ↑
+
+</button>
+
+
 <script>
 
-/* ==================================================
+/* =========================
    ENTRAR
-================================================== */
+========================= */
 
 function entrar() {
 
@@ -1131,41 +1342,32 @@ function entrar() {
 
     document.getElementById("contenido").style.display = "block";
 
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
 
 }
 
 
-/* ==================================================
+/* =========================
    NAVEGACION
-================================================== */
+========================= */
 
 function irA(id) {
 
     const elemento = document.getElementById(id);
 
-    if (elemento) {
+    if (!elemento) return;
 
-        elemento.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-
-    }
+    elemento.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
 
 }
 
 
-function irEstado() {
-
-    irA("estado");
-
-}
-
-
-/* ==================================================
+/* =========================
    ESTADOS
-================================================== */
+========================= */
 
 function mostrarEstado(tipo) {
 
@@ -1173,6 +1375,7 @@ function mostrarEstado(tipo) {
         document.getElementById("mensajeEstado");
 
     let mensaje = "";
+
 
     if (tipo === "feliz") {
 
@@ -1187,6 +1390,7 @@ function mostrarEstado(tipo) {
 
     }
 
+
     if (tipo === "triste") {
 
         mensaje = `
@@ -1194,11 +1398,17 @@ function mostrarEstado(tipo) {
             <br>
             <p>
             No tienes que solucionar todo hoy.
-            Respira y descansa un poquito.
+            Hay días que simplemente pesan más.
+            </p>
+            <br>
+            <p>
+            Respira, descansa un poquito.
+            Mañana puede sentirse diferente.
             </p>
         `;
 
     }
+
 
     if (tipo === "enojada") {
 
@@ -1208,12 +1418,17 @@ function mostrarEstado(tipo) {
             <p>
             No voy a preguntarte
             "¿por qué estás enojada?"
-            porque probablemente eso
-            solo empeoraría las cosas.
+            porque probablemente eso solo
+            empeoraría las cosas.
+            </p>
+            <br>
+            <p>
+            Mejor vamos a distraernos.
             </p>
         `;
 
     }
+
 
     if (tipo === "aburrida") {
 
@@ -1233,6 +1448,7 @@ function mostrarEstado(tipo) {
 
     }
 
+
     if (tipo === "pensando") {
 
         mensaje = `
@@ -1242,9 +1458,15 @@ function mostrarEstado(tipo) {
             Hay cosas que necesitan tiempo
             para acomodarse.
             </p>
+            <br>
+            <p>
+            No tienes que tener todas
+            las respuestas ahora.
+            </p>
         `;
 
     }
+
 
     caja.innerHTML = mensaje;
 
@@ -1253,35 +1475,261 @@ function mostrarEstado(tipo) {
 }
 
 
-/* ==================================================
-   ARCHIVO
-================================================== */
+/* =========================
+   MUSICA
+========================= */
 
-function abrirArchivo() {
+function mostrarMusica() {
 
     const caja =
-        document.getElementById("archivoCaja");
+        document.getElementById("musicaTexto");
+
+    if (caja.style.display === "block") {
+
+        caja.style.display = "none";
+
+    } else {
+
+        caja.style.display = "block";
+
+    }
+
+}
+
+
+/* =========================
+   RECUERDOS
+========================= */
+
+function recuerdo(numero) {
+
+    const caja =
+        document.getElementById("recuerdoMensaje");
+
+    let texto = "";
+
+
+    if (numero === 1) {
+
+        texto = `
+            <h3>🐻 Un recuerdo guardado</h3>
+            <br>
+            <p>
+            Aquí irá una de esas historias
+            que solamente nosotros entendemos.
+            </p>
+        `;
+
+    }
+
+
+    if (numero === 2) {
+
+        texto = `
+            <h3>📸 Otro pedacito de nosotros</h3>
+            <br>
+            <p>
+            Este espacio está esperando
+            una foto que nos haga decir:
+            "JAJAJA ¿te acuerdas?"
+            </p>
+        `;
+
+    }
+
+
+    if (numero === 3) {
+
+        texto = `
+            <h3>❤️ Uno especial</h3>
+            <br>
+            <p>
+            Este no va a ser cualquier recuerdo.
+            Aquí pondremos uno que realmente
+            signifique algo.
+            </p>
+        `;
+
+    }
+
+
+    caja.innerHTML = texto;
 
     caja.style.display = "block";
 
 }
 
 
-/* ==================================================
+/* =========================
+   ARCHIVO
+========================= */
+
+function abrirArchivo() {
+
+    const archivo =
+        document.getElementById("archivoContenido");
+
+    if (archivo.style.display === "block") {
+
+        archivo.style.display = "none";
+
+    } else {
+
+        archivo.style.display = "block";
+
+    }
+
+}
+
+
+/* =========================
+   CARTAS
+========================= */
+
+function mostrarCarta(tipo) {
+
+    const carta =
+        document.getElementById("carta");
+
+    let texto = "";
+
+
+    if (tipo === "triste") {
+
+        texto = `
+            <h3>💙 Para cuando estés triste</h3>
+            <br>
+            <p>
+            Si llegaste hasta aquí probablemente
+            hoy no fue uno de esos días bonitos.
+            </p>
+            <br>
+            <p>
+            No tienes que fingir que estás bien.
+            Tómate tu tiempo.
+            </p>
+            <br>
+            <p>
+            Y recuerda que hay un osito
+            que siempre va a querer verte bien. 🐻
+            </p>
+        `;
+
+    }
+
+
+    if (tipo === "feliz") {
+
+        texto = `
+            <h3>❤️ Para cuando estés feliz</h3>
+            <br>
+            <p>
+            Qué bonito que estés teniendo
+            un día así.
+            </p>
+            <br>
+            <p>
+            Disfrútalo sin pensar demasiado.
+            Haz recuerdos.
+            </p>
+        `;
+
+    }
+
+
+    if (tipo === "reir") {
+
+        texto = `
+            <h3>😂 Para cuando necesites reír</h3>
+            <br>
+            <p>
+            Abre el archivo de los ositos.
+            </p>
+            <br>
+            <p>
+            Si eso no funciona,
+            tendremos que recurrir
+            a nuestras peores historias.
+            😂🐻
+            </p>
+        `;
+
+    }
+
+
+    if (tipo === "recordar") {
+
+        texto = `
+            <h3>🐻 Para cuando necesites recordar</h3>
+            <br>
+            <p>
+            Ocho años no desaparecen
+            porque un día las cosas estén difíciles.
+            </p>
+            <br>
+            <p>
+            Hemos llegado demasiado lejos
+            como para olvidar todo lo que
+            hemos vivido.
+            </p>
+        `;
+
+    }
+
+
+    carta.innerHTML = texto;
+
+    carta.style.display = "block";
+
+}
+
+
+/* =========================
    FINAL
-================================================== */
+========================= */
 
 function desbloquearFinal() {
 
-    const bloqueado =
-        document.querySelector(".final-bloqueado");
+    const final =
+        document.getElementById("finalSecreto");
 
-    const mensaje =
-        document.getElementById("finalMensaje");
+    final.style.display = "block";
 
-    bloqueado.style.display = "none";
+}
 
-    mensaje.style.display = "block";
+
+/* =========================
+   BOTON ARRIBA
+========================= */
+
+window.addEventListener(
+    "scroll",
+    function() {
+
+        const boton =
+            document.getElementById("botonArriba");
+
+        if (window.scrollY > 500) {
+
+            boton.style.display = "block";
+
+        } else {
+
+            boton.style.display = "none";
+
+        }
+
+    },
+    { passive: true }
+);
+
+
+function volverArriba() {
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 
 }
 
