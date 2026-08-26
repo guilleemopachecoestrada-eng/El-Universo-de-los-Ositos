@@ -23,41 +23,17 @@ html {
 }
 
 body {
-    font-family: Georgia, 'Times New Roman', serif;
+    font-family: Georgia, "Times New Roman", serif;
     background: #120d1f;
     color: #f8f1e7;
     overflow-x: hidden;
-    transition: background-color 0.6s ease;
+    min-height: 100vh;
 }
 
 button {
     font-family: inherit;
 }
 
-/* =========================================================
-   FONDO
-========================================================= */
-
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background:
-        radial-gradient(circle at 20% 20%,
-        rgba(111,61,132,.28),
-        transparent 30%),
-
-        radial-gradient(circle at 80% 70%,
-        rgba(45,65,130,.25),
-        transparent 30%),
-
-        radial-gradient(circle at 50% 100%,
-        rgba(92,45,30,.20),
-        transparent 35%);
-
-    pointer-events: none;
-    z-index: -2;
-}
 
 /* =========================================================
    ESTRELLAS
@@ -67,53 +43,25 @@ body::before {
     position: fixed;
     inset: 0;
     pointer-events: none;
-    z-index: -1;
+    z-index: 0;
 }
 
 .star {
     position: absolute;
     width: 3px;
     height: 3px;
-    background: white;
+    background: #fff;
     border-radius: 50%;
     opacity: .6;
     animation: twinkle 3s infinite alternate;
 }
 
-.star:nth-child(1) {
-    top: 10%;
-    left: 15%;
-}
-
-.star:nth-child(2) {
-    top: 25%;
-    left: 80%;
-    animation-delay: 1s;
-}
-
-.star:nth-child(3) {
-    top: 60%;
-    left: 20%;
-    animation-delay: 2s;
-}
-
-.star:nth-child(4) {
-    top: 75%;
-    left: 70%;
-    animation-delay: .5s;
-}
-
-.star:nth-child(5) {
-    top: 40%;
-    left: 50%;
-    animation-delay: 1.5s;
-}
-
-.star:nth-child(6) {
-    top: 85%;
-    left: 40%;
-    animation-delay: 2.5s;
-}
+.star:nth-child(1) { top: 10%; left: 15%; }
+.star:nth-child(2) { top: 25%; left: 80%; animation-delay: 1s; }
+.star:nth-child(3) { top: 60%; left: 20%; animation-delay: 2s; }
+.star:nth-child(4) { top: 75%; left: 70%; animation-delay: .5s; }
+.star:nth-child(5) { top: 40%; left: 50%; animation-delay: 1.5s; }
+.star:nth-child(6) { top: 85%; left: 40%; animation-delay: 2.5s; }
 
 @keyframes twinkle {
 
@@ -128,27 +76,28 @@ body::before {
     }
 }
 
+
 /* =========================================================
    OSITOS ESCONDIDOS
 ========================================================= */
 
-.osito-escondido {
+.osito-secreto {
     position: absolute;
-    font-size: 1.7rem;
+    font-size: 1.8rem;
     cursor: pointer;
-    opacity: .55;
-    transition: transform .25s ease, opacity .25s ease;
+    opacity: .65;
     z-index: 5;
+    transition: transform .25s ease, opacity .25s ease;
     user-select: none;
 }
 
-.osito-escondido:hover {
+.osito-secreto:hover {
+    transform: scale(1.3);
     opacity: 1;
-    transform: scale(1.35) rotate(8deg);
 }
 
-.osito-escondido.encontrado {
-    animation: ositoEncontrado .6s ease;
+.osito-encontrado {
+    animation: ositoEncontrado .5s ease;
 }
 
 @keyframes ositoEncontrado {
@@ -158,7 +107,7 @@ body::before {
     }
 
     50% {
-        transform: scale(1.8) rotate(15deg);
+        transform: scale(1.7) rotate(10deg);
     }
 
     100% {
@@ -166,18 +115,6 @@ body::before {
     }
 }
 
-.contador-ositos {
-    position: fixed;
-    right: 15px;
-    bottom: 15px;
-    background: rgba(18,13,31,.92);
-    border: 1px solid rgba(255,255,255,.15);
-    border-radius: 30px;
-    padding: 9px 15px;
-    font-size: .9rem;
-    z-index: 20;
-    box-shadow: 0 5px 20px rgba(0,0,0,.3);
-}
 
 /* =========================================================
    PORTADA
@@ -191,11 +128,12 @@ body::before {
     text-align: center;
     padding: 30px;
     position: relative;
+    z-index: 2;
 }
 
 .portada {
     max-width: 800px;
-    animation: aparecer 1.5s ease;
+    animation: aparecer 1.2s ease;
 }
 
 .ositos {
@@ -207,11 +145,10 @@ body::before {
 .portada h1 {
     font-size: clamp(3rem, 10vw, 6rem);
     letter-spacing: 5px;
-    color: white;
-
+    color: #fff;
     text-shadow:
-        0 0 20px rgba(150,90,180,.6),
-        0 0 40px rgba(80,100,180,.4);
+        0 0 18px rgba(150,90,180,.5),
+        0 0 35px rgba(80,100,180,.3);
 }
 
 .subtitulo {
@@ -228,49 +165,21 @@ body::before {
     color: #e9dfd5;
 }
 
-/* =========================================================
-   BOTONES
-========================================================= */
-
 .boton {
-    display: inline-block;
     border: none;
     padding: 15px 35px;
     border-radius: 50px;
-
-    background: linear-gradient(
-        135deg,
-        #7b3f91,
-        #344f9b
-    );
-
+    background: linear-gradient(135deg, #7b3f91, #344f9b);
     color: white;
     font-size: 1.05rem;
     cursor: pointer;
-
-    transition:
-        transform .25s ease,
-        box-shadow .25s ease;
+    box-shadow: 0 8px 25px rgba(0,0,0,.3);
+    transition: transform .25s ease;
 }
 
 .boton:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(120,70,160,.4);
+    transform: translateY(-3px) scale(1.03);
 }
-
-.boton-secundario {
-    margin-top: 15px;
-    padding: 10px 20px;
-    border-radius: 30px;
-    border: 1px solid rgba(255,255,255,.2);
-    background: transparent;
-    color: #ddd;
-    cursor: pointer;
-}
-
-/* =========================================================
-   ANIMACIONES
-========================================================= */
 
 @keyframes flotar {
 
@@ -287,7 +196,7 @@ body::before {
 
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(25px);
     }
 
     to {
@@ -296,15 +205,18 @@ body::before {
     }
 }
 
+
 /* =========================================================
    CONTENIDO
 ========================================================= */
 
 #contenido {
     display: none;
-    min-height: 100vh;
+    position: relative;
+    z-index: 2;
     padding-bottom: 80px;
 }
+
 
 /* =========================================================
    MENU
@@ -329,30 +241,20 @@ body::before {
 .botones {
     max-width: 900px;
     margin: auto;
-
     display: grid;
-    grid-template-columns:
-        repeat(auto-fit, minmax(220px, 1fr));
-
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 18px;
 }
 
 .menu-boton {
-    background: rgba(255,255,255,.06);
+    background: rgba(255,255,255,.055);
     border: 1px solid rgba(255,255,255,.12);
-
-    color: white;
-
+    color: #fff;
     padding: 25px 15px;
-
     border-radius: 20px;
-
     font-size: 1.1rem;
     cursor: pointer;
-
-    transition:
-        transform .25s ease,
-        background .25s ease;
+    transition: transform .25s ease, background .25s ease;
 }
 
 .menu-boton:hover {
@@ -366,6 +268,7 @@ body::before {
     margin-bottom: 10px;
 }
 
+
 /* =========================================================
    SECCIONES
 ========================================================= */
@@ -374,14 +277,10 @@ body::before {
     max-width: 900px;
     margin: 40px auto;
     padding: 40px 25px;
-
     border-radius: 25px;
-
-    background: rgba(255,255,255,.055);
-    border: 1px solid rgba(255,255,255,.1);
-
+    background: rgba(255,255,255,.045);
+    border: 1px solid rgba(255,255,255,.09);
     text-align: center;
-
     position: relative;
 }
 
@@ -401,37 +300,29 @@ body::before {
     margin-bottom: 15px;
 }
 
+
 /* =========================================================
-   ESTADOS
+   COMO ESTAS
 ========================================================= */
 
 .estados {
     display: grid;
-
-    grid-template-columns:
-        repeat(auto-fit, minmax(140px, 1fr));
-
+    grid-template-columns: repeat(auto-fit, minmax(140px,1fr));
     gap: 15px;
     margin-top: 30px;
 }
 
 .estado {
     padding: 20px 10px;
-
     border-radius: 18px;
-
-    background: rgba(255,255,255,.06);
-
+    background: rgba(255,255,255,.055);
     cursor: pointer;
-
-    transition:
-        transform .25s ease,
-        background .25s ease;
+    transition: transform .25s ease, background .25s ease;
 }
 
 .estado:hover {
-    transform: scale(1.04);
-    background: rgba(123,63,145,.25);
+    transform: scale(1.03);
+    background: rgba(123,63,145,.22);
 }
 
 .estado span {
@@ -443,284 +334,223 @@ body::before {
 .mensaje-estado {
     margin-top: 30px;
     padding: 25px;
-
     border-radius: 18px;
-
-    background: rgba(92,45,30,.25);
-
+    background: rgba(92,45,30,.22);
     display: none;
-
-    animation: aparecer .5s ease;
 }
 
-/* =========================================================
-   OPCIONES DEL ESTADO
-========================================================= */
-
-.opciones-estado {
-    display: none;
-
-    margin-top: 25px;
-
-    grid-template-columns:
-        repeat(auto-fit, minmax(180px, 1fr));
-
-    gap: 15px;
+.opciones-cariño {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+    gap: 12px;
+    margin-top: 20px;
 }
 
-.opcion-estado {
-    padding: 18px;
-
-    border-radius: 18px;
-
-    background: rgba(255,255,255,.06);
-
-    border: 1px solid rgba(255,255,255,.1);
-
+.opcion-cariño {
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,.12);
+    background: rgba(255,255,255,.05);
+    color: white;
     cursor: pointer;
-
-    transition:
-        transform .2s ease,
-        background .2s ease;
 }
 
-.opcion-estado:hover {
-    transform: translateY(-3px);
-    background: rgba(123,63,145,.22);
+.opcion-cariño:hover {
+    background: rgba(123,63,145,.25);
 }
+
 
 /* =========================================================
-   LINEA DEL TIEMPO
+   HISTORIA
 ========================================================= */
 
-.timeline {
+.linea-tiempo {
     position: relative;
-    max-width: 700px;
-    margin: 40px auto 10px;
+    margin-top: 35px;
     text-align: left;
 }
 
-.timeline::before {
+.linea-tiempo::before {
     content: "";
-
     position: absolute;
-
-    left: 25px;
+    left: 15px;
     top: 0;
     bottom: 0;
-
     width: 2px;
-
     background: rgba(216,185,232,.35);
 }
 
-.timeline-item {
+.evento {
     position: relative;
-
-    padding-left: 65px;
-
+    padding-left: 45px;
     margin-bottom: 35px;
 }
 
-.timeline-punto {
+.evento::before {
+    content: "";
     position: absolute;
-
-    left: 15px;
+    left: 8px;
     top: 5px;
-
-    width: 22px;
-    height: 22px;
-
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
-
-    background: #7b3f91;
-
-    border: 4px solid #120d1f;
+    background: #9a67ad;
 }
 
-.timeline-item h3 {
-    color: #d8b9e8;
+.evento h3 {
     margin-bottom: 8px;
+    color: #e4c9ef;
 }
 
-.timeline-item p {
-    color: #ddd3df;
+.evento p {
+    margin: 0;
 }
+
 
 /* =========================================================
-   REPRODUCTOR
+   MUSICA
 ========================================================= */
 
 .reproductor {
-    max-width: 600px;
-    margin: 30px auto;
-
+    margin-top: 25px;
     padding: 25px;
-
-    border-radius: 25px;
-
-    background: rgba(255,255,255,.055);
-
-    border: 1px solid rgba(255,255,255,.1);
-}
-
-.album {
-    font-size: 4rem;
-    margin-bottom: 15px;
+    border-radius: 20px;
+    background: rgba(0,0,0,.18);
 }
 
 .cancion-actual {
     font-size: 1.3rem;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 }
 
-.artista {
-    color: #aaa0b0;
-    margin-bottom: 20px;
-}
-
-.controles {
+.controles-musica {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    margin: 20px 0;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
-.control {
-    width: 48px;
-    height: 48px;
-
-    border-radius: 50%;
-
+.control-musica {
     border: none;
-
-    background: #7b3f91;
-
+    padding: 10px 18px;
+    border-radius: 25px;
+    background: rgba(123,63,145,.4);
     color: white;
-
     cursor: pointer;
-
-    font-size: 1.2rem;
 }
 
 .lista-musica {
-    display: grid;
-    gap: 10px;
     margin-top: 25px;
+    max-height: 260px;
+    overflow-y: auto;
+    padding-right: 5px;
 }
 
 .cancion {
-    padding: 12px;
-
-    border-radius: 15px;
-
-    background: rgba(255,255,255,.05);
-
+    padding: 13px;
+    margin-bottom: 8px;
+    border-radius: 12px;
+    background: rgba(255,255,255,.045);
     cursor: pointer;
+    text-align: left;
 }
 
-.cancion:hover {
-    background: rgba(123,63,145,.2);
+.cancion:hover,
+.cancion.activa {
+    background: rgba(123,63,145,.25);
 }
+
 
 /* =========================================================
    RECUERDOS
 ========================================================= */
 
-.recuerdo-espacio {
-    min-height: 400px;
-
-    position: relative;
-
+.categorias-recuerdos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+    gap: 15px;
     margin-top: 30px;
-
-    overflow: hidden;
-
-    border-radius: 25px;
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(123,63,145,.15),
-            transparent 65%
-        );
 }
 
-.foto-flotante {
-    position: absolute;
-
-    width: 130px;
-    height: 150px;
-
-    padding: 8px;
-
-    background: #f5eadb;
-
-    color: #321f2e;
-
-    box-shadow:
-        0 10px 25px rgba(0,0,0,.35);
-
-    transform: rotate(-5deg);
-
-    animation: flotarFoto 5s ease-in-out infinite;
-
+.categoria-recuerdo {
+    padding: 20px;
+    border-radius: 18px;
+    background: rgba(255,255,255,.055);
+    border: 1px solid rgba(255,255,255,.09);
+    color: white;
     cursor: pointer;
 }
 
-.foto-flotante:nth-child(2) {
-    animation-delay: 1s;
-    transform: rotate(6deg);
+.categoria-recuerdo:hover {
+    background: rgba(123,63,145,.23);
 }
 
-.foto-flotante:nth-child(3) {
-    animation-delay: 2s;
-    transform: rotate(-8deg);
+.galeria {
+    display: none;
+    margin-top: 30px;
 }
 
-.foto-flotante:nth-child(4) {
-    animation-delay: 1.5s;
-    transform: rotate(4deg);
-}
-
-.foto-placeholder {
-    height: 100%;
+.foto-marco {
+    min-height: 250px;
+    border-radius: 20px;
+    background: rgba(0,0,0,.2);
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    font-size: .9rem;
+    padding: 20px;
 }
 
-@keyframes flotarFoto {
-
-    0%,100% {
-        margin-top: 0;
-    }
-
-    50% {
-        margin-top: -12px;
-    }
+.foto-placeholder {
+    font-size: 5rem;
 }
+
+.pie-foto {
+    margin-top: 15px;
+    color: #d8b9e8;
+}
+
+.flechas {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.flecha {
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    background: rgba(123,63,145,.4);
+    color: white;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   RECUERDO ALEATORIO
+========================================================= */
+
+.recuerdo-aleatorio {
+    margin-top: 25px;
+    padding: 25px;
+    border-radius: 20px;
+    background: rgba(123,63,145,.15);
+    display: none;
+}
+
 
 /* =========================================================
    ARCHIVO
 ========================================================= */
 
-.archivo-caja {
-    margin-top: 30px;
-
-    padding: 25px;
-
-    border-radius: 20px;
-
-    background: rgba(0,0,0,.18);
-
-    border: 1px solid rgba(255,255,255,.1);
+.quiz {
+    margin-top: 25px;
 }
 
 .pregunta {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     margin-bottom: 20px;
 }
 
@@ -730,16 +560,11 @@ body::before {
 }
 
 .respuesta {
-    padding: 14px;
-
+    padding: 15px;
     border-radius: 15px;
-
-    border: 1px solid rgba(255,255,255,.12);
-
+    border: 1px solid rgba(255,255,255,.1);
     background: rgba(255,255,255,.05);
-
     color: white;
-
     cursor: pointer;
 }
 
@@ -747,80 +572,66 @@ body::before {
     background: rgba(123,63,145,.25);
 }
 
-.resultado {
+.resultado-quiz {
     margin-top: 20px;
     min-height: 25px;
 }
 
-/* =========================================================
-   CARTAS
-========================================================= */
-
-.cartas {
-    display: grid;
-
-    grid-template-columns:
-        repeat(auto-fit, minmax(180px, 1fr));
-
-    gap: 15px;
-
-    margin-top: 30px;
-}
-
-.carta {
-    padding: 25px 15px;
-
-    border-radius: 20px;
-
-    background: rgba(255,255,255,.055);
-
-    border: 1px solid rgba(255,255,255,.1);
-
-    cursor: pointer;
-
-    transition: transform .25s ease;
-}
-
-.carta:hover {
-    transform: translateY(-4px);
-}
-
-.carta-contenido {
-    display: none;
-
-    margin-top: 20px;
-
-    padding: 20px;
-
-    border-radius: 18px;
-
-    background: rgba(92,45,30,.2);
-
-    line-height: 1.8;
-}
-
-/* =========================================================
-   FINAL BLOQUEADO
-========================================================= */
-
-.final-bloqueado {
-    border: 1px solid rgba(216,185,232,.18);
-}
-
-.final-secreto {
-    display: none;
-}
-
-.candado {
-    font-size: 4rem;
+.contador {
     margin-bottom: 20px;
+    color: #d8b9e8;
 }
 
-.progreso {
+.siguiente-pregunta {
     margin-top: 20px;
-
-    color: #b9aabd;
+    display: none;
 }
+
+
+/* =========================================================
+   PARA CUANDO LO NECESITES
+========================================================= */
+
+.cariño {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+    gap: 15px;
+}
+
+.cariño button {
+    padding: 18px;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,.1);
+    background: rgba(255,255,255,.05);
+    color: white;
+    cursor: pointer;
+}
+
+.cariño button:hover {
+    background: rgba(123,63,145,.22);
+}
+
+.mensaje-cariño {
+    display: none;
+    margin-top: 25px;
+    padding: 25px;
+    border-radius: 18px;
+    background: rgba(92,45,30,.2);
+}
+
+
+/* =========================================================
+   FINAL
+========================================================= */
+
+.final-misterio {
+    margin-top: 25px;
+    padding: 25px;
+    border-radius: 18px;
+    background: rgba(0,0,0,.18);
+}
+
 
 /* =========================================================
    FOOTER
@@ -828,9 +639,7 @@ body::before {
 
 footer {
     text-align: center;
-
     padding: 50px 20px;
-
     color: #a99eac;
 }
 
@@ -838,11 +647,12 @@ footer .corazon {
     color: #c94c61;
 }
 
+
 /* =========================================================
-   CELULAR
+   MOVIL
 ========================================================= */
 
-@media (max-width: 600px) {
+@media (max-width:600px) {
 
     .ositos {
         font-size: 4rem;
@@ -869,21 +679,12 @@ footer .corazon {
         padding: 30px 18px;
     }
 
-    .timeline::before {
-        left: 18px;
+    .seccion h2 {
+        font-size: 2rem;
     }
 
-    .timeline-punto {
-        left: 8px;
-    }
-
-    .timeline-item {
-        padding-left: 50px;
-    }
-
-    .foto-flotante {
-        width: 105px;
-        height: 125px;
+    .osito-secreto {
+        font-size: 1.5rem;
     }
 
 }
@@ -891,11 +692,13 @@ footer .corazon {
 </style>
 </head>
 
+
 <body>
 
-<!-- =====================================================
+
+<!-- =========================================================
      ESTRELLAS
-===================================================== -->
+========================================================= -->
 
 <div class="stars">
 
@@ -909,18 +712,9 @@ footer .corazon {
 </div>
 
 
-<!-- =====================================================
-     CONTADOR DE OSITOS
-===================================================== -->
-
-<div class="contador-ositos">
-    🐻 <span id="contadorOsitos">0</span>/8
-</div>
-
-
-<!-- =====================================================
+<!-- =========================================================
      PORTADA
-===================================================== -->
+========================================================= -->
 
 <section id="inicio">
 
@@ -951,16 +745,16 @@ footer .corazon {
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      CONTENIDO
-===================================================== -->
+========================================================= -->
 
 <main id="contenido">
 
 
-<!-- =====================================================
+<!-- =========================================================
      MENU
-===================================================== -->
+========================================================= -->
 
 <section class="menu">
 
@@ -971,76 +765,48 @@ footer .corazon {
         que quiero que recuerdes.
     </p>
 
-
     <div class="botones">
 
         <button class="menu-boton"
-        onclick="irA('historia')">
-
+        onclick="irSeccion('historia')">
             <span class="icono">📖</span>
-
             Nuestra historia
-
         </button>
 
-
         <button class="menu-boton"
-        onclick="irA('musica')">
-
+        onclick="irSeccion('musica')">
             <span class="icono">🎵</span>
-
             Música
-
         </button>
 
-
         <button class="menu-boton"
-        onclick="irA('estado')">
-
+        onclick="irSeccion('estado')">
             <span class="icono">💭</span>
-
             ¿Cómo estás hoy?
-
         </button>
 
-
         <button class="menu-boton"
-        onclick="irA('recuerdos')">
-
+        onclick="irSeccion('recuerdos')">
             <span class="icono">📸</span>
-
             Recuerdos
-
         </button>
 
-
         <button class="menu-boton"
-        onclick="irA('archivo')">
-
+        onclick="irSeccion('archivo')">
             <span class="icono">😂</span>
-
             Archivo de los ositos
-
         </button>
 
-
         <button class="menu-boton"
-        onclick="irA('necesites')">
-
+        onclick="irSeccion('necesites')">
             <span class="icono">💌</span>
-
             Para cuando lo necesites
-
         </button>
 
-
         <button class="menu-boton"
-        onclick="irA('final')">
-
+        onclick="irSeccion('final')">
             <span class="icono">🎁</span>
-
             Una última cosa
-
         </button>
 
     </div>
@@ -1048,9 +814,9 @@ footer .corazon {
 </section>
 
 
-<!-- =====================================================
-     ESTADO
-===================================================== -->
+<!-- =========================================================
+     COMO ESTAS
+========================================================= -->
 
 <section class="seccion" id="estado">
 
@@ -1063,177 +829,66 @@ footer .corazon {
         Aquí no hay respuestas incorrectas.
     </p>
 
-
     <div class="estados">
 
         <div class="estado"
         onclick="mostrarEstado('feliz')">
-
             <span>😊</span>
             Feliz
-
         </div>
-
 
         <div class="estado"
         onclick="mostrarEstado('triste')">
-
             <span>😔</span>
             Triste
-
         </div>
-
 
         <div class="estado"
         onclick="mostrarEstado('enojada')">
-
             <span>😤</span>
             Hasta la madre
-
         </div>
-
 
         <div class="estado"
         onclick="mostrarEstado('aburrida')">
-
             <span>🥱</span>
             Aburrida
-
         </div>
-
 
         <div class="estado"
         onclick="mostrarEstado('pensando')">
-
             <span>🌙</span>
             Pensando
-
         </div>
-
 
         <div class="estado"
         onclick="mostrarEstado('cansada')">
-
-            <span>😵</span>
+            <span>😴</span>
             Cansada
-
         </div>
-
 
         <div class="estado"
         onclick="mostrarEstado('estresada')">
-
-            <span>🤯</span>
+            <span>😵‍💫</span>
             Estresada
-
         </div>
 
-
         <div class="estado"
-        onclick="mostrarEstado('carino')">
-
-            <span>🥺</span>
-            Necesito cariño
-
-        </div>
-
-
-        <div class="estado"
-        onclick="mostrarEstado('felizvida')">
-
-            <span>🥰</span>
-            Enamorada de la vida
-
-        </div>
-
-
-        <div class="estado"
-        onclick="mostrarEstado('paz')">
-
-            <span>😌</span>
-            En paz
-
-        </div>
-
-
-        <div class="estado"
-        onclick="mostrarEstado('nose')">
-
-            <span>🫠</span>
-            No sé qué siento
-
-        </div>
-
-
-        <div class="estado"
-        onclick="mostrarEstado('osito')">
-
-            <span>🐻</span>
-            Necesito a mi osito
-
+        onclick="mostrarEstado('nostalgica')">
+            <span>🥹</span>
+            Nostálgica
         </div>
 
     </div>
 
-
-    <div id="mensajeEstado"
-    class="mensaje-estado">
-    </div>
-
-
-    <!-- LAS TRES COSAS -->
-
-    <div id="opcionesEstado"
-    class="opciones-estado">
-
-        <div class="opcion-estado"
-        onclick="abrirOpcionEstado('mensaje')">
-
-            💌
-
-            <br><br>
-
-            Una frase para ti
-
-        </div>
-
-
-        <div class="opcion-estado"
-        onclick="abrirOpcionEstado('cupon')">
-
-            🎟️
-
-            <br><br>
-
-            Un cupón
-
-        </div>
-
-
-        <div class="opcion-estado"
-        onclick="abrirOpcionEstado('recuerdo')">
-
-            🎵📸
-
-            <br><br>
-
-            Una canción + un recuerdo
-
-        </div>
-
-    </div>
-
-
-    <div id="detalleEstado"
-    class="mensaje-estado">
-    </div>
+    <div id="mensajeEstado" class="mensaje-estado"></div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      HISTORIA
-===================================================== -->
+========================================================= -->
 
 <section class="seccion" id="historia">
 
@@ -1242,245 +897,103 @@ footer .corazon {
     <h2>Nuestra historia</h2>
 
     <p>
-        Aquí vamos a contar esos ocho años.
+        Ocho años no se cuentan en un párrafo.
+        Se cuentan en pequeños momentos.
     </p>
 
-    <br>
+    <div class="linea-tiempo">
 
-    <p>
-        Todavía faltan muchas historias por poner...
-        y créeme, sé que son demasiadas.
-    </p>
-
-
-    <div class="timeline">
-
-
-        <div class="timeline-item">
-
-            <div class="timeline-punto"></div>
-
-            <h3>2018 🐻</h3>
-
+        <div class="evento">
+            <h3>🌱 El comienzo</h3>
             <p>
                 Aquí empieza nuestra historia.
-                Este espacio queda preparado para
-                contar exactamente qué pasó.
+                Este espacio lo vamos a llenar juntos.
             </p>
-
         </div>
 
-
-        <div class="timeline-item">
-
-            <div class="timeline-punto"></div>
-
-            <h3>2019 🌙</h3>
-
+        <div class="evento">
+            <h3>🐻 Primeras historias</h3>
             <p>
-                Un año más de historias que iremos
-                agregando poco a poco.
+                Las primeras tonterías, salidas,
+                conversaciones y recuerdos.
             </p>
-
         </div>
 
-
-        <div class="timeline-item">
-
-            <div class="timeline-punto"></div>
-
-            <h3>2020 ⭐</h3>
-
+        <div class="evento">
+            <h3>😂 Los años de las estupideces</h3>
             <p>
-                Aquí iremos poniendo los momentos
-                que hicieron especial este año.
+                Porque definitivamente hubo demasiadas.
             </p>
-
         </div>
 
-
-        <div class="timeline-item">
-
-            <div class="timeline-punto"></div>
-
-            <h3>2021 🐻</h3>
-
+        <div class="evento">
+            <h3>📸 Momentos que se quedaron</h3>
             <p>
-                Otro capítulo de nuestros ocho años.
+                Aquí iremos poniendo esos momentos
+                que merecen quedarse para siempre.
             </p>
-
         </div>
 
-
-        <div class="timeline-item">
-
-            <div class="timeline-punto"></div>
-
-            <h3>2022 💫</h3>
-
+        <div class="evento">
+            <h3>🐻 Hoy</h3>
             <p>
-                Aquí vamos a guardar otra parte
-                de nuestra historia.
+                Ocho años después...
+                seguimos siendo nosotros.
             </p>
-
         </div>
-
-
-        <div class="timeline-item">
-
-            <div class="timeline-punto"></div>
-
-            <h3>2023 📸</h3>
-
-            <p>
-                Historias, fotografías y momentos
-                que todavía tenemos que recordar.
-            </p>
-
-        </div>
-
-
-        <div class="timeline-item">
-
-            <div class="timeline-punto"></div>
-
-            <h3>2024 🎵</h3>
-
-            <p>
-                Otro año que forma parte de todo esto.
-            </p>
-
-        </div>
-
-
-        <div class="timeline-item">
-
-            <div class="timeline-punto"></div>
-
-            <h3>2025 ❤️</h3>
-
-            <p>
-                Casi llegamos hasta hoy.
-            </p>
-
-        </div>
-
-
-        <div class="timeline-item">
-
-            <div class="timeline-punto"></div>
-
-            <h3>2026 🐻</h3>
-
-            <p>
-                Y aquí estamos.
-                Ocho años después, seguimos escribiendo
-                la historia.
-            </p>
-
-        </div>
-
 
     </div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      MUSICA
-===================================================== -->
+========================================================= -->
 
 <section class="seccion" id="musica">
 
     <div class="osito-pequeno">🎵</div>
 
-    <h2>Música</h2>
+    <h2>Nuestra música</h2>
 
     <p>
-        Hay canciones que terminan guardando
-        recuerdos completos.
+        Canciones que tienen un pedacito de nosotros.
     </p>
-
 
     <div class="reproductor">
 
-        <div class="album">
-            🎵
-        </div>
-
         <div class="cancion-actual"
         id="cancionActual">
-
-            Nuestra canción
-
+            Selecciona una canción 🎵
         </div>
 
-        <div class="artista">
-            Los ositos
-        </div>
+        <audio id="audio"
+        controls
+        style="width:100%; margin-bottom:15px;">
+        </audio>
 
+        <div class="controles-musica">
 
-        <div class="controles">
-
-            <button class="control"
+            <button class="control-musica"
             onclick="anteriorCancion()">
-                ⏮
+                ⏮ Anterior
             </button>
 
-            <button class="control"
-            onclick="reproducirCancion()">
-                ▶️
+            <button class="control-musica"
+            onclick="cancionAleatoria()">
+                🎲 Aleatoria
             </button>
 
-            <button class="control"
+            <button class="control-musica"
             onclick="siguienteCancion()">
-                ⏭
+                Siguiente ⏭
             </button>
 
         </div>
 
-
-        <button class="boton"
-        onclick="cancionAleatoria()">
-
-            🔀 Aleatorio
-
-        </button>
-
-
-        <div class="lista-musica">
-
-            <div class="cancion"
-            onclick="seleccionarCancion(0)">
-
-                🎵 Canción 1 — pendiente
-
-            </div>
-
-
-            <div class="cancion"
-            onclick="seleccionarCancion(1)">
-
-                🎵 Canción 2 — pendiente
-
-            </div>
-
-
-            <div class="cancion"
-            onclick="seleccionarCancion(2)">
-
-                🎵 Canción 3 — pendiente
-
-            </div>
-
-
-            <div class="cancion"
-            onclick="seleccionarCancion(3)">
-
-                🎵 Canción 4 — pendiente
-
-            </div>
-
+        <div class="lista-musica"
+        id="listaMusica">
         </div>
 
     </div>
@@ -1488,9 +1001,9 @@ footer .corazon {
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      RECUERDOS
-===================================================== -->
+========================================================= -->
 
 <section class="seccion" id="recuerdos">
 
@@ -1499,81 +1012,88 @@ footer .corazon {
     <h2>Recuerdos</h2>
 
     <p>
-        Algunos momentos merecen quedarse
-        flotando por aquí.
+        Hay recuerdos que merecen su propio espacio.
     </p>
 
+    <div class="categorias-recuerdos">
 
-    <div class="recuerdo-espacio">
+        <button class="categoria-recuerdo"
+        onclick="abrirRecuerdos('salidas')">
+            🌆<br>
+            Salidas
+        </button>
 
+        <button class="categoria-recuerdo"
+        onclick="abrirRecuerdos('tonterias')">
+            😂<br>
+            Nuestras tonterías
+        </button>
 
-        <div class="foto-flotante"
-        style="left:8%; top:20%;">
+        <button class="categoria-recuerdo"
+        onclick="abrirRecuerdos('momentos')">
+            🐻<br>
+            Momentos
+        </button>
 
-            <div class="foto-placeholder">
-                📸<br>
-                Foto pendiente
+        <button class="categoria-recuerdo"
+        onclick="abrirRecuerdos('especiales')">
+            ❤️<br>
+            Momentos especiales
+        </button>
+
+    </div>
+
+    <div class="galeria" id="galeria">
+
+        <h3 id="nombreCategoria"></h3>
+
+        <div class="foto-marco">
+
+            <div class="foto-placeholder"
+            id="fotoPlaceholder">
+                📸
             </div>
 
         </div>
 
+        <p class="pie-foto"
+        id="pieFoto">
+            Aquí irá nuestra foto.
+        </p>
 
-        <div class="foto-flotante"
-        style="left:35%; top:55%;">
+        <div class="flechas">
 
-            <div class="foto-placeholder">
-                🐻<br>
-                Recuerdo pendiente
-            </div>
+            <button class="flecha"
+            onclick="fotoAnterior()">
+                ←
+            </button>
 
-        </div>
-
-
-        <div class="foto-flotante"
-        style="right:10%; top:18%;">
-
-            <div class="foto-placeholder">
-                📸<br>
-                Foto pendiente
-            </div>
-
-        </div>
-
-
-        <div class="foto-flotante"
-        style="right:35%; top:60%;">
-
-            <div class="foto-placeholder">
-                ❤️<br>
-                Momento pendiente
-            </div>
+            <button class="flecha"
+            onclick="fotoSiguiente()">
+                →
+            </button>
 
         </div>
 
     </div>
 
 
-    <br>
-
     <button class="boton"
-    onclick="recuerdoAleatorio()">
-
-        🎲 Dame un recuerdo
-
+    style="margin-top:30px;"
+    onclick="darRecuerdo()">
+        Dame un recuerdo 🐻
     </button>
 
-
-    <div id="recuerdoRandom"
-    class="mensaje-estado">
-
+    <div class="recuerdo-aleatorio"
+    id="recuerdoAleatorio">
     </div>
 
 </section>
 
 
-<!-- =====================================================
-     ARCHIVO
-===================================================== -->
+<!-- =========================================================
+     ARCHIVO DE LOS OSITOS
+========================================================= -->
 
 <section class="seccion" id="archivo">
 
@@ -1582,47 +1102,43 @@ footer .corazon {
     <h2>Archivo de los ositos</h2>
 
     <p>
-        ⚠️ Algunas historias pueden causar
-        vergüenza, risa o negación de los hechos.
+        ⚠️ Para entrar tendrás que demostrar
+        que realmente eres una osita autorizada.
     </p>
 
+    <div class="quiz">
 
-    <div class="archivo-caja">
+        <div class="contador"
+        id="contadorQuiz">
+            Pregunta 1
+        </div>
 
         <div class="pregunta"
-        id="preguntaArchivo">
-
-            🔐 Archivo bloqueado
-
+        id="preguntaQuiz">
         </div>
-
 
         <div class="respuestas"
-        id="respuestasArchivo">
-
-            <button class="respuesta"
-            onclick="comenzarArchivo()">
-
-                Intentar entrar 🔓
-
-            </button>
-
+        id="respuestasQuiz">
         </div>
 
-
-        <div class="resultado"
-        id="resultadoArchivo">
-
+        <div class="resultado-quiz"
+        id="resultadoQuiz">
         </div>
+
+        <button class="boton siguiente-pregunta"
+        id="siguienteQuiz"
+        onclick="siguientePregunta()">
+            Siguiente pregunta 🐻
+        </button>
 
     </div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      PARA CUANDO LO NECESITES
-===================================================== -->
+========================================================= -->
 
 <section class="seccion" id="necesites">
 
@@ -1631,183 +1147,84 @@ footer .corazon {
     <h2>Para cuando lo necesites</h2>
 
     <p>
-        Vamos a llenar este espacio con mensajes
-        para diferentes momentos.
+        No importa qué esté pasando.
+        Este pequeño rincón está aquí para recordarte
+        que no tienes que cargar todo tú sola.
     </p>
 
+    <div class="cariño">
 
-    <div class="cartas">
-
-
-        <div class="carta"
-        onclick="abrirCarta('triste')">
-
-            🌧️
-
-            <br><br>
-
+        <button onclick="mostrarCarino('triste')">
+            💙<br>
             Cuando estés triste
+        </button>
 
-        </div>
+        <button onclick="mostrarCarino('feliz')">
+            ❤️<br>
+            Cuando estés feliz
+        </button>
 
+        <button onclick="mostrarCarino('risa')">
+            😂<br>
+            Cuando necesites reír
+        </button>
 
-        <div class="carta"
-        onclick="abrirCarta('horrible')">
+        <button onclick="mostrarCarino('recuerdo')">
+            🐻<br>
+            Cuando necesites recordar
+        </button>
 
-            🫂
+        <button onclick="mostrarCarino('cansada')">
+            🌙<br>
+            Cuando estés cansada
+        </button>
 
-            <br><br>
-
-            Cuando tengas un día horrible
-
-        </div>
-
-
-        <div class="carta"
-        onclick="abrirCarta('carino')">
-
-            🐻
-
-            <br><br>
-
-            Cuando necesites cariño
-
-        </div>
-
-
-        <div class="carta"
-        onclick="abrirCarta('reir')">
-
-            😂
-
-            <br><br>
-
-            Cuando necesites reírte
-
-        </div>
-
-
-        <div class="carta"
-        onclick="abrirCarta('dormir')">
-
-            🌙
-
-            <br><br>
-
-            Cuando no puedas dormir
-
-        </div>
-
-
-        <div class="carta"
-        onclick="abrirCarta('nadie')">
-
-            🥺
-
-            <br><br>
-
-            Cuando sientas que nadie te entiende
-
-        </div>
-
-
-        <div class="carta"
-        onclick="abrirCarta('importante')">
-
-            ❤️
-
-            <br><br>
-
-            Cuando necesites recordar que eres importante
-
-        </div>
-
-
-        <div class="carta"
-        onclick="abrirCarta('osito')">
-
-            🐻
-
-            <br><br>
-
-            Cuando necesites a tu osito
-
-        </div>
+        <button onclick="mostrarCarino('abrazo')">
+            🫂<br>
+            Cuando necesites un abrazo
+        </button>
 
     </div>
 
-
-    <div id="contenidoCarta"
-    class="carta-contenido">
-
+    <div class="mensaje-cariño"
+    id="mensajeCarino">
     </div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      FINAL
-===================================================== -->
+========================================================= -->
 
-<section class="seccion final-bloqueado"
-id="final">
+<section class="seccion" id="final">
 
-    <div class="candado">
-        🔐
-    </div>
+    <div class="osito-pequeno">🎁</div>
 
     <h2>Una última cosa...</h2>
 
     <p>
-        Algunas cosas no pueden abrirse
-        al principio.
+        Esta parte todavía no está lista.
     </p>
 
-    <p class="progreso"
-    id="progresoFinal">
-
-        Todavía hay cosas por descubrir... 🐻
-
-    </p>
-
-
-    <div id="finalSecreto"
-    class="final-secreto">
-
-        <br>
-
-        <h2>
-            ✨ Llegaste hasta aquí ✨
-        </h2>
-
-        <br>
+    <div class="final-misterio">
 
         <p>
-            Este será nuestro último capítulo.
+            Porque algunas cosas no se pueden
+            preparar demasiado pronto.
         </p>
 
         <br>
 
         <p>
-            Aquí irá la carta que quiero que leas
-            cuando hayas recorrido todo nuestro pequeño
-            mundo.
-        </p>
-
-        <br>
-
-        <p>
-            ❤️
+            Hay cosas que simplemente tienen
+            que esperar hasta el momento correcto. 🐻
         </p>
 
     </div>
 
 </section>
 
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
 
 <footer>
 
@@ -1818,7 +1235,48 @@ id="final">
 
     8 años y contando 🐻
 
+    <br><br>
+
+    <span id="ositosEncontrados">
+        🐻 Ositos encontrados: 0
+    </span>
+
 </footer>
+
+
+<!-- =========================================================
+     OSITOS ESCONDIDOS
+========================================================= -->
+
+<div class="osito-secreto"
+style="top:8%; left:8%;"
+onclick="encontrarOsito(this)">
+🐻
+</div>
+
+<div class="osito-secreto"
+style="top:31%; right:7%;"
+onclick="encontrarOsito(this)">
+🐻
+</div>
+
+<div class="osito-secreto"
+style="top:55%; left:5%;"
+onclick="encontrarOsito(this)">
+🐻
+</div>
+
+<div class="osito-secreto"
+style="top:74%; right:6%;"
+onclick="encontrarOsito(this)">
+🐻
+</div>
+
+<div class="osito-secreto"
+style="top:91%; left:48%;"
+onclick="encontrarOsito(this)">
+🐻
+</div>
 
 
 </main>
@@ -1840,7 +1298,6 @@ function entrar() {
         top: 0,
         behavior: "smooth"
     });
-
 }
 
 
@@ -1848,378 +1305,11 @@ function entrar() {
    NAVEGACION
 ========================================================= */
 
-function irA(id) {
+function irSeccion(id) {
 
     document.getElementById(id).scrollIntoView({
-        behavior: "smooth",
-        block: "start"
+        behavior: "smooth"
     });
-
-}
-
-
-/* =========================================================
-   ESTADOS
-========================================================= */
-
-let estadoActual = "";
-
-
-const mensajesEstados = {
-
-    feliz:
-    "Entonces disfruta ese momento 🐻❤️. Guarda ese momento, disfrútalo y no busques una razón para que dure menos.",
-
-    triste:
-    "Ven acá, osita 🐻💙. No tienes que solucionar todo hoy. Hay días que simplemente pesan más que otros.",
-
-    enojada:
-    "Ok... primero respira 😂🐻. No voy a preguntarte por qué estás enojada porque probablemente eso solo empeoraría las cosas.",
-
-    aburrida:
-    "Tenemos un problema 🐻. Ocho años de amistad y todavía encontraste la manera de aburrirte. 😂",
-
-    pensando:
-    "Quédate un rato 🌙🐻. Hay cosas que necesitan tiempo para acomodarse.",
-
-    cansada:
-    "Descansa un poquito, osita 🐻. No tienes que poder con todo al mismo tiempo.",
-
-    estresada:
-    "Respira. Una cosa a la vez 🐻💙. No tienes que resolver el mundo hoy.",
-
-    carino:
-    "Entonces ven acá 🫂🐻. Esta parte de la página existe precisamente para esos días.",
-
-    felizvida:
-    "Qué bonito encontrarte así 🥰. Guarda este momento porque también merece convertirse en recuerdo.",
-
-    paz:
-    "Quédate un poquito en esa paz 😌🌙. No todos los días tienen que ser extraordinarios.",
-
-    nose:
-    "No saber exactamente qué sientes también está bien 🫠🐻. No tienes que ponerle nombre a todo inmediatamente.",
-
-    osito:
-    "🐻 Entonces oficialmente se activa el protocolo: necesitas a tu osito."
-};
-
-
-function mostrarEstado(tipo) {
-
-    estadoActual = tipo;
-
-    const caja =
-        document.getElementById("mensajeEstado");
-
-    const opciones =
-        document.getElementById("opcionesEstado");
-
-    caja.innerHTML =
-        "<h3>" +
-        mensajesEstados[tipo] +
-        "</h3>";
-
-    caja.style.display = "block";
-
-    opciones.style.display = "grid";
-
-    document.getElementById("detalleEstado")
-        .style.display = "none";
-
-}
-
-
-/* =========================================================
-   TRES OPCIONES DEL ESTADO
-========================================================= */
-
-function abrirOpcionEstado(tipo) {
-
-    const detalle =
-        document.getElementById("detalleEstado");
-
-    let contenido = "";
-
-
-    if (tipo === "mensaje") {
-
-        contenido = `
-            <h3>💌 Una frase para ti</h3>
-            <br>
-            <p>
-            Aquí irá una frase escrita por ti
-            especialmente para este estado.
-            </p>
-        `;
-
-    }
-
-
-    if (tipo === "cupon") {
-
-        contenido = `
-            <h3>🎟️ Cupón de los ositos</h3>
-            <br>
-            <p>
-            Este cupón podrá utilizarse cuando
-            necesites un poquito de cariño.
-            </p>
-            <br>
-            <p>
-            🐻 Válido por un abrazo, una llamada,
-            una salida o lo que tú decidas.
-            </p>
-        `;
-
-    }
-
-
-    if (tipo === "recuerdo") {
-
-        contenido = `
-            <h3>🎵📸 Canción + recuerdo</h3>
-            <br>
-            <p>
-            Aquí aparecerá una canción especial
-            y una fotografía relacionada con este estado.
-            </p>
-        `;
-
-    }
-
-
-    detalle.innerHTML = contenido;
-
-    detalle.style.display = "block";
-
-}
-
-
-/* =========================================================
-   MUSICA
-========================================================= */
-
-const canciones = [
-
-    "Canción 1 — pendiente",
-
-    "Canción 2 — pendiente",
-
-    "Canción 3 — pendiente",
-
-    "Canción 4 — pendiente"
-
-];
-
-
-let indiceCancion = 0;
-
-
-function seleccionarCancion(indice) {
-
-    indiceCancion = indice;
-
-    document.getElementById("cancionActual")
-        .textContent = canciones[indice];
-
-}
-
-
-function siguienteCancion() {
-
-    indiceCancion++;
-
-    if (indiceCancion >= canciones.length) {
-        indiceCancion = 0;
-    }
-
-    seleccionarCancion(indiceCancion);
-
-}
-
-
-function anteriorCancion() {
-
-    indiceCancion--;
-
-    if (indiceCancion < 0) {
-        indiceCancion = canciones.length - 1;
-    }
-
-    seleccionarCancion(indiceCancion);
-
-}
-
-
-function cancionAleatoria() {
-
-    let nueva =
-        Math.floor(Math.random() * canciones.length);
-
-    seleccionarCancion(nueva);
-
-}
-
-
-function reproducirCancion() {
-
-    alert(
-        "Aquí conectaremos las canciones reales 🎵🐻"
-    );
-
-}
-
-
-/* =========================================================
-   RECUERDOS
-========================================================= */
-
-const recuerdos = [
-
-    "Aquí aparecerá uno de nuestros recuerdos 📸",
-
-    "Aquí aparecerá otra historia que solamente nosotros entendemos 😂",
-
-    "Aquí pondremos una fotografía especial 🐻",
-
-    "Aquí aparecerá uno de esos momentos que no necesitan explicación ❤️"
-
-];
-
-
-function recuerdoAleatorio() {
-
-    const indice =
-        Math.floor(
-            Math.random() * recuerdos.length
-        );
-
-    const caja =
-        document.getElementById("recuerdoRandom");
-
-    caja.innerHTML =
-        "<h3>🎲 Recuerdo encontrado</h3>" +
-        "<br><p>" +
-        recuerdos[indice] +
-        "</p>";
-
-    caja.style.display = "block";
-
-}
-
-
-/* =========================================================
-   ARCHIVO
-========================================================= */
-
-let archivoIniciado = false;
-
-
-function comenzarArchivo() {
-
-    archivoIniciado = true;
-
-    document.getElementById("preguntaArchivo")
-        .textContent =
-        "🔐 Primera pregunta: ¿Cuál es nuestro elixir de la vida?";
-
-    document.getElementById("respuestasArchivo")
-        .innerHTML = `
-
-        <button class="respuesta"
-        onclick="respuestaArchivo(false)">
-            ☕ Café
-        </button>
-
-        <button class="respuesta"
-        onclick="respuestaArchivo(false)">
-            💧 Agua
-        </button>
-
-        <button class="respuesta"
-        onclick="respuestaArchivo(true)">
-            🍇 Kosako de uva
-        </button>
-
-        <button class="respuesta"
-        onclick="respuestaArchivo(false)">
-            🥤 Refresco
-        </button>
-
-    `;
-
-}
-
-
-function respuestaArchivo(correcta) {
-
-    const resultado =
-        document.getElementById("resultadoArchivo");
-
-
-    if (correcta) {
-
-        resultado.innerHTML =
-            "🔓 ¡ARCHIVO DESBLOQUEADO! 🐻😂<br><br>" +
-            "Correcto. Nuestro elixir de la vida " +
-            "siempre fue el Kosako de uva.";
-
-    }
-
-    else {
-
-        resultado.innerHTML =
-            "❌ Incorrecto 😂🐻. " +
-            "Inténtalo otra vez.";
-
-    }
-
-}
-
-
-/* =========================================================
-   CARTAS
-========================================================= */
-
-const cartas = {
-
-    triste:
-    "Cuando estés triste: aquí pondremos exactamente el mensaje que quieras que encuentre en ese momento. 💙",
-
-    horrible:
-    "Cuando tengas un día horrible: recuerda que un día malo no puede borrar todos los días buenos. 🐻",
-
-    carino:
-    "Cuando necesites cariño: oficialmente esta carta viene acompañada de un abrazo de osito. 🫂",
-
-    reir:
-    "Cuando necesites reírte: aquí meteremos una de nuestras historias más estúpidas. 😂",
-
-    dormir:
-    "Cuando no puedas dormir: aquí habrá un mensaje tranquilo para acompañarte un ratito. 🌙",
-
-    nadie:
-    "Cuando sientas que nadie te entiende: recuerda que hay personas que se quedan incluso cuando no saben exactamente qué decir. 💙",
-
-    importante:
-    "Cuando necesites recordar que eres importante: nunca olvides todo lo que has significado durante estos ocho años. ❤️",
-
-    osito:
-    "Cuando necesites a tu osito: 🐻 aquí estoy. Incluso si solamente necesitas quedarte un rato en silencio."
-
-};
-
-
-function abrirCarta(tipo) {
-
-    const caja =
-        document.getElementById("contenidoCarta");
-
-    caja.innerHTML =
-        cartas[tipo];
-
-    caja.style.display = "block";
 
 }
 
@@ -2230,106 +1320,806 @@ function abrirCarta(tipo) {
 
 let ositosEncontrados = 0;
 
+function encontrarOsito(osito) {
 
-function crearOsitos() {
+    if (osito.classList.contains("osito-encontrado")) {
+        return;
+    }
 
-    const lugares = [
+    ositosEncontrados++;
 
-        ["menu", "top", "20%", "left", "8%"],
+    osito.classList.add("osito-encontrado");
 
-        ["estado", "top", "12%", "right", "8%"],
+    document.getElementById("ositosEncontrados").innerText =
+        "🐻 Ositos encontrados: " + ositosEncontrados;
 
-        ["historia", "top", "40%", "right", "6%"],
+    setTimeout(function() {
 
-        ["musica", "top", "25%", "left", "7%"],
+        osito.style.opacity = ".15";
 
-        ["recuerdos", "top", "15%", "right", "8%"],
-
-        ["archivo", "top", "35%", "left", "7%"],
-
-        ["necesites", "top", "12%", "right", "7%"],
-
-        ["final", "top", "20%", "left", "8%"]
-
-    ];
-
-
-    lugares.forEach((lugar, indice) => {
-
-        const seccion =
-            document.getElementById(lugar[0]);
-
-        const osito =
-            document.createElement("div");
-
-        osito.className =
-            "osito-escondido";
-
-        osito.textContent = "🐻";
-
-        osito.style[lugar[1]] =
-            lugar[2];
-
-        osito.style[lugar[3]] =
-            lugar[4];
-
-        osito.title =
-            "¿Será un osito?";
-
-        osito.onclick = function() {
-
-            if (
-                !osito.classList.contains(
-                    "encontrado"
-                )
-            ) {
-
-                osito.classList.add("encontrado");
-
-                ositosEncontrados++;
-
-                document.getElementById(
-                    "contadorOsitos"
-                ).textContent =
-                    ositosEncontrados;
-
-                if (ositosEncontrados >= 8) {
-
-                    desbloquearFinal();
-
-                }
-
-            }
-
-        };
-
-        seccion.appendChild(osito);
-
-    });
-
-}
-
-
-function desbloquearFinal() {
-
-    document.getElementById(
-        "progresoFinal"
-    ).innerHTML =
-        "🐻 Encontraste todos los ositos. " +
-        "Tal vez ya sea momento de abrir esto...";
-
-    document.getElementById(
-        "finalSecreto"
-    ).style.display = "block";
+    }, 500);
 
 }
 
 
 /* =========================================================
-   INICIALIZACION
+   COMO ESTAS
 ========================================================= */
 
-crearOsitos();
+function mostrarEstado(tipo) {
+
+    const caja = document.getElementById("mensajeEstado");
+
+    let titulo = "";
+    let texto = "";
+
+    if (tipo === "feliz") {
+
+        titulo = "Entonces disfruta ese momento 🐻❤️";
+
+        texto =
+        "Qué bueno que hoy estás feliz. " +
+        "Guarda ese momento y disfrútalo.";
+
+    }
+
+    if (tipo === "triste") {
+
+        titulo = "Ven acá, osita 🐻💙";
+
+        texto =
+        "No tienes que solucionar todo hoy. " +
+        "Respira, descansa y recuerda que un mal día " +
+        "no significa una mala vida.";
+
+    }
+
+    if (tipo === "enojada") {
+
+        titulo = "Ok... primero respira 😂🐻";
+
+        texto =
+        "No voy a preguntarte por qué estás enojada " +
+        "porque probablemente eso solo empeoraría las cosas.";
+
+    }
+
+    if (tipo === "aburrida") {
+
+        titulo = "Tenemos un problema 🐻";
+
+        texto =
+        "Ocho años de amistad y todavía encontraste " +
+        "la manera de aburrirte. Esto requiere investigación.";
+
+    }
+
+    if (tipo === "pensando") {
+
+        titulo = "Quédate un rato 🌙🐻";
+
+        texto =
+        "Hay cosas que necesitan tiempo para acomodarse. " +
+        "No tienes que tener todas las respuestas ahora.";
+
+    }
+
+    if (tipo === "cansada") {
+
+        titulo = "Hoy también puedes simplemente descansar 😴🐻";
+
+        texto =
+        "No todo tiene que ser productivo. " +
+        "A veces sobrevivir el día ya fue suficiente.";
+
+    }
+
+    if (tipo === "estresada") {
+
+        titulo = "Pausa. Respira. 🐻";
+
+        texto =
+        "Una cosa a la vez. No tienes que resolver " +
+        "todo al mismo tiempo.";
+
+    }
+
+    if (tipo === "nostalgica") {
+
+        titulo = "Mira todo lo que hemos vivido 🥹🐻";
+
+        texto =
+        "Tal vez hoy toca recordar un poquito. " +
+        "Y si hace falta, podemos regresar a alguno de esos días.";
+
+    }
+
+    caja.innerHTML = `
+
+        <h3>${titulo}</h3>
+
+        <br>
+
+        <p>${texto}</p>
+
+        <div class="opciones-cariño">
+
+            <button class="opcion-cariño"
+            onclick="mostrarCarino('triste')">
+                💌 Un mensaje
+            </button>
+
+            <button class="opcion-cariño"
+            onclick="darRecuerdo()">
+                📸 Un recuerdo
+            </button>
+
+            <button class="opcion-cariño"
+            onclick="cancionAleatoria()">
+                🎵 Una canción
+            </button>
+
+        </div>
+
+    `;
+
+    caja.style.display = "block";
+
+}
+
+
+/* =========================================================
+   MUSICA
+========================================================= */
+
+/*
+   AQUÍ PUEDES LLEGAR A PONER 100 CANCIONES.
+
+   Solo cambia:
+
+   nombre
+   archivo
+
+   Ejemplo:
+
+   {
+       nombre: "Golden Hour",
+       archivo: "musica/golden-hour.mp3"
+   }
+*/
+
+const canciones = [
+
+    {
+        nombre: "Canción provisional 01",
+        archivo: "musica/cancion01.mp3"
+    },
+
+    {
+        nombre: "Canción provisional 02",
+        archivo: "musica/cancion02.mp3"
+    },
+
+    {
+        nombre: "Canción provisional 03",
+        archivo: "musica/cancion03.mp3"
+    },
+
+    {
+        nombre: "Canción provisional 04",
+        archivo: "musica/cancion04.mp3"
+    },
+
+    {
+        nombre: "Canción provisional 05",
+        archivo: "musica/cancion05.mp3"
+    },
+
+    {
+        nombre: "Canción provisional 06",
+        archivo: "musica/cancion06.mp3"
+    },
+
+    {
+        nombre: "Canción provisional 07",
+        archivo: "musica/cancion07.mp3"
+    },
+
+    {
+        nombre: "Canción provisional 08",
+        archivo: "musica/cancion08.mp3"
+    },
+
+    {
+        nombre: "Canción provisional 09",
+        archivo: "musica/cancion09.mp3"
+    },
+
+    {
+        nombre: "Canción provisional 10",
+        archivo: "musica/cancion10.mp3"
+    }
+
+];
+
+let cancionActual = 0;
+
+const audio = document.getElementById("audio");
+
+function cargarListaMusica() {
+
+    const lista =
+        document.getElementById("listaMusica");
+
+    lista.innerHTML = "";
+
+    canciones.forEach(function(cancion, index) {
+
+        const elemento =
+            document.createElement("div");
+
+        elemento.className = "cancion";
+
+        elemento.innerText =
+            (index + 1) + ". " + cancion.nombre;
+
+        elemento.onclick = function() {
+
+            reproducirCancion(index);
+
+        };
+
+        lista.appendChild(elemento);
+
+    });
+
+}
+
+function reproducirCancion(index) {
+
+    cancionActual = index;
+
+    const cancion = canciones[index];
+
+    document.getElementById("cancionActual").innerText =
+        cancion.nombre;
+
+    audio.src = cancion.archivo;
+
+    audio.play().catch(function() {});
+
+    const elementos =
+        document.querySelectorAll(".cancion");
+
+    elementos.forEach(function(elemento, i) {
+
+        elemento.classList.toggle(
+            "activa",
+            i === index
+        );
+
+    });
+
+}
+
+function siguienteCancion() {
+
+    cancionActual++;
+
+    if (cancionActual >= canciones.length) {
+        cancionActual = 0;
+    }
+
+    reproducirCancion(cancionActual);
+
+}
+
+function anteriorCancion() {
+
+    cancionActual--;
+
+    if (cancionActual < 0) {
+        cancionActual = canciones.length - 1;
+    }
+
+    reproducirCancion(cancionActual);
+
+}
+
+function cancionAleatoria() {
+
+    const nueva =
+        Math.floor(Math.random() * canciones.length);
+
+    reproducirCancion(nueva);
+
+}
+
+audio.addEventListener("ended", function() {
+
+    siguienteCancion();
+
+});
+
+cargarListaMusica();
+
+
+/* =========================================================
+   RECUERDOS
+========================================================= */
+
+const recuerdos = {
+
+    salidas: [
+        {
+            nombre: "Salida provisional 1",
+            emoji: "🌆"
+        },
+        {
+            nombre: "Salida provisional 2",
+            emoji: "🍔"
+        },
+        {
+            nombre: "Salida provisional 3",
+            emoji: "🌙"
+        }
+    ],
+
+    tonterias: [
+        {
+            nombre: "Una de nuestras muchas estupideces 😂",
+            emoji: "😂"
+        },
+        {
+            nombre: "Esto definitivamente necesitaba una foto",
+            emoji: "🐻"
+        }
+    ],
+
+    momentos: [
+        {
+            nombre: "Un momento que merece quedarse",
+            emoji: "📸"
+        },
+        {
+            nombre: "Otro recuerdo provisional",
+            emoji: "🐻"
+        }
+    ],
+
+    especiales: [
+        {
+            nombre: "Un día especial ❤️",
+            emoji: "❤️"
+        },
+        {
+            nombre: "Uno de esos momentos",
+            emoji: "🥹"
+        }
+    ]
+
+};
+
+let categoriaActual = "";
+let fotoActual = 0;
+
+function abrirRecuerdos(categoria) {
+
+    categoriaActual = categoria;
+
+    fotoActual = 0;
+
+    document.getElementById("galeria").style.display =
+        "block";
+
+    mostrarFoto();
+
+}
+
+function mostrarFoto() {
+
+    const lista =
+        recuerdos[categoriaActual];
+
+    const recuerdo =
+        lista[fotoActual];
+
+    document.getElementById("nombreCategoria").innerText =
+        categoriaActual.charAt(0).toUpperCase() +
+        categoriaActual.slice(1);
+
+    document.getElementById("fotoPlaceholder").innerText =
+        recuerdo.emoji;
+
+    document.getElementById("pieFoto").innerText =
+        recuerdo.nombre;
+
+}
+
+function fotoSiguiente() {
+
+    const lista =
+        recuerdos[categoriaActual];
+
+    fotoActual++;
+
+    if (fotoActual >= lista.length) {
+        fotoActual = 0;
+    }
+
+    mostrarFoto();
+
+}
+
+function fotoAnterior() {
+
+    const lista =
+        recuerdos[categoriaActual];
+
+    fotoActual--;
+
+    if (fotoActual < 0) {
+        fotoActual = lista.length - 1;
+    }
+
+    mostrarFoto();
+
+}
+
+
+/* =========================================================
+   RECUERDO ALEATORIO
+========================================================= */
+
+const recuerdosAleatorios = [
+
+    "¿Te acuerdas de aquella salida que terminó siendo mucho más divertida de lo esperado? 🐻",
+
+    "Ocho años y todavía seguimos acumulando historias 😂",
+
+    "Hay fotos que no necesitan explicación. Solo necesitan que nos acordemos de ese día.",
+
+    "Algún día vamos a mirar todo esto y decir: ¿cómo sobrevivimos? 😂",
+
+    "Un pequeño recordatorio de que hemos vivido muchísimo más de lo que parece.",
+
+    "No todos los momentos importantes fueron grandes. Algunos simplemente fueron nuestros."
+
+];
+
+function darRecuerdo() {
+
+    const caja =
+        document.getElementById("recuerdoAleatorio");
+
+    const numero =
+        Math.floor(
+            Math.random() *
+            recuerdosAleatorios.length
+        );
+
+    caja.innerText =
+        recuerdosAleatorios[numero];
+
+    caja.style.display = "block";
+
+}
+
+
+/* =========================================================
+   ARCHIVO DE LOS OSITOS
+========================================================= */
+
+const preguntas = [
+
+    {
+        pregunta:
+        "¿Cuál es nuestro elixir de la vida?",
+
+        respuestas: [
+            "Café",
+            "Kosako de uva",
+            "Agua",
+            "Refresco"
+        ],
+
+        correcta: 1
+    },
+
+    {
+        pregunta:
+        "¿Qué somos nosotros?",
+
+        respuestas: [
+            "Ositos 🐻",
+            "Pingüinos",
+            "Gatos",
+            "Seres humanos responsables"
+        ],
+
+        correcta: 0
+    },
+
+    {
+        pregunta:
+        "¿Cuántos años llevamos de historia?",
+
+        respuestas: [
+            "2",
+            "5",
+            "8",
+            "27"
+        ],
+
+        correcta: 2
+    },
+
+    {
+        pregunta:
+        "¿Qué hacemos cuando deberíamos comportarnos?",
+
+        respuestas: [
+            "Nos comportamos",
+            "Nos vamos",
+            "Hacemos otra estupidez",
+            "Dormimos"
+        ],
+
+        correcta: 2
+    },
+
+    {
+        pregunta:
+        "¿Quién probablemente está detrás de este sitio?",
+
+        respuestas: [
+            "Un osito sospechoso",
+            "Google",
+            "La NASA",
+            "Un pingüino"
+        ],
+
+        correcta: 0
+    }
+
+];
+
+let preguntasDisponibles = [];
+let preguntaActual = 0;
+let aciertos = 0;
+
+function prepararQuiz() {
+
+    preguntasDisponibles =
+        [...preguntas]
+        .sort(function() {
+            return Math.random() - .5;
+        });
+
+    preguntaActual = 0;
+
+    aciertos = 0;
+
+    mostrarPregunta();
+
+}
+
+function mostrarPregunta() {
+
+    const pregunta =
+        preguntasDisponibles[preguntaActual];
+
+    document.getElementById("contadorQuiz").innerText =
+        "Pregunta " +
+        (preguntaActual + 1) +
+        " de " +
+        preguntasDisponibles.length +
+        " · Aciertos: " +
+        aciertos;
+
+    document.getElementById("preguntaQuiz").innerText =
+        pregunta.pregunta;
+
+    const respuestas =
+        document.getElementById("respuestasQuiz");
+
+    respuestas.innerHTML = "";
+
+    pregunta.respuestas.forEach(function(respuesta,index) {
+
+        const boton =
+            document.createElement("button");
+
+        boton.className = "respuesta";
+
+        boton.innerText = respuesta;
+
+        boton.onclick = function() {
+
+            responderQuiz(index);
+
+        };
+
+        respuestas.appendChild(boton);
+
+    });
+
+    document.getElementById("resultadoQuiz").innerText =
+        "";
+
+    document.getElementById("siguienteQuiz").style.display =
+        "none";
+
+}
+
+function responderQuiz(indice) {
+
+    const pregunta =
+        preguntasDisponibles[preguntaActual];
+
+    const botones =
+        document.querySelectorAll(".respuesta");
+
+    botones.forEach(function(boton) {
+
+        boton.disabled = true;
+
+    });
+
+    const resultado =
+        document.getElementById("resultadoQuiz");
+
+    if (indice === pregunta.correcta) {
+
+        aciertos++;
+
+        resultado.innerText =
+            "✅ Correcto. La osita conoce el archivo 🐻";
+
+    } else {
+
+        resultado.innerText =
+            "❌ Incorrecto... sospechoso 👀🐻";
+
+    }
+
+    document.getElementById("contadorQuiz").innerText =
+        "Pregunta " +
+        (preguntaActual + 1) +
+        " de " +
+        preguntasDisponibles.length +
+        " · Aciertos: " +
+        aciertos;
+
+    document.getElementById("siguienteQuiz").style.display =
+        "inline-block";
+
+}
+
+function siguientePregunta() {
+
+    preguntaActual++;
+
+    if (preguntaActual >= preguntasDisponibles.length) {
+
+        finalizarQuiz();
+
+        return;
+
+    }
+
+    mostrarPregunta();
+
+}
+
+function finalizarQuiz() {
+
+    const porcentaje =
+        Math.round(
+            (aciertos /
+            preguntasDisponibles.length) *
+            100
+        );
+
+    document.getElementById("preguntaQuiz").innerText =
+        "Expediente terminado 🐻";
+
+    document.getElementById("respuestasQuiz").innerHTML =
+        "";
+
+    document.getElementById("resultadoQuiz").innerHTML =
+        "<strong>Resultado: " +
+        aciertos +
+        "/" +
+        preguntasDisponibles.length +
+        " (" +
+        porcentaje +
+        "%)</strong><br><br>" +
+
+        (
+            porcentaje >= 80
+            ? "Acceso concedido. Definitivamente eres de los ositos. 🐻🔓"
+            : "Hmm... habrá que revisar ese expediente otra vez 😂"
+        );
+
+    document.getElementById("siguienteQuiz").style.display =
+        "none";
+
+}
+
+
+/* =========================================================
+   PARA CUANDO LO NECESITES
+========================================================= */
+
+function mostrarCarino(tipo) {
+
+    const caja =
+        document.getElementById("mensajeCarino");
+
+    let mensaje = "";
+
+    if (tipo === "triste") {
+
+        mensaje =
+        "Si estás leyendo esto porque hoy no fue un buen día, " +
+        "quédate un ratito. No tienes que fingir que todo está bien. " +
+        "Aquí tienes un pequeño lugar donde simplemente puedes respirar. 💙🐻";
+
+    }
+
+    if (tipo === "feliz") {
+
+        mensaje =
+        "Si estás feliz, disfruta muchísimo ese momento. " +
+        "Y si quieres, guarda una foto mental de este día. ❤️🐻";
+
+    }
+
+    if (tipo === "risa") {
+
+        mensaje =
+        "Si necesitas reírte, probablemente deberíamos abrir " +
+        "el archivo de los ositos. Ya sabes que ahí hay material peligroso. 😂";
+
+    }
+
+    if (tipo === "recuerdo") {
+
+        mensaje =
+        "No olvides todo lo que hemos vivido. " +
+        "Ocho años son demasiados recuerdos para dejar que se pierdan. 🐻";
+
+    }
+
+    if (tipo === "cansada") {
+
+        mensaje =
+        "Descansa. No tienes que demostrarle nada a nadie hoy. " +
+        "Mañana será otro día. 🌙";
+
+    }
+
+    if (tipo === "abrazo") {
+
+        mensaje =
+        "Considera esto un abrazo virtual de osito. " +
+        "De esos que no necesitan decir absolutamente nada. 🫂🐻";
+
+    }
+
+    caja.innerText = mensaje;
+
+    caja.style.display = "block";
+
+}
+
+
+/* =========================================================
+   INICIAR QUIZ
+========================================================= */
+
+prepararQuiz();
 
 </script>
 
