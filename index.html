@@ -8,6 +8,10 @@
 
 <style>
 
+/* =====================================================
+   BASE
+===================================================== */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -19,31 +23,47 @@ html {
 }
 
 body {
-    font-family: Georgia, 'Times New Roman', serif;
+    font-family: Georgia, "Times New Roman", serif;
     background: #120d1f;
     color: #f8f1e7;
     overflow-x: hidden;
+    line-height: 1.6;
 }
 
-/* =========================
+/* =====================================================
    FONDO
-========================= */
+   IMPORTANTE: SE MANTIENE FIJO Y OSCURO
+===================================================== */
 
 body::before {
     content: "";
     position: fixed;
     inset: 0;
+
     background:
-        radial-gradient(circle at 20% 20%, rgba(111, 61, 132, .35), transparent 30%),
-        radial-gradient(circle at 80% 70%, rgba(45, 65, 130, .35), transparent 30%),
-        radial-gradient(circle at 50% 100%, rgba(92, 45, 30, .25), transparent 35%);
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(111, 61, 132, .30),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(45, 65, 130, .30),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(92, 45, 30, .22),
+            transparent 35%
+        );
+
     pointer-events: none;
     z-index: -2;
 }
 
-/* =========================
+/* =====================================================
    ESTRELLAS
-========================= */
+===================================================== */
 
 .stars {
     position: fixed;
@@ -59,17 +79,49 @@ body::before {
     background: #fff;
     border-radius: 50%;
     opacity: .6;
-    animation: twinkle 3s infinite alternate;
+
+    animation:
+        twinkle 3s infinite alternate,
+        drift 8s ease-in-out infinite;
 }
 
-.star:nth-child(1) { top: 10%; left: 15%; }
-.star:nth-child(2) { top: 25%; left: 80%; animation-delay: 1s; }
-.star:nth-child(3) { top: 60%; left: 20%; animation-delay: 2s; }
-.star:nth-child(4) { top: 75%; left: 70%; animation-delay: .5s; }
-.star:nth-child(5) { top: 40%; left: 50%; animation-delay: 1.5s; }
-.star:nth-child(6) { top: 85%; left: 40%; animation-delay: 2.5s; }
+.star:nth-child(1) {
+    top: 10%;
+    left: 15%;
+}
+
+.star:nth-child(2) {
+    top: 25%;
+    left: 80%;
+    animation-delay: 1s;
+}
+
+.star:nth-child(3) {
+    top: 60%;
+    left: 20%;
+    animation-delay: 2s;
+}
+
+.star:nth-child(4) {
+    top: 75%;
+    left: 70%;
+    animation-delay: .5s;
+}
+
+.star:nth-child(5) {
+    top: 40%;
+    left: 50%;
+    animation-delay: 1.5s;
+}
+
+.star:nth-child(6) {
+    top: 85%;
+    left: 40%;
+    animation-delay: 2.5s;
+}
 
 @keyframes twinkle {
+
     from {
         opacity: .2;
         transform: scale(.7);
@@ -79,36 +131,77 @@ body::before {
         opacity: 1;
         transform: scale(1.4);
     }
+
 }
 
-/* =========================
+@keyframes drift {
+
+    0%, 100% {
+        margin-left: 0;
+    }
+
+    50% {
+        margin-left: 8px;
+    }
+
+}
+
+/* =====================================================
    PORTADA
-========================= */
+===================================================== */
 
 #inicio {
     min-height: 100vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     text-align: center;
+
     padding: 30px;
 }
 
 .portada {
     max-width: 800px;
+
     animation: aparecer 1.5s ease;
 }
+
+/* =====================================================
+   OSITOS
+===================================================== */
 
 .ositos {
     font-size: 5rem;
     margin-bottom: 25px;
-    animation: flotar 3s ease-in-out infinite;
+
+    animation: ositosFlotan 3s ease-in-out infinite;
 }
+
+@keyframes ositosFlotan {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+}
+
+/* =====================================================
+   TITULO
+===================================================== */
 
 .portada h1 {
     font-size: clamp(3rem, 10vw, 6rem);
+
     letter-spacing: 5px;
+
     color: #fff;
+
     text-shadow:
         0 0 20px rgba(150, 90, 180, .6),
         0 0 40px rgba(80, 100, 180, .4);
@@ -116,47 +209,73 @@ body::before {
 
 .subtitulo {
     margin-top: 10px;
+
     font-size: 1.5rem;
+
     color: #d8b9e8;
 }
 
 .frase {
     margin: 30px auto;
+
     max-width: 600px;
+
     font-size: 1.2rem;
     line-height: 1.8;
+
     color: #e9dfd5;
 }
 
+/* =====================================================
+   BOTON PRINCIPAL
+===================================================== */
+
 .boton {
     display: inline-block;
+
     border: none;
+
     padding: 15px 35px;
+
     border-radius: 50px;
-    background: linear-gradient(135deg, #7b3f91, #344f9b);
+
+    background:
+        linear-gradient(
+            135deg,
+            #7b3f91,
+            #344f9b
+        );
+
     color: white;
+
     font-size: 1.05rem;
+
     cursor: pointer;
-    transition: .3s;
-    box-shadow: 0 8px 30px rgba(0,0,0,.3);
+
+    transition: transform .25s ease,
+                box-shadow .25s ease;
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,.3);
 }
 
 .boton:hover {
     transform: translateY(-4px) scale(1.04);
-    box-shadow: 0 12px 35px rgba(120,70,160,.5);
+
+    box-shadow:
+        0 12px 35px rgba(120,70,160,.5);
 }
 
-@keyframes flotar {
-    0%,100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-12px);
-    }
+.boton:active {
+    transform: scale(.96);
 }
+
+/* =====================================================
+   APARECER
+===================================================== */
 
 @keyframes aparecer {
+
     from {
         opacity: 0;
         transform: translateY(30px);
@@ -166,166 +285,327 @@ body::before {
         opacity: 1;
         transform: translateY(0);
     }
+
 }
 
-/* =========================
-   MENU
-========================= */
+/* =====================================================
+   CONTENIDO
+===================================================== */
 
 #contenido {
     display: none;
+
     min-height: 100vh;
+
     padding-bottom: 80px;
 }
 
+/* =====================================================
+   MENU
+===================================================== */
+
 .menu {
     text-align: center;
+
     padding: 70px 20px 40px;
 }
 
 .menu h2 {
     font-size: 2.8rem;
+
     margin-bottom: 10px;
 }
 
 .menu p {
     color: #cbbfd1;
+
     margin-bottom: 40px;
 }
 
+/* =====================================================
+   BOTONES DEL MENU
+===================================================== */
+
 .botones {
     max-width: 900px;
+
     margin: auto;
+
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(220px, 1fr)
+        );
+
     gap: 18px;
 }
 
 .menu-boton {
+
     background: rgba(255,255,255,.06);
-    border: 1px solid rgba(255,255,255,.12);
+
+    border:
+        1px solid rgba(255,255,255,.12);
+
     color: #fff;
+
     padding: 25px 15px;
+
     border-radius: 20px;
+
     font-size: 1.1rem;
+
     cursor: pointer;
-    transition: .3s;
-    backdrop-filter: blur(10px);
+
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        border-color .25s ease;
+
 }
 
 .menu-boton:hover {
-    transform: translateY(-6px);
-    background: rgba(123,63,145,.25);
-    border-color: rgba(180,120,200,.5);
+
+    transform: translateY(-5px);
+
+    background:
+        rgba(123,63,145,.25);
+
+    border-color:
+        rgba(180,120,200,.5);
+}
+
+.menu-boton:active {
+
+    transform: scale(.96);
+
+    background:
+        rgba(123,63,145,.35);
 }
 
 .icono {
+
     display: block;
+
     font-size: 2.5rem;
+
     margin-bottom: 10px;
+
 }
 
-/* =========================
+/* =====================================================
    SECCIONES
-========================= */
+===================================================== */
 
 .seccion {
+
     max-width: 900px;
+
     margin: 40px auto;
+
     padding: 40px 25px;
+
     border-radius: 25px;
-    background: rgba(255,255,255,.055);
-    border: 1px solid rgba(255,255,255,.1);
-    backdrop-filter: blur(10px);
+
+    background:
+        rgba(255,255,255,.055);
+
+    border:
+        1px solid rgba(255,255,255,.1);
+
     text-align: center;
+
 }
 
 .seccion h2 {
+
     font-size: 2.3rem;
+
     margin-bottom: 20px;
+
 }
 
 .seccion p {
+
     color: #ddd3df;
+
     line-height: 1.8;
+
     font-size: 1.05rem;
+
 }
 
 .osito-pequeno {
+
     font-size: 3rem;
+
     margin-bottom: 15px;
+
+    animation:
+        ositoPequeno 3s ease-in-out infinite;
+
 }
 
-/* =========================
-   TARJETAS DE ESTADO
-========================= */
+@keyframes ositoPequeno {
+
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-5px) rotate(2deg);
+    }
+
+}
+
+/* =====================================================
+   ESTADOS
+===================================================== */
 
 .estados {
+
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(140px, 1fr)
+        );
+
     gap: 15px;
+
     margin-top: 30px;
+
 }
 
 .estado {
+
     padding: 20px 10px;
+
     border-radius: 18px;
-    background: rgba(255,255,255,.06);
+
+    background:
+        rgba(255,255,255,.06);
+
     cursor: pointer;
-    transition: .3s;
+
+    transition:
+        transform .25s ease,
+        background .25s ease;
+
 }
 
 .estado:hover {
+
     transform: scale(1.04);
-    background: rgba(123,63,145,.25);
+
+    background:
+        rgba(123,63,145,.25);
+
+}
+
+.estado:active {
+
+    transform: scale(.95);
+
 }
 
 .estado span {
+
     display: block;
+
     font-size: 2.5rem;
+
     margin-bottom: 8px;
+
 }
+
+/* =====================================================
+   MENSAJE DE ESTADO
+===================================================== */
 
 .mensaje-estado {
+
     margin-top: 30px;
+
     padding: 25px;
+
     border-radius: 18px;
-    background: rgba(92,45,30,.25);
+
+    background:
+        rgba(92,45,30,.25);
+
     display: none;
-    animation: aparecer .5s ease;
+
+    animation:
+        aparecer .5s ease;
+
 }
 
-/* =========================
-   BOTON VOLVER
-========================= */
+/* =====================================================
+   COLORES DE RESPUESTA
+===================================================== */
 
-.volver {
-    margin-top: 25px;
-    padding: 10px 20px;
-    border: 1px solid rgba(255,255,255,.2);
-    border-radius: 30px;
-    background: transparent;
-    color: #ddd;
-    cursor: pointer;
+.mensaje-feliz {
+    background:
+        rgba(123,63,145,.20);
 }
 
-/* =========================
+.mensaje-triste {
+    background:
+        rgba(45,65,130,.25);
+}
+
+.mensaje-enojada {
+    background:
+        rgba(150,60,60,.20);
+}
+
+.mensaje-aburrida {
+    background:
+        rgba(92,45,30,.25);
+}
+
+.mensaje-pensando {
+    background:
+        rgba(60,50,100,.25);
+}
+
+/* =====================================================
+   ARCHIVO
+===================================================== */
+
+.archivo-boton {
+
+    margin-top: 10px;
+
+}
+
+/* =====================================================
    FOOTER
-========================= */
+===================================================== */
 
 footer {
+
     text-align: center;
+
     padding: 50px 20px;
+
     color: #a99eac;
+
 }
 
 footer .corazon {
+
     color: #c94c61;
+
 }
 
-/* =========================
+/* =====================================================
    CELULAR
-========================= */
+===================================================== */
 
 @media (max-width: 600px) {
 
@@ -334,40 +614,89 @@ footer .corazon {
     }
 
     .portada h1 {
+
         letter-spacing: 2px;
+
     }
 
     .subtitulo {
+
         font-size: 1.2rem;
+
     }
 
     .frase {
+
         font-size: 1rem;
+
     }
 
     .menu h2 {
+
         font-size: 2.2rem;
+
     }
 
     .seccion {
+
         margin: 25px 15px;
+
         padding: 30px 18px;
+
     }
+
+    .menu-boton {
+
+        padding: 22px 12px;
+
+    }
+
+}
+
+/* =====================================================
+   REDUCIR ANIMACIONES SI EL DISPOSITIVO LO PIDE
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+
+        scroll-behavior: auto !important;
+
+    }
+
 }
 
 </style>
 </head>
 
+
 <body>
 
+<!-- =====================================================
+     ESTRELLAS
+===================================================== -->
+
 <div class="stars">
+
     <div class="star"></div>
     <div class="star"></div>
     <div class="star"></div>
     <div class="star"></div>
     <div class="star"></div>
     <div class="star"></div>
+
 </div>
+
+
+<!-- =====================================================
+     PORTADA
+===================================================== -->
 
 <section id="inicio">
 
@@ -384,221 +713,469 @@ footer .corazon {
         </div>
 
         <p class="frase">
+
             8 años de historias, risas, salidas,
             tonterías y momentos que simplemente
             no caben en una sola página.
+
         </p>
 
-        <button class="boton" onclick="entrar()">
+        <button
+            class="boton"
+            onclick="entrar()">
+
             Entrar al rincón 🐻
+
         </button>
 
     </div>
 
 </section>
 
+
+<!-- =====================================================
+     CONTENIDO
+===================================================== -->
+
 <main id="contenido">
 
-    <section class="menu">
 
-        <h2>Bienvenida, osita 🐻</h2>
+<!-- =====================================================
+     MENU
+===================================================== -->
 
-        <p>
-            Este pequeño lugar tiene algunas cosas
-            que quiero que recuerdes.
-        </p>
+<section class="menu">
 
-        <div class="botones">
+    <h2>
+        Bienvenida, osita 🐻
+    </h2>
 
-            <button class="menu-boton">
-                <span class="icono">📖</span>
-                Nuestra historia
-            </button>
+    <p>
+        Este pequeño lugar tiene algunas cosas
+        que quiero que recuerdes.
+    </p>
 
-            <button class="menu-boton">
-                <span class="icono">🎵</span>
-                Música
-            </button>
 
-            <button class="menu-boton" onclick="irEstado()">
-                <span class="icono">💭</span>
-                ¿Cómo estás hoy?
-            </button>
+    <div class="botones">
 
-            <button class="menu-boton">
-                <span class="icono">📸</span>
-                Recuerdos
-            </button>
 
-            <button class="menu-boton">
-                <span class="icono">😂</span>
-                Archivo de los ositos
-            </button>
+        <button
+            class="menu-boton"
+            onclick="irA('historia')">
 
-            <button class="menu-boton">
-                <span class="icono">💌</span>
-                Para cuando lo necesites
-            </button>
+            <span class="icono">
+                📖
+            </span>
 
-            <button class="menu-boton">
-                <span class="icono">🎁</span>
-                Una última cosa
-            </button>
+            Nuestra historia
 
-        </div>
-
-    </section>
-
-    <section class="seccion" id="estado">
-
-        <div class="osito-pequeno">🐻</div>
-
-        <h2>¿Cómo estás hoy?</h2>
-
-        <p>
-            No importa cuál elijas.
-            Aquí no hay respuestas incorrectas.
-        </p>
-
-        <div class="estados">
-
-            <div class="estado" onclick="mostrarEstado('feliz')">
-                <span>😊</span>
-                Feliz
-            </div>
-
-            <div class="estado" onclick="mostrarEstado('triste')">
-                <span>😔</span>
-                Triste
-            </div>
-
-            <div class="estado" onclick="mostrarEstado('enojada')">
-                <span>😤</span>
-                Hasta la madre
-            </div>
-
-            <div class="estado" onclick="mostrarEstado('aburrida')">
-                <span>🥱</span>
-                Aburrida
-            </div>
-
-            <div class="estado" onclick="mostrarEstado('pensando')">
-                <span>🌙</span>
-                Pensando
-            </div>
-
-        </div>
-
-        <div id="mensajeEstado" class="mensaje-estado"></div>
-
-    </section>
-
-    <section class="seccion">
-
-        <div class="osito-pequeno">📖</div>
-
-        <h2>Nuestra historia</h2>
-
-        <p>
-            Aquí vamos a contar esos ocho años.
-        </p>
-
-        <br>
-
-        <p>
-            Todavía faltan muchas historias por poner...
-            y créeme, sé que son demasiadas.
-        </p>
-
-    </section>
-
-    <section class="seccion">
-
-        <div class="osito-pequeno">📸</div>
-
-        <h2>Recuerdos</h2>
-
-        <p>
-            Esta sección se va a llenar de fotos,
-            momentos y pequeñas historias.
-        </p>
-
-    </section>
-
-    <section class="seccion">
-
-        <div class="osito-pequeno">😂</div>
-
-        <h2>Archivo de los ositos</h2>
-
-        <p>
-            ⚠️ Algunas historias pueden causar
-            vergüenza, risa o negación de los hechos.
-        </p>
-
-        <br>
-
-        <button class="boton">
-            Abrir archivo 🔐
         </button>
 
-    </section>
 
-    <section class="seccion">
+        <button
+            class="menu-boton"
+            onclick="irA('musica')">
 
-        <div class="osito-pequeno">💌</div>
+            <span class="icono">
+                🎵
+            </span>
 
-        <h2>Para cuando lo necesites</h2>
+            Música
 
-        <p>
-            Vamos a llenar este espacio con mensajes
-            para diferentes momentos.
-        </p>
+        </button>
 
-        <br>
 
-        <p>
-            Para cuando estés triste.<br>
-            Para cuando estés feliz.<br>
-            Para cuando necesites reírte.<br>
-            Para cuando necesites recordar.
-        </p>
+        <button
+            class="menu-boton"
+            onclick="irA('estado')">
 
-    </section>
+            <span class="icono">
+                💭
+            </span>
 
-    <section class="seccion">
+            ¿Cómo estás hoy?
 
-        <div class="osito-pequeno">🎁</div>
+        </button>
 
-        <h2>Una última cosa...</h2>
 
-        <p>
-            Esta parte todavía no está lista.
-        </p>
+        <button
+            class="menu-boton"
+            onclick="irA('recuerdos')">
 
-        <br>
+            <span class="icono">
+                📸
+            </span>
 
-        <p>
-            Porque algunas cosas se escriben
-            hasta el final.
-        </p>
+            Recuerdos
 
-    </section>
+        </button>
 
-    <footer>
 
-        Hecho por un osito para otra osita
-        <span class="corazon">♥</span>
+        <button
+            class="menu-boton"
+            onclick="irA('archivo')">
 
-        <br><br>
+            <span class="icono">
+                😂
+            </span>
 
-        8 años y contando 🐻
+            Archivo de los ositos
 
-    </footer>
+        </button>
+
+
+        <button
+            class="menu-boton"
+            onclick="irA('mensajes')">
+
+            <span class="icono">
+                💌
+            </span>
+
+            Para cuando lo necesites
+
+        </button>
+
+
+        <button
+            class="menu-boton"
+            onclick="irA('final')">
+
+            <span class="icono">
+                🎁
+            </span>
+
+            Una última cosa
+
+        </button>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ESTADO
+===================================================== -->
+
+<section
+    class="seccion"
+    id="estado">
+
+    <div class="osito-pequeno">
+        🐻
+    </div>
+
+    <h2>
+        ¿Cómo estás hoy?
+    </h2>
+
+    <p>
+        No importa cuál elijas.
+        Aquí no hay respuestas incorrectas.
+    </p>
+
+
+    <div class="estados">
+
+
+        <div
+            class="estado"
+            onclick="mostrarEstado('feliz')">
+
+            <span>😊</span>
+
+            Feliz
+
+        </div>
+
+
+        <div
+            class="estado"
+            onclick="mostrarEstado('triste')">
+
+            <span>😔</span>
+
+            Triste
+
+        </div>
+
+
+        <div
+            class="estado"
+            onclick="mostrarEstado('enojada')">
+
+            <span>😤</span>
+
+            Hasta la madre
+
+        </div>
+
+
+        <div
+            class="estado"
+            onclick="mostrarEstado('aburrida')">
+
+            <span>🥱</span>
+
+            Aburrida
+
+        </div>
+
+
+        <div
+            class="estado"
+            onclick="mostrarEstado('pensando')">
+
+            <span>🌙</span>
+
+            Pensando
+
+        </div>
+
+
+    </div>
+
+
+    <div
+        id="mensajeEstado"
+        class="mensaje-estado">
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     HISTORIA
+===================================================== -->
+
+<section
+    class="seccion"
+    id="historia">
+
+    <div class="osito-pequeno">
+        📖
+    </div>
+
+    <h2>
+        Nuestra historia
+    </h2>
+
+    <p>
+        Aquí vamos a contar esos ocho años.
+    </p>
+
+    <br>
+
+    <p>
+        Todavía faltan muchas historias por poner...
+        y créeme, sé que son demasiadas.
+    </p>
+
+    <br>
+
+    <p>
+        <em>
+            Esta sección todavía está esperando
+            todas esas historias que solo nosotros
+            conocemos.
+        </em>
+    </p>
+
+</section>
+
+
+<!-- =====================================================
+     MUSICA
+===================================================== -->
+
+<section
+    class="seccion"
+    id="musica">
+
+    <div class="osito-pequeno">
+        🎵
+    </div>
+
+    <h2>
+        Música
+    </h2>
+
+    <p>
+        Aquí vamos a poner canciones que tengan
+        algún significado para nosotros.
+    </p>
+
+    <br>
+
+    <p>
+        🎧 Próximamente...
+    </p>
+
+</section>
+
+
+<!-- =====================================================
+     RECUERDOS
+===================================================== -->
+
+<section
+    class="seccion"
+    id="recuerdos">
+
+    <div class="osito-pequeno">
+        📸
+    </div>
+
+    <h2>
+        Recuerdos
+    </h2>
+
+    <p>
+        Esta sección se va a llenar de fotos,
+        momentos y pequeñas historias.
+    </p>
+
+    <br>
+
+    <p>
+        🐻 Cada recuerdo tendrá su propia historia.
+    </p>
+
+</section>
+
+
+<!-- =====================================================
+     ARCHIVO
+===================================================== -->
+
+<section
+    class="seccion"
+    id="archivo">
+
+    <div class="osito-pequeno">
+        😂
+    </div>
+
+    <h2>
+        Archivo de los ositos
+    </h2>
+
+    <p>
+        ⚠️ Algunas historias pueden causar
+        vergüenza, risa o negación de los hechos.
+    </p>
+
+    <br>
+
+    <button
+        class="boton archivo-boton"
+        onclick="abrirArchivo()">
+
+        Abrir archivo 🔐
+
+    </button>
+
+    <div
+        id="mensajeArchivo"
+        class="mensaje-estado">
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     MENSAJES
+===================================================== -->
+
+<section
+    class="seccion"
+    id="mensajes">
+
+    <div class="osito-pequeno">
+        💌
+    </div>
+
+    <h2>
+        Para cuando lo necesites
+    </h2>
+
+    <p>
+        Vamos a llenar este espacio con mensajes
+        para diferentes momentos.
+    </p>
+
+    <br>
+
+    <p>
+        Para cuando estés triste.<br>
+        Para cuando estés feliz.<br>
+        Para cuando necesites reírte.<br>
+        Para cuando necesites recordar.
+    </p>
+
+</section>
+
+
+<!-- =====================================================
+     FINAL
+===================================================== -->
+
+<section
+    class="seccion"
+    id="final">
+
+    <div class="osito-pequeno">
+        🎁
+    </div>
+
+    <h2>
+        Una última cosa...
+    </h2>
+
+    <p>
+        Esta parte todavía no está lista.
+    </p>
+
+    <br>
+
+    <p>
+        Porque algunas cosas se escriben
+        hasta el final.
+    </p>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    Hecho por un osito para otra osita
+
+    <span class="corazon">
+        ♥
+    </span>
+
+    <br><br>
+
+    8 años y contando 🐻
+
+</footer>
+
 
 </main>
 
+
 <script>
+
+/* =====================================================
+   ENTRAR
+===================================================== */
 
 function entrar() {
 
@@ -613,96 +1190,179 @@ function entrar() {
 
 }
 
-function irEstado() {
 
-    document.getElementById("estado").scrollIntoView({
-        behavior: "smooth"
+/* =====================================================
+   NAVEGACION
+===================================================== */
+
+function irA(id) {
+
+    const elemento =
+        document.getElementById(id);
+
+    if (!elemento) return;
+
+    elemento.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
     });
 
 }
 
+
+/* =====================================================
+   ESTADOS
+===================================================== */
+
 function mostrarEstado(tipo) {
 
-    const caja = document.getElementById("mensajeEstado");
+    const caja =
+        document.getElementById("mensajeEstado");
 
     let mensaje = "";
+    let clase = "";
+
 
     if (tipo === "feliz") {
 
+        clase = "mensaje-feliz";
+
         mensaje = `
-            <h3>Entonces disfruta ese momento 🐻❤️</h3>
+            <h3>
+                Entonces disfruta ese momento 🐻❤️
+            </h3>
+
             <br>
+
             <p>
-            Qué bueno que hoy estás feliz.
-            Guarda ese momento, disfrútalo y no
-            busques una razón para que dure menos.
+                Qué bueno que hoy estás feliz.
+                Guarda ese momento, disfrútalo y
+                no busques una razón para que dure menos.
+            </p>
+
+            <br>
+
+            <p>
+                Hoy toca sonreír, osita.
             </p>
         `;
 
     }
+
 
     if (tipo === "triste") {
 
+        clase = "mensaje-triste";
+
         mensaje = `
-            <h3>Ven acá, osita 🐻💙</h3>
+            <h3>
+                Ven acá, osita 🐻💙
+            </h3>
+
             <br>
+
             <p>
-            No tienes que solucionar todo hoy.
-            Hay días que simplemente pesan más que otros.
-            Respira, descansa un poquito y recuerda
-            que un mal día no significa una mala vida.
+                No tienes que solucionar todo hoy.
+                Hay días que simplemente pesan más
+                que otros.
+            </p>
+
+            <br>
+
+            <p>
+                Respira, descansa un poquito y recuerda
+                que un mal día no significa una mala vida.
             </p>
         `;
 
     }
+
 
     if (tipo === "enojada") {
 
+        clase = "mensaje-enojada";
+
         mensaje = `
-            <h3>Ok... primero respira 😂🐻</h3>
+            <h3>
+                Ok... primero respira 😂🐻
+            </h3>
+
             <br>
+
             <p>
-            No voy a preguntarte "¿por qué estás enojada?"
-            porque probablemente eso solo empeoraría las cosas.
+                No voy a preguntarte
+                "¿por qué estás enojada?"
+                porque probablemente eso solo
+                empeoraría las cosas.
             </p>
+
             <br>
+
             <p>
-            Mejor vamos a buscar algo que te haga distraerte.
+                Declaro oficialmente activado
+                el modo: "no molestar a la osita".
             </p>
         `;
 
     }
+
 
     if (tipo === "aburrida") {
 
+        clase = "mensaje-aburrida";
+
         mensaje = `
-            <h3>Tenemos un problema 🐻</h3>
+            <h3>
+                Tenemos un problema 🐻
+            </h3>
+
             <br>
+
             <p>
-            Ocho años de amistad y todavía
-            encontraste la manera de aburrirte.
+                Ocho años de amistad y todavía
+                encontraste la manera de aburrirte.
             </p>
+
             <br>
+
             <p>
-            Creo que toca abrir el archivo de los ositos.
-            😂
+                Creo que toca abrir el archivo
+                de los ositos. 😂
             </p>
         `;
 
     }
+
 
     if (tipo === "pensando") {
 
+        clase = "mensaje-pensando";
+
         mensaje = `
-            <h3>Quédate un rato 🌙🐻</h3>
+            <h3>
+                Quédate un rato 🌙🐻
+            </h3>
+
             <br>
+
             <p>
-            Hay cosas que necesitan tiempo para acomodarse.
-            No tienes que tener todas las respuestas ahora.
+                Hay cosas que necesitan tiempo
+                para acomodarse.
+            </p>
+
+            <br>
+
+            <p>
+                No tienes que tener todas
+                las respuestas ahora.
             </p>
         `;
 
     }
+
+
+    caja.className =
+        "mensaje-estado " + clase;
 
     caja.innerHTML = mensaje;
 
@@ -714,6 +1374,54 @@ function mostrarEstado(tipo) {
     });
 
 }
+
+
+/* =====================================================
+   ARCHIVO DE LOS OSITOS
+===================================================== */
+
+function abrirArchivo() {
+
+    const caja =
+        document.getElementById("mensajeArchivo");
+
+    caja.className =
+        "mensaje-estado mensaje-aburrida";
+
+    caja.innerHTML = `
+        <h3>
+            🔐 Archivo encontrado...
+        </h3>
+
+        <br>
+
+        <p>
+            Pero todavía no puedes entrar.
+        </p>
+
+        <br>
+
+        <p>
+            Este archivo necesita que su osito
+            responsable agregue primero
+            las pruebas de nuestros crímenes. 😂🐻
+        </p>
+    `;
+
+    caja.style.display = "block";
+
+}
+
+
+/* =====================================================
+   EVITAR TOQUES RAROS DURANTE CLICS
+===================================================== */
+
+document.addEventListener(
+    "touchstart",
+    function() {},
+    { passive: true }
+);
 
 </script>
 
