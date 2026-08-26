@@ -1,116 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <title>🐻 El Universo de los Ositos</title>
 
 <style>
 
 /* =====================================================
-   UNIVERSO DE LOS OSITOS — V2.0
-   Base: Guillermo + Mónica
+   EL UNIVERSO DE LOS OSITOS
+   V2.1 — ESTABLE
    ===================================================== */
 
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 }
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 body {
+    margin: 0;
+    min-height: 100vh;
     font-family: Georgia, "Times New Roman", serif;
-    background: #100b1b;
     color: #f8f1e7;
-    overflow-x: hidden;
-    transition: background 1.2s ease;
-}
-
-/* =====================================================
-   FONDOS SEGÚN SECCIÓN
-   ===================================================== */
-
-body.inicio {
     background:
         radial-gradient(circle at 20% 20%, #512b70 0%, transparent 32%),
         radial-gradient(circle at 80% 70%, #243d79 0%, transparent 35%),
         #100b1b;
-}
-
-body.historia {
-    background:
-        radial-gradient(circle at 20% 30%, #5c3829 0%, transparent 35%),
-        radial-gradient(circle at 80% 80%, #492b61 0%, transparent 35%),
-        #171018;
-}
-
-body.musica {
-    background:
-        radial-gradient(circle at 30% 20%, #263f81 0%, transparent 35%),
-        radial-gradient(circle at 80% 60%, #542c72 0%, transparent 35%),
-        #0b1020;
-}
-
-body.estado-feliz {
-    background:
-        radial-gradient(circle at 50% 20%, #7d4261 0%, transparent 35%),
-        radial-gradient(circle at 20% 80%, #4d347c 0%, transparent 35%),
-        #170e1c;
-}
-
-body.estado-triste {
-    background:
-        radial-gradient(circle at 50% 30%, #243e71 0%, transparent 35%),
-        radial-gradient(circle at 80% 80%, #26335b 0%, transparent 35%),
-        #080d18;
-}
-
-body.estado-enojada {
-    background:
-        radial-gradient(circle at 30% 30%, #762f3c 0%, transparent 35%),
-        radial-gradient(circle at 80% 70%, #54252e 0%, transparent 35%),
-        #180b10;
-}
-
-body.estado-aburrida {
-    background:
-        radial-gradient(circle at 20% 20%, #563b70 0%, transparent 35%),
-        radial-gradient(circle at 80% 80%, #674633 0%, transparent 35%),
-        #151019;
-}
-
-body.estado-pensando {
-    background:
-        radial-gradient(circle at 50% 20%, #283c68 0%, transparent 35%),
-        radial-gradient(circle at 80% 70%, #422d5d 0%, transparent 35%),
-        #090d18;
-}
-
-body.recuerdos {
-    background:
-        radial-gradient(circle at 20% 20%, #704635 0%, transparent 35%),
-        radial-gradient(circle at 80% 70%, #593365 0%, transparent 35%),
-        #17100f;
-}
-
-body.archivo {
-    background:
-        radial-gradient(circle at 50% 30%, #421f50 0%, transparent 35%),
-        radial-gradient(circle at 20% 80%, #42251e 0%, transparent 35%),
-        #09070d;
-}
-
-body.final {
-    background:
-        radial-gradient(circle at 50% 20%, #6d3048 0%, transparent 35%),
-        radial-gradient(circle at 50% 80%, #4c2b67 0%, transparent 35%),
-        #120b17;
+    overflow-x: hidden;
+    overflow-y: auto;
+    touch-action: pan-y;
+    transition: background 1s ease;
 }
 
 
@@ -118,76 +43,80 @@ body.final {
    ESTRELLAS
    ===================================================== */
 
-.stars {
+.stars,
+.particles {
     position: fixed;
     inset: 0;
+    width: 100%;
+    height: 100%;
     pointer-events: none;
+    user-select: none;
     z-index: 0;
-    overflow: hidden;
 }
 
 .star {
     position: absolute;
     border-radius: 50%;
     background: white;
-    opacity: .5;
+    opacity: .55;
+    will-change: transform;
     animation: viajar linear infinite;
 }
 
 .star:nth-child(1) {
     width: 3px;
     height: 3px;
-    left: 10%;
-    top: 20%;
-    animation-duration: 12s;
+    left: 8%;
+    top: 18%;
+    animation-duration: 14s;
 }
 
 .star:nth-child(2) {
     width: 2px;
     height: 2px;
-    left: 25%;
+    left: 23%;
     top: 70%;
-    animation-duration: 18s;
+    animation-duration: 19s;
 }
 
 .star:nth-child(3) {
     width: 4px;
     height: 4px;
     left: 45%;
-    top: 15%;
-    animation-duration: 15s;
+    top: 13%;
+    animation-duration: 16s;
 }
 
 .star:nth-child(4) {
     width: 2px;
     height: 2px;
     left: 65%;
-    top: 50%;
-    animation-duration: 20s;
+    top: 48%;
+    animation-duration: 21s;
 }
 
 .star:nth-child(5) {
     width: 3px;
     height: 3px;
-    left: 80%;
-    top: 25%;
-    animation-duration: 14s;
+    left: 82%;
+    top: 23%;
+    animation-duration: 15s;
 }
 
 .star:nth-child(6) {
     width: 2px;
     height: 2px;
-    left: 90%;
-    top: 80%;
-    animation-duration: 17s;
+    left: 91%;
+    top: 78%;
+    animation-duration: 18s;
 }
 
 .star:nth-child(7) {
     width: 3px;
     height: 3px;
     left: 35%;
-    top: 90%;
-    animation-duration: 22s;
+    top: 88%;
+    animation-duration: 23s;
 }
 
 .star:nth-child(8) {
@@ -201,7 +130,7 @@ body.final {
 @keyframes viajar {
 
     0% {
-        transform: translate(0, 0);
+        transform: translate3d(0,0,0);
         opacity: .2;
     }
 
@@ -210,10 +139,9 @@ body.final {
     }
 
     100% {
-        transform: translate(80px, -100px);
+        transform: translate3d(70px,-90px,0);
         opacity: .1;
     }
-
 }
 
 
@@ -221,48 +149,40 @@ body.final {
    PARTÍCULAS
    ===================================================== */
 
-.particles {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 1;
-}
-
 .particle {
     position: absolute;
     width: 5px;
     height: 5px;
     border-radius: 50%;
-    background: rgba(255,255,255,.35);
-    animation: flotarParticula linear infinite;
+    background: rgba(255,255,255,.3);
+    animation: flotar linear infinite;
 }
 
 .particle:nth-child(1) {
     left: 15%;
     bottom: -10px;
-    animation-duration: 16s;
+    animation-duration: 17s;
 }
 
 .particle:nth-child(2) {
     left: 40%;
     bottom: -10px;
-    animation-duration: 21s;
+    animation-duration: 22s;
 }
 
 .particle:nth-child(3) {
     left: 70%;
     bottom: -10px;
-    animation-duration: 18s;
+    animation-duration: 19s;
 }
 
 .particle:nth-child(4) {
-    left: 85%;
+    left: 87%;
     bottom: -10px;
-    animation-duration: 24s;
+    animation-duration: 25s;
 }
 
-@keyframes flotarParticula {
+@keyframes flotar {
 
     from {
         transform: translateY(0);
@@ -277,7 +197,6 @@ body.final {
         transform: translateY(-110vh);
         opacity: 0;
     }
-
 }
 
 
@@ -286,31 +205,32 @@ body.final {
    ===================================================== */
 
 #inicio {
+    min-height: 100svh;
     min-height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
-    text-align: center;
-    padding: 30px;
+    justify-content: center;
     position: relative;
     z-index: 2;
+    padding: 30px 20px;
+    text-align: center;
 }
 
 .portada {
-    max-width: 850px;
-    animation: aparecer 1.5s ease;
+    width: min(850px, 100%);
+    animation: aparecer 1.2s ease;
 }
 
 .ositos-principales {
     display: flex;
     justify-content: center;
     gap: 35px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .osito {
-    font-size: 5rem;
     display: inline-block;
+    font-size: clamp(4rem, 12vw, 6rem);
     animation: ositoFlota 3s ease-in-out infinite;
     filter: drop-shadow(0 10px 15px rgba(0,0,0,.35));
 }
@@ -326,48 +246,53 @@ body.final {
     }
 
     50% {
-        transform: translateY(-16px) rotate(2deg);
+        transform: translateY(-14px) rotate(2deg);
     }
-
 }
 
 .portada h1 {
-    font-size: clamp(3rem, 10vw, 6.5rem);
-    letter-spacing: 5px;
+    margin: 0;
+    font-size: clamp(3rem, 11vw, 6.5rem);
+    letter-spacing: 4px;
     text-shadow:
         0 0 20px rgba(140,90,180,.7),
         0 0 45px rgba(60,90,170,.4);
 }
 
 .subtitulo {
-    margin-top: 10px;
+    margin-top: 12px;
     color: #d9bce8;
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
 }
 
 .frase {
     max-width: 650px;
-    margin: 30px auto;
+    margin: 28px auto;
     line-height: 1.8;
     color: #e7ded7;
-    font-size: 1.15rem;
+    font-size: 1.1rem;
 }
 
 .boton {
     border: none;
-    padding: 15px 35px;
+    padding: 15px 34px;
     border-radius: 50px;
     background: linear-gradient(135deg,#70408a,#354f99);
     color: white;
+    font-family: inherit;
     font-size: 1.05rem;
     cursor: pointer;
-    transition: .3s;
+    touch-action: manipulation;
     box-shadow: 0 10px 35px rgba(0,0,0,.35);
+    transition: transform .3s ease, box-shadow .3s ease;
 }
 
 .boton:hover {
-    transform: translateY(-5px) scale(1.04);
-    box-shadow: 0 15px 40px rgba(120,70,160,.5);
+    transform: translateY(-4px) scale(1.03);
+}
+
+.boton:active {
+    transform: scale(.97);
 }
 
 
@@ -376,60 +301,72 @@ body.final {
    ===================================================== */
 
 #contenido {
-    display: none;
     position: relative;
     z-index: 2;
-    padding-bottom: 100px;
+    display: none;
+    width: 100%;
+    min-height: 100vh;
+    padding-bottom: 80px;
 }
 
+
+/* =====================================================
+   MENU
+   ===================================================== */
+
 .menu {
-    max-width: 1000px;
-    margin: auto;
-    padding: 80px 20px 50px;
+    width: min(1000px, calc(100% - 30px));
+    margin: 0 auto;
+    padding: 75px 0 45px;
     text-align: center;
 }
 
 .menu h2 {
-    font-size: 3rem;
-    margin-bottom: 12px;
+    margin: 0 0 12px;
+    font-size: clamp(2.2rem, 7vw, 3rem);
 }
 
 .menu > p {
+    margin-bottom: 38px;
     color: #c9becd;
-    margin-bottom: 40px;
 }
 
 .botones {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(210px,1fr));
-    gap: 18px;
+    grid-template-columns: repeat(auto-fit,minmax(190px,1fr));
+    gap: 16px;
 }
 
 .menu-boton {
-    min-height: 150px;
-    padding: 25px 15px;
-    border-radius: 22px;
+    min-height: 145px;
+    padding: 22px 15px;
     border: 1px solid rgba(255,255,255,.12);
+    border-radius: 22px;
     background: rgba(255,255,255,.055);
     color: white;
-    cursor: pointer;
     font-family: inherit;
     font-size: 1.05rem;
-    transition: .4s;
-    backdrop-filter: blur(12px);
+    cursor: pointer;
+    touch-action: manipulation;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: transform .3s ease, background .3s ease;
 }
 
 .menu-boton:hover {
-    transform: translateY(-8px);
+    transform: translateY(-6px);
     background: rgba(120,70,150,.25);
-    border-color: rgba(210,160,230,.4);
-    box-shadow: 0 15px 35px rgba(0,0,0,.25);
 }
 
 .icono {
     display: block;
-    font-size: 2.8rem;
     margin-bottom: 12px;
+    font-size: 2.7rem;
+}
+
+.encontrados {
+    margin-top: 28px;
+    color: #d7b7e8;
 }
 
 
@@ -438,82 +375,79 @@ body.final {
    ===================================================== */
 
 .seccion {
-    max-width: 900px;
-    margin: 45px auto;
-    padding: 45px 30px;
+    position: relative;
+    width: min(900px, calc(100% - 30px));
+    margin: 35px auto;
+    padding: 42px 28px;
+    border: 1px solid rgba(255,255,255,.1);
     border-radius: 28px;
     background: rgba(255,255,255,.055);
-    border: 1px solid rgba(255,255,255,.1);
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     text-align: center;
-    transition: .5s;
-}
-
-.seccion:hover {
-    border-color: rgba(200,160,220,.25);
 }
 
 .seccion h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+    margin: 0 0 18px;
+    font-size: clamp(2rem, 6vw, 2.6rem);
 }
 
 .seccion p {
+    margin: 0;
     color: #ddd4df;
     line-height: 1.8;
     font-size: 1.05rem;
 }
 
 .seccion-icono {
-    font-size: 3.5rem;
-    margin-bottom: 15px;
+    margin-bottom: 14px;
+    font-size: 3.4rem;
 }
 
 
 /* =====================================================
-   MÚSICA
+   MUSICA
    ===================================================== */
 
 .reproductor {
-    margin: 30px auto;
     max-width: 600px;
-    padding: 25px;
+    margin: 28px auto 0;
+    padding: 24px;
     border-radius: 22px;
     background: rgba(0,0,0,.2);
     border: 1px solid rgba(255,255,255,.1);
 }
 
 .cancion {
-    font-size: 1.2rem;
     margin-bottom: 20px;
     color: #e5c7ee;
+    font-size: 1.15rem;
 }
 
 .controles {
     display: flex;
     justify-content: center;
     gap: 12px;
-    flex-wrap: wrap;
 }
 
 .control {
-    border: none;
-    border-radius: 50%;
     width: 48px;
     height: 48px;
+    border: none;
+    border-radius: 50%;
     background: rgba(255,255,255,.1);
     color: white;
     cursor: pointer;
-    transition: .3s;
+    touch-action: manipulation;
+    font-size: 1rem;
 }
 
-.control:hover {
-    transform: scale(1.1);
-    background: rgba(120,70,150,.4);
+.control:active {
+    transform: scale(.93);
 }
 
 .musica-nota {
-    margin-top: 20px;
+    margin-top: 18px;
     color: #aaa0b0;
     font-size: .9rem;
 }
@@ -525,42 +459,43 @@ body.final {
 
 .estados {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(130px,1fr));
-    gap: 15px;
-    margin-top: 30px;
+    grid-template-columns: repeat(auto-fit,minmax(125px,1fr));
+    gap: 13px;
+    margin-top: 28px;
 }
 
 .estado {
-    padding: 22px 10px;
+    padding: 20px 10px;
+    border: 1px solid rgba(255,255,255,.08);
     border-radius: 20px;
     background: rgba(255,255,255,.055);
     cursor: pointer;
-    transition: .4s;
-    border: 1px solid rgba(255,255,255,.08);
+    touch-action: manipulation;
+    transition: transform .3s ease;
 }
 
 .estado:hover {
-    transform: translateY(-7px) scale(1.03);
+    transform: translateY(-5px);
 }
 
 .estado span {
     display: block;
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+    font-size: 2.4rem;
 }
 
 .mensaje-estado {
-    margin-top: 30px;
-    padding: 30px;
+    display: none;
+    margin-top: 28px;
+    padding: 27px;
     border-radius: 22px;
     background: rgba(0,0,0,.2);
-    display: none;
-    animation: aparecer .6s ease;
+    animation: aparecer .5s ease;
 }
 
 .mensaje-estado h3 {
-    font-size: 1.7rem;
-    margin-bottom: 10px;
+    margin: 0 0 12px;
+    font-size: 1.6rem;
 }
 
 
@@ -570,30 +505,30 @@ body.final {
 
 .recuerdos-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
-    gap: 20px;
-    margin-top: 30px;
+    grid-template-columns: repeat(auto-fit,minmax(160px,1fr));
+    gap: 18px;
+    margin-top: 28px;
 }
 
 .recuerdo {
-    min-height: 180px;
+    min-height: 170px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 20px;
-    background:
-        linear-gradient(
-            145deg,
-            rgba(120,70,100,.4),
-            rgba(80,50,100,.25)
-        );
     border: 1px solid rgba(255,255,255,.1);
-    transition: .4s;
+    border-radius: 20px;
+    background: linear-gradient(
+        145deg,
+        rgba(120,70,100,.4),
+        rgba(80,50,100,.25)
+    );
     cursor: pointer;
+    touch-action: manipulation;
+    transition: transform .3s ease;
 }
 
 .recuerdo:hover {
-    transform: translateY(-8px) rotate(1deg);
+    transform: translateY(-6px) rotate(1deg);
 }
 
 .recuerdo span {
@@ -602,34 +537,47 @@ body.final {
 
 
 /* =====================================================
-   ARCHIVO SECRETO
+   ARCHIVO — REHECHO PARA TOUCH
    ===================================================== */
 
 .archivo {
-    position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .archivo::before {
     content: "🔐";
     position: absolute;
-    font-size: 8rem;
-    opacity: .04;
-    right: -20px;
-    bottom: -20px;
+    right: 12px;
+    bottom: 8px;
+    font-size: 7rem;
+    opacity: .035;
+    pointer-events: none;
+    user-select: none;
+}
+
+.bloqueo {
+    margin: 22px auto;
+    padding: 20px;
+    max-width: 600px;
+    border-radius: 20px;
+    background: rgba(0,0,0,.22);
+    line-height: 1.8;
 }
 
 .archivo-boton {
-    margin-top: 25px;
+    position: relative;
+    z-index: 2;
 }
 
 .archivo-contenido {
     display: none;
-    margin-top: 30px;
+    position: relative;
+    z-index: 2;
+    margin-top: 28px;
     padding: 25px;
     border-radius: 20px;
     background: rgba(60,25,40,.3);
-    animation: aparecer .6s ease;
+    animation: aparecer .5s ease;
 }
 
 
@@ -639,78 +587,76 @@ body.final {
 
 .osito-secreto {
     position: absolute;
-    font-size: 1.4rem;
+    display: block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 1.35rem;
     cursor: pointer;
-    opacity: .18;
-    transition: .4s;
-    z-index: 5;
+    opacity: .22;
+    z-index: 10;
+    pointer-events: auto;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    transition: opacity .3s ease, transform .3s ease;
 }
 
-.osito-secreto:hover {
+.osito-secreto:hover,
+.osito-secreto:active {
     opacity: 1;
-    transform: scale(1.4);
+    transform: scale(1.35);
 }
 
 #secreto1 {
-    top: 18%;
-    left: 4%;
+    top: 15px;
+    left: 12px;
 }
 
 #secreto2 {
     top: 45%;
-    right: 4%;
+    right: 10px;
 }
 
 #secreto3 {
-    bottom: 15%;
-    left: 7%;
+    bottom: 20px;
+    left: 12px;
 }
 
 #secreto4 {
-    top: 70%;
-    right: 8%;
+    top: 65%;
+    right: 12px;
 }
 
 #secreto5 {
-    bottom: 5%;
-    right: 45%;
-}
-
-.encontrados {
-    margin-top: 25px;
-    color: #d7b7e8;
+    bottom: 12px;
+    right: 48%;
 }
 
 
 /* =====================================================
-   FINAL BLOQUEADO
+   FINAL
    ===================================================== */
 
 .final-bloqueado {
-    opacity: .65;
+    transition: background .5s ease;
 }
 
-.final-bloqueado .contenido-final {
+.contenido-final {
     filter: blur(5px);
     user-select: none;
-    pointer-events: none;
-}
-
-.bloqueo {
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 20px;
-    background: rgba(0,0,0,.25);
 }
 
 .final-desbloqueado {
     display: none;
+    animation: aparecer .8s ease;
 }
 
 .final-desbloqueado h3 {
-    font-size: 2.2rem;
     margin-bottom: 20px;
     color: #e5b5ca;
+    font-size: 2.1rem;
 }
 
 
@@ -719,8 +665,10 @@ body.final {
    ===================================================== */
 
 footer {
+    position: relative;
+    z-index: 2;
+    padding: 55px 20px;
     text-align: center;
-    padding: 60px 20px;
     color: #a99dab;
 }
 
@@ -737,67 +685,77 @@ footer {
 
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(25px);
     }
 
     to {
         opacity: 1;
         transform: translateY(0);
     }
-
 }
 
 
 /* =====================================================
-   RESPONSIVE
+   TABLET / CELULAR
    ===================================================== */
 
-@media (max-width:600px) {
+@media (max-width: 700px) {
 
-    .osito {
-        font-size: 4rem;
+    body {
+        touch-action: pan-y;
+    }
+
+    .menu {
+        padding-top: 55px;
+    }
+
+    .seccion {
+        padding: 32px 18px;
+    }
+
+    .botones {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .menu-boton {
+        min-height: 135px;
+    }
+
+    .recuerdos-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+
+@media (max-width: 430px) {
+
+    .botones {
+        grid-template-columns: 1fr;
+    }
+
+    .menu-boton {
+        min-height: 110px;
+    }
+
+    .recuerdos-grid {
+        grid-template-columns: 1fr;
     }
 
     .ositos-principales {
         gap: 15px;
     }
 
-    .portada h1 {
-        letter-spacing: 2px;
-    }
-
-    .subtitulo {
-        font-size: 1.2rem;
-    }
-
-    .frase {
-        font-size: 1rem;
-    }
-
-    .menu {
-        padding-top: 60px;
-    }
-
-    .menu h2 {
-        font-size: 2.2rem;
-    }
-
     .seccion {
-        margin: 25px 15px;
-        padding: 30px 18px;
+        width: calc(100% - 20px);
+        margin: 25px auto;
     }
-
-    .seccion h2 {
-        font-size: 2rem;
-    }
-
 }
 
 </style>
 </head>
 
 
-<body class="inicio">
+<body>
 
 
 <!-- =====================================================
@@ -819,7 +777,7 @@ footer {
 
 
 <!-- =====================================================
-     PARTÍCULAS
+     PARTICULAS
      ===================================================== -->
 
 <div class="particles">
@@ -842,13 +800,9 @@ footer {
 
         <div class="ositos-principales">
 
-            <div class="osito">
-                🐻
-            </div>
+            <div class="osito">🐻</div>
 
-            <div class="osito">
-                🐻
-            </div>
+            <div class="osito">🐻</div>
 
         </div>
 
@@ -867,9 +821,7 @@ footer {
         </p>
 
         <button class="boton" onclick="entrar()">
-
             Entrar al universo 🐻
-
         </button>
 
     </div>
@@ -884,10 +836,6 @@ footer {
 <main id="contenido">
 
 
-<!-- =====================================================
-     MENU
-     ===================================================== -->
-
 <section class="menu">
 
     <h2>Bienvenida, osita 🐻</h2>
@@ -900,78 +848,64 @@ footer {
 
     <div class="botones">
 
-        <button
-            class="menu-boton"
-            onclick="irA('historia')">
+        <button class="menu-boton"
+                onclick="irA('historia')">
 
             <span class="icono">📖</span>
-
             Nuestra historia
 
         </button>
 
 
-        <button
-            class="menu-boton"
-            onclick="irA('musica')">
+        <button class="menu-boton"
+                onclick="irA('musica')">
 
             <span class="icono">🎵</span>
-
             Música
 
         </button>
 
 
-        <button
-            class="menu-boton"
-            onclick="irA('estado')">
+        <button class="menu-boton"
+                onclick="irA('estado')">
 
             <span class="icono">💭</span>
-
             ¿Cómo estás hoy?
 
         </button>
 
 
-        <button
-            class="menu-boton"
-            onclick="irA('recuerdos')">
+        <button class="menu-boton"
+                onclick="irA('recuerdos')">
 
             <span class="icono">📸</span>
-
             Recuerdos
 
         </button>
 
 
-        <button
-            class="menu-boton"
-            onclick="irA('archivo')">
+        <button class="menu-boton"
+                onclick="irA('archivo')">
 
             <span class="icono">😂</span>
-
             Archivo de los ositos
 
         </button>
 
 
-        <button
-            class="menu-boton"
-            onclick="irA('mensajes')">
+        <button class="menu-boton"
+                onclick="irA('mensajes')">
 
             <span class="icono">💌</span>
-
             Para cuando lo necesites
 
         </button>
 
 
-        <button
-            class="menu-boton"
-            onclick="irA('final')">
+        <button class="menu-boton"
+                onclick="irA('final')">
 
             <span class="icono">🎁</span>
-
             Una última cosa
 
         </button>
@@ -993,60 +927,44 @@ footer {
      HISTORIA
      ===================================================== -->
 
-<section
-    class="seccion"
-    id="historia"
-    data-section="historia">
+<section class="seccion" id="historia">
 
-    <div class="seccion-icono">
-        📖
-    </div>
+    <div class="seccion-icono">📖</div>
 
     <h2>Nuestra historia</h2>
 
     <p>
-
         Ocho años son demasiado tiempo
         como para resumirlos en unas cuantas palabras.
-
     </p>
 
     <br>
 
     <p>
-
-        Esta parte todavía está esperando
-        todas esas historias que algún día
-        voy a recordar.
-
+        Esta parte está esperando todas esas
+        historias que algún día vamos a recordar.
     </p>
 
     <br>
 
     <p>
-
         Algunas serán bonitas.
         Algunas serán ridículas.
         Y probablemente algunas deberían
         permanecer clasificadas.
-
     </p>
 
     <br>
 
     <p>
-
         Pero todas forman parte de nosotros.
-
     </p>
 
-    <span
-        class="osito-secreto"
-        id="secreto1"
-        onclick="encontrarOsito(1)">
 
+    <span class="osito-secreto"
+          id="secreto1"
+          onclick="encontrarOsito(1)">
         🐻
-
     </span>
 
 </section>
@@ -1056,62 +974,42 @@ footer {
      MUSICA
      ===================================================== -->
 
-<section
-    class="seccion"
-    id="musica"
-    data-section="musica">
+<section class="seccion" id="musica">
 
-    <div class="seccion-icono">
-        🎵
-    </div>
+    <div class="seccion-icono">🎵</div>
 
     <h2>La música de los ositos</h2>
 
     <p>
-
         Porque hay canciones que simplemente
         hacen que ciertos recuerdos vuelvan.
-
     </p>
 
 
     <div class="reproductor">
 
         <div class="cancion" id="nombreCancion">
-
             🎵 Todavía tenemos que elegir
             nuestras canciones.
-
         </div>
 
 
         <div class="controles">
 
-            <button
-                class="control"
-                onclick="cancionAnterior()">
-
+            <button class="control"
+                    onclick="cancionAnterior()">
                 ⏮️
-
             </button>
 
-
-            <button
-                class="control"
-                onclick="reproducir()"
-                id="playButton">
-
+            <button class="control"
+                    onclick="reproducir()"
+                    id="playButton">
                 ▶️
-
             </button>
 
-
-            <button
-                class="control"
-                onclick="cancionSiguiente()">
-
+            <button class="control"
+                    onclick="cancionSiguiente()">
                 ⏭️
-
             </button>
 
         </div>
@@ -1128,13 +1026,10 @@ footer {
     </div>
 
 
-    <span
-        class="osito-secreto"
-        id="secreto2"
-        onclick="encontrarOsito(2)">
-
+    <span class="osito-secreto"
+          id="secreto2"
+          onclick="encontrarOsito(2)">
         🐻
-
     </span>
 
 </section>
@@ -1144,100 +1039,62 @@ footer {
      ESTADOS
      ===================================================== -->
 
-<section
-    class="seccion"
-    id="estado"
-    data-section="estado">
+<section class="seccion" id="estado">
 
-    <div class="seccion-icono">
-        💭
-    </div>
+    <div class="seccion-icono">💭</div>
 
     <h2>¿Cómo estás hoy?</h2>
 
     <p>
-
         Elige honestamente.
         Este lugar no juzga.
-
     </p>
 
 
     <div class="estados">
 
-
-        <div
-            class="estado"
-            onclick="mostrarEstado('feliz')">
-
+        <div class="estado"
+             onclick="mostrarEstado('feliz')">
             <span>😊</span>
-
             Feliz
-
         </div>
 
-
-        <div
-            class="estado"
-            onclick="mostrarEstado('triste')">
-
+        <div class="estado"
+             onclick="mostrarEstado('triste')">
             <span>😔</span>
-
             Triste
-
         </div>
 
-
-        <div
-            class="estado"
-            onclick="mostrarEstado('enojada')">
-
+        <div class="estado"
+             onclick="mostrarEstado('enojada')">
             <span>😤</span>
-
             Hasta la madre
-
         </div>
 
-
-        <div
-            class="estado"
-            onclick="mostrarEstado('aburrida')">
-
+        <div class="estado"
+             onclick="mostrarEstado('aburrida')">
             <span>🥱</span>
-
             Aburrida
-
         </div>
 
-
-        <div
-            class="estado"
-            onclick="mostrarEstado('pensando')">
-
+        <div class="estado"
+             onclick="mostrarEstado('pensando')">
             <span>🌙</span>
-
             Pensando
-
         </div>
 
-
     </div>
 
 
-    <div
-        id="mensajeEstado"
-        class="mensaje-estado">
-
+    <div id="mensajeEstado"
+         class="mensaje-estado">
     </div>
 
 
-    <span
-        class="osito-secreto"
-        id="secreto3"
-        onclick="encontrarOsito(3)">
-
+    <span class="osito-secreto"
+          id="secreto3"
+          onclick="encontrarOsito(3)">
         🐻
-
     </span>
 
 </section>
@@ -1247,55 +1104,35 @@ footer {
      RECUERDOS
      ===================================================== -->
 
-<section
-    class="seccion"
-    id="recuerdos"
-    data-section="recuerdos">
+<section class="seccion" id="recuerdos">
 
-    <div class="seccion-icono">
-        📸
-    </div>
+    <div class="seccion-icono">📸</div>
 
     <h2>Recuerdos</h2>
 
     <p>
-
         Algunas fotos no necesitan explicación.
         Otras van a necesitar una historia completa.
-
     </p>
 
 
     <div class="recuerdos-grid">
 
-
         <div class="recuerdo">
-
             <span>📷</span>
-
         </div>
 
-
         <div class="recuerdo">
-
             <span>🐻</span>
-
         </div>
 
-
         <div class="recuerdo">
-
             <span>🎮</span>
-
         </div>
-
 
         <div class="recuerdo">
-
             <span>🍻</span>
-
         </div>
-
 
     </div>
 
@@ -1303,45 +1140,33 @@ footer {
     <br>
 
     <p>
-
         Esta galería se va a llenar
         poco a poco.
-
     </p>
 
 
-    <span
-        class="osito-secreto"
-        id="secreto4"
-        onclick="encontrarOsito(4)">
-
+    <span class="osito-secreto"
+          id="secreto4"
+          onclick="encontrarOsito(4)">
         🐻
-
     </span>
 
 </section>
 
 
 <!-- =====================================================
-     ARCHIVO SECRETO
+     ARCHIVO
      ===================================================== -->
 
-<section
-    class="seccion archivo"
-    id="archivo"
-    data-section="archivo">
+<section class="seccion archivo" id="archivo">
 
-    <div class="seccion-icono">
-        🔐
-    </div>
+    <div class="seccion-icono">🔐</div>
 
     <h2>Archivo de los Ositos</h2>
 
     <p>
-
         Hay recuerdos que probablemente
         deberían permanecer clasificados.
-
     </p>
 
 
@@ -1356,34 +1181,26 @@ footer {
         <br>
 
         • vergüenza
-
         <br>
-
         • risa
-
         <br>
-
         • negación de los hechos
-
         <br>
-
         • "eso nunca pasó"
 
     </div>
 
 
-    <button
-        class="boton archivo-boton"
-        onclick="abrirArchivo()">
+    <button class="boton archivo-boton"
+            onclick="abrirArchivo()">
 
         🔓 Intentar abrir
 
     </button>
 
 
-    <div
-        class="archivo-contenido"
-        id="archivoContenido">
+    <div class="archivo-contenido"
+         id="archivoContenido">
 
         <h3>
             Bienvenida al archivo secreto. 😂
@@ -1392,34 +1209,20 @@ footer {
         <br>
 
         <p>
-
             Aquí vamos a guardar las historias
             que definitivamente necesitan
             ser contadas.
-
         </p>
 
         <br>
 
         <p>
-
             Por ahora solamente sabemos
             que este archivo va a necesitar
             bastante espacio.
-
         </p>
 
     </div>
-
-
-    <span
-        class="osito-secreto"
-        id="secreto5"
-        onclick="encontrarOsito(5)">
-
-        🐻
-
-    </span>
 
 </section>
 
@@ -1428,37 +1231,30 @@ footer {
      MENSAJES
      ===================================================== -->
 
-<section
-    class="seccion"
-    id="mensajes"
-    data-section="mensajes">
+<section class="seccion" id="mensajes">
 
-    <div class="seccion-icono">
-        💌
-    </div>
+    <div class="seccion-icono">💌</div>
 
     <h2>Para cuando lo necesites</h2>
 
     <p>
-
         Hay mensajes que uno no necesita
         leer todos los días.
-
-        <br>
-
-        Solo necesita saber que están ahí.
-
     </p>
 
     <br>
 
     <p>
+        Solo necesita saber que están ahí.
+    </p>
 
+    <br>
+
+    <p>
         Aquí habrá mensajes para cuando
         estés feliz, triste, confundida,
         cansada, enojada o simplemente
         necesites recordar que tienes un osito.
-
     </p>
 
 </section>
@@ -1468,21 +1264,16 @@ footer {
      FINAL
      ===================================================== -->
 
-<section
-    class="seccion final-bloqueado"
-    id="final"
-    data-section="final">
+<section class="seccion final-bloqueado"
+         id="final">
 
-    <div class="seccion-icono">
-        🎁
-    </div>
+    <div class="seccion-icono">🎁</div>
 
     <h2>Una última cosa...</h2>
 
 
-    <div
-        class="bloqueo"
-        id="mensajeBloqueo">
+    <div class="bloqueo"
+         id="mensajeBloqueo">
 
         🔐
 
@@ -1498,9 +1289,7 @@ footer {
         <br><br>
 
         <strong id="contadorFinal">
-
             0 / 5
-
         </strong>
 
     </div>
@@ -1509,64 +1298,55 @@ footer {
     <div class="contenido-final">
 
         <p>
-
             Si estás viendo esto,
             probablemente todavía no deberías.
-
         </p>
 
     </div>
 
 
-    <div
-        class="final-desbloqueado"
-        id="finalDesbloqueado">
+    <div class="final-desbloqueado"
+         id="finalDesbloqueado">
 
         <h3>
             Encontraste todos los ositos. 🐻❤️
         </h3>
 
         <p>
-
             Y ahora sí...
-
         </p>
 
         <br>
 
         <p>
-
             Aquí va a estar el último recuerdo.
-
         </p>
 
         <br>
 
         <p>
-
             <em>
                 Próximamente...
             </em>
-
         </p>
 
     </div>
 
+    <span class="osito-secreto"
+          id="secreto5"
+          onclick="encontrarOsito(5)">
+        🐻
+    </span>
+
 </section>
 
-
-<!-- =====================================================
-     FOOTER
-     ===================================================== -->
 
 <footer>
 
     Hecho por un osito
     para otra osita
 
-    <span class="corazon">
-        ♥
-    </span>
+    <span class="corazon">♥</span>
 
     <br><br>
 
@@ -1590,23 +1370,21 @@ function entrar() {
 
     document.getElementById("contenido").style.display = "block";
 
-    document.body.className = "inicio";
-
     window.scrollTo({
         top: 0,
         behavior: "smooth"
     });
-
 }
 
 
 /* =====================================================
-   NAVEGACIÓN
+   NAVEGACION
    ===================================================== */
 
 function irA(id) {
 
-    const elemento = document.getElementById(id);
+    const elemento =
+        document.getElementById(id);
 
     if (!elemento) return;
 
@@ -1614,55 +1392,6 @@ function irA(id) {
         behavior: "smooth",
         block: "start"
     });
-
-}
-
-
-/* =====================================================
-   CAMBIO DE AMBIENTE
-   ===================================================== */
-
-const secciones = document.querySelectorAll(
-    "[data-section]"
-);
-
-const observador = new IntersectionObserver(
-
-    (entradas) => {
-
-        entradas.forEach((entrada) => {
-
-            if (entrada.isIntersecting) {
-
-                const seccion =
-                    entrada.target.dataset.section;
-
-                cambiarAmbiente(seccion);
-
-            }
-
-        });
-
-    },
-
-    {
-        threshold: 0.35
-    }
-
-);
-
-
-secciones.forEach((seccion) => {
-
-    observador.observe(seccion);
-
-});
-
-
-function cambiarAmbiente(seccion) {
-
-    document.body.className = seccion;
-
 }
 
 
@@ -1677,149 +1406,71 @@ function mostrarEstado(tipo) {
 
     let mensaje = "";
 
-    document.body.className =
-        "estado-" + tipo;
-
-
     if (tipo === "feliz") {
 
         mensaje = `
-
-            <h3>
-                Entonces disfruta ese momento. 🐻❤️
-            </h3>
+            <h3>Entonces disfruta ese momento. 🐻❤️</h3>
 
             <p>
-
                 Qué bueno que hoy estás feliz.
-
                 <br><br>
-
-                Guarda ese momento,
-                disfrútalo y no busques
-                una razón para que termine.
-
+                Guarda ese momento y disfrútalo.
             </p>
-
         `;
 
-    }
-
-
-    if (tipo === "triste") {
+    } else if (tipo === "triste") {
 
         mensaje = `
-
-            <h3>
-                Ven acá, osita. 🐻💙
-            </h3>
+            <h3>Ven acá, osita. 🐻💙</h3>
 
             <p>
-
-                No tienes que solucionar
-                todo hoy.
-
+                No tienes que solucionar todo hoy.
                 <br><br>
-
-                Hay días que simplemente
-                pesan más que otros.
-
-                <br><br>
-
                 Respira.
-
                 <br><br>
-
-                Y recuerda que un mal día
-                no significa una mala vida.
-
+                Un mal día no significa una mala vida.
             </p>
-
         `;
 
-    }
-
-
-    if (tipo === "enojada") {
+    } else if (tipo === "enojada") {
 
         mensaje = `
-
-            <h3>
-                Ok... primero respira. 😂🐻
-            </h3>
+            <h3>Ok... primero respira. 😂🐻</h3>
 
             <p>
-
-                No voy a preguntar
-                "¿por qué estás enojada?"
-
+                No voy a preguntar "¿por qué estás enojada?"
+                porque probablemente eso solo empeoraría las cosas.
                 <br><br>
-
-                Porque probablemente
-                eso solo empeoraría las cosas.
-
-                <br><br>
-
                 Mejor vamos a distraerte.
-
             </p>
-
         `;
 
-    }
-
-
-    if (tipo === "aburrida") {
+    } else if (tipo === "aburrida") {
 
         mensaje = `
-
-            <h3>
-                Tenemos un problema. 🐻
-            </h3>
+            <h3>Tenemos un problema. 🐻</h3>
 
             <p>
-
-                Ocho años de amistad
-                y todavía encontraste
-                la manera de aburrirte.
-
+                Ocho años de amistad y todavía
+                encontraste la manera de aburrirte.
                 <br><br>
-
-                Eso requiere medidas extremas.
-
-                😂
-
+                Eso requiere medidas extremas. 😂
             </p>
-
         `;
 
-    }
-
-
-    if (tipo === "pensando") {
+    } else if (tipo === "pensando") {
 
         mensaje = `
-
-            <h3>
-                Quédate un rato. 🌙🐻
-            </h3>
+            <h3>Quédate un rato. 🌙🐻</h3>
 
             <p>
-
-                Hay cosas que necesitan
-                tiempo para acomodarse.
-
+                Hay cosas que necesitan tiempo
+                para acomodarse.
                 <br><br>
-
-                No tienes que tener
-                todas las respuestas ahora.
-
+                No tienes que tener todas las respuestas ahora.
             </p>
-
         `;
-
     }
-
 
     caja.innerHTML = mensaje;
 
@@ -1829,7 +1480,6 @@ function mostrarEstado(tipo) {
         behavior: "smooth",
         block: "center"
     });
-
 }
 
 
@@ -1842,8 +1492,15 @@ function abrirArchivo() {
     const archivo =
         document.getElementById("archivoContenido");
 
-    archivo.style.display = "block";
+    if (archivo.style.display === "block") {
 
+        archivo.style.display = "none";
+
+    } else {
+
+        archivo.style.display = "block";
+
+    }
 }
 
 
@@ -1851,12 +1508,20 @@ function abrirArchivo() {
    OSITOS SECRETOS
    ===================================================== */
 
-let ositosEncontrados =
-    JSON.parse(
-        localStorage.getItem(
-            "ositosEncontrados"
-        )
-    ) || [];
+let ositosEncontrados = [];
+
+try {
+
+    ositosEncontrados =
+        JSON.parse(
+            localStorage.getItem("ositosEncontrados")
+        ) || [];
+
+} catch (error) {
+
+    ositosEncontrados = [];
+
+}
 
 
 function actualizarContador() {
@@ -1864,57 +1529,47 @@ function actualizarContador() {
     const cantidad =
         ositosEncontrados.length;
 
-    document.getElementById(
-        "contador"
-    ).textContent =
+    document.getElementById("contador")
+        .textContent =
         cantidad + " / 5";
 
-
-    document.getElementById(
-        "contadorFinal"
-    ).textContent =
+    document.getElementById("contadorFinal")
+        .textContent =
         cantidad + " / 5";
-
 
     if (cantidad >= 5) {
 
         desbloquearFinal();
 
     }
-
 }
 
 
 function encontrarOsito(numero) {
 
-    if (
-        !ositosEncontrados.includes(numero)
-    ) {
+    if (!ositosEncontrados.includes(numero)) {
 
         ositosEncontrados.push(numero);
 
-        localStorage.setItem(
-            "ositosEncontrados",
-            JSON.stringify(
-                ositosEncontrados
-            )
-        );
+        try {
+
+            localStorage.setItem(
+                "ositosEncontrados",
+                JSON.stringify(ositosEncontrados)
+            );
+
+        } catch (error) {}
 
         alert(
             "🐻 ¡Encontraste un osito secreto!"
         );
-
     }
 
     actualizarContador();
-
 }
 
 
 function desbloquearFinal() {
-
-    const final =
-        document.getElementById("final");
 
     const bloqueo =
         document.getElementById(
@@ -1931,23 +1586,11 @@ function desbloquearFinal() {
             "finalDesbloqueado"
         );
 
+    bloqueo.style.display = "none";
 
-    final.classList.remove(
-        "final-bloqueado"
-    );
+    contenido.style.display = "none";
 
-
-    bloqueo.style.display =
-        "none";
-
-
-    contenido.style.display =
-        "none";
-
-
-    desbloqueado.style.display =
-        "block";
-
+    desbloqueado.style.display = "block";
 }
 
 
@@ -1955,28 +1598,18 @@ actualizarContador();
 
 
 /* =====================================================
-   REPRODUCTOR PREPARADO
+   MUSICA — PREPARADA
    ===================================================== */
 
-let canciones = [
+const canciones = [
 
-    {
-        nombre:
-        "Todavía tenemos que elegir esta canción 🎵"
-    },
+    "Todavía tenemos que elegir esta canción 🎵",
 
-    {
-        nombre:
-        "Aquí irá una canción de los ositos 🐻"
-    },
+    "Aquí irá una canción de los ositos 🐻",
 
-    {
-        nombre:
-        "Esta tendrá una historia detrás ❤️"
-    }
+    "Esta tendrá una historia detrás ❤️"
 
 ];
-
 
 let cancionActual = 0;
 
@@ -1988,8 +1621,7 @@ function actualizarCancion() {
     document.getElementById(
         "nombreCancion"
     ).textContent =
-        "🎵 " +
-        canciones[cancionActual].nombre;
+        "🎵 " + canciones[cancionActual];
 
 }
 
@@ -2005,24 +1637,16 @@ function reproducir() {
         reproduciendo
         ? "⏸️"
         : "▶️";
-
 }
 
 
 function cancionSiguiente() {
 
-    cancionActual++;
-
-    if (
-        cancionActual >= canciones.length
-    ) {
-
-        cancionActual = 0;
-
-    }
+    cancionActual =
+        (cancionActual + 1) %
+        canciones.length;
 
     actualizarCancion();
-
 }
 
 
@@ -2030,9 +1654,7 @@ function cancionAnterior() {
 
     cancionActual--;
 
-    if (
-        cancionActual < 0
-    ) {
+    if (cancionActual < 0) {
 
         cancionActual =
             canciones.length - 1;
@@ -2040,7 +1662,6 @@ function cancionAnterior() {
     }
 
     actualizarCancion();
-
 }
 
 
@@ -2048,20 +1669,21 @@ actualizarCancion();
 
 
 /* =====================================================
-   FINAL
+   PREVENCIÓN EXTRA PARA TOUCH
    ===================================================== */
 
-window.addEventListener(
-    "beforeunload",
-    function() {
+document.addEventListener(
+    "touchmove",
+    function(event) {
 
-        localStorage.setItem(
-            "ositosEncontrados",
-            JSON.stringify(
-                ositosEncontrados
-            )
-        );
+        /*
+         * No bloqueamos el gesto.
+         * Chrome puede desplazarse normalmente.
+         */
 
+    },
+    {
+        passive: true
     }
 );
 
