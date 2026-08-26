@@ -2,16 +2,21 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-<title>🐻 El Universo de los Ositos</title>
+<meta name="viewport"
+      content="width=device-width,
+               initial-scale=1,
+               maximum-scale=5,
+               viewport-fit=cover">
+
+<title>El Universo de los Ositos 🐻</title>
 
 <style>
 
-/* =====================================================
-   EL UNIVERSO DE LOS OSITOS
-   V2.1 — ESTABLE
-   ===================================================== */
+/* =========================================================
+   UNIVERSO DE LOS OSITOS
+   V3.0 — MOBILE FIRST / ESTABLE
+   ========================================================= */
 
 * {
     box-sizing: border-box;
@@ -20,672 +25,755 @@
 html {
     scroll-behavior: smooth;
     overflow-x: hidden;
-    overflow-y: auto;
 }
 
 body {
     margin: 0;
-    min-height: 100vh;
-    font-family: Georgia, "Times New Roman", serif;
-    color: #f8f1e7;
-    background:
-        radial-gradient(circle at 20% 20%, #512b70 0%, transparent 32%),
-        radial-gradient(circle at 80% 70%, #243d79 0%, transparent 35%),
-        #100b1b;
+    min-width: 320px;
     overflow-x: hidden;
-    overflow-y: auto;
-    touch-action: pan-y;
-    transition: background 1s ease;
+    background: #100b1b;
+    color: #f8f1e7;
+    font-family: Georgia, "Times New Roman", serif;
 }
 
-
-/* =====================================================
+/* ---------------------------------------------------------
    ESTRELLAS
-   ===================================================== */
+   --------------------------------------------------------- */
 
-.stars,
-.particles {
+.espacio {
     position: fixed;
     inset: 0;
-    width: 100%;
-    height: 100%;
+    overflow: hidden;
     pointer-events: none;
-    user-select: none;
     z-index: 0;
 }
 
-.star {
+.estrella {
     position: absolute;
+    width: 3px;
+    height: 3px;
     border-radius: 50%;
     background: white;
-    opacity: .55;
-    will-change: transform;
-    animation: viajar linear infinite;
+    opacity: .7;
+    animation: estrellaMovimiento 12s linear infinite;
 }
 
-.star:nth-child(1) {
-    width: 3px;
-    height: 3px;
-    left: 8%;
-    top: 18%;
-    animation-duration: 14s;
-}
-
-.star:nth-child(2) {
-    width: 2px;
-    height: 2px;
-    left: 23%;
-    top: 70%;
-    animation-duration: 19s;
-}
-
-.star:nth-child(3) {
-    width: 4px;
-    height: 4px;
-    left: 45%;
-    top: 13%;
-    animation-duration: 16s;
-}
-
-.star:nth-child(4) {
-    width: 2px;
-    height: 2px;
-    left: 65%;
-    top: 48%;
-    animation-duration: 21s;
-}
-
-.star:nth-child(5) {
-    width: 3px;
-    height: 3px;
-    left: 82%;
-    top: 23%;
-    animation-duration: 15s;
-}
-
-.star:nth-child(6) {
-    width: 2px;
-    height: 2px;
-    left: 91%;
-    top: 78%;
-    animation-duration: 18s;
-}
-
-.star:nth-child(7) {
-    width: 3px;
-    height: 3px;
-    left: 35%;
-    top: 88%;
-    animation-duration: 23s;
-}
-
-.star:nth-child(8) {
-    width: 2px;
-    height: 2px;
-    left: 55%;
-    top: 75%;
+.estrella:nth-child(1) {
+    left: 7%;
+    top: 15%;
     animation-duration: 13s;
 }
 
-@keyframes viajar {
+.estrella:nth-child(2) {
+    left: 18%;
+    top: 72%;
+    animation-duration: 17s;
+}
+
+.estrella:nth-child(3) {
+    left: 31%;
+    top: 35%;
+    animation-duration: 20s;
+}
+
+.estrella:nth-child(4) {
+    left: 44%;
+    top: 12%;
+    animation-duration: 15s;
+}
+
+.estrella:nth-child(5) {
+    left: 57%;
+    top: 82%;
+    animation-duration: 18s;
+}
+
+.estrella:nth-child(6) {
+    left: 68%;
+    top: 44%;
+    animation-duration: 14s;
+}
+
+.estrella:nth-child(7) {
+    left: 79%;
+    top: 18%;
+    animation-duration: 21s;
+}
+
+.estrella:nth-child(8) {
+    left: 91%;
+    top: 68%;
+    animation-duration: 16s;
+}
+
+.estrella:nth-child(9) {
+    left: 51%;
+    top: 55%;
+    animation-duration: 23s;
+}
+
+.estrella:nth-child(10) {
+    left: 13%;
+    top: 48%;
+    animation-duration: 19s;
+}
+
+@keyframes estrellaMovimiento {
 
     0% {
-        transform: translate3d(0,0,0);
+        transform: translate(0, 0);
         opacity: .2;
     }
 
     50% {
-        opacity: 1;
+        opacity: .9;
     }
 
     100% {
-        transform: translate3d(70px,-90px,0);
-        opacity: .1;
+        transform: translate(45px, -55px);
+        opacity: .2;
     }
 }
 
 
-/* =====================================================
-   PARTÍCULAS
-   ===================================================== */
+/* ---------------------------------------------------------
+   ESTRUCTURA
+   --------------------------------------------------------- */
 
-.particle {
-    position: absolute;
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: rgba(255,255,255,.3);
-    animation: flotar linear infinite;
-}
-
-.particle:nth-child(1) {
-    left: 15%;
-    bottom: -10px;
-    animation-duration: 17s;
-}
-
-.particle:nth-child(2) {
-    left: 40%;
-    bottom: -10px;
-    animation-duration: 22s;
-}
-
-.particle:nth-child(3) {
-    left: 70%;
-    bottom: -10px;
-    animation-duration: 19s;
-}
-
-.particle:nth-child(4) {
-    left: 87%;
-    bottom: -10px;
-    animation-duration: 25s;
-}
-
-@keyframes flotar {
-
-    from {
-        transform: translateY(0);
-        opacity: 0;
-    }
-
-    20% {
-        opacity: 1;
-    }
-
-    to {
-        transform: translateY(-110vh);
-        opacity: 0;
-    }
+.pagina {
+    position: relative;
+    z-index: 1;
 }
 
 
-/* =====================================================
+/* ---------------------------------------------------------
    PORTADA
-   ===================================================== */
+   --------------------------------------------------------- */
 
-#inicio {
-    min-height: 100svh;
+.portada {
     min-height: 100vh;
+    min-height: 100svh;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    z-index: 2;
+
     padding: 30px 20px;
+
     text-align: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(105, 60, 145, .45),
+            transparent 55%
+        );
 }
 
-.portada {
-    width: min(850px, 100%);
-    animation: aparecer 1.2s ease;
+.portada-contenido {
+    width: 100%;
+    max-width: 650px;
 }
 
-.ositos-principales {
+.ositos {
     display: flex;
     justify-content: center;
-    gap: 35px;
+    align-items: center;
+    gap: 18px;
     margin-bottom: 20px;
 }
 
-.osito {
-    display: inline-block;
-    font-size: clamp(4rem, 12vw, 6rem);
-    animation: ositoFlota 3s ease-in-out infinite;
-    filter: drop-shadow(0 10px 15px rgba(0,0,0,.35));
+.osito-grande {
+    font-size: clamp(4rem, 18vw, 7rem);
+    animation: osito 3s ease-in-out infinite;
 }
 
-.osito:nth-child(2) {
+.osito-grande:nth-child(2) {
     animation-delay: 1s;
 }
 
-@keyframes ositoFlota {
+@keyframes osito {
 
-    0%,100% {
-        transform: translateY(0) rotate(-2deg);
+    0%, 100% {
+        transform: translateY(0) rotate(-3deg);
     }
 
     50% {
-        transform: translateY(-14px) rotate(2deg);
+        transform: translateY(-12px) rotate(3deg);
     }
 }
 
-.portada h1 {
+h1 {
     margin: 0;
-    font-size: clamp(3rem, 11vw, 6.5rem);
-    letter-spacing: 4px;
+
+    font-size: clamp(
+        3rem,
+        14vw,
+        6rem
+    );
+
+    letter-spacing: 3px;
+
     text-shadow:
-        0 0 20px rgba(140,90,180,.7),
-        0 0 45px rgba(60,90,170,.4);
+        0 0 15px rgba(135, 75, 170, .7),
+        0 0 35px rgba(60, 80, 160, .5);
 }
 
 .subtitulo {
-    margin-top: 12px;
-    color: #d9bce8;
-    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    margin-top: 10px;
+
+    color: #d7b7e8;
+
+    font-size: clamp(
+        1.1rem,
+        5vw,
+        1.5rem
+    );
 }
 
-.frase {
-    max-width: 650px;
-    margin: 28px auto;
+.intro {
+    max-width: 560px;
+
+    margin: 25px auto;
+
+    color: #ddd4df;
+
     line-height: 1.8;
-    color: #e7ded7;
-    font-size: 1.1rem;
+
+    font-size: 1.05rem;
 }
 
 .boton {
-    border: none;
-    padding: 15px 34px;
-    border-radius: 50px;
-    background: linear-gradient(135deg,#70408a,#354f99);
-    color: white;
-    font-family: inherit;
-    font-size: 1.05rem;
-    cursor: pointer;
-    touch-action: manipulation;
-    box-shadow: 0 10px 35px rgba(0,0,0,.35);
-    transition: transform .3s ease, box-shadow .3s ease;
-}
+    display: inline-block;
 
-.boton:hover {
-    transform: translateY(-4px) scale(1.03);
+    border: 0;
+
+    padding: 15px 28px;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #71418b,
+            #38529a
+        );
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 1rem;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.3);
+
+    transition:
+        transform .2s ease;
 }
 
 .boton:active {
-    transform: scale(.97);
+    transform: scale(.96);
 }
 
 
-/* =====================================================
+/* ---------------------------------------------------------
    CONTENIDO
-   ===================================================== */
+   --------------------------------------------------------- */
 
-#contenido {
-    position: relative;
-    z-index: 2;
+#universo {
     display: none;
+
     width: 100%;
-    min-height: 100vh;
-    padding-bottom: 80px;
+
+    padding-bottom: 50px;
 }
 
 
-/* =====================================================
+/* ---------------------------------------------------------
    MENU
-   ===================================================== */
+   --------------------------------------------------------- */
 
 .menu {
-    width: min(1000px, calc(100% - 30px));
-    margin: 0 auto;
-    padding: 75px 0 45px;
+    padding: 70px 18px 35px;
+
     text-align: center;
 }
 
 .menu h2 {
-    margin: 0 0 12px;
-    font-size: clamp(2.2rem, 7vw, 3rem);
+    margin: 0 0 10px;
+
+    font-size: clamp(
+        2rem,
+        9vw,
+        3rem
+    );
 }
 
-.menu > p {
-    margin-bottom: 38px;
-    color: #c9becd;
+.menu p {
+    color: #bbb0c2;
+
+    line-height: 1.6;
 }
 
-.botones {
+.menu-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(190px,1fr));
-    gap: 16px;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 12px;
+
+    width: 100%;
+    max-width: 700px;
+
+    margin: 30px auto 0;
 }
 
-.menu-boton {
-    min-height: 145px;
-    padding: 22px 15px;
-    border: 1px solid rgba(255,255,255,.12);
-    border-radius: 22px;
-    background: rgba(255,255,255,.055);
+.menu-item {
+    min-height: 125px;
+
+    padding: 18px 10px;
+
+    border: 1px solid
+        rgba(255,255,255,.1);
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,.06);
+
     color: white;
+
     font-family: inherit;
-    font-size: 1.05rem;
+
+    font-size: .95rem;
+
     cursor: pointer;
-    touch-action: manipulation;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    transition: transform .3s ease, background .3s ease;
+
+    transition:
+        transform .2s ease,
+        background .2s ease;
 }
 
-.menu-boton:hover {
-    transform: translateY(-6px);
-    background: rgba(120,70,150,.25);
+.menu-item:active {
+    transform: scale(.96);
 }
 
-.icono {
+.menu-icono {
     display: block;
-    margin-bottom: 12px;
-    font-size: 2.7rem;
-}
 
-.encontrados {
-    margin-top: 28px;
-    color: #d7b7e8;
+    margin-bottom: 9px;
+
+    font-size: 2.3rem;
 }
 
 
-/* =====================================================
+/* ---------------------------------------------------------
    SECCIONES
-   ===================================================== */
+   --------------------------------------------------------- */
 
 .seccion {
     position: relative;
-    width: min(900px, calc(100% - 30px));
-    margin: 35px auto;
-    padding: 42px 28px;
-    border: 1px solid rgba(255,255,255,.1);
-    border-radius: 28px;
-    background: rgba(255,255,255,.055);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+
+    width: calc(100% - 24px);
+
+    max-width: 850px;
+
+    margin: 25px auto;
+
+    padding: 35px 20px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.09);
+
+    border-radius: 25px;
+
+    background:
+        rgba(30,20,45,.72);
+
     text-align: center;
 }
 
 .seccion h2 {
-    margin: 0 0 18px;
-    font-size: clamp(2rem, 6vw, 2.6rem);
+    margin: 0 0 15px;
+
+    font-size: clamp(
+        1.9rem,
+        8vw,
+        2.7rem
+    );
 }
 
 .seccion p {
-    margin: 0;
-    color: #ddd4df;
+    color: #d5ccd8;
+
     line-height: 1.8;
-    font-size: 1.05rem;
 }
 
-.seccion-icono {
-    margin-bottom: 14px;
-    font-size: 3.4rem;
-}
+.icono-seccion {
+    margin-bottom: 12px;
 
-
-/* =====================================================
-   MUSICA
-   ===================================================== */
-
-.reproductor {
-    max-width: 600px;
-    margin: 28px auto 0;
-    padding: 24px;
-    border-radius: 22px;
-    background: rgba(0,0,0,.2);
-    border: 1px solid rgba(255,255,255,.1);
-}
-
-.cancion {
-    margin-bottom: 20px;
-    color: #e5c7ee;
-    font-size: 1.15rem;
-}
-
-.controles {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-}
-
-.control {
-    width: 48px;
-    height: 48px;
-    border: none;
-    border-radius: 50%;
-    background: rgba(255,255,255,.1);
-    color: white;
-    cursor: pointer;
-    touch-action: manipulation;
-    font-size: 1rem;
-}
-
-.control:active {
-    transform: scale(.93);
-}
-
-.musica-nota {
-    margin-top: 18px;
-    color: #aaa0b0;
-    font-size: .9rem;
-}
-
-
-/* =====================================================
-   ESTADOS
-   ===================================================== */
-
-.estados {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(125px,1fr));
-    gap: 13px;
-    margin-top: 28px;
-}
-
-.estado {
-    padding: 20px 10px;
-    border: 1px solid rgba(255,255,255,.08);
-    border-radius: 20px;
-    background: rgba(255,255,255,.055);
-    cursor: pointer;
-    touch-action: manipulation;
-    transition: transform .3s ease;
-}
-
-.estado:hover {
-    transform: translateY(-5px);
-}
-
-.estado span {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 2.4rem;
-}
-
-.mensaje-estado {
-    display: none;
-    margin-top: 28px;
-    padding: 27px;
-    border-radius: 22px;
-    background: rgba(0,0,0,.2);
-    animation: aparecer .5s ease;
-}
-
-.mensaje-estado h3 {
-    margin: 0 0 12px;
-    font-size: 1.6rem;
-}
-
-
-/* =====================================================
-   RECUERDOS
-   ===================================================== */
-
-.recuerdos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(160px,1fr));
-    gap: 18px;
-    margin-top: 28px;
-}
-
-.recuerdo {
-    min-height: 170px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgba(255,255,255,.1);
-    border-radius: 20px;
-    background: linear-gradient(
-        145deg,
-        rgba(120,70,100,.4),
-        rgba(80,50,100,.25)
-    );
-    cursor: pointer;
-    touch-action: manipulation;
-    transition: transform .3s ease;
-}
-
-.recuerdo:hover {
-    transform: translateY(-6px) rotate(1deg);
-}
-
-.recuerdo span {
     font-size: 3rem;
 }
 
 
-/* =====================================================
-   ARCHIVO — REHECHO PARA TOUCH
-   ===================================================== */
+/* ---------------------------------------------------------
+   HISTORIA
+   --------------------------------------------------------- */
+
+.historia-texto {
+    padding: 5px;
+}
+
+
+/* ---------------------------------------------------------
+   COLORES DE LOS OSITOS
+   --------------------------------------------------------- */
+
+.colores {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 12px;
+
+    margin-top: 25px;
+}
+
+.color-osito {
+    padding: 20px 10px;
+
+    border-radius: 18px;
+
+    font-size: 2rem;
+
+    background:
+        rgba(255,255,255,.05);
+}
+
+.morado {
+    border: 1px solid #8d5ab2;
+}
+
+.azul {
+    border: 1px solid #4d76c8;
+}
+
+.rojo {
+    border: 1px solid #b95767;
+}
+
+.cafe {
+    border: 1px solid #9a6c4a;
+}
+
+
+/* ---------------------------------------------------------
+   MUSICA
+   --------------------------------------------------------- */
+
+.reproductor {
+    margin-top: 25px;
+
+    padding: 22px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(0,0,0,.25);
+}
+
+.cancion {
+    color: #e2c5ee;
+
+    margin-bottom: 20px;
+
+    line-height: 1.5;
+}
+
+.controles {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+}
+
+.control {
+    width: 50px;
+    height: 50px;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.1);
+
+    color: white;
+
+    font-size: 1.1rem;
+
+    cursor: pointer;
+}
+
+.nota {
+    margin-top: 18px;
+
+    color: #9f95a6;
+
+    font-size: .85rem;
+}
+
+
+/* ---------------------------------------------------------
+   ESTADOS
+   --------------------------------------------------------- */
+
+.estados {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 10px;
+
+    margin-top: 25px;
+}
+
+.estado {
+    padding: 18px 8px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius: 18px;
+
+    background:
+        rgba(255,255,255,.05);
+
+    color: white;
+
+    cursor: pointer;
+
+    font-family: inherit;
+}
+
+.estado:active {
+    transform: scale(.97);
+}
+
+.estado span {
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-size: 2rem;
+}
+
+.respuesta-estado {
+    display: none;
+
+    margin-top: 20px;
+
+    padding: 20px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(100,60,120,.2);
+
+    line-height: 1.7;
+}
+
+
+/* ---------------------------------------------------------
+   RECUERDOS
+   --------------------------------------------------------- */
+
+.recuerdos {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 12px;
+
+    margin-top: 25px;
+}
+
+.recuerdo {
+    min-height: 150px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(100,55,90,.45),
+            rgba(50,45,90,.4)
+        );
+
+    font-size: 3rem;
+
+    cursor: pointer;
+}
+
+.recuerdo:active {
+    transform: scale(.97);
+}
+
+
+/* ---------------------------------------------------------
+   ARCHIVO DE LOS OSITOS
+   --------------------------------------------------------- */
 
 .archivo {
-    overflow: visible;
+    background:
+        rgba(45,25,35,.78);
 }
 
-.archivo::before {
-    content: "🔐";
-    position: absolute;
-    right: 12px;
-    bottom: 8px;
-    font-size: 7rem;
-    opacity: .035;
-    pointer-events: none;
-    user-select: none;
-}
+.archivo-caja {
+    margin: 22px 0;
 
-.bloqueo {
-    margin: 22px auto;
     padding: 20px;
-    max-width: 600px;
-    border-radius: 20px;
-    background: rgba(0,0,0,.22);
-    line-height: 1.8;
-}
 
-.archivo-boton {
-    position: relative;
-    z-index: 2;
+    border-radius: 18px;
+
+    background:
+        rgba(0,0,0,.25);
+
+    line-height: 1.8;
+
+    color: #d8ced8;
 }
 
 .archivo-contenido {
     display: none;
-    position: relative;
-    z-index: 2;
-    margin-top: 28px;
-    padding: 25px;
-    border-radius: 20px;
-    background: rgba(60,25,40,.3);
-    animation: aparecer .5s ease;
+
+    margin-top: 22px;
+
+    padding: 22px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(100,50,70,.25);
+
+    line-height: 1.8;
 }
 
 
-/* =====================================================
-   OSITOS SECRETOS
-   ===================================================== */
+/* ---------------------------------------------------------
+   MENSAJES
+   --------------------------------------------------------- */
 
-.osito-secreto {
-    position: absolute;
-    display: block;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
-    font-size: 1.35rem;
+.mensaje {
+    padding: 22px;
+
+    margin-top: 18px;
+
+    border-left:
+        3px solid #8060a0;
+
+    background:
+        rgba(255,255,255,.04);
+
+    text-align: left;
+
+    line-height: 1.8;
+}
+
+
+/* ---------------------------------------------------------
+   SECRETOS
+   --------------------------------------------------------- */
+
+.secretos {
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, 1fr);
+
+    gap: 7px;
+
+    margin-top: 25px;
+}
+
+.secreto {
+    min-height: 55px;
+
+    border: 1px solid
+        rgba(255,255,255,.08);
+
+    border-radius: 12px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    color: rgba(255,255,255,.2);
+
+    font-size: 1.2rem;
+
     cursor: pointer;
-    opacity: .22;
-    z-index: 10;
-    pointer-events: auto;
-    touch-action: manipulation;
-    user-select: none;
-    -webkit-user-select: none;
-    transition: opacity .3s ease, transform .3s ease;
 }
 
-.osito-secreto:hover,
-.osito-secreto:active {
-    opacity: 1;
-    transform: scale(1.35);
-}
+.secreto.encontrado {
+    color: #e6bde9;
 
-#secreto1 {
-    top: 15px;
-    left: 12px;
-}
-
-#secreto2 {
-    top: 45%;
-    right: 10px;
-}
-
-#secreto3 {
-    bottom: 20px;
-    left: 12px;
-}
-
-#secreto4 {
-    top: 65%;
-    right: 12px;
-}
-
-#secreto5 {
-    bottom: 12px;
-    right: 48%;
+    background:
+        rgba(120,70,150,.25);
 }
 
 
-/* =====================================================
+/* ---------------------------------------------------------
    FINAL
-   ===================================================== */
+   --------------------------------------------------------- */
+
+.final {
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(90,45,90,.45),
+            rgba(25,18,35,.85)
+        );
+}
 
 .final-bloqueado {
-    transition: background .5s ease;
+    padding: 25px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(0,0,0,.25);
 }
 
-.contenido-final {
-    filter: blur(5px);
-    user-select: none;
-}
-
-.final-desbloqueado {
+.final-contenido {
     display: none;
-    animation: aparecer .8s ease;
+
+    margin-top: 25px;
+
+    line-height: 1.9;
+
+    animation: aparecer .7s ease;
 }
-
-.final-desbloqueado h3 {
-    margin-bottom: 20px;
-    color: #e5b5ca;
-    font-size: 2.1rem;
-}
-
-
-/* =====================================================
-   FOOTER
-   ===================================================== */
-
-footer {
-    position: relative;
-    z-index: 2;
-    padding: 55px 20px;
-    text-align: center;
-    color: #a99dab;
-}
-
-.corazon {
-    color: #d04c66;
-}
-
-
-/* =====================================================
-   ANIMACIONES
-   ===================================================== */
 
 @keyframes aparecer {
 
     from {
         opacity: 0;
-        transform: translateY(25px);
+        transform: translateY(15px);
     }
 
     to {
@@ -695,60 +783,65 @@ footer {
 }
 
 
-/* =====================================================
-   TABLET / CELULAR
-   ===================================================== */
+/* ---------------------------------------------------------
+   FOOTER
+   --------------------------------------------------------- */
 
-@media (max-width: 700px) {
+footer {
+    padding: 45px 20px;
 
-    body {
-        touch-action: pan-y;
-    }
+    text-align: center;
 
-    .menu {
-        padding-top: 55px;
-    }
+    color: #908797;
 
-    .seccion {
-        padding: 32px 18px;
-    }
-
-    .botones {
-        grid-template-columns: repeat(2,1fr);
-    }
-
-    .menu-boton {
-        min-height: 135px;
-    }
-
-    .recuerdos-grid {
-        grid-template-columns: repeat(2,1fr);
-    }
+    line-height: 1.8;
 }
 
 
-@media (max-width: 430px) {
+/* ---------------------------------------------------------
+   PANTALLAS PEQUEÑAS
+   --------------------------------------------------------- */
 
-    .botones {
+@media (max-width: 380px) {
+
+    .menu-grid {
         grid-template-columns: 1fr;
     }
 
-    .menu-boton {
-        min-height: 110px;
+    .menu-item {
+        min-height: 105px;
     }
 
-    .recuerdos-grid {
+    .estados {
         grid-template-columns: 1fr;
     }
 
-    .ositos-principales {
-        gap: 15px;
+    .recuerdos {
+        grid-template-columns: 1fr;
+    }
+
+    .colores {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   PANTALLAS GRANDES
+   --------------------------------------------------------- */
+
+@media (min-width: 700px) {
+
+    .menu-grid {
+        grid-template-columns:
+            repeat(3, 1fr);
     }
 
     .seccion {
-        width: calc(100% - 20px);
-        margin: 25px auto;
+        padding: 45px 40px;
     }
+
 }
 
 </style>
@@ -759,69 +852,75 @@ footer {
 
 
 <!-- =====================================================
-     ESTRELLAS
+     FONDO
      ===================================================== -->
 
-<div class="stars">
+<div class="espacio">
 
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
+    <div class="estrella"></div>
+    <div class="estrella"></div>
+    <div class="estrella"></div>
+    <div class="estrella"></div>
+    <div class="estrella"></div>
+    <div class="estrella"></div>
+    <div class="estrella"></div>
+    <div class="estrella"></div>
+    <div class="estrella"></div>
+    <div class="estrella"></div>
 
 </div>
 
 
-<!-- =====================================================
-     PARTICULAS
-     ===================================================== -->
-
-<div class="particles">
-
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-
-</div>
+<div class="pagina">
 
 
 <!-- =====================================================
      PORTADA
      ===================================================== -->
 
-<section id="inicio">
+<section class="portada" id="portada">
 
-    <div class="portada">
+    <div class="portada-contenido">
 
-        <div class="ositos-principales">
+        <div class="ositos">
 
-            <div class="osito">🐻</div>
+            <div class="osito-grande">
+                🐻
+            </div>
 
-            <div class="osito">🐻</div>
+            <div class="osito-grande">
+                🐻
+            </div>
 
         </div>
 
-        <h1>MÓNICA</h1>
+
+        <h1>
+            MÓNICA
+        </h1>
+
 
         <div class="subtitulo">
             El Universo de los Ositos
         </div>
 
-        <p class="frase">
 
-            Un pequeño rincón donde guardamos
-            más de 8 años de historias, risas,
-            salidas, tonterías y recuerdos.
+        <p class="intro">
+
+            Ocho años de historias,
+            salidas, risas, tonterías,
+            momentos bonitos y recuerdos
+            que todavía nos quedan por contar.
 
         </p>
 
-        <button class="boton" onclick="entrar()">
+
+        <button
+            class="boton"
+            onclick="entrar()">
+
             Entrar al universo 🐻
+
         </button>
 
     </div>
@@ -830,93 +929,118 @@ footer {
 
 
 <!-- =====================================================
-     CONTENIDO
+     UNIVERSO
      ===================================================== -->
 
-<main id="contenido">
+<main id="universo">
 
+
+<!-- MENU -->
 
 <section class="menu">
 
-    <h2>Bienvenida, osita 🐻</h2>
+    <h2>
+        Bienvenida, osita 🐻
+    </h2>
 
     <p>
-        Hay algunas cosas aquí que solamente
-        tienen sentido para nosotros.
+        Este pequeño universo todavía
+        está creciendo.
     </p>
 
 
-    <div class="botones">
+    <div class="menu-grid">
 
-        <button class="menu-boton"
-                onclick="irA('historia')">
 
-            <span class="icono">📖</span>
+        <button
+            class="menu-item"
+            onclick="ir('historia')">
+
+            <span class="menu-icono">
+                📖
+            </span>
+
             Nuestra historia
 
         </button>
 
 
-        <button class="menu-boton"
-                onclick="irA('musica')">
+        <button
+            class="menu-item"
+            onclick="ir('musica')">
 
-            <span class="icono">🎵</span>
+            <span class="menu-icono">
+                🎵
+            </span>
+
             Música
 
         </button>
 
 
-        <button class="menu-boton"
-                onclick="irA('estado')">
+        <button
+            class="menu-item"
+            onclick="ir('estado')">
 
-            <span class="icono">💭</span>
-            ¿Cómo estás hoy?
+            <span class="menu-icono">
+                💭
+            </span>
+
+            ¿Cómo estás?
 
         </button>
 
 
-        <button class="menu-boton"
-                onclick="irA('recuerdos')">
+        <button
+            class="menu-item"
+            onclick="ir('recuerdos')">
 
-            <span class="icono">📸</span>
+            <span class="menu-icono">
+                📸
+            </span>
+
             Recuerdos
 
         </button>
 
 
-        <button class="menu-boton"
-                onclick="irA('archivo')">
+        <button
+            class="menu-item"
+            onclick="ir('archivo')">
 
-            <span class="icono">😂</span>
-            Archivo de los ositos
+            <span class="menu-icono">
+                🔐
+            </span>
 
-        </button>
-
-
-        <button class="menu-boton"
-                onclick="irA('mensajes')">
-
-            <span class="icono">💌</span>
-            Para cuando lo necesites
+            Archivo
 
         </button>
 
 
-        <button class="menu-boton"
-                onclick="irA('final')">
+        <button
+            class="menu-item"
+            onclick="ir('mensajes')">
 
-            <span class="icono">🎁</span>
+            <span class="menu-icono">
+                💌
+            </span>
+
+            Mensajes
+
+        </button>
+
+
+        <button
+            class="menu-item"
+            onclick="ir('final')">
+
+            <span class="menu-icono">
+                🎁
+            </span>
+
             Una última cosa
 
         </button>
-
-    </div>
-
-
-    <div class="encontrados">
-
-        🐻 Ositos secretos encontrados:
-        <strong id="contador">0 / 5</strong>
 
     </div>
 
@@ -927,45 +1051,73 @@ footer {
      HISTORIA
      ===================================================== -->
 
-<section class="seccion" id="historia">
+<section
+    class="seccion"
+    id="historia">
 
-    <div class="seccion-icono">📖</div>
+    <div class="icono-seccion">
+        📖
+    </div>
 
-    <h2>Nuestra historia</h2>
-
-    <p>
-        Ocho años son demasiado tiempo
-        como para resumirlos en unas cuantas palabras.
-    </p>
-
-    <br>
-
-    <p>
-        Esta parte está esperando todas esas
-        historias que algún día vamos a recordar.
-    </p>
-
-    <br>
-
-    <p>
-        Algunas serán bonitas.
-        Algunas serán ridículas.
-        Y probablemente algunas deberían
-        permanecer clasificadas.
-    </p>
-
-    <br>
-
-    <p>
-        Pero todas forman parte de nosotros.
-    </p>
+    <h2>
+        Nuestra historia
+    </h2>
 
 
-    <span class="osito-secreto"
-          id="secreto1"
-          onclick="encontrarOsito(1)">
-        🐻
-    </span>
+    <div class="historia-texto">
+
+        <p>
+            Ocho años no caben fácilmente
+            en una página.
+        </p>
+
+        <p>
+            Aquí vamos a guardar todas esas
+            pequeñas historias que solamente
+            nosotros entendemos.
+        </p>
+
+        <p>
+            Las salidas.
+            Las conversaciones.
+            Las tonterías.
+            Los momentos buenos.
+            Los momentos difíciles.
+        </p>
+
+        <p>
+            Y todas esas cosas que hacen
+            que nos sigamos llamando
+            <strong>ositos</strong>.
+            🐻
+        </p>
+
+    </div>
+
+
+    <div class="colores">
+
+        <div class="color-osito morado">
+            💜<br>
+            Osito morado
+        </div>
+
+        <div class="color-osito azul">
+            💙<br>
+            Osito azul
+        </div>
+
+        <div class="color-osito rojo">
+            ❤️<br>
+            Osito rojo
+        </div>
+
+        <div class="color-osito cafe">
+            🤎<br>
+            Osito café
+        </div>
+
+    </div>
 
 </section>
 
@@ -974,63 +1126,76 @@ footer {
      MUSICA
      ===================================================== -->
 
-<section class="seccion" id="musica">
+<section
+    class="seccion"
+    id="musica">
 
-    <div class="seccion-icono">🎵</div>
+    <div class="icono-seccion">
+        🎵
+    </div>
 
-    <h2>La música de los ositos</h2>
+    <h2>
+        Música
+    </h2>
 
     <p>
-        Porque hay canciones que simplemente
-        hacen que ciertos recuerdos vuelvan.
+        Porque algunas canciones
+        tienen recuerdos pegados.
     </p>
 
 
     <div class="reproductor">
 
-        <div class="cancion" id="nombreCancion">
-            🎵 Todavía tenemos que elegir
-            nuestras canciones.
+        <div
+            class="cancion"
+            id="cancion">
+
+            🎵 Nuestra primera canción
+            todavía está esperando.
+
         </div>
 
 
         <div class="controles">
 
-            <button class="control"
-                    onclick="cancionAnterior()">
+            <button
+                class="control"
+                onclick="anterior()">
+
                 ⏮️
+
             </button>
 
-            <button class="control"
-                    onclick="reproducir()"
-                    id="playButton">
+
+            <button
+                class="control"
+                onclick="play()"
+                id="play">
+
                 ▶️
+
             </button>
 
-            <button class="control"
-                    onclick="cancionSiguiente()">
+
+            <button
+                class="control"
+                onclick="siguiente()">
+
                 ⏭️
+
             </button>
 
         </div>
 
 
-        <div class="musica-nota">
+        <div class="nota">
 
-            La música real llegará cuando
-            decidamos qué canciones pertenecen
-            a este universo.
+            Aquí podremos agregar las canciones
+            que tengan significado para ustedes.
 
         </div>
 
     </div>
-
-
-    <span class="osito-secreto"
-          id="secreto2"
-          onclick="encontrarOsito(2)">
-        🐻
-    </span>
 
 </section>
 
@@ -1039,63 +1204,82 @@ footer {
      ESTADOS
      ===================================================== -->
 
-<section class="seccion" id="estado">
+<section
+    class="seccion"
+    id="estado">
 
-    <div class="seccion-icono">💭</div>
+    <div class="icono-seccion">
+        💭
+    </div>
 
-    <h2>¿Cómo estás hoy?</h2>
+    <h2>
+        ¿Cómo estás hoy?
+    </h2>
 
     <p>
-        Elige honestamente.
-        Este lugar no juzga.
+        Elige uno.
     </p>
 
 
     <div class="estados">
 
-        <div class="estado"
-             onclick="mostrarEstado('feliz')">
+        <button
+            class="estado"
+            onclick="estado('feliz')">
+
             <span>😊</span>
             Feliz
-        </div>
 
-        <div class="estado"
-             onclick="mostrarEstado('triste')">
+        </button>
+
+
+        <button
+            class="estado"
+            onclick="estado('triste')">
+
             <span>😔</span>
             Triste
-        </div>
 
-        <div class="estado"
-             onclick="mostrarEstado('enojada')">
+        </button>
+
+
+        <button
+            class="estado"
+            onclick="estado('enojada')">
+
             <span>😤</span>
-            Hasta la madre
-        </div>
+            Enojada
 
-        <div class="estado"
-             onclick="mostrarEstado('aburrida')">
+        </button>
+
+
+        <button
+            class="estado"
+            onclick="estado('aburrida')">
+
             <span>🥱</span>
             Aburrida
-        </div>
 
-        <div class="estado"
-             onclick="mostrarEstado('pensando')">
+        </button>
+
+
+        <button
+            class="estado"
+            onclick="estado('pensando')">
+
             <span>🌙</span>
             Pensando
-        </div>
+
+        </button>
 
     </div>
 
 
-    <div id="mensajeEstado"
-         class="mensaje-estado">
+    <div
+        class="respuesta-estado"
+        id="respuestaEstado">
+
     </div>
-
-
-    <span class="osito-secreto"
-          id="secreto3"
-          onclick="encontrarOsito(3)">
-        🐻
-    </span>
 
 </section>
 
@@ -1104,52 +1288,65 @@ footer {
      RECUERDOS
      ===================================================== -->
 
-<section class="seccion" id="recuerdos">
+<section
+    class="seccion"
+    id="recuerdos">
 
-    <div class="seccion-icono">📸</div>
+    <div class="icono-seccion">
+        📸
+    </div>
 
-    <h2>Recuerdos</h2>
+    <h2>
+        Recuerdos
+    </h2>
 
     <p>
-        Algunas fotos no necesitan explicación.
-        Otras van a necesitar una historia completa.
+        Esta parte está esperando
+        nuestras fotos.
     </p>
 
 
-    <div class="recuerdos-grid">
+    <div class="recuerdos">
 
-        <div class="recuerdo">
-            <span>📷</span>
+        <div
+            class="recuerdo"
+            onclick="recuerdo(1)">
+
+            📸
+
         </div>
 
-        <div class="recuerdo">
-            <span>🐻</span>
+
+        <div
+            class="recuerdo"
+            onclick="recuerdo(2)">
+
+            🐻
+
         </div>
 
-        <div class="recuerdo">
-            <span>🎮</span>
+
+        <div
+            class="recuerdo"
+            onclick="recuerdo(3)">
+
+            🎮
+
         </div>
 
-        <div class="recuerdo">
-            <span>🍻</span>
+
+        <div
+            class="recuerdo"
+            onclick="recuerdo(4)">
+
+            🍻
+
         </div>
 
     </div>
 
 
-    <br>
-
-    <p>
-        Esta galería se va a llenar
-        poco a poco.
-    </p>
-
-
-    <span class="osito-secreto"
-          id="secreto4"
-          onclick="encontrarOsito(4)">
-        🐻
-    </span>
+    <p id="mensajeRecuerdo"></p>
 
 </section>
 
@@ -1158,68 +1355,81 @@ footer {
      ARCHIVO
      ===================================================== -->
 
-<section class="seccion archivo" id="archivo">
+<section
+    class="seccion archivo"
+    id="archivo">
 
-    <div class="seccion-icono">🔐</div>
+    <div class="icono-seccion">
+        🔐
+    </div>
 
-    <h2>Archivo de los Ositos</h2>
+    <h2>
+        Archivo de los Ositos
+    </h2>
+
 
     <p>
-        Hay recuerdos que probablemente
-        deberían permanecer clasificados.
+        Aquí se encuentran las historias
+        que probablemente deberían
+        permanecer clasificadas.
     </p>
 
 
-    <div class="bloqueo">
+    <div class="archivo-caja">
 
         ⚠️ ARCHIVO RESTRINGIDO ⚠️
 
         <br><br>
 
-        El acceso podría provocar:
+        Posibles efectos secundarios:
+
+        <br><br>
+
+        😂 Risa
 
         <br>
 
-        • vergüenza
+        😳 Vergüenza
+
         <br>
-        • risa
+
+        🤨 "Eso nunca pasó"
+
         <br>
-        • negación de los hechos
-        <br>
-        • "eso nunca pasó"
+
+        🐻 Demasiados recuerdos
 
     </div>
 
 
-    <button class="boton archivo-boton"
-            onclick="abrirArchivo()">
+    <button
+        class="boton"
+        onclick="abrirArchivo()">
 
-        🔓 Intentar abrir
+        🔓 Abrir archivo
 
     </button>
 
 
-    <div class="archivo-contenido"
-         id="archivoContenido">
+    <div
+        class="archivo-contenido"
+        id="archivoContenido">
 
         <h3>
-            Bienvenida al archivo secreto. 😂
+            ARCHIVO ABIERTO 🐻
         </h3>
 
-        <br>
-
         <p>
-            Aquí vamos a guardar las historias
-            que definitivamente necesitan
-            ser contadas.
+            Aquí vamos a poner todas esas
+            anécdotas que después de ocho años
+            ya son patrimonio histórico.
         </p>
 
-        <br>
-
         <p>
-            Por ahora solamente sabemos
-            que este archivo va a necesitar
-            bastante espacio.
+            Pokémon, salidas, bebidas,
+            conversaciones interminables
+            y todas las cosas que solamente
+            ustedes dos entienden.
         </p>
 
     </div>
@@ -1231,30 +1441,137 @@ footer {
      MENSAJES
      ===================================================== -->
 
-<section class="seccion" id="mensajes">
+<section
+    class="seccion"
+    id="mensajes">
 
-    <div class="seccion-icono">💌</div>
+    <div class="icono-seccion">
+        💌
+    </div>
 
-    <h2>Para cuando lo necesites</h2>
+    <h2>
+        Para cuando lo necesites
+    </h2>
+
 
     <p>
-        Hay mensajes que uno no necesita
-        leer todos los días.
+        No importa cómo estés cuando
+        llegues aquí.
     </p>
 
-    <br>
+
+    <div class="mensaje">
+
+        Si estás feliz:
+
+        <br>
+
+        disfrútalo.
+
+    </div>
+
+
+    <div class="mensaje">
+
+        Si estás triste:
+
+        <br>
+
+        respira.
+        No tienes que arreglar
+        todo hoy.
+
+    </div>
+
+
+    <div class="mensaje">
+
+        Si estás cansada:
+
+        <br>
+
+        descansa.
+        Mañana será otro día.
+
+    </div>
+
+
+    <div class="mensaje">
+
+        Y si solamente necesitabas
+        un lugar donde sentirte acompañada...
+
+        <br><br>
+
+        aquí tienes un osito. 🐻
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SECRETOS
+     ===================================================== -->
+
+<section
+    class="seccion"
+    id="secretos">
+
+    <div class="icono-seccion">
+        🐻
+    </div>
+
+    <h2>
+        Los cinco ositos
+    </h2>
 
     <p>
-        Solo necesita saber que están ahí.
+        Hay cinco escondidos.
+        Encuéntralos para abrir el final.
     </p>
 
-    <br>
+
+    <div class="secretos">
+
+        <button
+            class="secreto"
+            onclick="encontrar(1)">
+            🐻
+        </button>
+
+        <button
+            class="secreto"
+            onclick="encontrar(2)">
+            🐻
+        </button>
+
+        <button
+            class="secreto"
+            onclick="encontrar(3)">
+            🐻
+        </button>
+
+        <button
+            class="secreto"
+            onclick="encontrar(4)">
+            🐻
+        </button>
+
+        <button
+            class="secreto"
+            onclick="encontrar(5)">
+            🐻
+        </button>
+
+    </div>
+
 
     <p>
-        Aquí habrá mensajes para cuando
-        estés feliz, triste, confundida,
-        cansada, enojada o simplemente
-        necesites recordar que tienes un osito.
+        Encontrados:
+        <strong id="contador">
+            0 / 5
+        </strong>
     </p>
 
 </section>
@@ -1264,27 +1581,32 @@ footer {
      FINAL
      ===================================================== -->
 
-<section class="seccion final-bloqueado"
-         id="final">
+<section
+    class="seccion final"
+    id="final">
 
-    <div class="seccion-icono">🎁</div>
+    <div class="icono-seccion">
+        🎁
+    </div>
 
-    <h2>Una última cosa...</h2>
+    <h2>
+        Una última cosa...
+    </h2>
 
 
-    <div class="bloqueo"
-         id="mensajeBloqueo">
+    <div
+        class="final-bloqueado"
+        id="bloqueado">
 
         🔐
 
         <br><br>
 
-        Este recuerdo todavía está cerrado.
+        Todavía está cerrado.
 
         <br><br>
 
-        Encuentra los cinco ositos escondidos
-        para desbloquearlo.
+        Encuentra los cinco ositos.
 
         <br><br>
 
@@ -1295,48 +1617,34 @@ footer {
     </div>
 
 
-    <div class="contenido-final">
-
-        <p>
-            Si estás viendo esto,
-            probablemente todavía no deberías.
-        </p>
-
-    </div>
-
-
-    <div class="final-desbloqueado"
-         id="finalDesbloqueado">
+    <div
+        class="final-contenido"
+        id="finalContenido">
 
         <h3>
-            Encontraste todos los ositos. 🐻❤️
+            Lo encontraste. 🐻❤️
         </h3>
 
         <p>
-            Y ahora sí...
+            Y aquí comienza la parte
+            que todavía no hemos escrito.
+        </p>
+
+        <p>
+            Porque después de ocho años,
+            todavía quedan historias
+            por contar.
         </p>
 
         <br>
 
         <p>
-            Aquí va a estar el último recuerdo.
-        </p>
-
-        <br>
-
-        <p>
-            <em>
-                Próximamente...
-            </em>
+            <strong>
+                Este espacio es para ti, osita.
+            </strong>
         </p>
 
     </div>
-
-    <span class="osito-secreto"
-          id="secreto5"
-          onclick="encontrarOsito(5)">
-        🐻
-    </span>
 
 </section>
 
@@ -1344,46 +1652,43 @@ footer {
 <footer>
 
     Hecho por un osito
-    para otra osita
+    para otra osita. 🐻
 
-    <span class="corazon">♥</span>
+    <br>
 
-    <br><br>
-
-    8 años y contando 🐻
+    Ocho años y contando. ❤️
 
 </footer>
 
 
 </main>
 
+</div>
+
 
 <script>
 
-/* =====================================================
+/* =========================================================
    ENTRAR
-   ===================================================== */
+   ========================================================= */
 
 function entrar() {
 
-    document.getElementById("inicio").style.display = "none";
+    document.getElementById("portada").style.display = "none";
 
-    document.getElementById("contenido").style.display = "block";
+    document.getElementById("universo").style.display = "block";
 
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+    window.scrollTo(0, 0);
 }
 
 
-/* =====================================================
-   NAVEGACION
-   ===================================================== */
+/* =========================================================
+   NAVEGACIÓN
+   ========================================================= */
 
-function irA(id) {
+function ir(id) {
 
-    const elemento =
+    var elemento =
         document.getElementById(id);
 
     if (!elemento) return;
@@ -1395,297 +1700,259 @@ function irA(id) {
 }
 
 
-/* =====================================================
+/* =========================================================
    ESTADOS
-   ===================================================== */
+   ========================================================= */
 
-function mostrarEstado(tipo) {
+function estado(tipo) {
 
-    const caja =
-        document.getElementById("mensajeEstado");
+    var caja =
+        document.getElementById(
+            "respuestaEstado"
+        );
 
-    let mensaje = "";
+    var texto = "";
 
     if (tipo === "feliz") {
 
-        mensaje = `
-            <h3>Entonces disfruta ese momento. 🐻❤️</h3>
+        texto =
+            "🐻❤️ Qué bonito. " +
+            "Disfruta ese momento y no dejes " +
+            "que pase sin darte cuenta.";
 
-            <p>
-                Qué bueno que hoy estás feliz.
-                <br><br>
-                Guarda ese momento y disfrútalo.
-            </p>
-        `;
-
-    } else if (tipo === "triste") {
-
-        mensaje = `
-            <h3>Ven acá, osita. 🐻💙</h3>
-
-            <p>
-                No tienes que solucionar todo hoy.
-                <br><br>
-                Respira.
-                <br><br>
-                Un mal día no significa una mala vida.
-            </p>
-        `;
-
-    } else if (tipo === "enojada") {
-
-        mensaje = `
-            <h3>Ok... primero respira. 😂🐻</h3>
-
-            <p>
-                No voy a preguntar "¿por qué estás enojada?"
-                porque probablemente eso solo empeoraría las cosas.
-                <br><br>
-                Mejor vamos a distraerte.
-            </p>
-        `;
-
-    } else if (tipo === "aburrida") {
-
-        mensaje = `
-            <h3>Tenemos un problema. 🐻</h3>
-
-            <p>
-                Ocho años de amistad y todavía
-                encontraste la manera de aburrirte.
-                <br><br>
-                Eso requiere medidas extremas. 😂
-            </p>
-        `;
-
-    } else if (tipo === "pensando") {
-
-        mensaje = `
-            <h3>Quédate un rato. 🌙🐻</h3>
-
-            <p>
-                Hay cosas que necesitan tiempo
-                para acomodarse.
-                <br><br>
-                No tienes que tener todas las respuestas ahora.
-            </p>
-        `;
     }
 
-    caja.innerHTML = mensaje;
+    if (tipo === "triste") {
+
+        texto =
+            "🐻💙 Ven acá, osita. " +
+            "No tienes que solucionar todo " +
+            "en este momento. Respira.";
+
+    }
+
+    if (tipo === "enojada") {
+
+        texto =
+            "😤🐻 Ok... primero respiramos. " +
+            "Después ya vemos quién se ganó " +
+            "el madrazo emocional. 😂";
+
+    }
+
+    if (tipo === "aburrida") {
+
+        texto =
+            "🥱🐻 ¿Aburrida? " +
+            "Después de ocho años tenemos " +
+            "que hacer algo al respecto.";
+
+    }
+
+    if (tipo === "pensando") {
+
+        texto =
+            "🌙🐻 A veces está bien quedarse " +
+            "un rato pensando. No necesitas " +
+            "tener todas las respuestas.";
+
+    }
+
+    caja.innerHTML = texto;
 
     caja.style.display = "block";
-
-    caja.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-    });
 }
 
 
-/* =====================================================
+/* =========================================================
+   RECUERDOS
+   ========================================================= */
+
+function recuerdo(numero) {
+
+    var caja =
+        document.getElementById(
+            "mensajeRecuerdo"
+        );
+
+    var textos = {
+
+        1:
+        "📸 Esta foto todavía necesita una historia.",
+
+        2:
+        "🐻 Dos ositos haciendo de las suyas.",
+
+        3:
+        "🎮 Aquí va nuestro recuerdo Pokémon.",
+
+        4:
+        "🍻 Esta probablemente necesita censura."
+
+    };
+
+    caja.innerHTML =
+        textos[numero];
+
+}
+
+
+/* =========================================================
    ARCHIVO
-   ===================================================== */
+   ========================================================= */
 
 function abrirArchivo() {
 
-    const archivo =
-        document.getElementById("archivoContenido");
+    var caja =
+        document.getElementById(
+            "archivoContenido"
+        );
 
-    if (archivo.style.display === "block") {
+    if (caja.style.display === "block") {
 
-        archivo.style.display = "none";
+        caja.style.display = "none";
 
     } else {
 
-        archivo.style.display = "block";
+        caja.style.display = "block";
 
     }
 }
 
 
-/* =====================================================
-   OSITOS SECRETOS
-   ===================================================== */
+/* =========================================================
+   MUSICA
+   ========================================================= */
 
-let ositosEncontrados = [];
+var canciones = [
 
-try {
+    "Nuestra primera canción 🎵",
 
-    ositosEncontrados =
-        JSON.parse(
-            localStorage.getItem("ositosEncontrados")
-        ) || [];
+    "Una canción que nos recuerde a una salida 🐻",
 
-} catch (error) {
+    "Una canción para cuando estemos tristes 💙",
 
-    ositosEncontrados = [];
-
-}
-
-
-function actualizarContador() {
-
-    const cantidad =
-        ositosEncontrados.length;
-
-    document.getElementById("contador")
-        .textContent =
-        cantidad + " / 5";
-
-    document.getElementById("contadorFinal")
-        .textContent =
-        cantidad + " / 5";
-
-    if (cantidad >= 5) {
-
-        desbloquearFinal();
-
-    }
-}
-
-
-function encontrarOsito(numero) {
-
-    if (!ositosEncontrados.includes(numero)) {
-
-        ositosEncontrados.push(numero);
-
-        try {
-
-            localStorage.setItem(
-                "ositosEncontrados",
-                JSON.stringify(ositosEncontrados)
-            );
-
-        } catch (error) {}
-
-        alert(
-            "🐻 ¡Encontraste un osito secreto!"
-        );
-    }
-
-    actualizarContador();
-}
-
-
-function desbloquearFinal() {
-
-    const bloqueo =
-        document.getElementById(
-            "mensajeBloqueo"
-        );
-
-    const contenido =
-        document.querySelector(
-            ".contenido-final"
-        );
-
-    const desbloqueado =
-        document.getElementById(
-            "finalDesbloqueado"
-        );
-
-    bloqueo.style.display = "none";
-
-    contenido.style.display = "none";
-
-    desbloqueado.style.display = "block";
-}
-
-
-actualizarContador();
-
-
-/* =====================================================
-   MUSICA — PREPARADA
-   ===================================================== */
-
-const canciones = [
-
-    "Todavía tenemos que elegir esta canción 🎵",
-
-    "Aquí irá una canción de los ositos 🐻",
-
-    "Esta tendrá una historia detrás ❤️"
+    "Una canción que simplemente sea nuestra ❤️"
 
 ];
 
-let cancionActual = 0;
+var actual = 0;
 
-let reproduciendo = false;
+var reproduciendo = false;
 
 
 function actualizarCancion() {
 
     document.getElementById(
-        "nombreCancion"
-    ).textContent =
-        "🎵 " + canciones[cancionActual];
+        "cancion"
+    ).innerHTML =
+        "🎵 " + canciones[actual];
 
 }
 
 
-function reproducir() {
+function siguiente() {
+
+    actual++;
+
+    if (actual >= canciones.length) {
+        actual = 0;
+    }
+
+    actualizarCancion();
+}
+
+
+function anterior() {
+
+    actual--;
+
+    if (actual < 0) {
+        actual = canciones.length - 1;
+    }
+
+    actualizarCancion();
+}
+
+
+function play() {
 
     reproduciendo =
         !reproduciendo;
 
     document.getElementById(
-        "playButton"
-    ).textContent =
+        "play"
+    ).innerHTML =
         reproduciendo
         ? "⏸️"
         : "▶️";
-}
 
-
-function cancionSiguiente() {
-
-    cancionActual =
-        (cancionActual + 1) %
-        canciones.length;
-
-    actualizarCancion();
-}
-
-
-function cancionAnterior() {
-
-    cancionActual--;
-
-    if (cancionActual < 0) {
-
-        cancionActual =
-            canciones.length - 1;
-
-    }
-
-    actualizarCancion();
 }
 
 
 actualizarCancion();
 
 
-/* =====================================================
-   PREVENCIÓN EXTRA PARA TOUCH
-   ===================================================== */
+/* =========================================================
+   SECRETOS
+   ========================================================= */
 
-document.addEventListener(
-    "touchmove",
-    function(event) {
+var encontrados = [];
 
-        /*
-         * No bloqueamos el gesto.
-         * Chrome puede desplazarse normalmente.
-         */
 
-    },
-    {
-        passive: true
+function encontrar(numero) {
+
+    if (
+        encontrados.indexOf(numero)
+        === -1
+    ) {
+
+        encontrados.push(numero);
+
+        var botones =
+            document.querySelectorAll(
+                ".secreto"
+            );
+
+        botones[numero - 1]
+            .classList.add("encontrado");
+
+        actualizarSecretos();
+
     }
-);
+
+}
+
+
+function actualizarSecretos() {
+
+    var cantidad =
+        encontrados.length;
+
+    document.getElementById(
+        "contador"
+    ).innerHTML =
+        cantidad + " / 5";
+
+    document.getElementById(
+        "contadorFinal"
+    ).innerHTML =
+        cantidad + " / 5";
+
+
+    if (cantidad === 5) {
+
+        document.getElementById(
+            "bloqueado"
+        ).style.display = "none";
+
+        document.getElementById(
+            "finalContenido"
+        ).style.display = "block";
+
+    }
+
+}
 
 </script>
 
