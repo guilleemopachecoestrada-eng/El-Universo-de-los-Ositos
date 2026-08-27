@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>El rincón de los ositos 🐻</title>
 
 <style>
+
+/* =====================================================
+   BASE
+===================================================== */
 
 *{
     box-sizing:border-box;
@@ -29,17 +36,34 @@ body::before{
     content:"";
     position:fixed;
     inset:0;
+
     background:
-        radial-gradient(circle at 20% 20%,rgba(111,61,132,.35),transparent 30%),
-        radial-gradient(circle at 80% 70%,rgba(45,65,130,.35),transparent 30%),
-        radial-gradient(circle at 50% 100%,rgba(92,45,30,.25),transparent 35%);
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(111,61,132,.35),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(45,65,130,.35),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(92,45,30,.25),
+            transparent 35%
+        );
+
     pointer-events:none;
     z-index:-2;
 }
 
-/* =========================
+
+/* =====================================================
    ESTRELLAS
-========================= */
+===================================================== */
 
 .stars{
     position:fixed;
@@ -50,956 +74,1751 @@ body::before{
 
 .star{
     position:absolute;
+
     width:3px;
     height:3px;
+
     background:#fff;
+
     border-radius:50%;
+
     opacity:.6;
+
     animation:twinkle 3s infinite alternate;
 }
 
-.star:nth-child(1){top:10%;left:15%}
-.star:nth-child(2){top:25%;left:80%;animation-delay:1s}
-.star:nth-child(3){top:60%;left:20%;animation-delay:2s}
-.star:nth-child(4){top:75%;left:70%;animation-delay:.5s}
-.star:nth-child(5){top:40%;left:50%;animation-delay:1.5s}
-.star:nth-child(6){top:85%;left:40%;animation-delay:2.5s}
-.star:nth-child(7){top:18%;left:55%;animation-delay:.8s}
-.star:nth-child(8){top:90%;left:85%;animation-delay:1.8s}
-
-@keyframes twinkle{
-    from{opacity:.2;transform:scale(.7)}
-    to{opacity:1;transform:scale(1.4)}
+.star:nth-child(1){
+    top:10%;
+    left:15%;
 }
 
-/* =========================
+.star:nth-child(2){
+    top:25%;
+    left:80%;
+    animation-delay:1s;
+}
+
+.star:nth-child(3){
+    top:60%;
+    left:20%;
+    animation-delay:2s;
+}
+
+.star:nth-child(4){
+    top:75%;
+    left:70%;
+    animation-delay:.5s;
+}
+
+.star:nth-child(5){
+    top:40%;
+    left:50%;
+    animation-delay:1.5s;
+}
+
+.star:nth-child(6){
+    top:85%;
+    left:40%;
+    animation-delay:2.5s;
+}
+
+.star:nth-child(7){
+    top:18%;
+    left:55%;
+    animation-delay:.8s;
+}
+
+.star:nth-child(8){
+    top:90%;
+    left:85%;
+    animation-delay:1.8s;
+}
+
+@keyframes twinkle{
+
+    from{
+        opacity:.2;
+        transform:scale(.7);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1.4);
+    }
+
+}
+
+
+/* =====================================================
    PORTADA
-========================= */
+===================================================== */
 
 #inicio{
+
     min-height:100vh;
+
     display:flex;
+
     justify-content:center;
+
     align-items:center;
+
     text-align:center;
+
     padding:30px;
+
 }
 
 .portada{
+
     max-width:800px;
+
     animation:aparecer 1.5s ease;
+
 }
 
 .ositos{
+
     font-size:5rem;
+
     margin-bottom:25px;
+
     animation:flotar 3s ease-in-out infinite;
+
 }
 
 .portada h1{
+
     font-size:clamp(3rem,10vw,6rem);
+
     letter-spacing:5px;
+
     color:#fff;
+
     text-shadow:
         0 0 20px rgba(150,90,180,.6),
         0 0 40px rgba(80,100,180,.4);
+
 }
 
 .subtitulo{
+
     margin-top:10px;
+
     font-size:1.5rem;
+
     color:#d8b9e8;
+
 }
 
 .frase{
+
     margin:30px auto;
+
     max-width:600px;
+
     font-size:1.2rem;
+
     line-height:1.8;
+
     color:#e9dfd5;
+
 }
 
 .boton{
+
     display:inline-block;
+
     border:none;
+
     padding:15px 35px;
+
     border-radius:50px;
-    background:linear-gradient(135deg,#7b3f91,#344f9b);
+
+    background:
+        linear-gradient(
+            135deg,
+            #7b3f91,
+            #344f9b
+        );
+
     color:white;
+
     font-size:1.05rem;
+
     cursor:pointer;
+
     transition:.3s;
-    box-shadow:0 8px 30px rgba(0,0,0,.3);
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,.3);
+
 }
 
 .boton:hover{
-    transform:translateY(-4px) scale(1.04);
-    box-shadow:0 12px 35px rgba(120,70,160,.5);
+
+    transform:
+        translateY(-4px)
+        scale(1.04);
+
+    box-shadow:
+        0 12px 35px rgba(120,70,160,.5);
+
 }
 
 @keyframes flotar{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(-12px)}
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
 }
 
 @keyframes aparecer{
-    from{opacity:0;transform:translateY(30px)}
-    to{opacity:1;transform:translateY(0)}
-}
 
-/* =========================
-   CONTENIDO
-========================= */
-
-#contenido{
-    display:none;
-    min-height:100vh;
-    padding-bottom:80px;
-}
-
-/* =========================
-   INDICE SUPERIOR
-========================= */
-
-.indice{
-    position:sticky;
-    top:0;
-    z-index:100;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:8px;
-    padding:12px 10px;
-    background:rgba(18,13,31,.88);
-    backdrop-filter:blur(12px);
-    border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-.indice button{
-    width:45px;
-    height:45px;
-    border-radius:50%;
-    border:1px solid rgba(255,255,255,.13);
-    background:rgba(255,255,255,.06);
-    color:#fff;
-    font-size:1.25rem;
-    cursor:pointer;
-    transition:.25s;
-}
-
-.indice button:hover{
-    transform:translateY(-3px);
-    background:rgba(123,63,145,.3);
-}
-
-/* =========================
-   BIENVENIDA
-========================= */
-
-.bienvenida{
-    min-height:72vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:50px 20px;
-}
-
-.bienvenida-contenido{
-    max-width:750px;
-    animation:aparecer 1.4s ease;
-}
-
-.bienvenida-osito{
-    font-size:5rem;
-    display:inline-block;
-    animation:
-        flotar 3s ease-in-out infinite,
-        brilloOsito 3s ease-in-out infinite;
-}
-
-.bienvenida h2{
-    font-size:clamp(2.5rem,7vw,4.5rem);
-    margin:20px 0 10px;
-    text-shadow:0 0 25px rgba(150,90,180,.45);
-}
-
-.bienvenida-subtitulo{
-    color:#d8b9e8;
-    font-size:1.3rem;
-}
-
-.bienvenida-linea{
-    width:100px;
-    height:2px;
-    margin:25px auto;
-    background:linear-gradient(90deg,transparent,#9c6ab5,transparent);
-}
-
-.bienvenida p{
-    max-width:600px;
-    margin:auto;
-    color:#d7cedb;
-    line-height:1.9;
-    font-size:1.05rem;
-}
-
-.bienvenida-hint{
-    margin-top:35px;
-    font-size:.95rem;
-    color:#a99eac;
-    animation:respirar 2.5s ease-in-out infinite;
-}
-
-@keyframes brilloOsito{
-    0%,100%{
-        filter:drop-shadow(0 0 5px rgba(255,255,255,.15));
-    }
-    50%{
-        filter:drop-shadow(0 0 20px rgba(180,120,220,.65));
-    }
-}
-
-@keyframes respirar{
-    0%,100%{opacity:.5}
-    50%{opacity:1}
-}
-
-/* =========================
-   CONTADOR DE OSITOS
-========================= */
-
-.contador-ositos-flotante{
-    position:fixed;
-    right:18px;
-    bottom:18px;
-    z-index:180;
-    padding:10px 15px;
-    border-radius:30px;
-    background:rgba(18,13,31,.88);
-    border:1px solid rgba(190,140,220,.3);
-    box-shadow:0 8px 25px rgba(0,0,0,.35);
-    backdrop-filter:blur(10px);
-    font-size:.9rem;
-    cursor:default;
-    animation:contadorEntrada 1s ease;
-}
-
-.contador-ositos-flotante strong{
-    color:#d8b9e8;
-}
-
-@keyframes contadorEntrada{
     from{
         opacity:0;
-        transform:translateY(20px);
+        transform:translateY(30px);
     }
+
     to{
         opacity:1;
         transform:translateY(0);
     }
+
 }
 
-/* =========================
+
+/* =====================================================
+   CONTENIDO
+===================================================== */
+
+#contenido{
+
+    display:none;
+
+    min-height:100vh;
+
+    padding-bottom:80px;
+
+}
+
+
+/* =====================================================
+   INDICE SUPERIOR
+===================================================== */
+
+.indice{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:12px 10px;
+
+    background:
+        rgba(18,13,31,.88);
+
+    backdrop-filter:blur(12px);
+
+    border-bottom:
+        1px solid rgba(255,255,255,.08);
+
+    overflow-x:auto;
+
+}
+
+.indice button{
+
+    min-width:78px;
+
+    min-height:48px;
+
+    border-radius:18px;
+
+    border:
+        1px solid rgba(255,255,255,.13);
+
+    background:
+        rgba(255,255,255,.06);
+
+    color:#fff;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    padding:7px 10px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:2px;
+
+}
+
+.indice button:hover{
+
+    transform:translateY(-3px);
+
+    background:
+        rgba(123,63,145,.3);
+
+}
+
+.indice .indice-icono{
+
+    font-size:1.25rem;
+
+}
+
+.indice .indice-texto{
+
+    font-size:.68rem;
+
+    white-space:nowrap;
+
+}
+
+
+/* =====================================================
+   BIENVENIDA
+===================================================== */
+
+.bienvenida{
+
+    min-height:52vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:70px 20px 45px;
+
+}
+
+.bienvenida-contenido{
+
+    max-width:800px;
+
+    animation:aparecer 1s ease;
+
+}
+
+.bienvenida-osito{
+
+    font-size:5rem;
+
+    animation:
+        flotar 3s ease-in-out infinite;
+
+    margin-bottom:20px;
+
+}
+
+.bienvenida h2{
+
+    font-size:
+        clamp(
+            2.3rem,
+            7vw,
+            4rem
+        );
+
+    margin-bottom:15px;
+
+}
+
+.bienvenida p{
+
+    color:#cbbfd1;
+
+    font-size:1.15rem;
+
+    line-height:1.8;
+
+}
+
+.bienvenida-linea{
+
+    width:120px;
+
+    height:2px;
+
+    margin:25px auto;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #9d62b4,
+            transparent
+        );
+
+    animation:pulsarLinea 2s infinite;
+
+}
+
+@keyframes pulsarLinea{
+
+    0%,100%{
+        opacity:.3;
+        transform:scaleX(.7);
+    }
+
+    50%{
+        opacity:1;
+        transform:scaleX(1);
+    }
+
+}
+
+
+/* =====================================================
    SECCIONES
-========================= */
+===================================================== */
 
 .seccion{
+
     max-width:900px;
+
     margin:40px auto;
+
     padding:40px 25px;
+
     border-radius:25px;
-    background:rgba(255,255,255,.055);
-    border:1px solid rgba(255,255,255,.1);
+
+    background:
+        rgba(255,255,255,.055);
+
+    border:
+        1px solid rgba(255,255,255,.1);
+
     backdrop-filter:blur(10px);
+
     text-align:center;
+
 }
 
 .seccion h2{
+
     font-size:2.3rem;
+
     margin-bottom:20px;
+
 }
 
 .seccion p{
+
     color:#ddd3df;
+
     line-height:1.8;
+
     font-size:1.05rem;
+
 }
 
 .osito-pequeno{
+
     font-size:3rem;
+
     margin-bottom:15px;
+
 }
 
-/* =========================
+
+/* =====================================================
    COMO ESTAS
-========================= */
+===================================================== */
 
 .estados{
+
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(140px,1fr)
+        );
+
     gap:15px;
+
     margin-top:30px;
+
 }
 
 .estado{
+
     padding:20px 10px;
+
     border-radius:18px;
-    background:rgba(255,255,255,.06);
+
+    background:
+        rgba(255,255,255,.06);
+
     cursor:pointer;
+
     transition:.3s;
+
 }
 
 .estado:hover{
+
     transform:scale(1.04);
-    background:rgba(123,63,145,.25);
+
+    background:
+        rgba(123,63,145,.25);
+
 }
 
 .estado span{
+
     display:block;
+
     font-size:2.5rem;
+
     margin-bottom:8px;
+
 }
 
 .mensaje-estado{
+
     margin-top:30px;
+
     padding:25px;
+
     border-radius:18px;
-    background:rgba(92,45,30,.25);
+
+    background:
+        rgba(92,45,30,.25);
+
     display:none;
-    animation:aparecer .5s ease;
+
+    animation:
+        aparecer .5s ease;
+
 }
 
 .estado-extra{
+
     margin-top:25px;
+
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(220px,1fr)
+        );
+
     gap:15px;
+
 }
 
 .extra-card{
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.08);
+
+    background:
+        rgba(255,255,255,.05);
+
+    border:
+        1px solid rgba(255,255,255,.08);
+
     border-radius:18px;
+
     padding:20px;
+
 }
 
 .extra-card h3{
+
     margin-bottom:10px;
+
 }
 
-/* =========================
+.recurso-estado{
+
+    min-height:90px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+}
+
+
+/* =====================================================
    HISTORIA
-========================= */
+===================================================== */
 
 .timeline{
+
     margin-top:30px;
+
     text-align:left;
+
 }
 
 .timeline-item{
+
     padding:22px;
+
     margin-bottom:15px;
-    border-left:3px solid #7b3f91;
-    background:rgba(255,255,255,.035);
-    border-radius:0 15px 15px 0;
+
+    border-left:
+        3px solid #7b3f91;
+
+    background:
+        rgba(255,255,255,.035);
+
+    border-radius:
+        0 15px 15px 0;
+
 }
 
 .timeline-item h3{
+
     margin-bottom:8px;
+
 }
 
-/* =========================
+
+/* =====================================================
    REPRODUCTOR
-========================= */
+===================================================== */
 
 .reproductor{
+
     margin-top:30px;
-    background:rgba(0,0,0,.18);
-    border:1px solid rgba(255,255,255,.1);
+
+    background:
+        rgba(0,0,0,.18);
+
+    border:
+        1px solid rgba(255,255,255,.1);
+
     border-radius:22px;
+
     padding:25px;
+
 }
 
 .album-art{
+
     width:160px;
+
     height:160px;
-    margin:0 auto 20px;
+
+    margin:
+        0 auto 20px;
+
     border-radius:18px;
-    background:linear-gradient(135deg,#7b3f91,#344f9b);
+
+    background:
+        linear-gradient(
+            135deg,
+            #7b3f91,
+            #344f9b
+        );
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
     font-size:4rem;
-    box-shadow:0 12px 30px rgba(0,0,0,.25);
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.25);
+
 }
 
 .cancion-titulo{
+
     font-size:1.3rem;
+
     margin-bottom:5px;
+
 }
 
 .cancion-artista{
+
     color:#aaa;
+
     margin-bottom:20px;
+
 }
 
 .controles{
+
     display:flex;
+
     justify-content:center;
+
     gap:15px;
-    flex-wrap:wrap;
+
 }
 
 .control{
+
     width:50px;
+
     height:50px;
+
     border-radius:50%;
+
     border:none;
-    background:rgba(255,255,255,.1);
+
+    background:
+        rgba(255,255,255,.1);
+
     color:#fff;
+
     font-size:1.2rem;
+
     cursor:pointer;
+
 }
 
 .control.play{
-    background:linear-gradient(135deg,#7b3f91,#344f9b);
+
+    background:
+        linear-gradient(
+            135deg,
+            #7b3f91,
+            #344f9b
+        );
+
 }
 
 .lista-musica{
+
     margin-top:25px;
+
     max-height:180px;
+
     overflow-y:auto;
+
     text-align:left;
+
 }
 
 .cancion{
+
     padding:12px;
+
     border-radius:10px;
+
     cursor:pointer;
+
 }
 
 .cancion:hover,
 .cancion.activa{
-    background:rgba(123,63,145,.22);
+
+    background:
+        rgba(123,63,145,.22);
+
 }
 
-/* =========================
+
+/* =====================================================
    RECUERDOS
-========================= */
+===================================================== */
 
 .recuerdo-selector{
+
     display:flex;
+
     gap:10px;
+
     overflow-x:auto;
-    padding:10px 0 20px;
+
+    padding:
+        10px 0 20px;
+
     margin-top:20px;
+
 }
 
 .recuerdo-selector button{
-    flex:0 0 auto;
-    padding:12px 18px;
+
+    flex:
+        0 0 auto;
+
+    padding:
+        12px 18px;
+
     border-radius:30px;
-    border:1px solid rgba(255,255,255,.12);
-    background:rgba(255,255,255,.06);
+
+    border:
+        1px solid rgba(255,255,255,.12);
+
+    background:
+        rgba(255,255,255,.06);
+
     color:white;
+
     cursor:pointer;
+
 }
 
 .galeria{
+
     margin-top:20px;
+
     position:relative;
+
 }
 
 .foto-principal{
+
     min-height:300px;
+
     border-radius:22px;
-    background:rgba(255,255,255,.05);
+
+    background:
+        rgba(255,255,255,.05);
+
     display:flex;
+
     justify-content:center;
+
     align-items:center;
+
     font-size:5rem;
+
     overflow:hidden;
+
 }
 
 .foto-principal img{
+
     width:100%;
+
     max-height:500px;
+
     object-fit:cover;
+
     border-radius:22px;
+
 }
 
 .galeria-controles{
+
     display:flex;
+
     justify-content:center;
+
     gap:15px;
+
     margin-top:15px;
+
 }
 
 .leyenda{
+
     margin-top:15px;
+
     color:#d8cce0;
+
     font-style:italic;
+
 }
 
 .foto-flotante{
+
     position:fixed;
+
     width:110px;
+
     height:130px;
+
     object-fit:cover;
+
     border-radius:12px;
+
     padding:5px;
+
     background:#f8f1e7;
-    box-shadow:0 10px 35px rgba(0,0,0,.4);
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.4);
+
     opacity:.85;
+
     z-index:5;
+
     pointer-events:none;
-    animation:flotarFoto 9s linear forwards;
+
+    animation:
+        flotarFoto 9s linear forwards;
+
 }
 
 @keyframes flotarFoto{
+
     from{
-        transform:translate(0,0) rotate(-8deg);
+
+        transform:
+            translate(0,0)
+            rotate(-8deg);
+
         opacity:0;
+
     }
-    15%{opacity:.85}
-    85%{opacity:.85}
+
+    15%{
+        opacity:.85;
+    }
+
+    85%{
+        opacity:.85;
+    }
+
     to{
-        transform:translate(250px,-80px) rotate(10deg);
+
+        transform:
+            translate(250px,-80px)
+            rotate(10deg);
+
         opacity:0;
+
     }
+
 }
 
-/* =========================
+
+/* =====================================================
    RECUERDO AL AZAR
-========================= */
+===================================================== */
 
 .azar-box{
+
     margin-top:25px;
+
     padding:25px;
+
     border-radius:20px;
-    background:rgba(123,63,145,.12);
-    border:1px solid rgba(255,255,255,.1);
+
+    background:
+        rgba(123,63,145,.12);
+
+    border:
+        1px solid rgba(255,255,255,.1);
+
 }
 
 .azar-resultado{
+
     min-height:70px;
+
     margin-top:15px;
+
 }
 
-/* =========================
+
+/* =====================================================
    ARCHIVO
-========================= */
+===================================================== */
 
 .carpeta-grid{
+
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(200px,1fr)
+        );
+
     gap:15px;
+
     margin-top:30px;
+
 }
 
 .carpeta{
+
     padding:25px 15px;
+
     border-radius:18px;
-    background:rgba(255,255,255,.055);
-    border:1px solid rgba(255,255,255,.1);
+
+    background:
+        rgba(255,255,255,.055);
+
+    border:
+        1px solid rgba(255,255,255,.1);
+
     cursor:pointer;
+
     transition:.3s;
+
 }
 
 .carpeta:hover{
+
     transform:translateY(-5px);
-    background:rgba(123,63,145,.2);
+
+    background:
+        rgba(123,63,145,.2);
+
 }
 
 .expedientes{
+
     display:none;
-    margin-top:25px;
+
+    margin-top:30px;
+
 }
 
 .expediente-grid{
+
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(170px,1fr)
+        );
+
     gap:12px;
+
     margin-top:20px;
+
 }
 
 .expediente{
+
     padding:18px 10px;
+
     border-radius:15px;
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.08);
+
+    background:
+        rgba(255,255,255,.05);
+
+    border:
+        1px solid rgba(255,255,255,.08);
+
     cursor:pointer;
-    transition:.25s;
+
+    transition:.3s;
+
 }
 
-.expediente:hover:not(.bloqueado){
-    transform:translateY(-4px);
-    background:rgba(123,63,145,.2);
+.expediente:hover{
+
+    transform:
+        translateY(-4px);
+
+    background:
+        rgba(123,63,145,.18);
+
 }
 
 .expediente.bloqueado{
-    opacity:.45;
+
+    opacity:.4;
+
     cursor:not-allowed;
+
+}
+
+.expediente.aprobado{
+
+    border-color:
+        rgba(100,200,140,.4);
+
 }
 
 .progreso{
+
     margin:15px 0;
+
     padding:12px;
+
     border-radius:12px;
-    background:rgba(255,255,255,.05);
+
+    background:
+        rgba(255,255,255,.05);
+
 }
 
 .pregunta-box{
+
     display:none;
+
     margin-top:25px;
+
     padding:25px;
+
     border-radius:20px;
-    background:rgba(0,0,0,.18);
+
+    background:
+        rgba(0,0,0,.18);
+
 }
 
 .opciones{
+
     display:grid;
+
     gap:10px;
+
     margin-top:20px;
+
 }
 
 .opcion{
+
     padding:14px;
+
     border-radius:12px;
-    border:1px solid rgba(255,255,255,.12);
-    background:rgba(255,255,255,.05);
+
+    border:
+        1px solid rgba(255,255,255,.12);
+
+    background:
+        rgba(255,255,255,.05);
+
     color:#fff;
+
     cursor:pointer;
+
     transition:.2s;
+
 }
 
 .opcion:hover{
-    background:rgba(123,63,145,.25);
-    transform:translateY(-2px);
-}
 
-.opcion:disabled{
-    cursor:default;
-    opacity:.7;
+    background:
+        rgba(123,63,145,.25);
+
 }
 
 .resultado-test{
+
     margin-top:20px;
+
     padding:15px;
+
     border-radius:12px;
+
     display:none;
-    background:rgba(255,255,255,.05);
+
 }
 
-/* =========================
-   NECESITAS
-========================= */
+.historia-expediente{
 
-.necesitas-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-    gap:15px;
-    margin-top:30px;
-}
-
-.necesitas-card{
-    padding:25px 18px;
-    border-radius:20px;
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.09);
-    cursor:pointer;
-    transition:.3s;
-}
-
-.necesitas-card:hover{
-    transform:translateY(-5px);
-}
-
-.necesitas-mensaje{
     display:none;
+
     margin-top:25px;
+
     padding:25px;
+
     border-radius:20px;
-    background:rgba(92,45,30,.22);
+
+    background:
+        rgba(92,45,30,.18);
+
+    border:
+        1px solid rgba(255,255,255,.08);
+
+    text-align:left;
+
+    animation:
+        aparecer .5s ease;
+
 }
 
-/* =========================
+.historia-expediente h3{
+
+    margin-bottom:15px;
+
+}
+
+.historia-expediente p{
+
+    line-height:1.8;
+
+}
+
+
+/* =====================================================
    MISIONES
-========================= */
+===================================================== */
 
 .misiones{
+
     display:grid;
-    gap:15px;
+
+    gap:20px;
+
     margin-top:30px;
+
 }
 
 .mision{
-    padding:22px;
+
+    padding:25px;
+
     text-align:left;
-    border-radius:18px;
-    background:rgba(255,255,255,.05);
-    border-left:3px solid #7b3f91;
-}
 
-.mision-contenido{
-    margin-top:12px;
-}
-
-.mision-meta{
-    display:flex;
-    gap:8px;
-    flex-wrap:wrap;
-    margin-top:15px;
-}
-
-.etiqueta{
-    display:inline-block;
-    padding:6px 10px;
     border-radius:20px;
-    background:rgba(255,255,255,.07);
-    color:#cfc3d4;
-    font-size:.82rem;
+
+    background:
+        rgba(255,255,255,.05);
+
+    border-left:
+        3px solid #7b3f91;
+
+}
+
+.mision h3{
+
+    margin-bottom:10px;
+
+}
+
+.mision-descripcion{
+
+    margin-bottom:15px;
+
 }
 
 .mision-video{
-    margin-top:18px;
+
+    display:none;
+
+    margin-top:15px;
+
 }
 
-.mision-video video{
-    width:100%;
-    max-height:360px;
-    border-radius:16px;
-    background:#000;
+.mision-video a{
+
+    color:#d8b9e8;
+
 }
 
-.mision-acciones{
+.mision-botones{
+
     display:flex;
-    gap:10px;
+
     flex-wrap:wrap;
+
+    gap:10px;
+
     margin-top:20px;
+
 }
 
-.boton-mision{
-    border:none;
-    padding:11px 17px;
+.mision-boton{
+
+    padding:10px 16px;
+
     border-radius:30px;
+
+    border:
+        1px solid rgba(255,255,255,.12);
+
+    background:
+        rgba(255,255,255,.07);
+
     color:white;
+
     cursor:pointer;
-    background:rgba(255,255,255,.1);
-    border:1px solid rgba(255,255,255,.1);
+
 }
 
-.boton-mision:hover{
-    background:rgba(123,63,145,.3);
+.mision-boton:hover{
+
+    background:
+        rgba(123,63,145,.3);
+
 }
 
-.mision-completada{
-    border-left-color:#6f9b73;
+.mision-estado{
+
+    margin-top:15px;
+
+    min-height:30px;
+
 }
 
-.mision-fallada{
-    border-left-color:#a85b64;
+.historial-recompensas{
+
+    margin-top:30px;
+
+    text-align:left;
+
 }
 
-.cupon-recompensa{
-    margin-top:20px;
-    padding:18px;
-    border-radius:16px;
-    background:rgba(123,63,145,.16);
-    border:1px dashed rgba(200,160,220,.3);
+.recompensa-item{
+
+    padding:15px;
+
+    margin-bottom:10px;
+
+    border-radius:14px;
+
+    background:
+        rgba(255,255,255,.045);
+
+    border:
+        1px solid rgba(255,255,255,.07);
+
 }
 
-/* =========================
+
+/* =====================================================
+   NECESITAS
+===================================================== */
+
+.necesitas-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(210px,1fr)
+        );
+
+    gap:15px;
+
+    margin-top:30px;
+
+}
+
+.necesitas-card{
+
+    padding:25px 18px;
+
+    border-radius:20px;
+
+    background:
+        rgba(255,255,255,.05);
+
+    border:
+        1px solid rgba(255,255,255,.09);
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.necesitas-card:hover{
+
+    transform:
+        translateY(-5px);
+
+}
+
+.necesitas-mensaje{
+
+    display:none;
+
+    margin-top:25px;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    background:
+        rgba(92,45,30,.22);
+
+}
+
+
+/* =====================================================
    OSITOS
-========================= */
+===================================================== */
 
 .osito-hallazgo{
-    position:fixed;
-    font-size:2.8rem;
-    cursor:pointer;
-    z-index:150;
-    animation:
-        ositoAparece 1s ease,
-        ositoEspera 2.5s ease-in-out infinite;
-    filter:drop-shadow(0 0 12px rgba(255,255,255,.5));
-    user-select:none;
-}
 
-.osito-primer-hallazgo{
-    position:absolute;
-    right:8%;
-    bottom:12%;
-    font-size:3.2rem;
+    position:fixed;
+
+    font-size:2.5rem;
+
     cursor:pointer;
-    z-index:20;
+
+    z-index:150;
+
     animation:
-        ositoEspera 2.5s ease-in-out infinite,
-        brilloOsito 3s ease-in-out infinite;
+        ositoAparece 1s ease;
+
+    filter:
+        drop-shadow(
+            0 0 12px
+            rgba(255,255,255,.5)
+        );
+
 }
 
 @keyframes ositoAparece{
+
     from{
+
         opacity:0;
+
         transform:scale(.3);
+
     }
+
     to{
+
         opacity:1;
+
         transform:scale(1);
+
     }
+
 }
 
-@keyframes ositoEspera{
-    0%,100%{transform:translateY(0) rotate(-3deg)}
-    50%{transform:translateY(-8px) rotate(3deg)}
+.contador-flotante{
+
+    position:fixed;
+
+    right:16px;
+
+    bottom:16px;
+
+    z-index:120;
+
+    padding:9px 14px;
+
+    border-radius:30px;
+
+    background:
+        rgba(27,20,39,.9);
+
+    border:
+        1px solid rgba(255,255,255,.12);
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.3);
+
+    font-size:.9rem;
+
+    transition:.3s;
+
+}
+
+.contador-flotante:hover{
+
+    transform:
+        translateY(-3px);
+
 }
 
 .pregunta-osito{
+
     display:none;
+
     position:fixed;
+
     inset:0;
+
     z-index:200;
-    background:rgba(0,0,0,.72);
+
+    background:
+        rgba(0,0,0,.72);
+
     align-items:center;
+
     justify-content:center;
+
     padding:20px;
+
 }
 
 .pregunta-osito-box{
+
     max-width:500px;
+
     width:100%;
+
     background:#1b1427;
-    border:1px solid rgba(255,255,255,.15);
+
+    border:
+        1px solid rgba(255,255,255,.15);
+
     border-radius:25px;
+
     padding:30px;
+
     text-align:center;
+
 }
 
-/* =========================
-   ULTIMA COSA
-========================= */
+
+/* =====================================================
+   FINAL
+===================================================== */
 
 .final-bloqueado{
+
     padding:30px;
+
     border-radius:22px;
-    background:rgba(0,0,0,.18);
-    border:1px dashed rgba(255,255,255,.15);
+
+    background:
+        rgba(0,0,0,.18);
+
+    border:
+        1px dashed rgba(255,255,255,.15);
+
 }
 
 .final-bloqueado .candado{
+
     font-size:4rem;
+
     margin-bottom:15px;
+
 }
 
 .final-desbloqueado{
-    background:rgba(123,63,145,.16);
-    border:1px solid rgba(190,140,220,.3);
-    animation:aparecer .8s ease;
+
+    display:none;
+
+    padding:30px;
+
+    border-radius:22px;
+
+    background:
+        rgba(123,63,145,.16);
+
+    border:
+        1px solid rgba(190,140,220,.25);
+
+    animation:
+        aparecer .8s ease;
+
 }
 
-/* =========================
+
+/* =====================================================
    FOOTER
-========================= */
+===================================================== */
 
 footer{
+
     text-align:center;
+
     padding:50px 20px;
+
     color:#a99eac;
+
 }
 
 footer .corazon{
+
     color:#c94c61;
+
 }
 
-/* =========================
+
+/* =====================================================
    CELULAR
-========================= */
+===================================================== */
 
 @media(max-width:600px){
 
     .indice{
-        gap:5px;
-        padding:9px 5px;
-        overflow-x:auto;
+
         justify-content:flex-start;
+
+        gap:5px;
+
+        padding:
+            9px 5px;
+
     }
 
     .indice button{
-        flex:0 0 auto;
-        width:39px;
-        height:39px;
-        font-size:1.05rem;
+
+        min-width:66px;
+
+        min-height:44px;
+
+    }
+
+    .indice .indice-icono{
+
+        font-size:1.1rem;
+
+    }
+
+    .indice .indice-texto{
+
+        font-size:.58rem;
+
     }
 
     .ositos{
+
         font-size:4rem;
+
     }
 
     .portada h1{
+
         letter-spacing:2px;
+
     }
 
     .subtitulo{
+
         font-size:1.2rem;
+
     }
 
     .frase{
+
         font-size:1rem;
-    }
 
-    .seccion{
-        margin:25px 15px;
-        padding:30px 18px;
-    }
-
-    .foto-principal{
-        min-height:230px;
     }
 
     .bienvenida{
-        min-height:65vh;
+
+        min-height:45vh;
+
+        padding-top:50px;
+
     }
 
     .bienvenida-osito{
+
         font-size:4rem;
+
     }
 
-    .contador-ositos-flotante{
+    .seccion{
+
+        margin:25px 15px;
+
+        padding:30px 18px;
+
+    }
+
+    .foto-principal{
+
+        min-height:230px;
+
+    }
+
+    .contador-flotante{
+
         right:10px;
+
         bottom:10px;
-        font-size:.8rem;
-        padding:8px 12px;
+
+        font-size:.78rem;
+
+        padding:8px 11px;
+
     }
 
-    .osito-primer-hallazgo{
-        right:12%;
-        bottom:10%;
+}
+
+
+/* =====================================================
+   ANIMACION DE APROBADO
+===================================================== */
+
+.expediente-aprobado-animacion{
+
+    animation:
+        aprobado .7s ease;
+
+}
+
+@keyframes aprobado{
+
+    0%{
+        transform:scale(.9);
+        opacity:.5;
+    }
+
+    50%{
+        transform:scale(1.05);
+    }
+
+    100%{
+        transform:scale(1);
+        opacity:1;
     }
 
 }
 
 </style>
+
 </head>
+
 
 <body>
 
-<!-- ESTRELLAS -->
+
+<!-- =====================================================
+     ESTRELLAS
+===================================================== -->
 
 <div class="stars">
+
     <div class="star"></div>
+
     <div class="star"></div>
+
     <div class="star"></div>
+
     <div class="star"></div>
+
     <div class="star"></div>
+
     <div class="star"></div>
+
     <div class="star"></div>
+
     <div class="star"></div>
+
 </div>
 
 
-<!-- =========================
+<!-- =====================================================
      PORTADA
-========================= -->
+===================================================== -->
 
 <section id="inicio">
 
@@ -1016,13 +1835,19 @@ footer .corazon{
         </div>
 
         <p class="frase">
+
             8 años de historias, risas, salidas,
             tonterías y momentos que simplemente
             no caben en una sola página.
+
         </p>
 
-        <button class="boton" onclick="entrar()">
+        <button
+            class="boton"
+            onclick="entrar()">
+
             Entrar al rincón 🐻
+
         </button>
 
     </div>
@@ -1030,167 +1855,382 @@ footer .corazon{
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      CONTENIDO
-========================= -->
+===================================================== -->
 
 <main id="contenido">
 
-<!-- INDICE -->
+
+<!-- =====================================================
+     INDICE
+===================================================== -->
 
 <nav class="indice">
 
-    <button onclick="irA('inicioContenido')" title="Inicio">🏠</button>
-    <button onclick="irA('estado')" title="Cómo estás">💭</button>
-    <button onclick="irA('historia')" title="Historia">📖</button>
-    <button onclick="irA('musica')" title="Música">🎵</button>
-    <button onclick="irA('recuerdos')" title="Recuerdos">📸</button>
-    <button onclick="irA('archivo')" title="Archivo">😂</button>
-    <button onclick="irA('necesitas')" title="Para cuando lo necesites">💌</button>
-    <button onclick="irA('misiones')" title="Misiones">🎯</button>
-    <button onclick="irA('final')" title="Última cosa">🎁</button>
+    <button onclick="irA('inicioContenido')">
+
+        <span class="indice-icono">
+            🏠
+        </span>
+
+        <span class="indice-texto">
+            Inicio
+        </span>
+
+    </button>
+
+
+    <button onclick="irA('estado')">
+
+        <span class="indice-icono">
+            💭
+        </span>
+
+        <span class="indice-texto">
+            Cómo estás
+        </span>
+
+    </button>
+
+
+    <button onclick="irA('historia')">
+
+        <span class="indice-icono">
+            📖
+        </span>
+
+        <span class="indice-texto">
+            Historia
+        </span>
+
+    </button>
+
+
+    <button onclick="irA('musica')">
+
+        <span class="indice-icono">
+            🎵
+        </span>
+
+        <span class="indice-texto">
+            Música
+        </span>
+
+    </button>
+
+
+    <button onclick="irA('recuerdos')">
+
+        <span class="indice-icono">
+            📸
+        </span>
+
+        <span class="indice-texto">
+            Recuerdos
+        </span>
+
+    </button>
+
+
+    <button onclick="irA('archivo')">
+
+        <span class="indice-icono">
+            😂
+        </span>
+
+        <span class="indice-texto">
+            Archivo
+        </span>
+
+    </button>
+
+
+    <button onclick="irA('misiones')">
+
+        <span class="indice-icono">
+            🎯
+        </span>
+
+        <span class="indice-texto">
+            Misiones
+        </span>
+
+    </button>
+
+
+    <button onclick="irA('necesitas')">
+
+        <span class="indice-icono">
+            💌
+        </span>
+
+        <span class="indice-texto">
+            Necesitas
+        </span>
+
+    </button>
+
+
+    <button onclick="irA('final')">
+
+        <span class="indice-icono">
+            🎁
+        </span>
+
+        <span class="indice-texto">
+            Final
+        </span>
+
+    </button>
 
 </nav>
 
 
-<!-- CONTADOR -->
+<!-- =====================================================
+     CONTADOR DE OSITOS
+===================================================== -->
 
-<div class="contador-ositos-flotante">
-    🐻 Ositos:
-    <strong><span id="contadorOsitos">0</span> / 8</strong>
+<div
+    class="contador-flotante"
+    id="contadorFlotante">
+
+    🐻
+    <strong>
+        <span id="contadorOsitos">
+            0
+        </span>
+        / 8
+    </strong>
+
 </div>
 
 
-<!-- =========================
+<!-- =====================================================
      BIENVENIDA
-========================= -->
+===================================================== -->
 
-<section class="bienvenida" id="inicioContenido">
+<section
+    class="bienvenida"
+    id="inicioContenido">
 
     <div class="bienvenida-contenido">
 
         <div class="bienvenida-osito">
-            🐻
+            🐻✨
         </div>
 
-        <h2>Bienvenida, osita</h2>
-
-        <div class="bienvenida-subtitulo">
-            Este rincón apenas comienza...
-        </div>
+        <h2>
+            Bienvenida, osita
+        </h2>
 
         <div class="bienvenida-linea"></div>
 
         <p>
-            Hay cosas que están a la vista,
-            otras que tendrás que descubrir
-            y algunas que probablemente ni siquiera
-            sabrás que existen hasta encontrarlas.
+
+            Este pequeño rincón no tiene que tener
+            todo resuelto desde el principio.
+
+            <br><br>
+
+            Algunas partes se irán descubriendo
+            poco a poco.
+
+            <br><br>
+
+            Hay cosas que están aquí para recordar,
+            otras para reír y algunas que todavía
+            tendrás que encontrar.
+
         </p>
-
-        <div class="bienvenida-hint">
-            ✨ Explora. Aquí hay más de lo que parece.
-        </div>
-
-    </div>
-
-    <!-- PRIMER OSITO -->
-
-    <div
-        id="primerOsito"
-        class="osito-primer-hallazgo"
-        title="¿Qué hace un osito aquí?"
-        onclick="encontrarPrimerOsito()">
-
-        🐻
 
     </div>
 
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      COMO ESTAS
-========================= -->
+===================================================== -->
 
-<section class="seccion" id="estado">
+<section
+    class="seccion"
+    id="estado">
 
-    <div class="osito-pequeno">🐻</div>
+    <div class="osito-pequeno">
+        🐻
+    </div>
 
-    <h2>¿Cómo estás hoy?</h2>
+    <h2>
+        ¿Cómo estás hoy?
+    </h2>
 
     <p>
-        No importa cuál elijas.
-        Aquí no hay respuestas incorrectas.
+
+        Elige cómo te sientes hoy.
+
+        <br>
+
+        Dependiendo de lo que elijas,
+        este rincón te dará algo diferente.
+
     </p>
+
 
     <div class="estados">
 
-        <div class="estado" onclick="mostrarEstado('feliz')">
+
+        <div
+            class="estado"
+            onclick="mostrarEstado('feliz')">
+
             <span>😊</span>
+
             Feliz
+
         </div>
 
-        <div class="estado" onclick="mostrarEstado('triste')">
+
+        <div
+            class="estado"
+            onclick="mostrarEstado('triste')">
+
             <span>😔</span>
+
             Triste
+
         </div>
 
-        <div class="estado" onclick="mostrarEstado('enojada')">
+
+        <div
+            class="estado"
+            onclick="mostrarEstado('enojada')">
+
             <span>😤</span>
+
             Hasta la madre
+
         </div>
 
-        <div class="estado" onclick="mostrarEstado('aburrida')">
+
+        <div
+            class="estado"
+            onclick="mostrarEstado('aburrida')">
+
             <span>🥱</span>
+
             Aburrida
+
         </div>
 
-        <div class="estado" onclick="mostrarEstado('pensando')">
+
+        <div
+            class="estado"
+            onclick="mostrarEstado('pensando')">
+
             <span>🌙</span>
+
             Pensando
+
         </div>
 
-        <div class="estado" onclick="mostrarEstado('cansada')">
+
+        <div
+            class="estado"
+            onclick="mostrarEstado('cansada')">
+
             <span>😴</span>
+
             Cansada
+
         </div>
 
-        <div class="estado" onclick="mostrarEstado('ansiosa')">
+
+        <div
+            class="estado"
+            onclick="mostrarEstado('ansiosa')">
+
             <span>🫠</span>
+
             Saturada
+
         </div>
 
-        <div class="estado" onclick="mostrarEstado('necesito')">
+
+        <div
+            class="estado"
+            onclick="mostrarEstado('necesito')">
+
             <span>🫂</span>
+
             Necesito compañía
+
         </div>
 
     </div>
 
-    <div id="mensajeEstado" class="mensaje-estado"></div>
+
+    <div
+        id="mensajeEstado"
+        class="mensaje-estado">
+
+    </div>
+
 
     <div class="estado-extra">
 
-        <div class="extra-card">
-            <h3>🎟️ Tu cupón</h3>
-            <p id="cuponEstado">
-                Elige cómo estás para descubrirlo.
-            </p>
-        </div>
 
         <div class="extra-card">
-            <h3>🎵 Para este momento</h3>
-            <p id="musicaEstado">
-                Una canción aparecerá aquí.
-            </p>
+
+            <h3>
+                🎟️ Tu cupón
+            </h3>
+
+            <div
+                class="recurso-estado"
+                id="cuponEstado">
+
+                Elige cómo estás
+                para descubrirlo.
+
+            </div>
+
         </div>
 
+
         <div class="extra-card">
-            <h3>📸 Una foto para ti</h3>
-            <p id="fotoEstado">
-                Una pequeña memoria aparecerá aquí.
-            </p>
+
+            <h3>
+                🎵 Para este momento
+            </h3>
+
+            <div
+                class="recurso-estado"
+                id="musicaEstado">
+
+                Elige cómo estás
+                para descubrirlo.
+
+            </div>
+
+        </div>
+
+
+        <div class="extra-card">
+
+            <h3>
+                📸 Una foto para ti
+            </h3>
+
+            <div
+                class="recurso-estado"
+                id="fotoEstado">
+
+                Elige cómo estás
+                para descubrirla.
+
+            </div>
+
         </div>
 
     </div>
@@ -1198,51 +2238,93 @@ footer .corazon{
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      HISTORIA
-========================= -->
+===================================================== -->
 
-<section class="seccion" id="historia">
+<section
+    class="seccion"
+    id="historia">
 
-    <div class="osito-pequeno">📖</div>
+    <div class="osito-pequeno">
+        📖
+    </div>
 
-    <h2>Nuestra historia</h2>
+    <h2>
+        Nuestra historia
+    </h2>
 
     <p>
+
         Aquí vamos a contar esos ocho años.
+
     </p>
+
 
     <div class="timeline">
 
-        <div class="timeline-item">
-            <h3>🐻 El comienzo</h3>
-            <p>
-                Aquí iremos poniendo cómo empezó todo.
-            </p>
-        </div>
 
         <div class="timeline-item">
-            <h3>🌱 Los primeros años</h3>
+
+            <h3>
+                🐻 El comienzo
+            </h3>
+
             <p>
+
+                Aquí iremos poniendo cómo empezó todo.
+
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <h3>
+                🌱 Los primeros años
+            </h3>
+
+            <p>
+
                 Momentos, cambios, salidas y todas esas
                 pequeñas cosas que fueron construyendo esto.
+
             </p>
+
         </div>
 
+
         <div class="timeline-item">
-            <h3>😂 Las historias que no se pueden contar</h3>
+
+            <h3>
+                😂 Las historias que no se pueden contar
+            </h3>
+
             <p>
+
                 Este apartado crecerá conforme recordemos
                 nuestras mejores tonterías.
+
             </p>
+
         </div>
 
+
         <div class="timeline-item">
-            <h3>🐻 Hasta hoy</h3>
+
+            <h3>
+                🐻 Hasta hoy
+            </h3>
+
             <p>
+
                 Todavía falta escribir muchísimo.
+
                 Esta historia sigue.
+
             </p>
+
         </div>
 
     </div>
@@ -1250,213 +2332,425 @@ footer .corazon{
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      MUSICA
-========================= -->
+===================================================== -->
 
-<section class="seccion" id="musica">
+<section
+    class="seccion"
+    id="musica">
 
-    <div class="osito-pequeno">🎵</div>
+    <div class="osito-pequeno">
+        🎵
+    </div>
 
-    <h2>Nuestra música</h2>
+    <h2>
+        Nuestra música
+    </h2>
 
     <p>
-        Algunas canciones tienen la capacidad de llevarnos
-        directo a un momento.
+
+        Algunas canciones tienen la capacidad
+        de llevarnos directo a un momento.
+
     </p>
+
 
     <div class="reproductor">
 
-        <div class="album-art" id="albumArt">
+
+        <div
+            class="album-art"
+            id="albumArt">
+
             🎵
+
         </div>
 
-        <div class="cancion-titulo" id="cancionTitulo">
+
+        <div
+            class="cancion-titulo"
+            id="cancionTitulo">
+
             Elige una canción
+
         </div>
 
-        <div class="cancion-artista" id="cancionArtista">
+
+        <div
+            class="cancion-artista"
+            id="cancionArtista">
+
             Nuestro rincón musical
+
         </div>
 
-        <audio id="audioPlayer"></audio>
+
+        <audio
+            id="audioPlayer">
+        </audio>
+
 
         <div class="controles">
 
-            <button class="control" onclick="cancionAnterior()">
+
+            <button
+                class="control"
+                onclick="cancionAnterior()">
+
                 ⏮
+
             </button>
 
-            <button class="control play" id="playButton" onclick="togglePlay()">
+
+            <button
+                class="control play"
+                id="playButton"
+                onclick="togglePlay()">
+
                 ▶
+
             </button>
 
-            <button class="control" onclick="cancionSiguiente()">
+
+            <button
+                class="control"
+                onclick="cancionSiguiente()">
+
                 ⏭
+
             </button>
 
-            <button class="control" onclick="cancionAleatoria()">
+
+            <button
+                class="control"
+                onclick="cancionAleatoria()">
+
                 🔀
+
             </button>
 
         </div>
 
-        <div class="lista-musica" id="listaMusica"></div>
+
+        <div
+            class="lista-musica"
+            id="listaMusica">
+        </div>
 
     </div>
-
-    <p style="margin-top:20px;font-size:.9rem;">
-        🎧 Aquí después podrás poner todas las canciones que quieras.
-    </p>
 
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      RECUERDOS
-========================= -->
+===================================================== -->
 
-<section class="seccion" id="recuerdos">
+<section
+    class="seccion"
+    id="recuerdos">
 
-    <div class="osito-pequeno">📸</div>
+    <div class="osito-pequeno">
+        📸
+    </div>
 
-    <h2>Nuestros recuerdos</h2>
+    <h2>
+        Nuestros recuerdos
+    </h2>
 
     <p>
-        Cada recuerdo puede tener su propio pequeño espacio.
+
+        Cada recuerdo puede tener su propio
+        pequeño espacio.
+
     </p>
+
 
     <div class="recuerdo-selector">
 
-        <button onclick="cargarRecuerdo('salidas')">
+
+        <button
+            onclick="cargarRecuerdo('salidas')">
+
             🍦 Salidas
+
         </button>
 
-        <button onclick="cargarRecuerdo('tonterias')">
+
+        <button
+            onclick="cargarRecuerdo('tonterias')">
+
             😂 Tonterías
+
         </button>
 
-        <button onclick="cargarRecuerdo('momentos')">
+
+        <button
+            onclick="cargarRecuerdo('momentos')">
+
             🐻 Momentos
+
         </button>
 
-        <button onclick="cargarRecuerdo('especiales')">
+
+        <button
+            onclick="cargarRecuerdo('especiales')">
+
             💜 Especiales
+
         </button>
 
     </div>
+
 
     <div class="galeria">
 
-        <div class="foto-principal" id="fotoPrincipal">
+
+        <div
+            class="foto-principal"
+            id="fotoPrincipal">
+
             📸
+
         </div>
+
 
         <div class="galeria-controles">
 
-            <button class="boton" onclick="fotoAnterior()">
+
+            <button
+                class="boton"
+                onclick="fotoAnterior()">
+
                 ←
+
             </button>
 
-            <button class="boton" onclick="fotoSiguiente()">
+
+            <button
+                class="boton"
+                onclick="fotoSiguiente()">
+
                 →
+
             </button>
 
         </div>
 
-        <p class="leyenda" id="leyendaFoto">
+
+        <p
+            class="leyenda"
+            id="leyendaFoto">
+
             Selecciona un recuerdo.
+
         </p>
 
     </div>
 
+
     <div class="azar-box">
 
-        <h3>🎲 Recuerdo al azar</h3>
+
+        <h3>
+            🎲 Recuerdo al azar
+        </h3>
+
 
         <p>
-            Aquí solo aparecerán fotografías.
+
+            Esta vez el azar solamente puede
+            sacar una foto.
+
         </p>
 
-        <button class="boton" onclick="recuerdoAzar()">
-            Muéstrame un recuerdo 🐻
+
+        <button
+            class="boton"
+            onclick="recuerdoAzar()">
+
+            Sorpréndeme 🐻
+
         </button>
 
-        <div class="azar-resultado" id="azarResultado"></div>
+
+        <div
+            class="azar-resultado"
+            id="azarResultado">
+
+        </div>
 
     </div>
 
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      ARCHIVO
-========================= -->
+===================================================== -->
 
-<section class="seccion" id="archivo">
+<section
+    class="seccion"
+    id="archivo">
 
-    <div class="osito-pequeno">😂</div>
+    <div class="osito-pequeno">
+        😂
+    </div>
 
-    <h2>Archivo de los ositos</h2>
+    <h2>
+        Archivo de los ositos
+    </h2>
 
     <p>
-        Algunos archivos requieren demostrar que realmente
-        perteneces a este universo.
+
+        Algunos archivos requieren demostrar
+        que realmente perteneces a este universo.
+
     </p>
+
 
     <div class="carpeta-grid">
 
-        <div class="carpeta" onclick="abrirCarpeta('legal')">
+
+        <div
+            class="carpeta"
+            onclick="abrirCarpeta('legal')">
+
             ⚖️
+
             <br><br>
-            <strong>Archivos legales</strong>
+
+            <strong>
+                Archivos legales
+            </strong>
+
             <br><br>
-            <small>7 expedientes</small>
+
+            <small>
+                7 expedientes
+            </small>
+
         </div>
 
-        <div class="carpeta" onclick="abrirCarpeta('prohibido')">
+
+        <div
+            class="carpeta"
+            onclick="abrirCarpeta('prohibido')">
+
             🚫
+
             <br><br>
-            <strong>Archivos prohibidos</strong>
+
+            <strong>
+                Archivos prohibidos
+            </strong>
+
             <br><br>
-            <small>7 expedientes</small>
+
+            <small>
+                7 expedientes
+            </small>
+
         </div>
 
-        <div class="carpeta" onclick="abrirCarpeta('confidencial')">
+
+        <div
+            class="carpeta"
+            onclick="abrirCarpeta('confidencial')">
+
             🔐
+
             <br><br>
-            <strong>Confidenciales</strong>
+
+            <strong>
+                Confidenciales
+            </strong>
+
             <br><br>
-            <small>7 expedientes</small>
+
+            <small>
+                7 expedientes
+            </small>
+
         </div>
 
     </div>
 
-    <div class="expedientes" id="expedientes">
+
+    <div
+        class="expedientes"
+        id="expedientes">
+
 
         <h3 id="tituloCarpeta">
             Expedientes
         </h3>
 
+
         <p style="margin-top:10px;">
-            Cada expediente debe aprobarse al 100%.
+
+            Cada expediente necesita 100%.
+
+            Si fallas una pregunta,
+            tendrás que empezar nuevamente.
+
         </p>
 
-        <div class="progreso" id="progresoExpedientes"></div>
 
-        <div class="expediente-grid" id="expedienteGrid"></div>
+        <div
+            class="progreso"
+            id="progresoExpedientes">
+        </div>
 
-        <div class="pregunta-box" id="preguntaBox">
+
+        <div
+            class="expediente-grid"
+            id="expedienteGrid">
+        </div>
+
+
+        <div
+            class="historia-expediente"
+            id="historiaExpediente">
+
+            <h3 id="tituloHistoriaExpediente">
+                Expediente
+            </h3>
+
+            <p id="textoHistoriaExpediente">
+            </p>
+
+        </div>
+
+
+        <div
+            class="pregunta-box"
+            id="preguntaBox">
+
 
             <h3 id="numeroPregunta">
                 Pregunta
             </h3>
 
-            <p id="textoPregunta" style="margin-top:15px;"></p>
 
-            <div class="opciones" id="opcionesPregunta"></div>
+            <p
+                id="textoPregunta"
+                style="margin-top:15px;">
+            </p>
 
-            <div class="resultado-test" id="resultadoTest"></div>
+
+            <div
+                class="opciones"
+                id="opcionesPregunta">
+            </div>
+
+
+            <div
+                class="resultado-test"
+                id="resultadoTest">
+            </div>
+
 
         </div>
 
@@ -1465,196 +2759,465 @@ footer .corazon{
 </section>
 
 
-<!-- =========================
-     NECESITAS
-========================= -->
+<!-- =====================================================
+     MISIONES
+===================================================== -->
 
-<section class="seccion" id="necesitas">
+<section
+    class="seccion"
+    id="misiones">
 
-    <div class="osito-pequeno">💌</div>
+    <div class="osito-pequeno">
+        🎯
+    </div>
 
-    <h2>Para cuando lo necesites</h2>
+    <h2>
+        Misiones de los ositos
+    </h2>
 
     <p>
-        No siempre necesitas una solución.
-        A veces solo necesitas que alguien se quede.
+
+        No todo tiene que ser productivo.
+
+        Algunas misiones existen simplemente
+        para disfrutar.
+
     </p>
+
+
+    <div class="misiones">
+
+
+        <!-- MISION DIARIA -->
+
+        <div class="mision">
+
+            <h3>
+                🌱 Misión del día
+            </h3>
+
+            <p
+                class="mision-descripcion"
+                id="misionDiaTexto">
+
+                Cargando misión...
+
+            </p>
+
+
+            <div
+                class="mision-video"
+                id="misionDiaVideo">
+            </div>
+
+
+            <div class="mision-botones">
+
+
+                <button
+                    class="mision-boton"
+                    onclick="randomizarMision('dia')">
+
+                    🎲 Otra misión
+
+                </button>
+
+
+                <button
+                    class="mision-boton"
+                    onclick="marcarMision('dia','completada')">
+
+                    ✅ Completada
+
+                </button>
+
+
+                <button
+                    class="mision-boton"
+                    onclick="marcarMision('dia','fallida')">
+
+                    ❌ Fallada
+
+                </button>
+
+            </div>
+
+
+            <div
+                class="mision-estado"
+                id="misionDiaEstado">
+
+            </div>
+
+        </div>
+
+
+        <!-- MISION SEMANAL -->
+
+        <div class="mision">
+
+            <h3>
+                🍦 Misión de la semana
+            </h3>
+
+            <p
+                class="mision-descripcion"
+                id="misionSemanaTexto">
+
+                Cargando misión...
+
+            </p>
+
+
+            <div
+                class="mision-video"
+                id="misionSemanaVideo">
+            </div>
+
+
+            <div class="mision-botones">
+
+
+                <button
+                    class="mision-boton"
+                    onclick="randomizarMision('semana')">
+
+                    🎲 Otra misión
+
+                </button>
+
+
+                <button
+                    class="mision-boton"
+                    onclick="marcarMision('semana','completada')">
+
+                    ✅ Completada
+
+                </button>
+
+
+                <button
+                    class="mision-boton"
+                    onclick="marcarMision('semana','fallida')">
+
+                    ❌ Fallada
+
+                </button>
+
+            </div>
+
+
+            <div
+                class="mision-estado"
+                id="misionSemanaEstado">
+
+            </div>
+
+        </div>
+
+
+        <!-- MISION MENSUAL -->
+
+        <div class="mision">
+
+            <h3>
+                🌙 Misión del mes
+            </h3>
+
+            <p
+                class="mision-descripcion"
+                id="misionMesTexto">
+
+                Cargando misión...
+
+            </p>
+
+
+            <div
+                class="mision-video"
+                id="misionMesVideo">
+            </div>
+
+
+            <div class="mision-botones">
+
+
+                <button
+                    class="mision-boton"
+                    onclick="randomizarMision('mes')">
+
+                    🎲 Otra misión
+
+                </button>
+
+
+                <button
+                    class="mision-boton"
+                    onclick="marcarMision('mes','completada')">
+
+                    ✅ Completada
+
+                </button>
+
+
+                <button
+                    class="mision-boton"
+                    onclick="marcarMision('mes','fallida')">
+
+                    ❌ Fallada
+
+                </button>
+
+            </div>
+
+
+            <div
+                class="mision-estado"
+                id="misionMesEstado">
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- HISTORIAL -->
+
+    <div class="historial-recompensas">
+
+        <h3>
+            🎁 Historial de recompensas
+        </h3>
+
+        <br>
+
+        <div
+            id="historialRecompensas">
+
+            Todavía no hay recompensas.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     NECESITAS
+===================================================== -->
+
+<section
+    class="seccion"
+    id="necesitas">
+
+    <div class="osito-pequeno">
+        💌
+    </div>
+
+    <h2>
+        Para cuando lo necesites
+    </h2>
+
+    <p>
+
+        No siempre necesitas una solución.
+
+        A veces solo necesitas
+        que alguien se quede.
+
+    </p>
+
 
     <div class="necesitas-grid">
 
-        <div class="necesitas-card"
-             onclick="mostrarNecesitas('hablar')">
+
+        <div
+            class="necesitas-card"
+            onclick="mostrarNecesitas('hablar')">
+
             🫂
+
             <br><br>
+
             Necesito hablar
+
         </div>
 
-        <div class="necesitas-card"
-             onclick="mostrarNecesitas('acompanada')">
+
+        <div
+            class="necesitas-card"
+            onclick="mostrarNecesitas('acompanada')">
+
             🌙
+
             <br><br>
+
             No quiero estar sola
+
         </div>
 
-        <div class="necesitas-card"
-             onclick="mostrarNecesitas('animo')">
+
+        <div
+            class="necesitas-card"
+            onclick="mostrarNecesitas('animo')">
+
             🌱
+
             <br><br>
+
             Necesito ánimo
+
         </div>
 
-        <div class="necesitas-card"
-             onclick="mostrarNecesitas('reir')">
+
+        <div
+            class="necesitas-card"
+            onclick="mostrarNecesitas('reir')">
+
             😂
+
             <br><br>
+
             Necesito reírme
+
         </div>
 
-        <div class="necesitas-card"
-             onclick="mostrarNecesitas('llamada')">
+
+        <div
+            class="necesitas-card"
+            onclick="mostrarNecesitas('llamada')">
+
             📞
+
             <br><br>
+
             Quiero que me llames
+
         </div>
 
-        <div class="necesitas-card"
-             onclick="mostrarNecesitas('abrazo')">
+
+        <div
+            class="necesitas-card"
+            onclick="mostrarNecesitas('abrazo')">
+
             🐻
+
             <br><br>
+
             Solo quiero un abrazo
-        </div>
-
-    </div>
-
-    <div class="necesitas-mensaje" id="necesitasMensaje"></div>
-
-</section>
-
-
-<!-- =========================
-     MISIONES
-========================= -->
-
-<section class="seccion" id="misiones">
-
-    <div class="osito-pequeno">🎯</div>
-
-    <h2>Misiones de los ositos</h2>
-
-    <p>
-        No todo tiene que ser productivo.
-        Algunas misiones simplemente existen para disfrutar.
-    </p>
-
-    <div class="mision" id="misionActual">
-
-        <h3>🎯 Misión del día</h3>
-
-        <div class="mision-contenido">
-
-            <h3 id="misionTitulo">
-                Pulsa el botón para recibir una misión.
-            </h3>
-
-            <p id="misionDescripcion" style="margin-top:10px;">
-                Nunca sabes qué puede tocar.
-            </p>
-
-            <div class="mision-meta">
-                <span class="etiqueta" id="misionCategoria">
-                    🐻 Ositos
-                </span>
-
-                <span class="etiqueta" id="misionDificultad">
-                    ⭐ Normal
-                </span>
-            </div>
-
-            <div class="mision-video" id="misionVideo"></div>
-
-            <div class="mision-acciones">
-
-                <button
-                    class="boton-mision"
-                    onclick="nuevaMision()">
-                    🎲 Randomizar
-                </button>
-
-                <button
-                    class="boton-mision"
-                    onclick="marcarMision('completada')">
-                    ✅ Completada
-                </button>
-
-                <button
-                    class="boton-mision"
-                    onclick="marcarMision('fallada')">
-                    ❌ Fallada
-                </button>
-
-            </div>
-
-            <div id="misionResultado"></div>
 
         </div>
 
     </div>
 
-    <div class="azar-box">
 
-        <h3>🏆 Historial de recompensas</h3>
-
-        <p>
-            Completa misiones para ir acumulando pequeños
-            cupones de los ositos.
-        </p>
-
-        <div id="historialMisiones" style="margin-top:20px;">
-            Todavía no hay misiones completadas.
-        </div>
-
+    <div
+        class="necesitas-mensaje"
+        id="necesitasMensaje">
     </div>
 
 </section>
 
 
-<!-- =========================
-     ULTIMA COSA
-========================= -->
+<!-- =====================================================
+     FINAL
+===================================================== -->
 
-<section class="seccion" id="final">
+<section
+    class="seccion"
+    id="final">
 
-    <div class="osito-pequeno">🎁</div>
+    <div class="osito-pequeno">
+        🎁
+    </div>
 
-    <h2>Una última cosa...</h2>
+    <h2>
+        Una última cosa...
+    </h2>
+
 
     <div
         class="final-bloqueado"
         id="finalBloqueado">
 
+
         <div class="candado">
             🔒
         </div>
 
-        <h3>Esto todavía está cerrado.</h3>
+
+        <h3>
+            Esto todavía está cerrado.
+        </h3>
+
 
         <br>
 
+
         <p>
+
             Algunas cosas no deberían poder abrirse
             simplemente haciendo clic.
+
         </p>
+
+
+        <br>
+
+
+        <p>
+
+            Sigue descubriendo el rincón de los ositos.
+
+        </p>
+
+
+        <br>
+
+
+        <strong id="requisitoFinal">
+
+            Progreso: 0 / 8 ositos
+
+        </strong>
+
+    </div>
+
+
+    <div
+        class="final-desbloqueado"
+        id="finalDesbloqueado">
+
+        <div style="font-size:4rem;">
+            🐻💜
+        </div>
+
+        <br>
+
+        <h3>
+            Llegaste hasta aquí.
+        </h3>
 
         <br>
 
         <p>
-            Sigue descubriendo el rincón de los ositos.
+
+            Encontraste los ocho ositos.
+
+            <br><br>
+
+            Ahora sí puedes entrar
+            a la parte más profunda
+            de este rincón.
+
         </p>
 
         <br>
 
-        <strong id="requisitoFinal">
-            Progreso: 0 / 8 ositos
+        <strong>
+            🔓 Próximamente...
         </strong>
 
     </div>
@@ -1662,10 +3225,17 @@ footer .corazon{
 </section>
 
 
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
 <footer>
 
     Hecho por un osito para otra osita
-    <span class="corazon">♥</span>
+
+    <span class="corazon">
+        ♥
+    </span>
 
     <br><br>
 
@@ -1673,32 +3243,50 @@ footer .corazon{
 
 </footer>
 
+
 </main>
 
 
-<!-- =========================
+<!-- =====================================================
      PREGUNTA OSITO
-========================= -->
+===================================================== -->
 
-<div class="pregunta-osito" id="preguntaOsito">
+<div
+    class="pregunta-osito"
+    id="preguntaOsito">
+
 
     <div class="pregunta-osito-box">
+
 
         <div style="font-size:3rem;">
             🐻
         </div>
 
-        <h2>¡Encontraste algo!</h2>
+
+        <h2>
+            ¡Encontraste algo!
+        </h2>
+
 
         <br>
 
-        <p id="textoPreguntaOsito"></p>
 
-        <div class="opciones" id="opcionesOsito"></div>
+        <p id="textoPreguntaOsito">
+        </p>
 
-        <div id="resultadoOsito"
-             style="margin-top:20px;">
+
+        <div
+            class="opciones"
+            id="opcionesOsito">
         </div>
+
+
+        <div
+            id="resultadoOsito"
+            style="margin-top:20px;">
+        </div>
+
 
     </div>
 
@@ -1707,13 +3295,10 @@ footer .corazon{
 
 <script>
 
-/* =====================================================
-   DATOS
-===================================================== */
 
-/*
-   Aquí posteriormente pondremos las canciones reales.
-*/
+/* =====================================================
+   CANCIONES GENERALES
+===================================================== */
 
 const canciones = [
 
@@ -1738,80 +3323,770 @@ const canciones = [
 ];
 
 
-/*
-   Aquí posteriormente pondremos las fotos reales.
-*/
+/* =====================================================
+   RECUERDOS
+===================================================== */
 
 const recuerdos = {
 
     salidas:[
+
         {
             imagen:"",
             emoji:"🍦",
-            texto:"Una salida que todavía tenemos que poner aquí."
+            texto:
+                "Una salida que todavía tenemos que poner aquí."
         },
+
         {
             imagen:"",
             emoji:"🐻",
-            texto:"Otro recuerdo de una de nuestras salidas."
+            texto:
+                "Otro recuerdo de una de nuestras salidas."
         }
+
     ],
 
+
     tonterias:[
+
         {
             imagen:"",
             emoji:"😂",
-            texto:"Esto definitivamente merece estar en el archivo."
+            texto:
+                "Esto definitivamente merece estar en el archivo."
         }
+
     ],
 
+
     momentos:[
+
         {
             imagen:"",
             emoji:"💜",
-            texto:"Uno de esos momentos que se quedan."
+            texto:
+                "Uno de esos momentos que se quedan."
         }
+
     ],
 
+
     especiales:[
+
         {
             imagen:"",
             emoji:"🐻",
-            texto:"Este tendrá una historia especial."
+            texto:
+                "Este tendrá una historia especial."
         }
+
     ]
 
 };
 
 
 /* =====================================================
-   NAVEGACION
+   RECURSOS POR SENTIMIENTO
 ===================================================== */
 
-function entrar(){
+const recursosEstado = {
 
-    document.getElementById("inicio").style.display="none";
-    document.getElementById("contenido").style.display="block";
+    feliz:{
 
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
+        mensajes:[
 
-}
+            `
+            <h3>
+                Entonces disfruta ese momento 🐻❤️
+            </h3>
 
-function irA(id){
+            <br>
 
-    const elemento=document.getElementById(id);
+            <p>
+                Qué bueno que hoy estás feliz.
+                Guarda ese momento, disfrútalo y no
+                busques una razón para que dure menos.
+            </p>
+            `,
 
-    if(elemento){
+            `
+            <h3>
+                Hoy parece que el osito ganó 🐻✨
+            </h3>
 
-        elemento.scrollIntoView({
-            behavior:"smooth",
-            block:"start"
-        });
+            <br>
+
+            <p>
+                No necesitas justificar estar feliz.
+                Si hoy hay algo bonito,
+                déjalo ser bonito.
+            </p>
+            `,
+
+            `
+            <h3>
+                Qué bonito encontrarte así 💜
+            </h3>
+
+            <br>
+
+            <p>
+                Disfruta lo que esté haciendo
+                que este día se sienta diferente.
+            </p>
+            `
+
+        ],
+
+        cupones:[
+
+            "🎟️ Cupón para presumirme tu felicidad.",
+
+            "🎟️ Cupón para celebrar algo aunque sea pequeño.",
+
+            "🎟️ Cupón para compartir una buena noticia con el otro osito."
+
+        ],
+
+        canciones:[
+
+            "🎵 Una canción feliz para acompañar el momento.",
+
+            "🎵 Algo para cantar aunque nadie lo haya pedido.",
+
+            "🎵 Una canción para disfrutar este día."
+
+        ],
+
+        fotos:[
+
+            "📸 Una foto que algún día nos hará sonreír.",
+
+            "📸 Un recuerdo bonito para acompañar este momento.",
+
+            "📸 Una memoria de esos días que sí valieron la pena."
+
+        ]
+
+    },
+
+
+    triste:{
+
+        mensajes:[
+
+            `
+            <h3>
+                Ven acá, osita 🐻💙
+            </h3>
+
+            <br>
+
+            <p>
+                No tienes que solucionar todo hoy.
+                Hay días que simplemente pesan más
+                que otros.
+            </p>
+            `,
+
+            `
+            <h3>
+                Hoy puedes ir despacito 🌙
+            </h3>
+
+            <br>
+
+            <p>
+                No tienes que fingir que todo está bien.
+                Puedes simplemente descansar un poquito.
+            </p>
+            `,
+
+            `
+            <h3>
+                Un mal día no borra lo demás 🫂
+            </h3>
+
+            <br>
+
+            <p>
+                Lo que estás sintiendo ahora no tiene
+                que definir todo tu día ni toda tu historia.
+            </p>
+
+            `
+
+        ],
+
+        cupones:[
+
+            "🎟️ Cupón de abrazo + derecho a no explicar nada.",
+
+            "🎟️ Cupón para hablar sin tener que encontrar una solución.",
+
+            "🎟️ Cupón oficial de compañía silenciosa."
+
+        ],
+
+        canciones:[
+
+            "🎵 Canción para quedarnos tranquilas un rato.",
+
+            "🎵 Algo para escuchar mientras baja poquito a poquito el ruido.",
+
+            "🎵 Una canción para acompañar este momento."
+
+        ],
+
+        fotos:[
+
+            "📸 Una memoria para recordarte que no todo ha sido malo.",
+
+            "📸 Un recuerdo tranquilo para este momento.",
+
+            "📸 Una foto de una época que algún día volverá a hacerte sonreír."
+
+        ]
+
+    },
+
+
+    enojada:{
+
+        mensajes:[
+
+            `
+            <h3>
+                Ok... primero respira 😂🐻
+            </h3>
+
+            <br>
+
+            <p>
+                No voy a preguntarte "¿por qué estás enojada?"
+                porque probablemente eso solo empeoraría las cosas.
+            </p>
+
+            <br>
+
+            <p>
+                Mejor vamos a buscar algo que te distraiga.
+            </p>
+            `,
+
+            `
+            <h3>
+                Se declara oficialmente día de mentar madres 😤
+            </h3>
+
+            <br>
+
+            <p>
+                Puedes estar enojada.
+                No todo necesita convertirse inmediatamente
+                en una lección de vida.
+            </p>
+            `,
+
+            `
+            <h3>
+                Ok osita, descargamos primero 😂
+            </h3>
+
+            <br>
+
+            <p>
+                Después vemos si el problema sigue
+                pareciendo tan enorme.
+            </p>
+            `
+
+        ],
+
+        cupones:[
+
+            "🎟️ Cupón para desahogarte sin recibir un 'cálmate'.",
+
+            "🎟️ Cupón de rant ilimitado.",
+
+            "🎟️ Cupón para decir 'estoy hasta la madre' sin juicio."
+
+        ],
+
+        canciones:[
+
+            "🎵 Algo para sacar el coraje.",
+
+            "🎵 Canción para cantar fuerte y olvidarte cinco minutos.",
+
+            "🎵 Música para transformar el enojo en energía."
+
+        ],
+
+        fotos:[
+
+            "📸 Una foto absurda para intentar sacarte una sonrisa.",
+
+            "📸 Un recuerdo que probablemente te dé risa.",
+
+            "📸 Evidencia de que hemos hecho cosas todavía más tontas."
+
+        ]
+
+    },
+
+
+    aburrida:{
+
+        mensajes:[
+
+            `
+            <h3>
+                Tenemos un problema 🐻
+            </h3>
+
+            <br>
+
+            <p>
+                Ocho años de amistad y todavía
+                encontraste la manera de aburrirte.
+            </p>
+
+            <br>
+
+            <p>
+                Creo que toca abrir el archivo de los ositos.
+                😂
+            </p>
+            `,
+
+            `
+            <h3>
+                Diagnóstico: falta de tonterías 😂
+            </h3>
+
+            <br>
+
+            <p>
+                Procederemos inmediatamente a buscar
+                algo innecesariamente divertido.
+            </p>
+            `,
+
+            `
+            <h3>
+                El aburrimiento ha sido detectado 🐻🚨
+            </h3>
+
+            <br>
+
+            <p>
+                Este parece un trabajo para las misiones
+                de los ositos.
+            </p>
+            `
+
+        ],
+
+        cupones:[
+
+            "🎟️ Cupón para una misión improvisada.",
+
+            "🎟️ Cupón para obligar al otro osito a hacer una tontería.",
+
+            "🎟️ Cupón para elegir actividad sin derecho a quejarse."
+
+        ],
+
+        canciones:[
+
+            "🎵 Canción para romper el aburrimiento.",
+
+            "🎵 Algo que no puedas escuchar sentado sin moverte.",
+
+            "🎵 Una canción al azar."
+
+        ],
+
+        fotos:[
+
+            "📸 Recuerdo al azar pendiente.",
+
+            "📸 Una tontería histórica de los ositos.",
+
+            "📸 Evidencia fotográfica de nuestras decisiones cuestionables."
+
+        ]
+
+    },
+
+
+    pensando:{
+
+        mensajes:[
+
+            `
+            <h3>
+                Quédate un rato 🌙🐻
+            </h3>
+
+            <br>
+
+            <p>
+                Hay cosas que necesitan tiempo para acomodarse.
+                No tienes que tener todas las respuestas ahora.
+            </p>
+            `,
+
+            `
+            <h3>
+                No tienes que resolverlo esta noche 🌙
+            </h3>
+
+            <br>
+
+            <p>
+                A veces pensar demasiado solamente
+                necesita una pausa.
+            </p>
+            `,
+
+            `
+            <h3>
+                Respira y deja que las cosas se acomoden 🐻
+            </h3>
+
+            <br>
+
+            <p>
+                No todas las preguntas necesitan
+                respuesta inmediatamente.
+            </p>
+            `
+
+        ],
+
+        cupones:[
+
+            "🎟️ Cupón para hablar sin tener que llegar a una conclusión.",
+
+            "🎟️ Cupón para cambiar de tema cuando quieras.",
+
+            "🎟️ Cupón para quedarnos pensando juntas."
+
+        ],
+
+        canciones:[
+
+            "🎵 Algo tranquilo.",
+
+            "🎵 Música para mirar por la ventana.",
+
+            "🎵 Una canción para bajar revoluciones."
+
+        ],
+
+        fotos:[
+
+            "📸 Un recuerdo para aterrizar un poquito.",
+
+            "📸 Una memoria tranquila.",
+
+            "📸 Una foto de un momento que no necesitó explicación."
+
+        ]
+
+    },
+
+
+    cansada:{
+
+        mensajes:[
+
+            `
+            <h3>
+                Entonces hoy toca bajar revoluciones 🐻💤
+            </h3>
+
+            <br>
+
+            <p>
+                No tienes que ganarle al día.
+                A veces descansar también cuenta como avanzar.
+            </p>
+            `,
+
+            `
+            <h3>
+                El osito necesita cargar batería 🔋🐻
+            </h3>
+
+            <br>
+
+            <p>
+                No todo tiene que hacerse hoy.
+                Descansar también es parte del camino.
+            </p>
+            `,
+
+            `
+            <h3>
+                Hoy puedes hacer menos 💜
+            </h3>
+
+            <br>
+
+            <p>
+                No necesitas demostrar nada.
+                Si estás cansada, estás cansada.
+            </p>
+            `
+
+        ],
+
+        cupones:[
+
+            "🎟️ Cupón oficial para no hacer absolutamente nada.",
+
+            "🎟️ Cupón para dormir sin sentir culpa.",
+
+            "🎟️ Cupón de descanso obligatorio."
+
+        ],
+
+        canciones:[
+
+            "🎵 Música para cerrar el día.",
+
+            "🎵 Una canción tranquila.",
+
+            "🎵 Algo suave para descansar."
+
+        ],
+
+        fotos:[
+
+            "📸 Una memoria tranquila.",
+
+            "📸 Una foto para cerrar el día.",
+
+            "📸 Un recuerdo de un momento en calma."
+
+        ]
+
+    },
+
+
+    ansiosa:{
+
+        mensajes:[
+
+            `
+            <h3>
+                Vamos poquito a poquito 🐻🌙
+            </h3>
+
+            <br>
+
+            <p>
+                No tienes que resolver las siguientes diez cosas.
+                Solo una. Y después otra.
+            </p>
+            `,
+
+            `
+            <h3>
+                Una cosa a la vez 🫂
+            </h3>
+
+            <br>
+
+            <p>
+                El futuro no necesita resolverse completo
+                en este momento.
+            </p>
+            `,
+
+            `
+            <h3>
+                Baja un poquito el ruido 🐻
+            </h3>
+
+            <br>
+
+            <p>
+                Respira.
+                Mira qué puedes hacer ahora.
+                Lo demás puede esperar un momento.
+            </p>
+            `
+
+        ],
+
+        cupones:[
+
+            "🎟️ Cupón para pedir ayuda sin sentirte culpable.",
+
+            "🎟️ Cupón de compañía inmediata.",
+
+            "🎟️ Cupón para que alguien te recuerde que no estás sola."
+
+        ],
+
+        canciones:[
+
+            "🎵 Algo que te ayude a bajar un poco el ruido.",
+
+            "🎵 Música tranquila para respirar.",
+
+            "🎵 Una canción para desconectar cinco minutos."
+
+        ],
+
+        fotos:[
+
+            "📸 Una memoria para respirar.",
+
+            "📸 Un recuerdo que te recuerde que las cosas cambian.",
+
+            "📸 Una foto de un momento en que todo estaba bien."
+
+        ]
+
+    },
+
+
+    necesito:{
+
+        mensajes:[
+
+            `
+            <h3>
+                Entonces no tienes que cargar todo sola 🫂🐻
+            </h3>
+
+            <br>
+
+            <p>
+                Si necesitas hablar, distraerte, llorar
+                o simplemente tener compañía,
+                este espacio es para eso.
+            </p>
+            `,
+
+            `
+            <h3>
+                Ven, aquí se queda otro osito 🐻
+            </h3>
+
+            <br>
+
+            <p>
+                No necesitas saber exactamente
+                qué necesitas.
+                Puedes simplemente decir que necesitas compañía.
+            </p>
+            `,
+
+            `
+            <h3>
+                No tienes que explicar nada 🫂
+            </h3>
+
+            <br>
+
+            <p>
+                Puedes quedarte aquí un rato.
+                No hay examen.
+                No hay respuestas correctas.
+            </p>
+            `
+
+        ],
+
+        cupones:[
+
+            "🎟️ Cupón: 'Llámame cuando quieras'.",
+
+            "🎟️ Cupón de compañía sin preguntas.",
+
+            "🎟️ Cupón oficial de abrazo de ositos."
+
+        ],
+
+        canciones:[
+
+            "🎵 Una canción para acompañarte.",
+
+            "🎵 Música para no sentir que estás sola.",
+
+            "🎵 Una canción tranquila para este momento."
+
+        ],
+
+        fotos:[
+
+            "📸 Una memoria nuestra.",
+
+            "📸 Una foto para recordar que tienes compañía.",
+
+            "📸 Un recuerdo que pertenece a los dos ositos."
+
+        ]
 
     }
+
+};
+
+
+/* =====================================================
+   CONTROL DE REPETICIONES DE SENTIMIENTOS
+===================================================== */
+
+let recursosUsadosEstado = {};
+
+
+/* =====================================================
+   OBTENER RECURSO SIN REPETIR
+===================================================== */
+
+function obtenerAleatorioSinRepetir(
+
+    arreglo,
+    clave
+
+){
+
+    if(
+        !recursosUsadosEstado[clave] ||
+        recursosUsadosEstado[clave].length >= arreglo.length
+    ){
+
+        recursosUsadosEstado[clave]=[];
+
+    }
+
+
+    let indice;
+
+
+    do{
+
+        indice=
+            Math.floor(
+                Math.random()*arreglo.length
+            );
+
+    }while(
+        recursosUsadosEstado[clave].includes(indice) &&
+        recursosUsadosEstado[clave].length < arreglo.length
+    );
+
+
+    recursosUsadosEstado[clave].push(indice);
+
+    return arreglo[indice];
 
 }
 
@@ -1822,164 +4097,122 @@ function irA(id){
 
 function mostrarEstado(tipo){
 
-    const caja=document.getElementById("mensajeEstado");
+    const datos=
+        recursosEstado[tipo];
 
-    let mensaje="";
-    let cupon="";
-    let musica="";
-    let foto="";
+    if(!datos) return;
 
-    if(tipo==="feliz"){
 
-        mensaje=`
-        <h3>Entonces disfruta ese momento 🐻❤️</h3>
-        <br>
-        <p>
-        Qué bueno que hoy estás feliz.
-        Guarda ese momento, disfrútalo y no
-        busques una razón para que dure menos.
-        </p>`;
+    const mensaje=
+        obtenerAleatorioSinRepetir(
+            datos.mensajes,
+            tipo+"_mensaje"
+        );
 
-        cupon="🎟️ Cupón para presumirme tu felicidad.";
-        musica="🎵 Una canción feliz para acompañar el momento.";
-        foto="📸 Una foto que algún día nos hará sonreír.";
 
-    }
+    const cupon=
+        obtenerAleatorioSinRepetir(
+            datos.cupones,
+            tipo+"_cupon"
+        );
 
-    if(tipo==="triste"){
 
-        mensaje=`
-        <h3>Ven acá, osita 🐻💙</h3>
-        <br>
-        <p>
-        No tienes que solucionar todo hoy.
-        Hay días que simplemente pesan más que otros.
-        Respira, descansa un poquito y recuerda
-        que un mal día no significa una mala vida.
-        </p>`;
+    const musica=
+        obtenerAleatorioSinRepetir(
+            datos.canciones,
+            tipo+"_musica"
+        );
 
-        cupon="🎟️ Cupón de abrazo + derecho a no explicar nada.";
-        musica="🎵 Canción para quedarnos tranquilas un rato.";
-        foto="📸 Una memoria para recordarte que no todo ha sido malo.";
 
-    }
+    const foto=
+        obtenerAleatorioSinRepetir(
+            datos.fotos,
+            tipo+"_foto"
+        );
 
-    if(tipo==="enojada"){
 
-        mensaje=`
-        <h3>Ok... primero respira 😂🐻</h3>
-        <br>
-        <p>
-        No voy a preguntarte "¿por qué estás enojada?"
-        porque probablemente eso solo empeoraría las cosas.
-        </p>
-        <br>
-        <p>
-        Mejor vamos a buscar algo que te distraiga.
-        </p>`;
+    document.getElementById(
+        "mensajeEstado"
+    ).innerHTML=mensaje;
 
-        cupon="🎟️ Cupón para desahogarte sin recibir un 'cálmate'.";
-        musica="🎵 Algo para sacar el coraje.";
-        foto="📸 Una foto absurda para intentar sacarte una sonrisa.";
 
-    }
+    document.getElementById(
+        "mensajeEstado"
+    ).style.display="block";
 
-    if(tipo==="aburrida"){
 
-        mensaje=`
-        <h3>Tenemos un problema 🐻</h3>
-        <br>
-        <p>
-        Ocho años de amistad y todavía
-        encontraste la manera de aburrirte.
-        </p>
-        <br>
-        <p>
-        Creo que toca abrir el archivo de los ositos.
-        😂
-        </p>`;
+    document.getElementById(
+        "cuponEstado"
+    ).innerHTML=cupon;
 
-        cupon="🎟️ Cupón para una misión improvisada.";
-        musica="🎵 Canción para romper el aburrimiento.";
-        foto="📸 Recuerdo al azar pendiente.";
 
-    }
+    document.getElementById(
+        "musicaEstado"
+    ).innerHTML=musica;
 
-    if(tipo==="pensando"){
 
-        mensaje=`
-        <h3>Quédate un rato 🌙🐻</h3>
-        <br>
-        <p>
-        Hay cosas que necesitan tiempo para acomodarse.
-        No tienes que tener todas las respuestas ahora.
-        </p>`;
+    document.getElementById(
+        "fotoEstado"
+    ).innerHTML=foto;
 
-        cupon="🎟️ Cupón para hablar sin tener que llegar a una conclusión.";
-        musica="🎵 Algo tranquilo.";
-        foto="📸 Un recuerdo para aterrizar un poquito.";
 
-    }
+    document.getElementById(
+        "mensajeEstado"
+    ).scrollIntoView({
 
-    if(tipo==="cansada"){
-
-        mensaje=`
-        <h3>Entonces hoy toca bajar revoluciones 🐻💤</h3>
-        <br>
-        <p>
-        No tienes que ganarle al día.
-        A veces descansar también cuenta como avanzar.
-        </p>`;
-
-        cupon="🎟️ Cupón oficial para no hacer absolutamente nada.";
-        musica="🎵 Música para cerrar el día.";
-        foto="📸 Una memoria tranquila.";
-
-    }
-
-    if(tipo==="ansiosa"){
-
-        mensaje=`
-        <h3>Vamos poquito a poquito 🐻🌙</h3>
-        <br>
-        <p>
-        No tienes que resolver las siguientes diez cosas.
-        Solo una. Y después otra.
-        </p>`;
-
-        cupon="🎟️ Cupón para pedir ayuda sin sentirte culpable.";
-        musica="🎵 Algo que te ayude a bajar un poco el ruido.";
-        foto="📸 Una memoria para respirar.";
-
-    }
-
-    if(tipo==="necesito"){
-
-        mensaje=`
-        <h3>Entonces no tienes que cargar todo sola 🫂🐻</h3>
-        <br>
-        <p>
-        Si necesitas hablar, distraerte, llorar o simplemente
-        tener compañía, este espacio es para eso.
-        </p>`;
-
-        cupon="🎟️ Cupón: 'Llámame cuando quieras'.";
-        musica="🎵 Una canción para acompañarte.";
-        foto="📸 Una memoria nuestra.";
-
-    }
-
-    caja.innerHTML=mensaje;
-    caja.style.display="block";
-
-    document.getElementById("cuponEstado").innerHTML=cupon;
-    document.getElementById("musicaEstado").innerHTML=musica;
-    document.getElementById("fotoEstado").innerHTML=foto;
-
-    caja.scrollIntoView({
         behavior:"smooth",
+
         block:"center"
+
     });
+
+}
+
+
+/* =====================================================
+   NAVEGACION
+===================================================== */
+
+function entrar(){
+
+    document.getElementById(
+        "inicio"
+    ).style.display="none";
+
+
+    document.getElementById(
+        "contenido"
+    ).style.display="block";
+
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+}
+
+
+function irA(id){
+
+    const elemento=
+        document.getElementById(id);
+
+
+    if(elemento){
+
+        elemento.scrollIntoView({
+
+            behavior:"smooth",
+
+            block:"start"
+
+        });
+
+    }
 
 }
 
@@ -1990,131 +4223,211 @@ function mostrarEstado(tipo){
 
 let cancionActual=0;
 
-const audio=document.getElementById("audioPlayer");
+const audio=
+    document.getElementById(
+        "audioPlayer"
+    );
+
 
 function cargarCancion(indice){
 
     if(!canciones[indice]) return;
 
+
     cancionActual=indice;
 
-    const cancion=canciones[indice];
 
-    document.getElementById("cancionTitulo").textContent=cancion.titulo;
-    document.getElementById("cancionArtista").textContent=cancion.artista;
+    const cancion=
+        canciones[indice];
+
+
+    document.getElementById(
+        "cancionTitulo"
+    ).textContent=
+        cancion.titulo;
+
+
+    document.getElementById(
+        "cancionArtista"
+    ).textContent=
+        cancion.artista;
+
 
     if(cancion.archivo){
 
-        audio.src=cancion.archivo;
+        audio.src=
+            cancion.archivo;
 
     }else{
 
-        audio.removeAttribute("src");
+        audio.removeAttribute(
+            "src"
+        );
 
     }
 
-    document.querySelectorAll(".cancion").forEach((el,i)=>{
 
-        el.classList.toggle("activa",i===indice);
+    document
+        .querySelectorAll(".cancion")
+        .forEach(
+            (el,i)=>{
 
-    });
+                el.classList.toggle(
+                    "activa",
+                    i===indice
+                );
+
+            }
+        );
 
 }
+
 
 function construirListaMusica(){
 
-    const lista=document.getElementById("listaMusica");
+    const lista=
+        document.getElementById(
+            "listaMusica"
+        );
+
 
     lista.innerHTML="";
 
-    canciones.forEach((cancion,i)=>{
 
-        const elemento=document.createElement("div");
+    canciones.forEach(
+        (cancion,i)=>{
 
-        elemento.className="cancion";
 
-        elemento.innerHTML=`
-            <strong>${i+1}. ${cancion.titulo}</strong>
-            <br>
-            <small>${cancion.artista}</small>
-        `;
+            const elemento=
+                document.createElement(
+                    "div"
+                );
 
-        elemento.onclick=()=>{
 
-            cargarCancion(i);
+            elemento.className=
+                "cancion";
 
-            if(canciones[i].archivo){
 
-                audio.play();
+            elemento.innerHTML=`
 
-                document.getElementById("playButton").textContent="⏸";
+                <strong>
+                    ${i+1}. ${cancion.titulo}
+                </strong>
 
-            }
+                <br>
 
-        };
+                <small>
+                    ${cancion.artista}
+                </small>
 
-        lista.appendChild(elemento);
+            `;
 
-    });
+
+            elemento.onclick=()=>{
+
+                cargarCancion(i);
+
+
+                if(canciones[i].archivo){
+
+                    audio.play();
+
+                    document.getElementById(
+                        "playButton"
+                    ).textContent="⏸";
+
+                }
+
+            };
+
+
+            lista.appendChild(
+                elemento
+            );
+
+        }
+    );
 
 }
+
 
 function togglePlay(){
 
     if(!audio.src){
 
         alert(
-            "Esta canción todavía no tiene archivo. " +
-            "Después puedes poner aquí tus canciones."
+            "Esta canción todavía no tiene archivo."
         );
 
         return;
 
     }
 
+
     if(audio.paused){
 
         audio.play();
 
-        document.getElementById("playButton").textContent="⏸";
+        document.getElementById(
+            "playButton"
+        ).textContent="⏸";
 
     }else{
 
         audio.pause();
 
-        document.getElementById("playButton").textContent="▶";
+        document.getElementById(
+            "playButton"
+        ).textContent="▶";
 
     }
 
 }
 
+
 function cancionSiguiente(){
 
     cancionActual=
-        (cancionActual+1)%canciones.length;
+        (cancionActual+1)
+        % canciones.length;
 
-    cargarCancion(cancionActual);
+
+    cargarCancion(
+        cancionActual
+    );
 
 }
+
 
 function cancionAnterior(){
 
     cancionActual=
-        (cancionActual-1+canciones.length)%canciones.length;
+        (
+            cancionActual-1+
+            canciones.length
+        )
+        %
+        canciones.length;
 
-    cargarCancion(cancionActual);
+
+    cargarCancion(
+        cancionActual
+    );
 
 }
+
 
 function cancionAleatoria(){
 
     let nueva;
 
+
     do{
 
         nueva=
             Math.floor(
-                Math.random()*canciones.length
+                Math.random()*
+                canciones.length
             );
 
     }while(
@@ -2122,714 +4435,1293 @@ function cancionAleatoria(){
         canciones.length>1
     );
 
-    cargarCancion(nueva);
+
+    cargarCancion(
+        nueva
+    );
 
 }
+
+
+audio.addEventListener(
+    "ended",
+    ()=>{
+
+        cancionSiguiente();
+
+    }
+);
 
 
 /* =====================================================
    RECUERDOS
 ===================================================== */
 
-let categoriaRecuerdo="salidas";
+let categoriaRecuerdo=
+    "salidas";
+
+
 let fotoActual=0;
 
-function cargarRecuerdo(categoria){
 
-    categoriaRecuerdo=categoria;
+function cargarRecuerdo(
+    categoria
+){
+
+    categoriaRecuerdo=
+        categoria;
+
+
     fotoActual=0;
+
 
     mostrarFoto();
 
 }
 
+
 function mostrarFoto(){
 
-    const lista=recuerdos[categoriaRecuerdo];
+    const lista=
+        recuerdos[
+            categoriaRecuerdo
+        ];
 
-    if(!lista || !lista.length) return;
 
-    const foto=lista[fotoActual];
+    if(
+        !lista ||
+        !lista.length
+    ) return;
+
+
+    const foto=
+        lista[fotoActual];
+
 
     const contenedor=
-        document.getElementById("fotoPrincipal");
+        document.getElementById(
+            "fotoPrincipal"
+        );
+
 
     if(foto.imagen){
 
         contenedor.innerHTML=`
-            <img src="${foto.imagen}" alt="Recuerdo">
+
+            <img
+                src="${foto.imagen}"
+                alt="Recuerdo"
+            >
+
         `;
 
     }else{
 
         contenedor.innerHTML=`
-            <span>${foto.emoji}</span>
+
+            <span>
+                ${foto.emoji}
+            </span>
+
         `;
 
     }
 
-    document.getElementById("leyendaFoto")
-        .textContent=foto.texto;
+
+    document.getElementById(
+        "leyendaFoto"
+    ).textContent=
+        foto.texto;
 
 }
+
 
 function fotoSiguiente(){
 
-    const lista=recuerdos[categoriaRecuerdo];
+    const lista=
+        recuerdos[
+            categoriaRecuerdo
+        ];
+
 
     fotoActual=
-        (fotoActual+1)%lista.length;
+        (
+            fotoActual+1
+        )
+        %
+        lista.length;
+
 
     mostrarFoto();
 
 }
+
 
 function fotoAnterior(){
 
-    const lista=recuerdos[categoriaRecuerdo];
+    const lista=
+        recuerdos[
+            categoriaRecuerdo
+        ];
+
 
     fotoActual=
-        (fotoActual-1+lista.length)%lista.length;
+        (
+            fotoActual-1+
+            lista.length
+        )
+        %
+        lista.length;
+
 
     mostrarFoto();
 
 }
+
 
 function crearFotoFlotante(){
 
     const imagenes=[];
 
-    Object.values(recuerdos).forEach(categoria=>{
 
-        categoria.forEach(recuerdo=>{
+    Object.values(
+        recuerdos
+    ).forEach(
+        categoria=>{
 
-            if(recuerdo.imagen){
+            categoria.forEach(
+                recuerdo=>{
 
-                imagenes.push(recuerdo.imagen);
+                    if(
+                        recuerdo.imagen
+                    ){
 
-            }
+                        imagenes.push(
+                            recuerdo.imagen
+                        );
 
-        });
+                    }
 
-    });
+                }
+            );
+
+        }
+    );
+
 
     if(!imagenes.length) return;
 
-    const foto=document.createElement("img");
+
+    const foto=
+        document.createElement(
+            "img"
+        );
+
 
     foto.src=
         imagenes[
             Math.floor(
-                Math.random()*imagenes.length
+                Math.random()*
+                imagenes.length
             )
         ];
 
-    foto.className="foto-flotante";
+
+    foto.className=
+        "foto-flotante";
+
 
     foto.style.left=
-        (Math.random()*70+10)+"%";
+        (
+            Math.random()*70+10
+        )+"%";
+
 
     foto.style.top=
-        (Math.random()*65+15)+"%";
+        (
+            Math.random()*65+15
+        )+"%";
 
-    document.body.appendChild(foto);
 
-    setTimeout(()=>{
+    document.body.appendChild(
+        foto
+    );
 
-        foto.remove();
 
-    },9000);
+    setTimeout(
+        ()=>{
+
+            foto.remove();
+
+        },
+        9000
+    );
 
 }
 
 
 /* =====================================================
    RECUERDO AL AZAR
-   SOLO FOTOS
+   SOLAMENTE FOTOS
 ===================================================== */
 
 function recuerdoAzar(){
 
     const imagenes=[];
 
-    Object.values(recuerdos).forEach(categoria=>{
 
-        categoria.forEach(recuerdo=>{
+    Object.entries(
+        recuerdos
+    ).forEach(
+        ([categoria,lista])=>{
 
-            if(recuerdo.imagen){
+            lista.forEach(
+                recuerdo=>{
 
-                imagenes.push(recuerdo);
+                    if(
+                        recuerdo.imagen
+                    ){
 
-            }
+                        imagenes.push(
+                            recuerdo
+                        );
 
-        });
+                    }
 
-    });
+                }
+            );
+
+        }
+    );
+
 
     const resultado=
-        document.getElementById("azarResultado");
+        document.getElementById(
+            "azarResultado"
+        );
+
 
     if(!imagenes.length){
 
         resultado.innerHTML=`
+
             <p>
-                📸 Todavía no hay fotografías cargadas.
-                Cuando agreguemos las fotos, este botón
-                escogerá una al azar.
+
+                📸 Todavía no hay fotos cargadas.
+                Aquí aparecerá una al azar
+                cuando empecemos a meter nuestros recuerdos.
+
             </p>
+
         `;
 
         return;
 
     }
 
-    const recuerdo=
+
+    const foto=
         imagenes[
             Math.floor(
-                Math.random()*imagenes.length
+                Math.random()*
+                imagenes.length
             )
         ];
 
+
     resultado.innerHTML=`
+
         <img
-            src="${recuerdo.imagen}"
+            src="${foto.imagen}"
             alt="Recuerdo al azar"
             style="
                 width:100%;
                 max-height:400px;
                 object-fit:cover;
                 border-radius:18px;
-                margin-top:10px;
+                margin-top:15px;
             "
         >
-        <p style="margin-top:12px;">
-            ${recuerdo.texto}
+
+        <p
+            style="margin-top:15px;">
+
+            ${foto.texto}
+
         </p>
+
     `;
 
 }
 
 
 /* =====================================================
-   NECESITAS
+   PARA CUANDO LO NECESITES
 ===================================================== */
 
 function mostrarNecesitas(tipo){
 
     const caja=
-        document.getElementById("necesitasMensaje");
+        document.getElementById(
+            "necesitasMensaje"
+        );
+
 
     const mensajes={
 
+
         hablar:`
-            <h3>🫂 Puedes hablar.</h3>
+
+            <h3>
+                🫂 Puedes hablar.
+            </h3>
+
             <br>
+
             <p>
-            No tienes que ordenar tus ideas antes de hablar.
-            Puedes empezar por donde quieras.
+
+                No tienes que ordenar tus ideas
+                antes de hablar.
+
+                Puedes empezar por donde quieras.
+
             </p>
+
         `,
+
 
         acompanada:`
-            <h3>🌙 Entonces quédate aquí un ratito.</h3>
+
+            <h3>
+                🌙 Entonces quédate aquí un ratito.
+            </h3>
+
             <br>
+
             <p>
-            No tienes que hacer nada especial.
-            Puedes simplemente estar.
+
+                No tienes que hacer nada especial.
+
+                Puedes simplemente estar.
+
             </p>
+
         `,
+
 
         animo:`
-            <h3>🌱 Un día a la vez.</h3>
+
+            <h3>
+                🌱 Un día a la vez.
+            </h3>
+
             <br>
+
             <p>
-            No tienes que ser fuerte todo el tiempo.
-            También está bien necesitar que alguien te recuerde
-            que puedes seguir.
+
+                No tienes que ser fuerte todo el tiempo.
+
+                También está bien necesitar que alguien
+                te recuerde que puedes seguir.
+
             </p>
+
         `,
+
 
         reir:`
-            <h3>😂 Diagnóstico: necesitas una tontería.</h3>
+
+            <h3>
+                😂 Diagnóstico: necesitas una tontería.
+            </h3>
+
             <br>
+
             <p>
-            Abre el archivo de los ositos.
-            Bajo tu propio riesgo.
+
+                Abre el archivo de los ositos.
+
+                Bajo tu propio riesgo.
+
             </p>
+
         `,
+
 
         llamada:`
-            <h3>📞 Entonces toca llamada.</h3>
+
+            <h3>
+                📞 Entonces toca llamada.
+            </h3>
+
             <br>
+
             <p>
-            Este botón queda preparado para que posteriormente
-            podamos convertirlo en una petición de llamada real.
+
+                Este botón queda preparado para que
+                posteriormente podamos convertirlo
+                en una petición de llamada real.
+
             </p>
+
         `,
 
+
         abrazo:`
-            <h3>🐻 Ven acá.</h3>
+
+            <h3>
+                🐻 Ven acá.
+            </h3>
+
             <br>
+
             <p>
-            No hay mucho que explicar.
-            Este es oficialmente un abrazo de ositos.
-            🫂
+
+                No hay mucho que explicar.
+
+                Este es oficialmente un abrazo de ositos.
+
+                🫂
+
             </p>
+
         `
 
     };
 
-    caja.innerHTML=mensajes[tipo];
 
-    caja.style.display="block";
+    caja.innerHTML=
+        mensajes[tipo];
+
+
+    caja.style.display=
+        "block";
+
 
     caja.scrollIntoView({
+
         behavior:"smooth",
+
         block:"center"
+
     });
 
 }
 
 
 /* =====================================================
-   EXPEDIENTES
+   BANCOS DE PREGUNTAS
 ===================================================== */
 
 /*
-   Cada expediente tiene SU PROPIO banco.
+   Cada carpeta tiene su propio banco.
 
-   Cada uno tiene 4 preguntas por ahora.
-   Posteriormente podemos sustituirlas por preguntas
-   personalizadas para Mónica.
+   De cada banco se eligen solamente 4 preguntas
+   diferentes cada vez.
 
-   Las respuestas correctas NO están siempre en A.
+   Si falla una:
+   TODO EL EXPEDIENTE SE REINICIA.
+
 */
 
-const bancosExpedientes={
 
-    legal:{
+const bancos={
 
-        1:[
-            ["¿Cuál es nuestro elixir oficial de la vida?",
-                ["Café","Agua","Kosako de uva","Té"],2],
 
-            ["¿Cuál es nuestra especie oficial?",
-                ["Gatos","Ositos","Pingüinos","Mapaches"],1],
+    legal:[
 
-            ["¿Cuántos años lleva construyéndose esta historia?",
-                ["3 años","5 años","8 años","10 años"],2],
-
-            ["¿Qué hacemos cuando algo se pone demasiado serio?",
-                ["Nos reímos","Dormimos","Nos vamos","Cocinamos"],0]
+        [
+            "¿Cuál es nuestro elixir oficial de la vida?",
+            [
+                "Kosako de uva",
+                "Agua",
+                "Café",
+                "Té"
+            ]
         ],
 
-        2:[
-            ["¿Qué representa este rincón?",
-                ["Una tienda","Nuestra historia","Una tarea","Un examen"],1],
-
-            ["¿Qué palabra describe mejor a los ositos?",
-                ["Aburridos","Serios","Inseparables","Profesionales"],2],
-
-            ["¿Qué guardamos aquí?",
-                ["Recuerdos","Facturas","Exámenes","Horarios"],0],
-
-            ["¿Qué no debería faltar nunca?",
-                ["Tonterías","Estrés","Silencio","Tareas"],0]
+        [
+            "¿Cuál es nuestra especie oficial?",
+            [
+                "Ositos",
+                "Pingüinos",
+                "Gatos",
+                "Mapaches"
+            ]
         ],
 
-        3:[
-            ["¿Qué hacemos con los recuerdos importantes?",
-                ["Los borramos","Los escondemos","Los guardamos","Los vendemos"],2],
-
-            ["¿Qué puede aparecer en este rincón?",
-                ["Fotos","Recuerdos","Historias","Todas las anteriores"],3],
-
-            ["¿Qué animal representa este universo?",
-                ["🐱","🐶","🐻","🦊"],2],
-
-            ["¿Qué estamos construyendo?",
-                ["Una página cualquiera","Una historia","Una tienda","Un juego"],1]
+        [
+            "¿Cuántos años llevamos construyendo esta historia?",
+            [
+                "8 años",
+                "2 años",
+                "5 años",
+                "15 años"
+            ]
         ],
 
-        4:[
-            ["¿Qué debe tener un buen recuerdo?",
-                ["Una historia","Un examen","Una contraseña","Una factura"],0],
-
-            ["¿Qué hacemos cuando necesitamos reír?",
-                ["Abrimos el archivo","Dormimos","Estudiamos","Nos vamos"],0],
-
-            ["¿Qué encontramos en el archivo?",
-                ["Expedientes","Recetas","Horarios","Mapas"],0],
-
-            ["¿Quién pertenece a este universo?",
-                ["Los ositos","Los pingüinos","Los gatos","Los marcianos"],0]
+        [
+            "¿Qué hacemos cuando algo se pone demasiado serio?",
+            [
+                "Nos reímos",
+                "Nos vamos",
+                "Dormimos",
+                "Cocinamos"
+            ]
         ],
 
-        5:[
-            ["¿Cuál es la misión principal de este sitio?",
-                ["Recordar","Comprar","Estudiar","Trabajar"],0],
-
-            ["¿Qué representa el corazón del sitio?",
-                ["8 años","8 días","8 meses","8 semanas"],0],
-
-            ["¿Qué puede desbloquearse?",
-                ["La parte profunda","Una tienda","Un examen","Nada"],0],
-
-            ["¿Qué hay que hacer para descubrir cosas?",
-                ["Explorar","Cerrar la página","Dormirse","Ignorar todo"],0]
+        [
+            "¿Qué palabra describe mejor nuestro archivo?",
+            [
+                "Tonterías",
+                "Seriedad",
+                "Trabajo",
+                "Silencio"
+            ]
         ],
 
-        6:[
-            ["¿Qué significa 'osita' aquí?",
-                ["Un apodo","Una materia","Una contraseña","Una misión"],0],
-
-            ["¿Qué tiene este universo?",
-                ["Recuerdos","Historias","Secretos","Todo lo anterior"],3],
-
-            ["¿Qué puede guardar una foto?",
-                ["Un momento","Un examen","Una contraseña","Nada"],0],
-
-            ["¿Qué hacemos con los años compartidos?",
-                ["Los olvidamos","Los celebramos","Los borramos","Los escondemos"],1]
+        [
+            "¿Qué animal representa nuestro rincón?",
+            [
+                "🐻",
+                "🐱",
+                "🐸",
+                "🐧"
+            ]
         ],
 
-        7:[
-            ["¿Cuántos ositos deben encontrarse para llegar al final?",
-                ["4","6","8","10"],2],
+        [
+            "¿Qué hacemos con los recuerdos?",
+            [
+                "Los guardamos",
+                "Los borramos",
+                "Los vendemos",
+                "Los olvidamos"
+            ]
+        ],
 
-            ["¿Qué ocurre al encontrar todos?",
-                ["Nada","Se desbloquea la parte profunda","Se reinicia","Se borra todo"],1],
+        [
+            "¿Qué es obligatorio en el universo de los ositos?",
+            [
+                "Tonterías",
+                "Trajes",
+                "Exámenes",
+                "Silencio"
+            ]
+        ],
 
-            ["¿Qué necesita un expediente para aprobarse?",
-                ["50%","70%","90%","100%"],3],
+        [
+            "¿Qué debe tener una buena salida?",
+            [
+                "Algo que recordar",
+                "Un examen",
+                "Una discusión",
+                "Una multa"
+            ]
+        ],
 
-            ["¿Qué hace un verdadero osito?",
-                ["Explora","Se rinde","Ignora todo","Borra recuerdos"],0]
+        [
+            "¿Qué representa este archivo?",
+            [
+                "Nuestra historia",
+                "Una tienda",
+                "Una tarea",
+                "Un restaurante"
+            ]
         ]
 
-    },
+    ],
 
-    prohibido:{},
-    confidencial:{}
+
+    prohibido:[
+
+        [
+            "¿Qué se encuentra en los archivos prohibidos?",
+            [
+                "Historias comprometedoras",
+                "Tareas",
+                "Recetas",
+                "Horarios"
+            ]
+        ],
+
+        [
+            "¿Qué debe hacer un osito al descubrir un archivo prohibido?",
+            [
+                "Abrirlo bajo su propio riesgo",
+                "Llamar a la policía",
+                "Borrarlo",
+                "Ignorarlo"
+            ]
+        ],
+
+        [
+            "¿Cuál es la regla número uno del archivo prohibido?",
+            [
+                "Lo que pasa aquí se queda aquí",
+                "Tomar apuntes",
+                "Hacer tarea",
+                "Dormirse"
+            ]
+        ],
+
+        [
+            "¿Qué tan confiables son los expedientes prohibidos?",
+            [
+                "Nada confiables",
+                "100% científicos",
+                "Oficiales",
+                "Académicos"
+            ]
+        ],
+
+        [
+            "¿Qué podría aparecer aquí?",
+            [
+                "Una tontería histórica",
+                "Un examen",
+                "Una receta médica",
+                "Un horario"
+            ]
+        ],
+
+        [
+            "¿Quién puede entrar al archivo prohibido?",
+            [
+                "Los ositos",
+                "El director",
+                "El perro",
+                "Nadie"
+            ]
+        ],
+
+        [
+            "¿Cuál es el nivel de peligro?",
+            [
+                "🐻😂",
+                "🚨🚨🚨",
+                "Cero",
+                "Máximo"
+            ]
+        ],
+
+        [
+            "¿Qué pasa si encuentras algo demasiado vergonzoso?",
+            [
+                "Se convierte en recuerdo",
+                "Se destruye",
+                "Se vende",
+                "Se estudia"
+            ]
+        ],
+
+        [
+            "¿Cuál es la finalidad principal de este archivo?",
+            [
+                "Reírnos",
+                "Estudiar",
+                "Trabajar",
+                "Dormir"
+            ]
+        ],
+
+        [
+            "¿Qué palabra describe mejor este lugar?",
+            [
+                "Peligroso 😂",
+                "Aburrido",
+                "Formal",
+                "Académico"
+            ]
+        ]
+
+    ],
+
+
+    confidencial:[
+
+        [
+            "¿Quién conoce los secretos del archivo?",
+            [
+                "Los ositos",
+                "El gobierno",
+                "El perro",
+                "Nadie"
+            ]
+        ],
+
+        [
+            "¿Qué nivel tiene este archivo?",
+            [
+                "Clasificación especial",
+                "Público",
+                "Escolar",
+                "Básico"
+            ]
+        ],
+
+        [
+            "¿Qué debe hacer un osito con un secreto?",
+            [
+                "Guardarlo",
+                "Publicarlo",
+                "Venderlo",
+                "Olvidarlo"
+            ]
+        ],
+
+        [
+            "¿Cuál es la contraseña emocional?",
+            [
+                "Confianza",
+                "Dinero",
+                "Trabajo",
+                "Suerte"
+            ]
+        ],
+
+        [
+            "¿Qué representa este archivo?",
+            [
+                "Lo que solamente nosotros sabemos",
+                "Las tareas",
+                "Las recetas",
+                "Los horarios"
+            ]
+        ],
+
+        [
+            "¿Qué pasa con los recuerdos importantes?",
+            [
+                "Se quedan",
+                "Desaparecen",
+                "Se venden",
+                "Se borran"
+            ]
+        ],
+
+        [
+            "¿Quién puede descubrir la parte profunda?",
+            [
+                "Quien encuentre lo necesario",
+                "Cualquiera",
+                "Nadie",
+                "El perro"
+            ]
+        ],
+
+        [
+            "¿Qué se necesita para abrir un secreto?",
+            [
+                "Confianza",
+                "Una llave física",
+                "Dinero",
+                "Un examen"
+            ]
+        ],
+
+        [
+            "¿Qué debería protegerse aquí?",
+            [
+                "Los recuerdos",
+                "Las tareas",
+                "Las recetas",
+                "Los horarios"
+            ]
+        ],
+
+        [
+            "¿Qué significa confidencial?",
+            [
+                "Solo para quienes corresponda",
+                "Público",
+                "Abierto",
+                "Temporal"
+            ]
+        ]
+
+    ]
 
 };
 
 
-/*
-   Por ahora las otras dos carpetas utilizan
-   el mismo sistema y tendrán 7 expedientes.
-   Después podemos crear preguntas completamente
-   diferentes para cada una.
-*/
+/* =====================================================
+   HISTORIAS DE EXPEDIENTES
+===================================================== */
 
-function prepararBancosPendientes(){
+const historiasExpedientes={
 
-    ["prohibido","confidencial"].forEach(carpeta=>{
+    legal:[
 
-        for(let i=1;i<=7;i++){
+        "Expediente 01: Aquí comienza el archivo oficial de los ositos. Esta primera carpeta documenta el origen de nuestras reglas, nuestras tonterías y algunas de las cosas que hacen que este rincón exista.",
 
-            if(
-                !bancosExpedientes[carpeta][i]
-            ){
+        "Expediente 02: Segundo registro oficial. Aquí se guarda una parte de las pequeñas historias que fueron haciendo que ocho años terminaran sintiéndose como algo mucho más grande.",
 
-                bancosExpedientes[carpeta][i]=[
-                    [
-                        "¿Quién puede entrar a este archivo?",
-                        [
-                            "Los ositos",
-                            "Cualquiera",
-                            "Nadie",
-                            "El perro"
-                        ],
-                        0
-                    ],
-                    [
-                        "¿Qué se guarda aquí?",
-                        [
-                            "Recuerdos",
-                            "Tareas",
-                            "Recetas",
-                            "Horarios"
-                        ],
-                        0
-                    ],
-                    [
-                        "¿Qué necesitas para avanzar?",
-                        [
-                            "100%",
-                            "10%",
-                            "50%",
-                            "Nada"
-                        ],
-                        0
-                    ],
-                    [
-                        "¿Qué debe hacer un osito?",
-                        [
-                            "Explorar",
-                            "Rendirse",
-                            "Ignorar",
-                            "Cerrar todo"
-                        ],
-                        0
-                    ]
-                ];
+        "Expediente 03: Este expediente todavía está parcialmente clasificado. Cuando llegue el momento, aquí aparecerá una historia que solamente los ositos podrán entender.",
 
-            }
+        "Expediente 04: Registro reservado. Este espacio está preparado para guardar otra historia importante de nuestra amistad.",
 
-        }
+        "Expediente 05: Archivo legal número cinco. Aquí habrá recuerdos, frases y momentos que merecen conservarse.",
 
-    });
+        "Expediente 06: Sexto expediente desbloqueado. Todavía queda una parte de nuestra historia por escribir.",
 
-}
+        "Expediente 07: Último expediente de este archivo. Llegar hasta aquí significa que realmente conoces el universo de los ositos."
 
-prepararBancosPendientes();
+    ],
 
+
+    prohibido:[
+
+        "Expediente prohibido 01: El primer archivo que oficialmente no debería existir.",
+
+        "Expediente prohibido 02: Hay recuerdos que solamente pueden contarse entre risas.",
+
+        "Expediente prohibido 03: Este expediente contiene espacio reservado para una historia demasiado peligrosa para escribir todavía.",
+
+        "Expediente prohibido 04: Clasificación especial. Aquí se guardará una de nuestras mayores tonterías.",
+
+        "Expediente prohibido 05: Archivo recuperado. Su contenido será revelado en una actualización futura.",
+
+        "Expediente prohibido 06: Seis expedientes y seguimos vivos. Eso ya dice bastante.",
+
+        "Expediente prohibido 07: El último archivo prohibido. Si llegaste aquí, probablemente ya no hay salvación."
+
+    ],
+
+
+    confidencial:[
+
+        "Expediente confidencial 01: Primer registro reservado del archivo privado de los ositos.",
+
+        "Expediente confidencial 02: Algunas cosas no necesitan explicación cuando ambos ositos conocen la historia.",
+
+        "Expediente confidencial 03: Registro protegido. Aquí irá uno de esos recuerdos que solamente tienen sentido para nosotros.",
+
+        "Expediente confidencial 04: Archivo privado número cuatro. Preparado para una historia que todavía no queremos escribir.",
+
+        "Expediente confidencial 05: Quinta clasificación. Los detalles aparecerán cuando corresponda.",
+
+        "Expediente confidencial 06: Este expediente guarda espacio para otra parte importante de nuestra historia.",
+
+        "Expediente confidencial 07: Último nivel confidencial. Hay cosas que no necesitan estar a la vista para ser importantes."
+
+    ]
+
+};
+
+
+/* =====================================================
+   SISTEMA DE EXPEDIENTES
+===================================================== */
 
 let carpetaActual="";
+
 let expedienteActual=0;
 
 let preguntasActuales=[];
+
 let preguntaActual=0;
 
 let correctas=0;
+
 let incorrectas=0;
 
 
-/* =========================
+/* =====================================================
    PROGRESO
-========================= */
+===================================================== */
 
 function obtenerProgreso(){
 
-    try{
+    return JSON.parse(
 
-        return JSON.parse(
-            localStorage.getItem(
-                "progresoOsitosExpedientes"
-            ) || "{}"
-        );
+        localStorage.getItem(
+            "progresoOsitosExpedientes"
+        )
+        ||
+        "{}"
 
-    }catch(error){
-
-        return {};
-
-    }
-
-}
-
-function guardarProgreso(data){
-
-    localStorage.setItem(
-        "progresoOsitosExpedientes",
-        JSON.stringify(data)
     );
 
 }
 
 
-/* =========================
+function guardarProgreso(data){
+
+    localStorage.setItem(
+
+        "progresoOsitosExpedientes",
+
+        JSON.stringify(data)
+
+    );
+
+}
+
+
+/* =====================================================
    ABRIR CARPETA
-========================= */
+===================================================== */
 
-function abrirCarpeta(carpeta){
+function abrirCarpeta(
+    carpeta
+){
 
-    carpetaActual=carpeta;
+    carpetaActual=
+        carpeta;
+
 
     const contenedor=
-        document.getElementById("expedientes");
+        document.getElementById(
+            "expedientes"
+        );
 
-    contenedor.style.display="block";
 
-    document.getElementById("tituloCarpeta")
-        .textContent=
+    contenedor.style.display=
+        "block";
+
+
+    document.getElementById(
+        "tituloCarpeta"
+    ).textContent=
+
         carpeta==="legal"
-        ? "⚖️ Archivos legales"
-        : carpeta==="prohibido"
-        ? "🚫 Archivos prohibidos"
-        : "🔐 Archivos confidenciales";
+        ?
+        "⚖️ Archivos legales"
+
+        :
+
+        carpeta==="prohibido"
+        ?
+        "🚫 Archivos prohibidos"
+
+        :
+
+        "🔐 Archivos confidenciales";
+
 
     construirExpedientes();
 
+
+    document.getElementById(
+        "preguntaBox"
+    ).style.display=
+        "none";
+
+
+    document.getElementById(
+        "historiaExpediente"
+    ).style.display=
+        "none";
+
+
     contenedor.scrollIntoView({
+
         behavior:"smooth",
+
         block:"center"
+
     });
 
 }
 
 
-/* =========================
-   EXPEDIENTES
-========================= */
+/* =====================================================
+   CONSTRUIR EXPEDIENTES
+===================================================== */
 
 function construirExpedientes(){
 
     const grid=
-        document.getElementById("expedienteGrid");
+        document.getElementById(
+            "expedienteGrid"
+        );
+
 
     grid.innerHTML="";
 
+
     const total=7;
 
-    const progreso=obtenerProgreso();
 
-    if(!progreso[carpetaActual]){
-        progreso[carpetaActual]={};
+    const progreso=
+        obtenerProgreso();
+
+
+    const clave=
+        carpetaActual;
+
+
+    if(!progreso[clave]){
+
+        progreso[clave]={};
+
     }
 
-    for(let i=1;i<=total;i++){
+
+    for(
+        let i=1;
+        i<=total;
+        i++
+    ){
 
         const desbloqueado=
-            i===1 ||
-            progreso[carpetaActual][i-1]?.aprobado===true;
+
+            i===1
+
+            ||
+
+            progreso[clave][i-1]
+            ?.aprobado===true;
+
 
         const aprobado=
-            progreso[carpetaActual][i]?.aprobado===true;
+            progreso[clave][i]
+            ?.aprobado===true;
+
 
         const elemento=
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
+
 
         elemento.className=
             "expediente "+
-            (!desbloqueado?"bloqueado":"");
+            (
+                !desbloqueado
+                ?
+                "bloqueado"
+                :
+                aprobado
+                ?
+                "aprobado"
+                :
+                ""
+            );
+
+
+        let estado;
+
+
+        if(aprobado){
+
+            estado=
+                "✅ Aprobado<br><small>Ver expediente</small>";
+
+        }else if(desbloqueado){
+
+            estado=
+                "🔓 Disponible<br><small>Abrir expediente</small>";
+
+        }else{
+
+            estado=
+                "🔒 Bloqueado";
+
+        }
+
 
         elemento.innerHTML=`
-            📁<br><br>
-            Expediente ${String(i).padStart(2,"0")}
+
+            📁
+
             <br><br>
-            ${
-                aprobado
-                ? "✅ Aprobado"
-                : desbloqueado
-                ? "🔓 Disponible"
-                : "🔒 Bloqueado"
-            }
+
+            <strong>
+                Expediente
+                ${String(i).padStart(2,"0")}
+            </strong>
+
+            <br><br>
+
+            ${estado}
+
         `;
+
 
         if(desbloqueado){
 
             elemento.onclick=()=>{
+
                 abrirExpediente(i);
+
             };
 
         }
 
-        grid.appendChild(elemento);
+
+        grid.appendChild(
+            elemento
+        );
 
     }
 
+
     const aprobados=
+
         Object.values(
-            progreso[carpetaActual]
+            progreso[clave]
         ).filter(
-            x=>x.aprobado===true
+            x=>x.aprobado
         ).length;
+
 
     document.getElementById(
         "progresoExpedientes"
     ).innerHTML=
+
         `📂 Progreso:
-        <strong>${aprobados} / ${total}</strong>
+        <strong>
+            ${aprobados} / ${total}
+        </strong>
         expedientes aprobados`;
 
 }
 
 
-/* =========================
-   MEZCLAR
-========================= */
+/* =====================================================
+   MEZCLAR PREGUNTAS
+===================================================== */
 
-function mezclar(lista){
+function mezclarPreguntas(
+    lista
+){
 
-    return [...lista].sort(
+    return [
+
+        ...lista
+
+    ].sort(
         ()=>Math.random()-.5
     );
 
 }
 
 
-/* =========================
+/* =====================================================
    ABRIR EXPEDIENTE
-========================= */
+===================================================== */
 
-function abrirExpediente(numero){
+function abrirExpediente(
+    numero
+){
 
     const banco=
-        bancosExpedientes[
-            carpetaActual
-        ]?.[numero];
+        bancos[carpetaActual]
+        ||
+        [];
 
-    if(!banco || banco.length<4){
+
+    if(!banco.length){
 
         alert(
-            "Este expediente todavía está en construcción 🐻"
+            "Este archivo todavía está en construcción 🐻"
         );
 
         return;
 
     }
 
-    expedienteActual=numero;
+
+    const progreso=
+        obtenerProgreso();
+
+
+    const desbloqueado=
+
+        numero===1
+
+        ||
+
+        progreso[carpetaActual]
+        ?.[numero-1]
+        ?.aprobado===true;
+
+
+    if(!desbloqueado){
+
+        alert(
+            "Este expediente todavía está bloqueado 🔒"
+        );
+
+        return;
+
+    }
+
+
+    expedienteActual=
+        numero;
+
 
     /*
-       Siempre tomamos las 4 preguntas,
-       pero las revolvemos.
+       Elegimos solamente 4 preguntas
+       diferentes del banco.
     */
 
     preguntasActuales=
-        mezclar(banco).slice(0,4);
+        mezclarPreguntas(
+            banco
+        ).slice(
+            0,
+            4
+        );
 
-    /*
-       También revolvemos las opciones.
-       La respuesta correcta viaja con ellas.
-    */
-
-    preguntasActuales=
-        preguntasActuales.map(pregunta=>{
-
-            const texto=pregunta[0];
-            const opciones=pregunta[1];
-            const correcta=pregunta[2];
-
-            const arreglo=
-                opciones.map((textoOpcion,index)=>({
-                    texto:textoOpcion,
-                    correcta:index===correcta
-                }));
-
-            const mezcladas=mezclar(arreglo);
-
-            return[
-                texto,
-                mezcladas
-            ];
-
-        });
 
     preguntaActual=0;
+
     correctas=0;
+
     incorrectas=0;
+
 
     document.getElementById(
         "preguntaBox"
-    ).style.display="block";
+    ).style.display=
+        "block";
+
+
+    document.getElementById(
+        "historiaExpediente"
+    ).style.display=
+        "block";
+
+
+    document.getElementById(
+        "tituloHistoriaExpediente"
+    ).textContent=
+
+        `📖 Historia del Expediente ${String(numero).padStart(2,"0")}`;
+
+
+    document.getElementById(
+        "textoHistoriaExpediente"
+    ).textContent=
+
+        historiasExpedientes[
+            carpetaActual
+        ][numero-1];
+
 
     mostrarPregunta();
+
 
     document.getElementById(
         "preguntaBox"
     ).scrollIntoView({
+
         behavior:"smooth",
+
         block:"center"
+
     });
 
 }
 
 
-/* =========================
+/* =====================================================
    MOSTRAR PREGUNTA
-========================= */
+===================================================== */
 
 function mostrarPregunta(){
 
@@ -2844,61 +5736,89 @@ function mostrarPregunta(){
 
     }
 
+
     const pregunta=
-        preguntasActuales[preguntaActual];
+        preguntasActuales[
+            preguntaActual
+        ];
+
 
     document.getElementById(
         "numeroPregunta"
     ).textContent=
-        `Pregunta ${preguntaActual+1} de ${preguntasActuales.length}`;
+
+        `Pregunta
+        ${preguntaActual+1}
+        de
+        ${preguntasActuales.length}`;
+
 
     document.getElementById(
         "textoPregunta"
     ).textContent=
         pregunta[0];
 
+
     const opciones=
         document.getElementById(
             "opcionesPregunta"
         );
 
+
     opciones.innerHTML="";
 
-    pregunta[1].forEach((respuesta,i)=>{
 
-        const boton=
-            document.createElement("button");
+    pregunta[1].forEach(
+        (respuesta,i)=>{
 
-        boton.className="opcion";
 
-        boton.textContent=
-            `${String.fromCharCode(65+i)}) ${respuesta.texto}`;
+            const boton=
+                document.createElement(
+                    "button"
+                );
 
-        boton.onclick=()=>{
-            responderExpediente(
-                respuesta.correcta,
-                opciones
+
+            boton.className=
+                "opcion";
+
+
+            boton.textContent=
+
+                `${String.fromCharCode(65+i)})
+                ${respuesta}`;
+
+
+            boton.onclick=()=>{
+
+                responderExpediente(
+                    i
+                );
+
+            };
+
+
+            opciones.appendChild(
+                boton
             );
-        };
 
-        opciones.appendChild(boton);
+        }
+    );
 
-    });
 
     document.getElementById(
         "resultadoTest"
-    ).style.display="none";
+    ).style.display=
+        "none";
 
 }
 
 
-/* =========================
-   RESPONDER
-========================= */
+/* =====================================================
+   RESPONDER EXPEDIENTE
+===================================================== */
 
 function responderExpediente(
-    correcta,
-    opciones
+    indice
 ){
 
     const resultado=
@@ -2906,25 +5826,29 @@ function responderExpediente(
             "resultadoTest"
         );
 
+
     /*
-       Desactivamos las opciones
-       mientras se procesa.
+       DE MOMENTO LA RESPUESTA CORRECTA
+       ES SIEMPRE LA PRIMERA.
+
+       Cuando tengamos las preguntas reales
+       podremos cambiar el sistema para que
+       cada pregunta tenga su propia respuesta.
     */
 
-    opciones
-        .querySelectorAll("button")
-        .forEach(boton=>{
-            boton.disabled=true;
-        });
 
-    if(correcta){
+    if(indice===0){
 
         correctas++;
 
-        resultado.innerHTML=
-            "✅ Correcta. El expediente continúa.";
 
-        resultado.style.display="block";
+        resultado.innerHTML=
+
+            "✅ Correcta. Continúa el expediente.";
+
+        resultado.style.display=
+            "block";
+
 
         setTimeout(()=>{
 
@@ -2934,147 +5858,69 @@ function responderExpediente(
 
         },700);
 
+
     }else{
 
         incorrectas++;
 
-        resultado.innerHTML=`
-            <strong>❌ Expediente fallido.</strong>
-            <br><br>
-            Esta pregunta reinicia TODO el expediente.
-            Tendrás que comenzar nuevamente desde la
-            pregunta 1.
-        `;
 
-        resultado.style.display="block";
+        resultado.innerHTML=
+
+            `
+
+            <h3>
+                ❌ Expediente fallido
+            </h3>
+
+            <br>
+
+            <p>
+
+                Fallaste una pregunta.
+
+                <br><br>
+
+                Para aprobar este expediente
+                necesitas empezar nuevamente
+                desde la primera pregunta.
+
+            </p>
+
+            `;
+
+
+        resultado.style.display=
+            "block";
+
 
         /*
-           IMPORTANTE:
-           no pasamos a la siguiente pregunta.
-           Reiniciamos TODO.
+           MUY IMPORTANTE:
+
+           NO avanzamos la pregunta.
+
+           Reiniciamos TODO el expediente.
         */
 
         setTimeout(()=>{
 
-            reiniciarExpediente();
-
-        },1400);
-
-    }
-
-}
-
-
-/* =========================
-   REINICIAR
-========================= */
-
-function reiniciarExpediente(){
-
-    const banco=
-        bancosExpedientes[
-            carpetaActual
-        ]?.[expedienteActual];
-
-    if(!banco) return;
-
-    preguntasActuales=
-        mezclar(banco).slice(0,4);
-
-    preguntasActuales=
-        preguntasActuales.map(pregunta=>{
-
-            const texto=pregunta[0];
-            const opciones=pregunta[1];
-            const correcta=pregunta[2];
-
-            const arreglo=
-                opciones.map((textoOpcion,index)=>({
-                    texto:textoOpcion,
-                    correcta:index===correcta
-                }));
-
-            return[
-                texto,
-                mezclar(arreglo)
-            ];
-
-        });
-
-    preguntaActual=0;
-    correctas=0;
-    incorrectas=0;
-
-    mostrarPregunta();
-
-}
+            preguntasActuales=
+                mezclarPreguntas(
+                    bancos[carpetaActual]
+                ).slice(
+                    0,
+                    4
+                );
 
 
-/* =========================
-   TERMINAR
-========================= */
+            preguntaActual=0;
 
-function terminarExpediente(){
+            correctas=0;
 
-    const porcentaje=
-        Math.round(
-            (correctas/
-            preguntasActuales.length)*100
-        );
+            incorrectas=0;
 
-    const resultado=
-        document.getElementById(
-            "resultadoTest"
-        );
+            mostrarPregunta();
 
-    resultado.style.display="block";
-
-    if(porcentaje===100){
-
-        const progreso=
-            obtenerProgreso();
-
-        if(!progreso[carpetaActual]){
-            progreso[carpetaActual]={};
-        }
-
-        progreso[carpetaActual]
-            [expedienteActual]={
-                aprobado:true,
-                correctas,
-                incorrectas,
-                porcentaje
-            };
-
-        guardarProgreso(progreso);
-
-        resultado.innerHTML=`
-            <h3>🎉 EXPEDIENTE APROBADO</h3>
-            <br>
-            <p>
-            Correctas: ${correctas}<br>
-            Incorrectas: ${incorrectas}<br>
-            Resultado: ${porcentaje}%
-            </p>
-        `;
-
-        construirExpedientes();
-
-    }else{
-
-        resultado.innerHTML=`
-            <h3>❌ Expediente no aprobado</h3>
-            <br>
-            <p>
-            Resultado: ${porcentaje}%
-            </p>
-            <br>
-            <p>
-            Necesitas 100%.
-            Si fallas durante el intento,
-            todo el expediente vuelve a empezar.
-            </p>
-        `;
+        },1300);
 
     }
 
@@ -3082,445 +5928,139 @@ function terminarExpediente(){
 
 
 /* =====================================================
-   OSITOS
+   TERMINAR EXPEDIENTE
 ===================================================== */
 
-/*
-   El progreso se guarda en localStorage.
+function terminarExpediente(){
 
-   Nunca hacemos cálculos con valores inexistentes,
-   por eso jamás debería aparecer NaN/8.
-*/
+    const porcentaje=
 
-let ositosEncontrados=
-    parseInt(
-        localStorage.getItem(
-            "ositosEncontrados"
-        ),
-        10
-    );
+        Math.round(
 
-if(
-    !Number.isFinite(ositosEncontrados) ||
-    ositosEncontrados<0 ||
-    ositosEncontrados>8
-){
+            (
+                correctas/
+                preguntasActuales.length
+            )
+            *100
 
-    ositosEncontrados=0;
-
-}
-
-let ositosDesbloqueados=[];
-
-try{
-
-    ositosDesbloqueados=
-        JSON.parse(
-            localStorage.getItem(
-                "ositosDesbloqueados"
-            ) || "[]"
         );
 
-    if(!Array.isArray(ositosDesbloqueados)){
-        ositosDesbloqueados=[];
-    }
 
-}catch(error){
-
-    ositosDesbloqueados=[];
-
-}
-
-
-/* =========================
-   CONTADOR
-========================= */
-
-function actualizarContador(){
-
-    const contador=
+    const resultado=
         document.getElementById(
-            "contadorOsitos"
+            "resultadoTest"
         );
 
-    const requisito=
-        document.getElementById(
-            "requisitoFinal"
-        );
 
-    if(contador){
+    resultado.style.display=
+        "block";
 
-        contador.textContent=
-            String(ositosEncontrados);
-
-    }
-
-    if(requisito){
-
-        requisito.textContent=
-            `Progreso: ${ositosEncontrados} / 8 ositos`;
-
-    }
-
-    actualizarFinal();
-
-}
-
-
-/* =========================
-   GUARDAR
-========================= */
-
-function guardarOsitos(){
-
-    localStorage.setItem(
-        "ositosEncontrados",
-        String(ositosEncontrados)
-    );
-
-    localStorage.setItem(
-        "ositosDesbloqueados",
-        JSON.stringify(
-            ositosDesbloqueados
-        )
-    );
-
-}
-
-
-/* =========================
-   PRIMER OSITO
-========================= */
-
-function encontrarPrimerOsito(){
 
     if(
-        ositosDesbloqueados.includes(1)
+        porcentaje===100
     ){
 
-        return;
-
-    }
-
-    document.getElementById(
-        "primerOsito"
-    ).style.display="none";
-
-    abrirPreguntaOsito(1);
-
-}
-
-
-/* =========================
-   PREGUNTAS DE OSITOS
-========================= */
-
-const preguntasOsitos=[
-
-    {
-        pregunta:
-            "¿Cuál es nuestro elixir oficial de la vida?",
-
-        opciones:[
-            "Kosako de uva",
-            "Café",
-            "Agua",
-            "Té"
-        ]
-    },
-
-    {
-        pregunta:
-            "¿Cómo nos llamamos entre nosotros?",
-
-        opciones:[
-            "Ositos",
-            "Gatos",
-            "Pingüinos",
-            "Mapaches"
-        ]
-    },
-
-    {
-        pregunta:
-            "¿Cuántos años llevamos construyendo esta historia?",
-
-        opciones:[
-            "8 años",
-            "2 años",
-            "5 años",
-            "15 años"
-        ]
-    },
-
-    {
-        pregunta:
-            "¿Qué representa este rincón?",
-
-        opciones:[
-            "Nuestra historia",
-            "Una tarea",
-            "Un examen",
-            "Una tienda"
-        ]
-    },
-
-    {
-        pregunta:
-            "¿Qué debería hacer un osito cuando el otro está triste?",
-
-        opciones:[
-            "Acompañarlo",
-            "Ignorarlo",
-            "Regañarlo",
-            "Huir"
-        ]
-    },
-
-    {
-        pregunta:
-            "¿Qué nunca debería faltar aquí?",
-
-        opciones:[
-            "Tonterías",
-            "Estrés",
-            "Tareas",
-            "Silencio absoluto"
-        ]
-    },
-
-    {
-        pregunta:
-            "¿Qué hacemos con los recuerdos?",
-
-        opciones:[
-            "Los guardamos",
-            "Los borramos",
-            "Los vendemos",
-            "Los olvidamos"
-        ]
-    },
-
-    {
-        pregunta:
-            "¿Qué desbloquean los 8 ositos?",
-
-        opciones:[
-            "La parte más profunda",
-            "Una tienda",
-            "Un examen",
-            "Nada"
-        ]
-    }
-
-];
-
-
-/* =========================
-   ABRIR PREGUNTA
-========================= */
-
-function abrirPreguntaOsito(numero){
-
-    const pregunta=
-        preguntasOsitos[numero-1];
-
-    if(!pregunta) return;
-
-    const modal=
-        document.getElementById(
-            "preguntaOsito"
-        );
-
-    modal.style.display="flex";
-
-    document.getElementById(
-        "textoPreguntaOsito"
-    ).textContent=
-        pregunta.pregunta;
-
-    const opciones=
-        document.getElementById(
-            "opcionesOsito"
-        );
-
-    opciones.innerHTML="";
-
-    document.getElementById(
-        "resultadoOsito"
-    ).innerHTML="";
-
-    pregunta.opciones.forEach(
-        (respuesta,i)=>{
-
-            const boton=
-                document.createElement(
-                    "button"
-                );
-
-            boton.className="opcion";
-
-            boton.textContent=
-                `${String.fromCharCode(65+i)}) ${respuesta}`;
-
-            boton.onclick=()=>{
-
-                if(i===0){
-
-                    if(
-                        !ositosDesbloqueados
-                            .includes(numero)
-                    ){
-
-                        ositosDesbloqueados
-                            .push(numero);
-
-                        ositosEncontrados=
-                            ositosDesbloqueados
-                                .length;
-
-                        guardarOsitos();
-
-                    }
-
-                    actualizarContador();
-
-                    document.getElementById(
-                        "resultadoOsito"
-                    ).innerHTML=`
-
-                        <h3>
-                            🐻✨ ¡Encontraste el osito ${numero}!
-                        </h3>
-
-                        <br>
-
-                        <p>
-                            Ahora tienes
-                            <strong>
-                                ${ositosEncontrados} / 8
-                            </strong>
-                            ositos.
-                        </p>
-
-                        <br>
-
-                        ${
-                            ositosEncontrados>=8
-                            ?
-                            `<p>
-                                🔓 La parte más profunda
-                                acaba de desbloquearse.
-                            </p>`
-                            :
-                            `<p>
-                                Cuando encuentres los 8
-                                podrás acceder a la parte
-                                más profunda...
-                            </p>`
-                        }
-
-                    `;
-
-                    setTimeout(()=>{
-
-                        modal.style.display="none";
-
-                        if(ositosEncontrados>=8){
-
-                            mostrarFinalDesbloqueado();
-
-                        }
-
-                    },1800);
-
-                }else{
-
-                    document.getElementById(
-                        "resultadoOsito"
-                    ).innerHTML=
-                        `<p>
-                            ❌ Esa no era...
-                            inténtalo otra vez 🐻
-                        </p>`;
-
-                }
-
-            };
-
-            opciones.appendChild(boton);
+        const progreso=
+            obtenerProgreso();
+
+
+        if(
+            !progreso[
+                carpetaActual
+            ]
+        ){
+
+            progreso[
+                carpetaActual
+            ]={};
 
         }
-    );
-
-}
 
 
-/* =========================
-   FINAL
-========================= */
+        progreso[
+            carpetaActual
+        ][
+            expedienteActual
+        ]={
 
-function actualizarFinal(){
+            aprobado:true,
 
-    const final=
-        document.getElementById(
-            "finalBloqueado"
+            correctas,
+
+            incorrectas,
+
+            porcentaje
+
+        };
+
+
+        guardarProgreso(
+            progreso
         );
 
-    if(!final) return;
 
-    if(ositosEncontrados>=8){
+        resultado.innerHTML=
 
-        mostrarFinalDesbloqueado();
+            `
+
+            <h3>
+                🎉 EXPEDIENTE APROBADO
+            </h3>
+
+            <br>
+
+            <p>
+
+                Correctas:
+                ${correctas}
+
+                <br>
+
+                Incorrectas:
+                ${incorrectas}
+
+                <br>
+
+                Resultado:
+                ${porcentaje}%
+
+            </p>
+
+            <br>
+
+            <p>
+                🔓 El siguiente expediente
+                ha sido desbloqueado.
+            </p>
+
+            `;
+
+
+        construirExpedientes();
+
+
+    }else{
+
+        resultado.innerHTML=
+
+            `
+
+            <h3>
+                ❌ Expediente no aprobado
+            </h3>
+
+            <br>
+
+            <p>
+
+                Resultado:
+                ${porcentaje}%
+
+            </p>
+
+            `;
 
     }
-
-}
-
-function mostrarFinalDesbloqueado(){
-
-    const final=
-        document.getElementById(
-            "finalBloqueado"
-        );
-
-    if(!final) return;
-
-    final.classList.add(
-        "final-desbloqueado"
-    );
-
-    final.innerHTML=`
-
-        <div class="candado">
-            🔓
-        </div>
-
-        <h3>
-            Encontraste los 8 ositos.
-        </h3>
-
-        <br>
-
-        <p>
-            Llegaste a la parte más profunda
-            del rincón.
-        </p>
-
-        <br>
-
-        <p>
-            Pero todavía falta descubrir
-            qué hay detrás de esta puerta...
-        </p>
-
-        <br>
-
-        <strong>
-            🐻✨ Bienvenida al último secreto.
-        </strong>
-
-    `;
 
 }
 
@@ -3529,364 +6069,1301 @@ function mostrarFinalDesbloqueado(){
    MISIONES
 ===================================================== */
 
-const misionesDisponibles=[
+const misiones={
 
-    {
-        titulo:"Prepara algo que nunca hayas cocinado",
-        descripcion:
-            "Busca una receta sencilla y atrévete a prepararla. No importa si queda perfecta.",
-        categoria:"🍳 Cocina",
-        dificultad:"⭐ Normal",
-        recompensa:
-            "🎟️ Cupón para escoger qué vamos a comer juntos."
-    },
 
-    {
-        titulo:"Encuentra un video que te haga reír",
-        descripcion:
-            "Tienes 10 minutos para encontrar el video más absurdo que puedas.",
-        categoria:"😂 Risa",
-        dificultad:"⭐ Fácil",
-        recompensa:
-            "🎟️ Cupón para mandarme el video sin contexto."
-    },
+    dia:[
 
-    {
-        titulo:"Aprende una habilidad completamente inútil",
-        descripcion:
-            "Aprende algo que probablemente jamás necesitarás. Girar un lápiz, un truco, una figura... lo que sea.",
-        categoria:"🎨 Habilidad",
-        dificultad:"⭐⭐ Normal",
-        recompensa:
-            "🎟️ Cupón para presumir tu nueva habilidad."
-    },
+        {
+            texto:
+                "😂 Busca un video que te haga reír muchísimo.",
+            categoria:
+                "Risa",
+            video:"",
+            recompensa:
+                "🎟️ Cupón para mandar una tontería al otro osito."
+        },
 
-    {
-        titulo:"Aprende algo de tu carrera",
-        descripcion:
-            "Busca un concepto interesante de tu carrera y aprende algo que no supieras.",
-        categoria:"📚 Carrera",
-        dificultad:"⭐⭐ Normal",
-        recompensa:
-            "🎟️ Cupón para una sesión oficial de 'explícamelo porque no entendí'."
-    },
+        {
+            texto:
+                "🍳 Busca una receta que nunca hayas preparado.",
+            categoria:
+                "Cocina",
+            video:"",
+            recompensa:
+                "🎟️ Cupón para elegir qué comer un día."
+        },
 
-    {
-        titulo:"Haz algo que normalmente no harías",
-        descripcion:
-            "Puede ser pequeño. La única regla es que normalmente no lo harías.",
-        categoria:"🌱 Experiencia",
-        dificultad:"⭐⭐⭐ Difícil",
-        recompensa:
-            "🎟️ Cupón sorpresa de los ositos."
-    },
+        {
+            texto:
+                "🎨 Aprende una habilidad inútil pero divertida.",
+            categoria:
+                "Habilidad",
+            video:"",
+            recompensa:
+                "🎟️ Cupón para presumir tu nueva habilidad."
+        },
 
-    {
-        titulo:"Escucha una canción completamente nueva",
-        descripcion:
-            "Busca una canción que jamás hayas escuchado y dale una oportunidad completa.",
-        categoria:"🎵 Música",
-        dificultad:"⭐ Fácil",
-        recompensa:
-            "🎟️ Cupón para agregar una canción al rincón."
-    },
+        {
+            texto:
+                "🎮 Juega algo que hace mucho no juegas.",
+            categoria:
+                "Diversión",
+            video:"",
+            recompensa:
+                "🎟️ Cupón de una tarde sin obligaciones."
+        },
 
-    {
-        titulo:"Tómate una foto haciendo algo normal",
-        descripcion:
-            "No tiene que ser una foto bonita. Solo captura un momento cualquiera del día.",
-        categoria:"📸 Recuerdo",
-        dificultad:"⭐ Fácil",
-        recompensa:
-            "🎟️ Cupón para guardar esa foto en el universo de los ositos."
-    },
+        {
+            texto:
+                "🎵 Escucha una canción que no conozcas.",
+            categoria:
+                "Música",
+            video:"",
+            recompensa:
+                "🎟️ Cupón para compartir una canción."
+        },
 
-    {
-        titulo:"Haz una misión absurda",
-        descripcion:
-            "Inventa una pequeña regla absurda para tu día y síguela durante una hora.",
-        categoria:"🐻 Tontería",
-        dificultad:"⭐⭐ Normal",
-        recompensa:
-            "🎟️ Cupón para una tontería elegida por el otro osito."
-    },
+        {
+            texto:
+                "📸 Tómate una foto haciendo algo completamente normal.",
+            categoria:
+                "Recuerdo",
+            video:"",
+            recompensa:
+                "🎟️ Cupón para guardar una nueva memoria."
+        },
 
-    {
-        titulo:"Haz 10 minutos de algo que te guste",
-        descripcion:
-            "Sin productividad. Sin obligación. Solo diez minutos haciendo algo que realmente disfrutes.",
-        categoria:"💜 Para ti",
-        dificultad:"⭐ Fácil",
-        recompensa:
-            "🎟️ Cupón oficial de no hacer nada sin culpa."
-    },
+        {
+            texto:
+                "🖊️ Aprende a hacer un truco nuevo con un lapicero.",
+            categoria:
+                "Habilidad",
+            video:"",
+            recompensa:
+                "🎟️ Cupón de presumir tu habilidad inútil."
+        },
 
-    {
-        titulo:"Busca una receta que quieras probar",
-        descripcion:
-            "No necesitas cocinarla hoy. Solo encuentra algo que realmente te dé ganas de probar.",
-        categoria:"🍰 Cocina",
-        dificultad:"⭐ Fácil",
-        recompensa:
-            "🎟️ Cupón para escoger la próxima comida."
-    },
+        {
+            texto:
+                "🧠 Aprende un dato extraño que puedas contar después.",
+            categoria:
+                "Curiosidad",
+            video:"",
+            recompensa:
+                "🎟️ Cupón para soltar un dato innecesario."
+        },
 
-    {
-        titulo:"Mándale algo al otro osito",
-        descripcion:
-            "Puede ser una foto, un meme, una canción o simplemente un mensaje diciendo 'osito'.",
-        categoria:"🐻 Ositos",
-        dificultad:"⭐ Fácil",
-        recompensa:
-            "🎟️ Cupón por recordar al otro osito."
+        {
+            texto:
+                "🩺 Aprende algo interesante relacionado con tu carrera.",
+            categoria:
+                "Carrera",
+            video:"",
+            recompensa:
+                "🎟️ Cupón para descansar después de aprenderlo."
+        },
+
+        {
+            texto:
+                "🍦 Sal por un helado sin necesitar una razón.",
+            categoria:
+                "Ositos",
+            video:"",
+            recompensa:
+                "🎟️ Cupón oficial de helado."
+        }
+
+    ],
+
+
+    semana:[
+
+        {
+            texto:
+                "🍳 Cocina algo que nunca hayas preparado.",
+            categoria:
+                "Cocina",
+            video:"",
+            recompensa:
+                "🎟️ Cupón para escoger la siguiente comida."
+        },
+
+        {
+            texto:
+                "😂 Encuentra un video que haga reír a los dos ositos.",
+            categoria:
+                "Risa",
+            video:"",
+            recompensa:
+                "🎟️ Cupón para una sesión de tonterías."
+        },
+
+        {
+            texto:
+                "🎨 Aprende una habilidad completamente nueva.",
+            categoria:
+                "Habilidad",
+            video:"",
+            recompensa:
+                "🎟️ Cupón para presumir la habilidad."
+        },
+
+        {
+            texto:
+                "🩺 Mira un video corto sobre un tema interesante de tu carrera.",
+            categoria:
+                "Carrera",
+            video:"",
+            recompensa:
+                "🎟️ Cupón para no hablar de medicina durante una hora."
+        },
+
+        {
+            texto:
+                "🎮 Juega algo que nunca hayas jugado.",
+            categoria:
+                "Diversión",
+            video:"",
+            recompensa:
+                "🎟️ Cupón de tarde gamer."
+        },
+
+        {
+            texto:
+                "📸 Recupera una foto antigua y recuerda qué estaba pasando ese día.",
+            categoria:
+                "Recuerdos",
+            video:"",
+            recompensa:
+                "🎟️ Cupón para agregar un recuerdo al archivo."
+        },
+
+        {
+            texto:
+                "🍦 Sal a comer algo que normalmente no pedirías.",
+            categoria:
+                "Ositos",
+            video:"",
+            recompensa:
+                "🎟️ Cupón de comida improvisada."
+        }
+
+    ],
+
+
+    mes:[
+
+        {
+            texto:
+                "🌱 Haz algo que normalmente no harías.",
+            categoria:
+                "Experiencia",
+            video:"",
+            recompensa:
+                "🎟️ Cupón para una nueva aventura."
+        },
+
+        {
+            texto:
+                "🍳 Aprende a preparar una receta completamente nueva.",
+            categoria:
+                "Cocina",
+            video:"",
+            recompensa:
+                "🎟️ Cupón para elegir el próximo platillo."
+        },
+
+        {
+            texto:
+                "🩺 Aprende algo nuevo que realmente te interese de tu carrera.",
+            categoria:
+                "Carrera",
+            video:"",
+            recompensa:
+                "🎟️ Cupón de descanso después de sobrevivir al estudio."
+        },
+
+        {
+            texto:
+                "🎨 Aprende una habilidad que puedas conservar durante años.",
+            categoria:
+                "Habilidad",
+            video:"",
+            recompensa:
+                "🎟️ Cupón para presumir tu progreso."
+        },
+
+        {
+            texto:
+                "📸 Crea un nuevo recuerdo que algún día podamos poner aquí.",
+            categoria:
+                "Recuerdos",
+            video:"",
+            recompensa:
+                "🎟️ Cupón de memoria nueva."
+        },
+
+        {
+            texto:
+                "😂 Busca una actividad que haga reír a los dos ositos.",
+            categoria:
+                "Risa",
+            video:"",
+            recompensa:
+                "🎟️ Cupón para una tarde de tonterías."
+        }
+
+    ]
+
+};
+
+
+/* =====================================================
+   DATOS DE MISIONES ACTUALES
+===================================================== */
+
+let estadoMisiones=
+    JSON.parse(
+        localStorage.getItem(
+            "estadoMisionesOsitos"
+        )
+        ||
+        "{}"
+    );
+
+
+let historialRecompensas=
+    JSON.parse(
+        localStorage.getItem(
+            "historialRecompensasOsitos"
+        )
+        ||
+        "[]"
+    );
+
+
+/* =====================================================
+   FECHAS
+===================================================== */
+
+function obtenerClavePeriodo(
+    tipo
+){
+
+    const ahora=
+        new Date();
+
+
+    if(tipo==="dia"){
+
+        return:
+
+        ahora.getFullYear()
+        +"-"+
+        String(
+            ahora.getMonth()+1
+        ).padStart(2,"0")
+        +"-"+
+        String(
+            ahora.getDate()
+        ).padStart(2,"0");
+
     }
 
-];
 
-let misionActual=null;
+    if(tipo==="semana"){
+
+        const fecha=
+            new Date(
+                ahora
+            );
 
 
-/* =========================
-   NUEVA MISION
-========================= */
+        const dia=
+            fecha.getDay();
 
-function nuevaMision(){
+
+        const diferencia=
+            dia===0
+            ?
+            6
+            :
+            dia-1;
+
+
+        fecha.setDate(
+            fecha.getDate()
+            -
+            diferencia
+        );
+
+
+        return:
+
+        fecha.getFullYear()
+        +"-"+
+        String(
+            fecha.getMonth()+1
+        ).padStart(2,"0")
+        +"-"+
+        String(
+            fecha.getDate()
+        ).padStart(2,"0");
+
+    }
+
+
+    if(tipo==="mes"){
+
+        return:
+
+        ahora.getFullYear()
+        +"-"+
+        String(
+            ahora.getMonth()+1
+        ).padStart(2,"0");
+
+    }
+
+}
+
+
+/* =====================================================
+   OBTENER MISION RANDOM
+===================================================== */
+
+function obtenerMisionRandom(
+    tipo
+){
+
+    const lista=
+        misiones[tipo];
+
 
     const indice=
         Math.floor(
             Math.random()*
-            misionesDisponibles.length
+            lista.length
         );
 
-    misionActual={
-        ...misionesDisponibles[indice],
-        fecha:new Date().toLocaleDateString()
+
+    return {
+
+        ...lista[indice],
+
+        indice
+
     };
-
-    document.getElementById(
-        "misionTitulo"
-    ).textContent=
-        misionActual.titulo;
-
-    document.getElementById(
-        "misionDescripcion"
-    ).textContent=
-        misionActual.descripcion;
-
-    document.getElementById(
-        "misionCategoria"
-    ).textContent=
-        misionActual.categoria;
-
-    document.getElementById(
-        "misionDificultad"
-    ).textContent=
-        misionActual.dificultad;
-
-    document.getElementById(
-        "misionResultado"
-    ).innerHTML="";
-
-    document.getElementById(
-        "misionVideo"
-    ).innerHTML="";
 
 }
 
 
-/* =========================
+/* =====================================================
+   CARGAR MISION
+===================================================== */
+
+function cargarMision(
+    tipo,
+    forzarNueva=false
+){
+
+    const periodo=
+        obtenerClavePeriodo(
+            tipo
+        );
+
+
+    if(
+        !estadoMisiones[tipo]
+    ){
+
+        estadoMisiones[tipo]={};
+
+    }
+
+
+    /*
+       Si ya existe una misión para
+       ese periodo, la conservamos.
+
+       Esto permite que la misión del día
+       siga siendo la misma al cerrar
+       y abrir la página.
+    */
+
+    if(
+        !estadoMisiones[tipo][periodo]
+        ||
+        forzarNueva
+    ){
+
+        const nueva=
+            obtenerMisionRandom(
+                tipo
+            );
+
+
+        estadoMisiones[tipo][periodo]={
+
+            ...nueva,
+
+            estado:"pendiente",
+
+            creada:
+                new Date().toISOString()
+
+        };
+
+
+        guardarEstadoMisiones();
+
+    }
+
+
+    mostrarMision(
+        tipo
+    );
+
+}
+
+
+/* =====================================================
+   MOSTRAR MISION
+===================================================== */
+
+function mostrarMision(
+    tipo
+){
+
+    const periodo=
+        obtenerClavePeriodo(
+            tipo
+        );
+
+
+    const mision=
+        estadoMisiones[tipo]
+        ?. [periodo];
+
+
+    if(!mision) return;
+
+
+    let textoId="";
+
+    let videoId="";
+
+    let estadoId="";
+
+
+    if(tipo==="dia"){
+
+        textoId=
+            "misionDiaTexto";
+
+        videoId=
+            "misionDiaVideo";
+
+        estadoId=
+            "misionDiaEstado";
+
+    }
+
+
+    if(tipo==="semana"){
+
+        textoId=
+            "misionSemanaTexto";
+
+        videoId=
+            "misionSemanaVideo";
+
+        estadoId=
+            "misionSemanaEstado";
+
+    }
+
+
+    if(tipo==="mes"){
+
+        textoId=
+            "misionMesTexto";
+
+        videoId=
+            "misionMesVideo";
+
+        estadoId=
+            "misionMesEstado";
+
+    }
+
+
+    document.getElementById(
+        textoId
+    ).innerHTML=
+
+        `<strong>
+            ${mision.categoria}
+        </strong>
+        <br><br>
+        ${mision.texto}`;
+
+
+    const video=
+        document.getElementById(
+            videoId
+        );
+
+
+    if(mision.video){
+
+        video.style.display=
+            "block";
+
+
+        video.innerHTML=
+
+            `🎥
+            <a
+                href="${mision.video}"
+                target="_blank"
+                rel="noopener">
+
+                Ver video de la misión
+
+            </a>`;
+
+    }else{
+
+        video.style.display=
+            "none";
+
+        video.innerHTML="";
+
+    }
+
+
+    const estado=
+        document.getElementById(
+            estadoId
+        );
+
+
+    if(
+        mision.estado==="completada"
+    ){
+
+        estado.innerHTML=
+            "✅ Misión completada. Recompensa desbloqueada.";
+
+    }else if(
+        mision.estado==="fallida"
+    ){
+
+        estado.innerHTML=
+            "❌ Misión marcada como fallida. Puedes probar nuevamente con otra.";
+
+    }else{
+
+        estado.innerHTML=
+            "⏳ Misión pendiente.";
+
+    }
+
+}
+
+
+/* =====================================================
+   RANDOMIZAR MISION
+===================================================== */
+
+function randomizarMision(
+    tipo
+){
+
+    cargarMision(
+        tipo,
+        true
+    );
+
+}
+
+
+/* =====================================================
    MARCAR MISION
-========================= */
+===================================================== */
 
-function marcarMision(resultado){
+function marcarMision(
+    tipo,
+    resultado
+){
 
-    if(!misionActual){
+    const periodo=
+        obtenerClavePeriodo(
+            tipo
+        );
+
+
+    if(
+        !estadoMisiones[tipo]
+        ||
+        !estadoMisiones[tipo][periodo]
+    ){
+
+        cargarMision(
+            tipo
+        );
+
+    }
+
+
+    const mision=
+        estadoMisiones[tipo][periodo];
+
+
+    /*
+       Si ya estaba completada,
+       no damos otra recompensa.
+    */
+
+    if(
+        mision.estado==="completada"
+    ){
 
         alert(
-            "Primero tienes que sacar una misión 🎲🐻"
+            "Esta misión ya fue completada y su recompensa ya está en el historial 🎁"
         );
 
         return;
 
     }
 
-    const historial=
-        obtenerHistorialMisiones();
 
-    const registro={
-        titulo:misionActual.titulo,
-        categoria:misionActual.categoria,
-        estado:resultado,
-        fecha:new Date().toLocaleDateString(),
-        recompensa:
-            resultado==="completada"
-            ? misionActual.recompensa
-            : "Sin recompensa esta vez."
-    };
+    if(
+        resultado==="completada"
+    ){
 
-    historial.unshift(registro);
+        mision.estado=
+            "completada";
 
-    localStorage.setItem(
-        "historialMisiones",
-        JSON.stringify(historial)
+
+        agregarRecompensa(
+            tipo,
+            mision
+        );
+
+    }else{
+
+        mision.estado=
+            "fallida";
+
+    }
+
+
+    guardarEstadoMisiones();
+
+
+    mostrarMision(
+        tipo
     );
 
-    const caja=
-        document.getElementById(
-            "misionResultado"
+}
+
+
+/* =====================================================
+   GUARDAR MISIONES
+===================================================== */
+
+function guardarEstadoMisiones(){
+
+    localStorage.setItem(
+
+        "estadoMisionesOsitos",
+
+        JSON.stringify(
+            estadoMisiones
+        )
+
+    );
+
+}
+
+
+/* =====================================================
+   RECOMPENSAS
+===================================================== */
+
+function agregarRecompensa(
+    tipo,
+    mision
+){
+
+    const recompensa={
+
+        tipo,
+
+        fecha:
+            new Date().toLocaleString(
+                "es-MX"
+            ),
+
+        mision:
+            mision.texto,
+
+        recompensa:
+            mision.recompensa
+
+    };
+
+
+    historialRecompensas.unshift(
+        recompensa
+    );
+
+
+    /*
+       Conservamos las últimas 30
+       recompensas.
+    */
+
+    historialRecompensas=
+        historialRecompensas.slice(
+            0,
+            30
         );
 
-    if(resultado==="completada"){
 
+    localStorage.setItem(
+
+        "historialRecompensasOsitos",
+
+        JSON.stringify(
+            historialRecompensas
+        )
+
+    );
+
+
+    mostrarHistorialRecompensas();
+
+}
+
+
+/* =====================================================
+   MOSTRAR HISTORIAL
+===================================================== */
+
+function mostrarHistorialRecompensas(){
+
+    const contenedor=
         document.getElementById(
-            "misionActual"
-        ).classList.add(
-            "mision-completada"
+            "historialRecompensas"
         );
 
-        caja.innerHTML=`
-            <div class="cupon-recompensa">
 
-                <h3>
-                    🎉 ¡Misión completada!
-                </h3>
+    if(
+        !historialRecompensas.length
+    ){
 
-                <br>
+        contenedor.innerHTML=
+            "Todavía no hay recompensas.";
 
-                <p>
-                    Te ganaste:
-                </p>
+        return;
 
-                <br>
+    }
 
-                <strong>
-                    ${misionActual.recompensa}
-                </strong>
 
-            </div>
-        `;
+    contenedor.innerHTML=
+        historialRecompensas
+        .map(
+            recompensa=>`
+
+                <div
+                    class="recompensa-item">
+
+                    <strong>
+                        🎁 ${recompensa.recompensa}
+                    </strong>
+
+                    <br><br>
+
+                    <small>
+
+                        ${recompensa.tipo}
+
+                        ·
+
+                        ${recompensa.fecha}
+
+                    </small>
+
+                    <br><br>
+
+                    <p>
+
+                        Misión:
+
+                        ${recompensa.mision}
+
+                    </p>
+
+                </div>
+
+            `
+        )
+        .join("");
+
+}
+
+
+/* =====================================================
+   OSITOS
+===================================================== */
+
+let ositosEncontrados=
+    parseInt(
+
+        localStorage.getItem(
+            "ositosEncontrados"
+        )
+        ||
+        "0"
+
+    );
+
+
+/*
+   Evitamos valores imposibles.
+
+   Esto también corrige el antiguo problema
+   de NaN / 8.
+*/
+
+if(
+    isNaN(ositosEncontrados)
+    ||
+    ositosEncontrados<0
+){
+
+    ositosEncontrados=0;
+
+}
+
+
+if(
+    ositosEncontrados>8
+){
+
+    ositosEncontrados=8;
+
+}
+
+
+let ositosDesbloqueados=
+    JSON.parse(
+
+        localStorage.getItem(
+            "ositosDesbloqueados"
+        )
+        ||
+        "[]"
+
+    );
+
+
+/* =====================================================
+   CONTADOR
+===================================================== */
+
+function actualizarContador(){
+
+    document.getElementById(
+        "contadorOsitos"
+    ).textContent=
+        ositosEncontrados;
+
+
+    document.getElementById(
+        "requisitoFinal"
+    ).textContent=
+
+        `Progreso:
+        ${ositosEncontrados}
+        / 8 ositos`;
+
+
+    if(
+        ositosEncontrados>=8
+    ){
+
+        document.getElementById(
+            "finalBloqueado"
+        ).style.display=
+            "none";
+
+
+        document.getElementById(
+            "finalDesbloqueado"
+        ).style.display=
+            "block";
 
     }else{
 
         document.getElementById(
-            "misionActual"
-        ).classList.add(
-            "mision-fallada"
-        );
-
-        caja.innerHTML=`
-            <div class="cupon-recompensa">
-
-                <h3>
-                    ❌ Misión fallada
-                </h3>
-
-                <br>
-
-                <p>
-                    No pasa nada.
-                    Los ositos pueden intentarlo otra vez.
-                </p>
-
-            </div>
-        `;
-
-    }
-
-    actualizarHistorialMisiones();
-
-}
+            "finalBloqueado"
+        ).style.display=
+            "block";
 
 
-/* =========================
-   HISTORIAL
-========================= */
-
-function obtenerHistorialMisiones(){
-
-    try{
-
-        const historial=
-            JSON.parse(
-                localStorage.getItem(
-                    "historialMisiones"
-                ) || "[]"
-            );
-
-        return Array.isArray(historial)
-            ? historial
-            : [];
-
-    }catch(error){
-
-        return [];
-
-    }
-
-}
-
-function actualizarHistorialMisiones(){
-
-    const historial=
-        obtenerHistorialMisiones();
-
-    const contenedor=
         document.getElementById(
-            "historialMisiones"
-        );
+            "finalDesbloqueado"
+        ).style.display=
+            "none";
 
-    if(!historial.length){
+    }
 
-        contenedor.innerHTML=
-            "Todavía no hay misiones completadas.";
+}
+
+
+/* =====================================================
+   GUARDAR OSITOS
+===================================================== */
+
+function guardarOsitos(){
+
+    localStorage.setItem(
+
+        "ositosEncontrados",
+
+        ositosEncontrados
+
+    );
+
+
+    localStorage.setItem(
+
+        "ositosDesbloqueados",
+
+        JSON.stringify(
+            ositosDesbloqueados
+        )
+
+    );
+
+}
+
+
+/* =====================================================
+   MOSTRAR OSITO
+===================================================== */
+
+function mostrarOsito(){
+
+    /*
+       De momento solamente tenemos
+       un osito programado.
+
+       Los siguientes se agregarán
+       mediante futuras actualizaciones.
+    */
+
+    if(
+        ositosEncontrados>=1
+    ){
 
         return;
 
     }
 
-    contenedor.innerHTML=
-        historial
-            .slice(0,10)
-            .map(mision=>`
 
-                <div
-                    style="
-                        padding:15px;
-                        margin-bottom:10px;
-                        border-radius:14px;
-                        background:rgba(255,255,255,.05);
-                    "
-                >
+    if(
+        document.querySelector(
+            ".osito-hallazgo"
+        )
+    ){
 
-                    ${
-                        mision.estado==="completada"
-                        ? "✅"
-                        : "❌"
+        return;
+
+    }
+
+
+    const numero=1;
+
+
+    const osito=
+        document.createElement(
+            "div"
+        );
+
+
+    osito.className=
+        "osito-hallazgo";
+
+
+    osito.textContent=
+        "🐻";
+
+
+    /*
+       Lo dejamos bastante visible
+       para esta primera prueba.
+    */
+
+    osito.style.left=
+        "78%";
+
+
+    osito.style.top=
+        "42%";
+
+
+    osito.title=
+        "Encontraste un osito";
+
+
+    osito.onclick=()=>{
+
+        osito.remove();
+
+        abrirPreguntaOsito(
+            numero
+        );
+
+    };
+
+
+    document.body.appendChild(
+        osito
+    );
+
+}
+
+
+/* =====================================================
+   PREGUNTAS DE OSITOS
+===================================================== */
+
+const preguntasOsitos=[
+
+    {
+
+        pregunta:
+            "¿Cuál es nuestro elixir oficial de la vida?",
+
+        opciones:[
+
+            "Kosako de uva",
+
+            "Café",
+
+            "Agua",
+
+            "Té"
+
+        ]
+
+    }
+
+];
+
+
+/* =====================================================
+   ABRIR PREGUNTA OSITO
+===================================================== */
+
+function abrirPreguntaOsito(
+    numero
+){
+
+    const pregunta=
+        preguntasOsitos[
+            numero-1
+        ];
+
+
+    if(!pregunta) return;
+
+
+    document.getElementById(
+        "preguntaOsito"
+    ).style.display=
+        "flex";
+
+
+    document.getElementById(
+        "textoPreguntaOsito"
+    ).textContent=
+        pregunta.pregunta;
+
+
+    const opciones=
+        document.getElementById(
+            "opcionesOsito"
+        );
+
+
+    opciones.innerHTML="";
+
+
+    document.getElementById(
+        "resultadoOsito"
+    ).innerHTML="";
+
+
+    pregunta.opciones.forEach(
+        (respuesta,i)=>{
+
+
+            const boton=
+                document.createElement(
+                    "button"
+                );
+
+
+            boton.className=
+                "opcion";
+
+
+            boton.textContent=
+
+                `${String.fromCharCode(65+i)})
+                ${respuesta}`;
+
+
+            boton.onclick=()=>{
+
+
+                if(i===0){
+
+                    if(
+                        !ositosDesbloqueados.includes(
+                            numero
+                        )
+                    ){
+
+                        ositosEncontrados++;
+
+
+                        ositosDesbloqueados.push(
+                            numero
+                        );
+
+
+                        guardarOsitos();
+
                     }
 
-                    <strong>
-                        ${mision.titulo}
-                    </strong>
 
-                    <br>
+                    actualizarContador();
 
-                    <small>
-                        ${mision.fecha}
-                    </small>
 
-                    ${
-                        mision.estado==="completada"
-                        ?
-                        `<br><br>
-                         🎟️ ${mision.recompensa}`
-                        :
-                        ""
-                    }
+                    document.getElementById(
+                        "resultadoOsito"
+                    ).innerHTML=
 
-                </div>
+                        `
 
-            `)
-            .join("");
+                        <h3>
+                            🐻✨ ¡Encontraste el osito ${numero}!
+                        </h3>
+
+                        <br>
+
+                        <p>
+
+                            Cuando encuentres los 8 ositos
+                            podrás acceder a la parte
+                            más profunda del rincón.
+
+                        </p>
+
+                        `;
+
+
+                    setTimeout(()=>{
+
+                        document.getElementById(
+                            "preguntaOsito"
+                        ).style.display=
+                            "none";
+
+                    },2200);
+
+
+                }else{
+
+                    document.getElementById(
+                        "resultadoOsito"
+                    ).innerHTML=
+
+                        `
+
+                        <p>
+
+                            ❌ Esa no era...
+
+                            <br>
+
+                            Inténtalo otra vez 🐻
+
+                        </p>
+
+                        `;
+
+                }
+
+            };
+
+
+            opciones.appendChild(
+                boton
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   PROGRAMACION DEL PRIMER OSITO
+===================================================== */
+
+let ositoYaMostrado=
+    localStorage.getItem(
+        "primerOsitoMostrado"
+    );
+
+
+/*
+   Lo mostramos después de unos segundos.
+
+   Como solamente existe uno por ahora,
+   una vez encontrado no vuelve a aparecer.
+*/
+
+function iniciarSistemaOsitos(){
+
+    if(
+        ositosEncontrados>=1
+    ){
+
+        return;
+
+    }
+
+
+    setTimeout(()=>{
+
+        mostrarOsito();
+
+        localStorage.setItem(
+            "primerOsitoMostrado",
+            "true"
+        );
+
+    },5000);
 
 }
 
@@ -3897,54 +7374,32 @@ function actualizarHistorialMisiones(){
 
 let intervaloFotos;
 
+
 function iniciarFotosFlotantes(){
 
     intervaloFotos=
         setInterval(()=>{
 
+
             if(
-                document.visibilityState==="visible" &&
+
+                document.visibilityState===
+                "visible"
+
+                &&
+
                 window.scrollY>500
+
             ){
 
                 crearFotoFlotante();
 
             }
 
+
         },12000);
 
 }
-
-
-/* =====================================================
-   AUDIO
-===================================================== */
-
-audio.addEventListener(
-    "ended",
-    ()=>{
-
-        cancionSiguiente();
-
-    }
-);
-
-
-/* =====================================================
-   INICIALIZACION
-===================================================== */
-
-construirListaMusica();
-
-cargarCancion(0);
-
-cargarRecuerdo("salidas");
-
-actualizarContador();
-
-actualizarHistorialMisiones();
-
-iniciarFotosFlotantes();
 
 
 /* =====================================================
@@ -3956,21 +7411,72 @@ document.addEventListener(
     ()=>{
 
         if(
-            document.visibilityState==="hidden"
+            document.visibilityState===
+            "hidden"
         ){
 
             document
                 .querySelectorAll(
                     ".foto-flotante"
                 )
-                .forEach(f=>f.remove());
+                .forEach(
+                    f=>f.remove()
+                );
 
         }
 
     }
 );
 
+
+/* =====================================================
+   INICIALIZACION
+===================================================== */
+
+construirListaMusica();
+
+
+cargarCancion(0);
+
+
+cargarRecuerdo(
+    "salidas"
+);
+
+
+actualizarContador();
+
+
+iniciarSistemaOsitos();
+
+
+iniciarFotosFlotantes();
+
+
+/* =====================================================
+   MISIONES AL CARGAR
+===================================================== */
+
+cargarMision(
+    "dia"
+);
+
+
+cargarMision(
+    "semana"
+);
+
+
+cargarMision(
+    "mes"
+);
+
+
+mostrarHistorialRecompensas();
+
+
 </script>
 
 </body>
+
 </html>
