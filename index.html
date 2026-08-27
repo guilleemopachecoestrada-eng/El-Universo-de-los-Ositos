@@ -193,65 +193,111 @@ body::before{
 }
 
 /* =========================
-   MENU
+   BIENVENIDA
 ========================= */
 
-.menu{
+.bienvenida{
+    min-height:72vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
     text-align:center;
-    padding:65px 20px 35px;
+    padding:50px 20px;
 }
 
-.menu h2{
-    font-size:2.8rem;
-    margin-bottom:10px;
+.bienvenida-contenido{
+    max-width:750px;
+    animation:aparecer 1.4s ease;
 }
 
-.menu p{
-    color:#cbbfd1;
-    margin-bottom:35px;
-}
-
-.contador-ositos{
+.bienvenida-osito{
+    font-size:5rem;
     display:inline-block;
-    margin:0 auto 35px;
-    padding:12px 22px;
-    border-radius:40px;
-    background:rgba(123,63,145,.18);
-    border:1px solid rgba(190,140,220,.25);
-    box-shadow:0 8px 25px rgba(0,0,0,.2);
+    animation:
+        flotar 3s ease-in-out infinite,
+        brilloOsito 3s ease-in-out infinite;
+}
+
+.bienvenida h2{
+    font-size:clamp(2.5rem,7vw,4.5rem);
+    margin:20px 0 10px;
+    text-shadow:0 0 25px rgba(150,90,180,.45);
+}
+
+.bienvenida-subtitulo{
+    color:#d8b9e8;
+    font-size:1.3rem;
+}
+
+.bienvenida-linea{
+    width:100px;
+    height:2px;
+    margin:25px auto;
+    background:linear-gradient(90deg,transparent,#9c6ab5,transparent);
+}
+
+.bienvenida p{
+    max-width:600px;
+    margin:auto;
+    color:#d7cedb;
+    line-height:1.9;
     font-size:1.05rem;
 }
 
-.botones{
-    max-width:900px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:18px;
+.bienvenida-hint{
+    margin-top:35px;
+    font-size:.95rem;
+    color:#a99eac;
+    animation:respirar 2.5s ease-in-out infinite;
 }
 
-.menu-boton{
-    background:rgba(255,255,255,.06);
-    border:1px solid rgba(255,255,255,.12);
-    color:#fff;
-    padding:25px 15px;
-    border-radius:20px;
-    font-size:1.1rem;
-    cursor:pointer;
-    transition:.3s;
+@keyframes brilloOsito{
+    0%,100%{
+        filter:drop-shadow(0 0 5px rgba(255,255,255,.15));
+    }
+    50%{
+        filter:drop-shadow(0 0 20px rgba(180,120,220,.65));
+    }
+}
+
+@keyframes respirar{
+    0%,100%{opacity:.5}
+    50%{opacity:1}
+}
+
+/* =========================
+   CONTADOR DE OSITOS
+========================= */
+
+.contador-ositos-flotante{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    z-index:180;
+    padding:10px 15px;
+    border-radius:30px;
+    background:rgba(18,13,31,.88);
+    border:1px solid rgba(190,140,220,.3);
+    box-shadow:0 8px 25px rgba(0,0,0,.35);
     backdrop-filter:blur(10px);
+    font-size:.9rem;
+    cursor:default;
+    animation:contadorEntrada 1s ease;
 }
 
-.menu-boton:hover{
-    transform:translateY(-6px);
-    background:rgba(123,63,145,.25);
-    border-color:rgba(180,120,200,.5);
+.contador-ositos-flotante strong{
+    color:#d8b9e8;
 }
 
-.icono{
-    display:block;
-    font-size:2.5rem;
-    margin-bottom:10px;
+@keyframes contadorEntrada{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 /* =========================
@@ -342,10 +388,6 @@ body::before{
     margin-bottom:10px;
 }
 
-.extra-card button{
-    margin-top:12px;
-}
-
 /* =========================
    HISTORIA
 ========================= */
@@ -406,6 +448,7 @@ body::before{
     display:flex;
     justify-content:center;
     gap:15px;
+    flex-wrap:wrap;
 }
 
 .control{
@@ -545,7 +588,7 @@ body::before{
 }
 
 /* =========================
-   ARCHIVOS
+   ARCHIVO
 ========================= */
 
 .carpeta-grid{
@@ -578,6 +621,7 @@ body::before{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
     gap:12px;
+    margin-top:20px;
 }
 
 .expediente{
@@ -586,6 +630,12 @@ body::before{
     background:rgba(255,255,255,.05);
     border:1px solid rgba(255,255,255,.08);
     cursor:pointer;
+    transition:.25s;
+}
+
+.expediente:hover:not(.bloqueado){
+    transform:translateY(-4px);
+    background:rgba(123,63,145,.2);
 }
 
 .expediente.bloqueado{
@@ -621,10 +671,17 @@ body::before{
     background:rgba(255,255,255,.05);
     color:#fff;
     cursor:pointer;
+    transition:.2s;
 }
 
 .opcion:hover{
     background:rgba(123,63,145,.25);
+    transform:translateY(-2px);
+}
+
+.opcion:disabled{
+    cursor:default;
+    opacity:.7;
 }
 
 .resultado-test{
@@ -632,10 +689,11 @@ body::before{
     padding:15px;
     border-radius:12px;
     display:none;
+    background:rgba(255,255,255,.05);
 }
 
 /* =========================
-   NECESITES
+   NECESITAS
 ========================= */
 
 .necesitas-grid{
@@ -684,17 +742,100 @@ body::before{
     border-left:3px solid #7b3f91;
 }
 
+.mision-contenido{
+    margin-top:12px;
+}
+
+.mision-meta{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-top:15px;
+}
+
+.etiqueta{
+    display:inline-block;
+    padding:6px 10px;
+    border-radius:20px;
+    background:rgba(255,255,255,.07);
+    color:#cfc3d4;
+    font-size:.82rem;
+}
+
+.mision-video{
+    margin-top:18px;
+}
+
+.mision-video video{
+    width:100%;
+    max-height:360px;
+    border-radius:16px;
+    background:#000;
+}
+
+.mision-acciones{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
+
+.boton-mision{
+    border:none;
+    padding:11px 17px;
+    border-radius:30px;
+    color:white;
+    cursor:pointer;
+    background:rgba(255,255,255,.1);
+    border:1px solid rgba(255,255,255,.1);
+}
+
+.boton-mision:hover{
+    background:rgba(123,63,145,.3);
+}
+
+.mision-completada{
+    border-left-color:#6f9b73;
+}
+
+.mision-fallada{
+    border-left-color:#a85b64;
+}
+
+.cupon-recompensa{
+    margin-top:20px;
+    padding:18px;
+    border-radius:16px;
+    background:rgba(123,63,145,.16);
+    border:1px dashed rgba(200,160,220,.3);
+}
+
 /* =========================
    OSITOS
 ========================= */
 
 .osito-hallazgo{
     position:fixed;
-    font-size:2.5rem;
+    font-size:2.8rem;
     cursor:pointer;
     z-index:150;
-    animation:ositoAparece 1s ease;
+    animation:
+        ositoAparece 1s ease,
+        ositoEspera 2.5s ease-in-out infinite;
     filter:drop-shadow(0 0 12px rgba(255,255,255,.5));
+    user-select:none;
+}
+
+.osito-primer-hallazgo{
+    position:absolute;
+    right:8%;
+    bottom:12%;
+    font-size:3.2rem;
+    cursor:pointer;
+    z-index:20;
+    animation:
+        ositoEspera 2.5s ease-in-out infinite,
+        brilloOsito 3s ease-in-out infinite;
 }
 
 @keyframes ositoAparece{
@@ -706,6 +847,11 @@ body::before{
         opacity:1;
         transform:scale(1);
     }
+}
+
+@keyframes ositoEspera{
+    0%,100%{transform:translateY(0) rotate(-3deg)}
+    50%{transform:translateY(-8px) rotate(3deg)}
 }
 
 .pregunta-osito{
@@ -745,6 +891,12 @@ body::before{
     margin-bottom:15px;
 }
 
+.final-desbloqueado{
+    background:rgba(123,63,145,.16);
+    border:1px solid rgba(190,140,220,.3);
+    animation:aparecer .8s ease;
+}
+
 /* =========================
    FOOTER
 ========================= */
@@ -768,9 +920,12 @@ footer .corazon{
     .indice{
         gap:5px;
         padding:9px 5px;
+        overflow-x:auto;
+        justify-content:flex-start;
     }
 
     .indice button{
+        flex:0 0 auto;
         width:39px;
         height:39px;
         font-size:1.05rem;
@@ -792,10 +947,6 @@ footer .corazon{
         font-size:1rem;
     }
 
-    .menu h2{
-        font-size:2.2rem;
-    }
-
     .seccion{
         margin:25px 15px;
         padding:30px 18px;
@@ -803,6 +954,26 @@ footer .corazon{
 
     .foto-principal{
         min-height:230px;
+    }
+
+    .bienvenida{
+        min-height:65vh;
+    }
+
+    .bienvenida-osito{
+        font-size:4rem;
+    }
+
+    .contador-ositos-flotante{
+        right:10px;
+        bottom:10px;
+        font-size:.8rem;
+        padding:8px 12px;
+    }
+
+    .osito-primer-hallazgo{
+        right:12%;
+        bottom:10%;
     }
 
 }
@@ -865,7 +1036,7 @@ footer .corazon{
 
 <main id="contenido">
 
-<!-- INDICE SUPERIOR -->
+<!-- INDICE -->
 
 <nav class="indice">
 
@@ -876,68 +1047,62 @@ footer .corazon{
     <button onclick="irA('recuerdos')" title="Recuerdos">📸</button>
     <button onclick="irA('archivo')" title="Archivo">😂</button>
     <button onclick="irA('necesitas')" title="Para cuando lo necesites">💌</button>
+    <button onclick="irA('misiones')" title="Misiones">🎯</button>
     <button onclick="irA('final')" title="Última cosa">🎁</button>
 
 </nav>
 
 
-<!-- MENU -->
+<!-- CONTADOR -->
 
-<section class="menu" id="inicioContenido">
+<div class="contador-ositos-flotante">
+    🐻 Ositos:
+    <strong><span id="contadorOsitos">0</span> / 8</strong>
+</div>
 
-    <h2>Bienvenida, osita 🐻</h2>
 
-    <p>
-        Este pequeño lugar tiene algunas cosas
-        que quiero que recuerdes.
-    </p>
+<!-- =========================
+     BIENVENIDA
+========================= -->
 
-    <div class="contador-ositos">
-        🐻 Ositos encontrados:
-        <strong><span id="contadorOsitos">0</span> / 8</strong>
+<section class="bienvenida" id="inicioContenido">
+
+    <div class="bienvenida-contenido">
+
+        <div class="bienvenida-osito">
+            🐻
+        </div>
+
+        <h2>Bienvenida, osita</h2>
+
+        <div class="bienvenida-subtitulo">
+            Este rincón apenas comienza...
+        </div>
+
+        <div class="bienvenida-linea"></div>
+
+        <p>
+            Hay cosas que están a la vista,
+            otras que tendrás que descubrir
+            y algunas que probablemente ni siquiera
+            sabrás que existen hasta encontrarlas.
+        </p>
+
+        <div class="bienvenida-hint">
+            ✨ Explora. Aquí hay más de lo que parece.
+        </div>
+
     </div>
 
-    <div class="botones">
+    <!-- PRIMER OSITO -->
 
-        <button class="menu-boton" onclick="irA('historia')">
-            <span class="icono">📖</span>
-            Nuestra historia
-        </button>
+    <div
+        id="primerOsito"
+        class="osito-primer-hallazgo"
+        title="¿Qué hace un osito aquí?"
+        onclick="encontrarPrimerOsito()">
 
-        <button class="menu-boton" onclick="irA('musica')">
-            <span class="icono">🎵</span>
-            Música
-        </button>
-
-        <button class="menu-boton" onclick="irA('estado')">
-            <span class="icono">💭</span>
-            ¿Cómo estás hoy?
-        </button>
-
-        <button class="menu-boton" onclick="irA('recuerdos')">
-            <span class="icono">📸</span>
-            Recuerdos
-        </button>
-
-        <button class="menu-boton" onclick="irA('archivo')">
-            <span class="icono">😂</span>
-            Archivo de los ositos
-        </button>
-
-        <button class="menu-boton" onclick="irA('necesitas')">
-            <span class="icono">💌</span>
-            Para cuando lo necesites
-        </button>
-
-        <button class="menu-boton" onclick="irA('misiones')">
-            <span class="icono">🎯</span>
-            Misiones
-        </button>
-
-        <button class="menu-boton" onclick="irA('final')">
-            <span class="icono">🎁</span>
-            Una última cosa
-        </button>
+        🐻
 
     </div>
 
@@ -1142,7 +1307,6 @@ footer .corazon{
 
     <p style="margin-top:20px;font-size:.9rem;">
         🎧 Aquí después podrás poner todas las canciones que quieras.
-        La lista está preparada para crecer.
     </p>
 
 </section>
@@ -1211,11 +1375,11 @@ footer .corazon{
         <h3>🎲 Recuerdo al azar</h3>
 
         <p>
-            Nunca sabes qué puede aparecer.
+            Aquí solo aparecerán fotografías.
         </p>
 
         <button class="boton" onclick="recuerdoAzar()">
-            Sorpréndeme 🐻
+            Muéstrame un recuerdo 🐻
         </button>
 
         <div class="azar-resultado" id="azarResultado"></div>
@@ -1255,7 +1419,7 @@ footer .corazon{
             <br><br>
             <strong>Archivos prohibidos</strong>
             <br><br>
-            <small>Próximamente</small>
+            <small>7 expedientes</small>
         </div>
 
         <div class="carpeta" onclick="abrirCarpeta('confidencial')">
@@ -1263,11 +1427,10 @@ footer .corazon{
             <br><br>
             <strong>Confidenciales</strong>
             <br><br>
-            <small>Clasificación especial</small>
+            <small>7 expedientes</small>
         </div>
 
     </div>
-
 
     <div class="expedientes" id="expedientes">
 
@@ -1383,46 +1546,72 @@ footer .corazon{
         Algunas misiones simplemente existen para disfrutar.
     </p>
 
-    <div class="misiones">
+    <div class="mision" id="misionActual">
 
-        <div class="mision">
-            <h3>🌱 Misión de hoy</h3>
-            <p>
-                Tómate una foto haciendo algo que te guste.
-            </p>
-        </div>
+        <h3>🎯 Misión del día</h3>
 
-        <div class="mision">
-            <h3>🍦 Misión de la semana</h3>
-            <p>
-                Sal por un helado sin necesitar una razón.
-            </p>
-        </div>
+        <div class="mision-contenido">
 
-        <div class="mision">
-            <h3>🌙 Misión del mes</h3>
-            <p>
-                Haz algo que normalmente no harías.
-                Puede ser pequeño. Lo importante es hacerlo.
+            <h3 id="misionTitulo">
+                Pulsa el botón para recibir una misión.
+            </h3>
+
+            <p id="misionDescripcion" style="margin-top:10px;">
+                Nunca sabes qué puede tocar.
             </p>
+
+            <div class="mision-meta">
+                <span class="etiqueta" id="misionCategoria">
+                    🐻 Ositos
+                </span>
+
+                <span class="etiqueta" id="misionDificultad">
+                    ⭐ Normal
+                </span>
+            </div>
+
+            <div class="mision-video" id="misionVideo"></div>
+
+            <div class="mision-acciones">
+
+                <button
+                    class="boton-mision"
+                    onclick="nuevaMision()">
+                    🎲 Randomizar
+                </button>
+
+                <button
+                    class="boton-mision"
+                    onclick="marcarMision('completada')">
+                    ✅ Completada
+                </button>
+
+                <button
+                    class="boton-mision"
+                    onclick="marcarMision('fallada')">
+                    ❌ Fallada
+                </button>
+
+            </div>
+
+            <div id="misionResultado"></div>
+
         </div>
 
     </div>
 
     <div class="azar-box">
 
-        <h3>🎥 Cosas para hacer</h3>
+        <h3>🏆 Historial de recompensas</h3>
 
         <p>
-            Cuando no sepas qué hacer, aquí puede aparecer
-            una pequeña misión.
+            Completa misiones para ir acumulando pequeños
+            cupones de los ositos.
         </p>
 
-        <button class="boton" onclick="actividadAzar()">
-            Dame una idea
-        </button>
-
-        <div class="azar-resultado" id="actividadResultado"></div>
+        <div id="historialMisiones" style="margin-top:20px;">
+            Todavía no hay misiones completadas.
+        </div>
 
     </div>
 
@@ -1439,7 +1628,9 @@ footer .corazon{
 
     <h2>Una última cosa...</h2>
 
-    <div class="final-bloqueado">
+    <div
+        class="final-bloqueado"
+        id="finalBloqueado">
 
         <div class="candado">
             🔒
@@ -1520,6 +1711,10 @@ footer .corazon{
    DATOS
 ===================================================== */
 
+/*
+   Aquí posteriormente pondremos las canciones reales.
+*/
+
 const canciones = [
 
     {
@@ -1542,6 +1737,10 @@ const canciones = [
 
 ];
 
+
+/*
+   Aquí posteriormente pondremos las fotos reales.
+*/
 
 const recuerdos = {
 
@@ -1580,48 +1779,6 @@ const recuerdos = {
             emoji:"🐻",
             texto:"Este tendrá una historia especial."
         }
-    ]
-
-};
-
-
-/* =====================================================
-   PREGUNTAS DE EXPEDIENTES
-===================================================== */
-
-const bancos = {
-
-    legal:[
-        [
-            "¿Cuál es nuestro elixir oficial de la vida?",
-            ["Kosako de uva","Agua","Café","Té"]
-        ],
-        [
-            "¿Cuál es nuestra especie oficial?",
-            ["Ositos","Pingüinos","Gatos","Mapaches"]
-        ],
-        [
-            "¿Qué llevamos construyendo durante años?",
-            ["Historias","Una empresa","Una banda","Un restaurante"]
-        ],
-        [
-            "¿Qué hacemos cuando algo se pone demasiado serio?",
-            ["Nos reímos","Nos vamos","Dormimos","Cocinamos"]
-        ]
-    ],
-
-    prohibido:[
-        [
-            "¿Qué se encuentra en los archivos prohibidos?",
-            ["Historias comprometedoras","Tareas","Recetas","Horarios"]
-        ]
-    ],
-
-    confidencial:[
-        [
-            "¿Quién conoce los secretos del archivo?",
-            ["Los ositos","El gobierno","El perro","Nadie"]
-        ]
     ]
 
 };
@@ -1684,9 +1841,7 @@ function mostrarEstado(tipo){
         </p>`;
 
         cupon="🎟️ Cupón para presumirme tu felicidad.";
-
         musica="🎵 Una canción feliz para acompañar el momento.";
-
         foto="📸 Una foto que algún día nos hará sonreír.";
 
     }
@@ -1704,9 +1859,7 @@ function mostrarEstado(tipo){
         </p>`;
 
         cupon="🎟️ Cupón de abrazo + derecho a no explicar nada.";
-
         musica="🎵 Canción para quedarnos tranquilas un rato.";
-
         foto="📸 Una memoria para recordarte que no todo ha sido malo.";
 
     }
@@ -1726,9 +1879,7 @@ function mostrarEstado(tipo){
         </p>`;
 
         cupon="🎟️ Cupón para desahogarte sin recibir un 'cálmate'.";
-
         musica="🎵 Algo para sacar el coraje.";
-
         foto="📸 Una foto absurda para intentar sacarte una sonrisa.";
 
     }
@@ -1749,9 +1900,7 @@ function mostrarEstado(tipo){
         </p>`;
 
         cupon="🎟️ Cupón para una misión improvisada.";
-
         musica="🎵 Canción para romper el aburrimiento.";
-
         foto="📸 Recuerdo al azar pendiente.";
 
     }
@@ -1767,9 +1916,7 @@ function mostrarEstado(tipo){
         </p>`;
 
         cupon="🎟️ Cupón para hablar sin tener que llegar a una conclusión.";
-
         musica="🎵 Algo tranquilo.";
-
         foto="📸 Un recuerdo para aterrizar un poquito.";
 
     }
@@ -1785,9 +1932,7 @@ function mostrarEstado(tipo){
         </p>`;
 
         cupon="🎟️ Cupón oficial para no hacer absolutamente nada.";
-
         musica="🎵 Música para cerrar el día.";
-
         foto="📸 Una memoria tranquila.";
 
     }
@@ -1803,9 +1948,7 @@ function mostrarEstado(tipo){
         </p>`;
 
         cupon="🎟️ Cupón para pedir ayuda sin sentirte culpable.";
-
         musica="🎵 Algo que te ayude a bajar un poco el ruido.";
-
         foto="📸 Una memoria para respirar.";
 
     }
@@ -1821,9 +1964,7 @@ function mostrarEstado(tipo){
         </p>`;
 
         cupon="🎟️ Cupón: 'Llámame cuando quieras'.";
-
         musica="🎵 Una canción para acompañarte.";
-
         foto="📸 Una memoria nuestra.";
 
     }
@@ -1860,7 +2001,6 @@ function cargarCancion(indice){
     const cancion=canciones[indice];
 
     document.getElementById("cancionTitulo").textContent=cancion.titulo;
-
     document.getElementById("cancionArtista").textContent=cancion.artista;
 
     if(cancion.archivo){
@@ -1904,8 +2044,11 @@ function construirListaMusica(){
             cargarCancion(i);
 
             if(canciones[i].archivo){
+
                 audio.play();
+
                 document.getElementById("playButton").textContent="⏸";
+
             }
 
         };
@@ -1920,7 +2063,10 @@ function togglePlay(){
 
     if(!audio.src){
 
-        alert("Esta canción todavía no tiene archivo. Después puedes poner aquí tus canciones.");
+        alert(
+            "Esta canción todavía no tiene archivo. " +
+            "Después puedes poner aquí tus canciones."
+        );
 
         return;
 
@@ -1944,7 +2090,8 @@ function togglePlay(){
 
 function cancionSiguiente(){
 
-    cancionActual=(cancionActual+1)%canciones.length;
+    cancionActual=
+        (cancionActual+1)%canciones.length;
 
     cargarCancion(cancionActual);
 
@@ -1952,7 +2099,8 @@ function cancionSiguiente(){
 
 function cancionAnterior(){
 
-    cancionActual=(cancionActual-1+canciones.length)%canciones.length;
+    cancionActual=
+        (cancionActual-1+canciones.length)%canciones.length;
 
     cargarCancion(cancionActual);
 
@@ -1964,9 +2112,15 @@ function cancionAleatoria(){
 
     do{
 
-        nueva=Math.floor(Math.random()*canciones.length);
+        nueva=
+            Math.floor(
+                Math.random()*canciones.length
+            );
 
-    }while(nueva===cancionActual && canciones.length>1);
+    }while(
+        nueva===cancionActual &&
+        canciones.length>1
+    );
 
     cargarCancion(nueva);
 
@@ -1997,7 +2151,8 @@ function mostrarFoto(){
 
     const foto=lista[fotoActual];
 
-    const contenedor=document.getElementById("fotoPrincipal");
+    const contenedor=
+        document.getElementById("fotoPrincipal");
 
     if(foto.imagen){
 
@@ -2013,7 +2168,8 @@ function mostrarFoto(){
 
     }
 
-    document.getElementById("leyendaFoto").textContent=foto.texto;
+    document.getElementById("leyendaFoto")
+        .textContent=foto.texto;
 
 }
 
@@ -2021,7 +2177,8 @@ function fotoSiguiente(){
 
     const lista=recuerdos[categoriaRecuerdo];
 
-    fotoActual=(fotoActual+1)%lista.length;
+    fotoActual=
+        (fotoActual+1)%lista.length;
 
     mostrarFoto();
 
@@ -2031,7 +2188,8 @@ function fotoAnterior(){
 
     const lista=recuerdos[categoriaRecuerdo];
 
-    fotoActual=(fotoActual-1+lista.length)%lista.length;
+    fotoActual=
+        (fotoActual-1+lista.length)%lista.length;
 
     mostrarFoto();
 
@@ -2046,7 +2204,9 @@ function crearFotoFlotante(){
         categoria.forEach(recuerdo=>{
 
             if(recuerdo.imagen){
+
                 imagenes.push(recuerdo.imagen);
+
             }
 
         });
@@ -2057,17 +2217,27 @@ function crearFotoFlotante(){
 
     const foto=document.createElement("img");
 
-    foto.src=imagenes[Math.floor(Math.random()*imagenes.length)];
+    foto.src=
+        imagenes[
+            Math.floor(
+                Math.random()*imagenes.length
+            )
+        ];
 
     foto.className="foto-flotante";
 
-    foto.style.left=(Math.random()*70+10)+"%";
-    foto.style.top=(Math.random()*65+15)+"%";
+    foto.style.left=
+        (Math.random()*70+10)+"%";
+
+    foto.style.top=
+        (Math.random()*65+15)+"%";
 
     document.body.appendChild(foto);
 
     setTimeout(()=>{
+
         foto.remove();
+
     },9000);
 
 }
@@ -2075,83 +2245,79 @@ function crearFotoFlotante(){
 
 /* =====================================================
    RECUERDO AL AZAR
+   SOLO FOTOS
 ===================================================== */
 
 function recuerdoAzar(){
 
-    const opciones=[
+    const imagenes=[];
 
-        "📸 Una foto: algún recuerdo de nuestras salidas.",
+    Object.values(recuerdos).forEach(categoria=>{
 
-        "💬 Una frase: hay personas que se convierten en hogar.",
+        categoria.forEach(recuerdo=>{
 
-        "🎵 Una canción: abre el reproductor y deja que el azar elija.",
+            if(recuerdo.imagen){
 
-        "😂 Un recuerdo: probablemente hicimos algo que hoy nos daría vergüenza.",
+                imagenes.push(recuerdo);
 
-        "🐻 Una misión: mándale un mensaje al otro osito.",
+            }
 
-        "🎥 Un video: busca algo que nos haga reír hasta que duela la panza."
+        });
 
-    ];
+    });
 
-    const resultado=opciones[
-        Math.floor(Math.random()*opciones.length)
-    ];
+    const resultado=
+        document.getElementById("azarResultado");
 
-    document.getElementById("azarResultado").innerHTML=
-        `<p>${resultado}</p>`;
+    if(!imagenes.length){
 
-}
+        resultado.innerHTML=`
+            <p>
+                📸 Todavía no hay fotografías cargadas.
+                Cuando agreguemos las fotos, este botón
+                escogerá una al azar.
+            </p>
+        `;
 
+        return;
 
-/* =====================================================
-   ACTIVIDADES
-===================================================== */
+    }
 
-function actividadAzar(){
+    const recuerdo=
+        imagenes[
+            Math.floor(
+                Math.random()*imagenes.length
+            )
+        ];
 
-    const actividades=[
-
-        "😂 Busca un video que te haga reír muchísimo.",
-
-        "💪 Haz 10 minutos de ejercicio solo porque sí.",
-
-        "🍳 Busca una receta que nunca hayas preparado.",
-
-        "🎨 Aprende una habilidad inútil pero divertida.",
-
-        "🖊️ Aprende a girar un lapicero con una mano.",
-
-        "🎮 Juega algo que hace mucho no juegas.",
-
-        "📸 Tómate una foto haciendo algo completamente normal.",
-
-        "🍦 Sal por un helado.",
-
-        "🎵 Escucha una canción que no conozcas.",
-
-        "🐻 Manda un mensaje al otro osito."
-
-    ];
-
-    const resultado=actividades[
-        Math.floor(Math.random()*actividades.length)
-    ];
-
-    document.getElementById("actividadResultado").innerHTML=
-        `<p>${resultado}</p>`;
+    resultado.innerHTML=`
+        <img
+            src="${recuerdo.imagen}"
+            alt="Recuerdo al azar"
+            style="
+                width:100%;
+                max-height:400px;
+                object-fit:cover;
+                border-radius:18px;
+                margin-top:10px;
+            "
+        >
+        <p style="margin-top:12px;">
+            ${recuerdo.texto}
+        </p>
+    `;
 
 }
 
 
 /* =====================================================
-   PARA CUANDO LO NECESITES
+   NECESITAS
 ===================================================== */
 
 function mostrarNecesitas(tipo){
 
-    const caja=document.getElementById("necesitasMensaje");
+    const caja=
+        document.getElementById("necesitasMensaje");
 
     const mensajes={
 
@@ -2229,18 +2395,226 @@ function mostrarNecesitas(tipo){
    EXPEDIENTES
 ===================================================== */
 
+/*
+   Cada expediente tiene SU PROPIO banco.
+
+   Cada uno tiene 4 preguntas por ahora.
+   Posteriormente podemos sustituirlas por preguntas
+   personalizadas para Mónica.
+
+   Las respuestas correctas NO están siempre en A.
+*/
+
+const bancosExpedientes={
+
+    legal:{
+
+        1:[
+            ["¿Cuál es nuestro elixir oficial de la vida?",
+                ["Café","Agua","Kosako de uva","Té"],2],
+
+            ["¿Cuál es nuestra especie oficial?",
+                ["Gatos","Ositos","Pingüinos","Mapaches"],1],
+
+            ["¿Cuántos años lleva construyéndose esta historia?",
+                ["3 años","5 años","8 años","10 años"],2],
+
+            ["¿Qué hacemos cuando algo se pone demasiado serio?",
+                ["Nos reímos","Dormimos","Nos vamos","Cocinamos"],0]
+        ],
+
+        2:[
+            ["¿Qué representa este rincón?",
+                ["Una tienda","Nuestra historia","Una tarea","Un examen"],1],
+
+            ["¿Qué palabra describe mejor a los ositos?",
+                ["Aburridos","Serios","Inseparables","Profesionales"],2],
+
+            ["¿Qué guardamos aquí?",
+                ["Recuerdos","Facturas","Exámenes","Horarios"],0],
+
+            ["¿Qué no debería faltar nunca?",
+                ["Tonterías","Estrés","Silencio","Tareas"],0]
+        ],
+
+        3:[
+            ["¿Qué hacemos con los recuerdos importantes?",
+                ["Los borramos","Los escondemos","Los guardamos","Los vendemos"],2],
+
+            ["¿Qué puede aparecer en este rincón?",
+                ["Fotos","Recuerdos","Historias","Todas las anteriores"],3],
+
+            ["¿Qué animal representa este universo?",
+                ["🐱","🐶","🐻","🦊"],2],
+
+            ["¿Qué estamos construyendo?",
+                ["Una página cualquiera","Una historia","Una tienda","Un juego"],1]
+        ],
+
+        4:[
+            ["¿Qué debe tener un buen recuerdo?",
+                ["Una historia","Un examen","Una contraseña","Una factura"],0],
+
+            ["¿Qué hacemos cuando necesitamos reír?",
+                ["Abrimos el archivo","Dormimos","Estudiamos","Nos vamos"],0],
+
+            ["¿Qué encontramos en el archivo?",
+                ["Expedientes","Recetas","Horarios","Mapas"],0],
+
+            ["¿Quién pertenece a este universo?",
+                ["Los ositos","Los pingüinos","Los gatos","Los marcianos"],0]
+        ],
+
+        5:[
+            ["¿Cuál es la misión principal de este sitio?",
+                ["Recordar","Comprar","Estudiar","Trabajar"],0],
+
+            ["¿Qué representa el corazón del sitio?",
+                ["8 años","8 días","8 meses","8 semanas"],0],
+
+            ["¿Qué puede desbloquearse?",
+                ["La parte profunda","Una tienda","Un examen","Nada"],0],
+
+            ["¿Qué hay que hacer para descubrir cosas?",
+                ["Explorar","Cerrar la página","Dormirse","Ignorar todo"],0]
+        ],
+
+        6:[
+            ["¿Qué significa 'osita' aquí?",
+                ["Un apodo","Una materia","Una contraseña","Una misión"],0],
+
+            ["¿Qué tiene este universo?",
+                ["Recuerdos","Historias","Secretos","Todo lo anterior"],3],
+
+            ["¿Qué puede guardar una foto?",
+                ["Un momento","Un examen","Una contraseña","Nada"],0],
+
+            ["¿Qué hacemos con los años compartidos?",
+                ["Los olvidamos","Los celebramos","Los borramos","Los escondemos"],1]
+        ],
+
+        7:[
+            ["¿Cuántos ositos deben encontrarse para llegar al final?",
+                ["4","6","8","10"],2],
+
+            ["¿Qué ocurre al encontrar todos?",
+                ["Nada","Se desbloquea la parte profunda","Se reinicia","Se borra todo"],1],
+
+            ["¿Qué necesita un expediente para aprobarse?",
+                ["50%","70%","90%","100%"],3],
+
+            ["¿Qué hace un verdadero osito?",
+                ["Explora","Se rinde","Ignora todo","Borra recuerdos"],0]
+        ]
+
+    },
+
+    prohibido:{},
+    confidencial:{}
+
+};
+
+
+/*
+   Por ahora las otras dos carpetas utilizan
+   el mismo sistema y tendrán 7 expedientes.
+   Después podemos crear preguntas completamente
+   diferentes para cada una.
+*/
+
+function prepararBancosPendientes(){
+
+    ["prohibido","confidencial"].forEach(carpeta=>{
+
+        for(let i=1;i<=7;i++){
+
+            if(
+                !bancosExpedientes[carpeta][i]
+            ){
+
+                bancosExpedientes[carpeta][i]=[
+                    [
+                        "¿Quién puede entrar a este archivo?",
+                        [
+                            "Los ositos",
+                            "Cualquiera",
+                            "Nadie",
+                            "El perro"
+                        ],
+                        0
+                    ],
+                    [
+                        "¿Qué se guarda aquí?",
+                        [
+                            "Recuerdos",
+                            "Tareas",
+                            "Recetas",
+                            "Horarios"
+                        ],
+                        0
+                    ],
+                    [
+                        "¿Qué necesitas para avanzar?",
+                        [
+                            "100%",
+                            "10%",
+                            "50%",
+                            "Nada"
+                        ],
+                        0
+                    ],
+                    [
+                        "¿Qué debe hacer un osito?",
+                        [
+                            "Explorar",
+                            "Rendirse",
+                            "Ignorar",
+                            "Cerrar todo"
+                        ],
+                        0
+                    ]
+                ];
+
+            }
+
+        }
+
+    });
+
+}
+
+prepararBancosPendientes();
+
+
 let carpetaActual="";
 let expedienteActual=0;
+
 let preguntasActuales=[];
 let preguntaActual=0;
+
 let correctas=0;
 let incorrectas=0;
 
+
+/* =========================
+   PROGRESO
+========================= */
+
 function obtenerProgreso(){
 
-    return JSON.parse(
-        localStorage.getItem("progresoOsitosExpedientes") || "{}"
-    );
+    try{
+
+        return JSON.parse(
+            localStorage.getItem(
+                "progresoOsitosExpedientes"
+            ) || "{}"
+        );
+
+    }catch(error){
+
+        return {};
+
+    }
 
 }
 
@@ -2253,15 +2627,22 @@ function guardarProgreso(data){
 
 }
 
+
+/* =========================
+   ABRIR CARPETA
+========================= */
+
 function abrirCarpeta(carpeta){
 
     carpetaActual=carpeta;
 
-    const contenedor=document.getElementById("expedientes");
+    const contenedor=
+        document.getElementById("expedientes");
 
     contenedor.style.display="block";
 
-    document.getElementById("tituloCarpeta").textContent=
+    document.getElementById("tituloCarpeta")
+        .textContent=
         carpeta==="legal"
         ? "⚖️ Archivos legales"
         : carpeta==="prohibido"
@@ -2277,34 +2658,37 @@ function abrirCarpeta(carpeta){
 
 }
 
+
+/* =========================
+   EXPEDIENTES
+========================= */
+
 function construirExpedientes(){
 
-    const grid=document.getElementById("expedienteGrid");
+    const grid=
+        document.getElementById("expedienteGrid");
 
     grid.innerHTML="";
 
-    const total=
-        carpetaActual==="legal"
-        ? 7
-        : carpetaActual==="prohibido"
-        ? 5
-        : 5;
+    const total=7;
 
     const progreso=obtenerProgreso();
 
-    const clave=carpetaActual;
-
-    if(!progreso[clave]){
-        progreso[clave]={};
+    if(!progreso[carpetaActual]){
+        progreso[carpetaActual]={};
     }
 
     for(let i=1;i<=total;i++){
 
         const desbloqueado=
             i===1 ||
-            progreso[clave][i-1]?.aprobado===true;
+            progreso[carpetaActual][i-1]?.aprobado===true;
 
-        const elemento=document.createElement("div");
+        const aprobado=
+            progreso[carpetaActual][i]?.aprobado===true;
+
+        const elemento=
+            document.createElement("div");
 
         elemento.className=
             "expediente "+
@@ -2314,16 +2698,20 @@ function construirExpedientes(){
             📁<br><br>
             Expediente ${String(i).padStart(2,"0")}
             <br><br>
-            ${progreso[clave][i]?.aprobado
+            ${
+                aprobado
                 ? "✅ Aprobado"
                 : desbloqueado
                 ? "🔓 Disponible"
-                : "🔒 Bloqueado"}
+                : "🔒 Bloqueado"
+            }
         `;
 
         if(desbloqueado){
 
-            elemento.onclick=()=>abrirExpediente(i);
+            elemento.onclick=()=>{
+                abrirExpediente(i);
+            };
 
         }
 
@@ -2332,16 +2720,27 @@ function construirExpedientes(){
     }
 
     const aprobados=
-        Object.values(progreso[clave]).filter(
-            x=>x.aprobado
+        Object.values(
+            progreso[carpetaActual]
+        ).filter(
+            x=>x.aprobado===true
         ).length;
 
-    document.getElementById("progresoExpedientes").innerHTML=
-        `📂 Progreso: <strong>${aprobados} / ${total}</strong> expedientes aprobados`;
+    document.getElementById(
+        "progresoExpedientes"
+    ).innerHTML=
+        `📂 Progreso:
+        <strong>${aprobados} / ${total}</strong>
+        expedientes aprobados`;
 
 }
 
-function mezclarPreguntas(lista){
+
+/* =========================
+   MEZCLAR
+========================= */
+
+function mezclar(lista){
 
     return [...lista].sort(
         ()=>Math.random()-.5
@@ -2349,13 +2748,23 @@ function mezclarPreguntas(lista){
 
 }
 
+
+/* =========================
+   ABRIR EXPEDIENTE
+========================= */
+
 function abrirExpediente(numero){
 
-    const banco=bancos[carpetaActual] || [];
+    const banco=
+        bancosExpedientes[
+            carpetaActual
+        ]?.[numero];
 
-    if(!banco.length){
+    if(!banco || banco.length<4){
 
-        alert("Este archivo todavía está en construcción 🐻");
+        alert(
+            "Este expediente todavía está en construcción 🐻"
+        );
 
         return;
 
@@ -2363,29 +2772,71 @@ function abrirExpediente(numero){
 
     expedienteActual=numero;
 
-    preguntasActuales=mezclarPreguntas(banco).slice(
-        0,
-        Math.min(5,banco.length)
-    );
+    /*
+       Siempre tomamos las 4 preguntas,
+       pero las revolvemos.
+    */
+
+    preguntasActuales=
+        mezclar(banco).slice(0,4);
+
+    /*
+       También revolvemos las opciones.
+       La respuesta correcta viaja con ellas.
+    */
+
+    preguntasActuales=
+        preguntasActuales.map(pregunta=>{
+
+            const texto=pregunta[0];
+            const opciones=pregunta[1];
+            const correcta=pregunta[2];
+
+            const arreglo=
+                opciones.map((textoOpcion,index)=>({
+                    texto:textoOpcion,
+                    correcta:index===correcta
+                }));
+
+            const mezcladas=mezclar(arreglo);
+
+            return[
+                texto,
+                mezcladas
+            ];
+
+        });
 
     preguntaActual=0;
     correctas=0;
     incorrectas=0;
 
-    document.getElementById("preguntaBox").style.display="block";
+    document.getElementById(
+        "preguntaBox"
+    ).style.display="block";
 
     mostrarPregunta();
 
-    document.getElementById("preguntaBox").scrollIntoView({
+    document.getElementById(
+        "preguntaBox"
+    ).scrollIntoView({
         behavior:"smooth",
         block:"center"
     });
 
 }
 
+
+/* =========================
+   MOSTRAR PREGUNTA
+========================= */
+
 function mostrarPregunta(){
 
-    if(preguntaActual>=preguntasActuales.length){
+    if(
+        preguntaActual>=
+        preguntasActuales.length
+    ){
 
         terminarExpediente();
 
@@ -2393,99 +2844,207 @@ function mostrarPregunta(){
 
     }
 
-    const pregunta=preguntasActuales[preguntaActual];
+    const pregunta=
+        preguntasActuales[preguntaActual];
 
-    document.getElementById("numeroPregunta").textContent=
+    document.getElementById(
+        "numeroPregunta"
+    ).textContent=
         `Pregunta ${preguntaActual+1} de ${preguntasActuales.length}`;
 
-    document.getElementById("textoPregunta").textContent=
+    document.getElementById(
+        "textoPregunta"
+    ).textContent=
         pregunta[0];
 
-    const opciones=document.getElementById("opcionesPregunta");
+    const opciones=
+        document.getElementById(
+            "opcionesPregunta"
+        );
 
     opciones.innerHTML="";
 
     pregunta[1].forEach((respuesta,i)=>{
 
-        const boton=document.createElement("button");
+        const boton=
+            document.createElement("button");
 
         boton.className="opcion";
 
         boton.textContent=
-            `${String.fromCharCode(65+i)}) ${respuesta}`;
+            `${String.fromCharCode(65+i)}) ${respuesta.texto}`;
 
-        boton.onclick=()=>responderExpediente(i);
+        boton.onclick=()=>{
+            responderExpediente(
+                respuesta.correcta,
+                opciones
+            );
+        };
 
         opciones.appendChild(boton);
 
     });
 
-    document.getElementById("resultadoTest").style.display="none";
+    document.getElementById(
+        "resultadoTest"
+    ).style.display="none";
 
 }
 
-function responderExpediente(indice){
 
-    const resultado=document.getElementById("resultadoTest");
+/* =========================
+   RESPONDER
+========================= */
+
+function responderExpediente(
+    correcta,
+    opciones
+){
+
+    const resultado=
+        document.getElementById(
+            "resultadoTest"
+        );
 
     /*
-       DE MOMENTO LA RESPUESTA CORRECTA
-       ES SIEMPRE A
+       Desactivamos las opciones
+       mientras se procesa.
     */
 
-    if(indice===0){
+    opciones
+        .querySelectorAll("button")
+        .forEach(boton=>{
+            boton.disabled=true;
+        });
+
+    if(correcta){
 
         correctas++;
 
         resultado.innerHTML=
             "✅ Correcta. El expediente continúa.";
 
+        resultado.style.display="block";
+
+        setTimeout(()=>{
+
+            preguntaActual++;
+
+            mostrarPregunta();
+
+        },700);
+
     }else{
 
         incorrectas++;
 
-        resultado.innerHTML=
-            "❌ Incorrecta. Recuerda que debes aprobar el expediente al 100%.";
+        resultado.innerHTML=`
+            <strong>❌ Expediente fallido.</strong>
+            <br><br>
+            Esta pregunta reinicia TODO el expediente.
+            Tendrás que comenzar nuevamente desde la
+            pregunta 1.
+        `;
+
+        resultado.style.display="block";
+
+        /*
+           IMPORTANTE:
+           no pasamos a la siguiente pregunta.
+           Reiniciamos TODO.
+        */
+
+        setTimeout(()=>{
+
+            reiniciarExpediente();
+
+        },1400);
 
     }
 
-    resultado.style.display="block";
+}
 
-    setTimeout(()=>{
 
-        preguntaActual++;
+/* =========================
+   REINICIAR
+========================= */
 
-        mostrarPregunta();
+function reiniciarExpediente(){
 
-    },700);
+    const banco=
+        bancosExpedientes[
+            carpetaActual
+        ]?.[expedienteActual];
+
+    if(!banco) return;
+
+    preguntasActuales=
+        mezclar(banco).slice(0,4);
+
+    preguntasActuales=
+        preguntasActuales.map(pregunta=>{
+
+            const texto=pregunta[0];
+            const opciones=pregunta[1];
+            const correcta=pregunta[2];
+
+            const arreglo=
+                opciones.map((textoOpcion,index)=>({
+                    texto:textoOpcion,
+                    correcta:index===correcta
+                }));
+
+            return[
+                texto,
+                mezclar(arreglo)
+            ];
+
+        });
+
+    preguntaActual=0;
+    correctas=0;
+    incorrectas=0;
+
+    mostrarPregunta();
 
 }
+
+
+/* =========================
+   TERMINAR
+========================= */
 
 function terminarExpediente(){
 
     const porcentaje=
         Math.round(
-            (correctas/preguntasActuales.length)*100
+            (correctas/
+            preguntasActuales.length)*100
         );
 
-    const resultado=document.getElementById("resultadoTest");
+    const resultado=
+        document.getElementById(
+            "resultadoTest"
+        );
 
     resultado.style.display="block";
 
     if(porcentaje===100){
 
-        const progreso=obtenerProgreso();
+        const progreso=
+            obtenerProgreso();
 
         if(!progreso[carpetaActual]){
             progreso[carpetaActual]={};
         }
 
-        progreso[carpetaActual][expedienteActual]={
-            aprobado:true,
-            correctas,
-            incorrectas,
-            porcentaje
-        };
+        progreso[carpetaActual]
+            [expedienteActual]={
+                aprobado:true,
+                correctas,
+                incorrectas,
+                porcentaje
+            };
 
         guardarProgreso(progreso);
 
@@ -2507,15 +3066,13 @@ function terminarExpediente(){
             <h3>❌ Expediente no aprobado</h3>
             <br>
             <p>
-            Correctas: ${correctas}<br>
-            Incorrectas: ${incorrectas}<br>
             Resultado: ${porcentaje}%
             </p>
             <br>
             <p>
             Necesitas 100%.
-            La próxima vez recibirás otra combinación
-            de preguntas.
+            Si fallas durante el intento,
+            todo el expediente vuelve a empezar.
             </p>
         `;
 
@@ -2528,85 +3085,142 @@ function terminarExpediente(){
    OSITOS
 ===================================================== */
 
-let ositosEncontrados=
-    parseInt(localStorage.getItem("ositosEncontrados") || "0");
+/*
+   El progreso se guarda en localStorage.
 
-let ositosDesbloqueados=
-    JSON.parse(
-        localStorage.getItem("ositosDesbloqueados") || "[]"
+   Nunca hacemos cálculos con valores inexistentes,
+   por eso jamás debería aparecer NaN/8.
+*/
+
+let ositosEncontrados=
+    parseInt(
+        localStorage.getItem(
+            "ositosEncontrados"
+        ),
+        10
     );
+
+if(
+    !Number.isFinite(ositosEncontrados) ||
+    ositosEncontrados<0 ||
+    ositosEncontrados>8
+){
+
+    ositosEncontrados=0;
+
+}
+
+let ositosDesbloqueados=[];
+
+try{
+
+    ositosDesbloqueados=
+        JSON.parse(
+            localStorage.getItem(
+                "ositosDesbloqueados"
+            ) || "[]"
+        );
+
+    if(!Array.isArray(ositosDesbloqueados)){
+        ositosDesbloqueados=[];
+    }
+
+}catch(error){
+
+    ositosDesbloqueados=[];
+
+}
+
+
+/* =========================
+   CONTADOR
+========================= */
 
 function actualizarContador(){
 
-    document.getElementById("contadorOsitos").textContent=
-        ositosEncontrados;
+    const contador=
+        document.getElementById(
+            "contadorOsitos"
+        );
 
-    document.getElementById("requisitoFinal").textContent=
-        `Progreso: ${ositosEncontrados} / 8 ositos`;
+    const requisito=
+        document.getElementById(
+            "requisitoFinal"
+        );
+
+    if(contador){
+
+        contador.textContent=
+            String(ositosEncontrados);
+
+    }
+
+    if(requisito){
+
+        requisito.textContent=
+            `Progreso: ${ositosEncontrados} / 8 ositos`;
+
+    }
+
+    actualizarFinal();
 
 }
+
+
+/* =========================
+   GUARDAR
+========================= */
 
 function guardarOsitos(){
 
     localStorage.setItem(
         "ositosEncontrados",
-        ositosEncontrados
+        String(ositosEncontrados)
     );
 
     localStorage.setItem(
         "ositosDesbloqueados",
-        JSON.stringify(ositosDesbloqueados)
+        JSON.stringify(
+            ositosDesbloqueados
+        )
     );
 
 }
 
-function mostrarOsito(){
 
-    if(ositosEncontrados>=8) return;
+/* =========================
+   PRIMER OSITO
+========================= */
 
-    if(document.querySelector(".osito-hallazgo")) return;
+function encontrarPrimerOsito(){
 
-    const numero=
-        ositosEncontrados+1;
+    if(
+        ositosDesbloqueados.includes(1)
+    ){
 
-    const osito=document.createElement("div");
+        return;
 
-    osito.className="osito-hallazgo";
+    }
 
-    osito.textContent="🐻";
+    document.getElementById(
+        "primerOsito"
+    ).style.display="none";
 
-    osito.style.left=
-        (Math.random()*80+5)+"%";
-
-    osito.style.top=
-        (Math.random()*70+15)+"%";
-
-    osito.title="¿Qué será esto?";
-
-    osito.onclick=()=>{
-
-        osito.remove();
-
-        abrirPreguntaOsito(numero);
-
-    };
-
-    document.body.appendChild(osito);
-
-    setTimeout(()=>{
-
-        if(osito.parentElement){
-            osito.remove();
-        }
-
-    },12000);
+    abrirPreguntaOsito(1);
 
 }
+
+
+/* =========================
+   PREGUNTAS DE OSITOS
+========================= */
 
 const preguntasOsitos=[
 
     {
-        pregunta:"¿Cuál es nuestro elixir oficial de la vida?",
+        pregunta:
+            "¿Cuál es nuestro elixir oficial de la vida?",
+
         opciones:[
             "Kosako de uva",
             "Café",
@@ -2616,7 +3230,9 @@ const preguntasOsitos=[
     },
 
     {
-        pregunta:"¿Cómo nos llamamos entre nosotros?",
+        pregunta:
+            "¿Cómo nos llamamos entre nosotros?",
+
         opciones:[
             "Ositos",
             "Gatos",
@@ -2626,7 +3242,9 @@ const preguntasOsitos=[
     },
 
     {
-        pregunta:"¿Cuántos años llevamos construyendo esta historia?",
+        pregunta:
+            "¿Cuántos años llevamos construyendo esta historia?",
+
         opciones:[
             "8 años",
             "2 años",
@@ -2636,7 +3254,9 @@ const preguntasOsitos=[
     },
 
     {
-        pregunta:"¿Qué representa este rincón?",
+        pregunta:
+            "¿Qué representa este rincón?",
+
         opciones:[
             "Nuestra historia",
             "Una tarea",
@@ -2646,7 +3266,9 @@ const preguntasOsitos=[
     },
 
     {
-        pregunta:"¿Qué debería hacer un osito cuando el otro está triste?",
+        pregunta:
+            "¿Qué debería hacer un osito cuando el otro está triste?",
+
         opciones:[
             "Acompañarlo",
             "Ignorarlo",
@@ -2656,7 +3278,9 @@ const preguntasOsitos=[
     },
 
     {
-        pregunta:"¿Qué nunca debería faltar aquí?",
+        pregunta:
+            "¿Qué nunca debería faltar aquí?",
+
         opciones:[
             "Tonterías",
             "Estrés",
@@ -2666,16 +3290,35 @@ const preguntasOsitos=[
     },
 
     {
-        pregunta:"¿Qué hacemos con los recuerdos?",
+        pregunta:
+            "¿Qué hacemos con los recuerdos?",
+
         opciones:[
             "Los guardamos",
             "Los borramos",
             "Los vendemos",
             "Los olvidamos"
         ]
+    },
+
+    {
+        pregunta:
+            "¿Qué desbloquean los 8 ositos?",
+
+        opciones:[
+            "La parte más profunda",
+            "Una tienda",
+            "Un examen",
+            "Nada"
+        ]
     }
 
 ];
+
+
+/* =========================
+   ABRIR PREGUNTA
+========================= */
 
 function abrirPreguntaOsito(numero){
 
@@ -2684,104 +3327,566 @@ function abrirPreguntaOsito(numero){
 
     if(!pregunta) return;
 
-    document.getElementById("preguntaOsito").style.display="flex";
+    const modal=
+        document.getElementById(
+            "preguntaOsito"
+        );
 
-    document.getElementById("textoPreguntaOsito").textContent=
+    modal.style.display="flex";
+
+    document.getElementById(
+        "textoPreguntaOsito"
+    ).textContent=
         pregunta.pregunta;
 
     const opciones=
-        document.getElementById("opcionesOsito");
+        document.getElementById(
+            "opcionesOsito"
+        );
 
     opciones.innerHTML="";
 
-    document.getElementById("resultadoOsito").innerHTML="";
+    document.getElementById(
+        "resultadoOsito"
+    ).innerHTML="";
 
-    pregunta.opciones.forEach((respuesta,i)=>{
+    pregunta.opciones.forEach(
+        (respuesta,i)=>{
 
-        const boton=document.createElement("button");
+            const boton=
+                document.createElement(
+                    "button"
+                );
 
-        boton.className="opcion";
+            boton.className="opcion";
 
-        boton.textContent=
-            `${String.fromCharCode(65+i)}) ${respuesta}`;
+            boton.textContent=
+                `${String.fromCharCode(65+i)}) ${respuesta}`;
 
-        boton.onclick=()=>{
+            boton.onclick=()=>{
 
-            /*
-                DE MOMENTO A SIEMPRE ES CORRECTA
-            */
+                if(i===0){
 
-            if(i===0){
+                    if(
+                        !ositosDesbloqueados
+                            .includes(numero)
+                    ){
 
-                ositosEncontrados++;
+                        ositosDesbloqueados
+                            .push(numero);
 
-                ositosDesbloqueados.push(numero);
+                        ositosEncontrados=
+                            ositosDesbloqueados
+                                .length;
 
-                guardarOsitos();
+                        guardarOsitos();
 
-                actualizarContador();
+                    }
 
-                document.getElementById("resultadoOsito").innerHTML=
-                    `<h3>🐻✨ ¡Encontraste el osito ${numero}!</h3>`;
+                    actualizarContador();
 
-                setTimeout(()=>{
+                    document.getElementById(
+                        "resultadoOsito"
+                    ).innerHTML=`
 
-                    document.getElementById("preguntaOsito").style.display="none";
+                        <h3>
+                            🐻✨ ¡Encontraste el osito ${numero}!
+                        </h3>
 
-                },1200);
+                        <br>
 
-            }else{
+                        <p>
+                            Ahora tienes
+                            <strong>
+                                ${ositosEncontrados} / 8
+                            </strong>
+                            ositos.
+                        </p>
 
-                document.getElementById("resultadoOsito").innerHTML=
-                    `<p>❌ Esa no era... inténtalo otra vez 🐻</p>`;
+                        <br>
 
-            }
+                        ${
+                            ositosEncontrados>=8
+                            ?
+                            `<p>
+                                🔓 La parte más profunda
+                                acaba de desbloquearse.
+                            </p>`
+                            :
+                            `<p>
+                                Cuando encuentres los 8
+                                podrás acceder a la parte
+                                más profunda...
+                            </p>`
+                        }
 
-        };
+                    `;
 
-        opciones.appendChild(boton);
+                    setTimeout(()=>{
 
-    });
+                        modal.style.display="none";
+
+                        if(ositosEncontrados>=8){
+
+                            mostrarFinalDesbloqueado();
+
+                        }
+
+                    },1800);
+
+                }else{
+
+                    document.getElementById(
+                        "resultadoOsito"
+                    ).innerHTML=
+                        `<p>
+                            ❌ Esa no era...
+                            inténtalo otra vez 🐻
+                        </p>`;
+
+                }
+
+            };
+
+            opciones.appendChild(boton);
+
+        }
+    );
+
+}
+
+
+/* =========================
+   FINAL
+========================= */
+
+function actualizarFinal(){
+
+    const final=
+        document.getElementById(
+            "finalBloqueado"
+        );
+
+    if(!final) return;
+
+    if(ositosEncontrados>=8){
+
+        mostrarFinalDesbloqueado();
+
+    }
+
+}
+
+function mostrarFinalDesbloqueado(){
+
+    const final=
+        document.getElementById(
+            "finalBloqueado"
+        );
+
+    if(!final) return;
+
+    final.classList.add(
+        "final-desbloqueado"
+    );
+
+    final.innerHTML=`
+
+        <div class="candado">
+            🔓
+        </div>
+
+        <h3>
+            Encontraste los 8 ositos.
+        </h3>
+
+        <br>
+
+        <p>
+            Llegaste a la parte más profunda
+            del rincón.
+        </p>
+
+        <br>
+
+        <p>
+            Pero todavía falta descubrir
+            qué hay detrás de esta puerta...
+        </p>
+
+        <br>
+
+        <strong>
+            🐻✨ Bienvenida al último secreto.
+        </strong>
+
+    `;
 
 }
 
 
 /* =====================================================
-   PROGRAMACION DE OSITOS
+   MISIONES
 ===================================================== */
 
-/*
-   El primer osito puede aparecer después de unos segundos.
+const misionesDisponibles=[
 
-   Los siguientes aparecen con bastante separación.
-   No se genera uno cada vez que se cambia de pestaña.
-*/
+    {
+        titulo:"Prepara algo que nunca hayas cocinado",
+        descripcion:
+            "Busca una receta sencilla y atrévete a prepararla. No importa si queda perfecta.",
+        categoria:"🍳 Cocina",
+        dificultad:"⭐ Normal",
+        recompensa:
+            "🎟️ Cupón para escoger qué vamos a comer juntos."
+    },
 
-let intervaloOsito;
+    {
+        titulo:"Encuentra un video que te haga reír",
+        descripcion:
+            "Tienes 10 minutos para encontrar el video más absurdo que puedas.",
+        categoria:"😂 Risa",
+        dificultad:"⭐ Fácil",
+        recompensa:
+            "🎟️ Cupón para mandarme el video sin contexto."
+    },
 
-function iniciarSistemaOsitos(){
+    {
+        titulo:"Aprende una habilidad completamente inútil",
+        descripcion:
+            "Aprende algo que probablemente jamás necesitarás. Girar un lápiz, un truco, una figura... lo que sea.",
+        categoria:"🎨 Habilidad",
+        dificultad:"⭐⭐ Normal",
+        recompensa:
+            "🎟️ Cupón para presumir tu nueva habilidad."
+    },
 
-    if(ositosEncontrados>=8) return;
+    {
+        titulo:"Aprende algo de tu carrera",
+        descripcion:
+            "Busca un concepto interesante de tu carrera y aprende algo que no supieras.",
+        categoria:"📚 Carrera",
+        dificultad:"⭐⭐ Normal",
+        recompensa:
+            "🎟️ Cupón para una sesión oficial de 'explícamelo porque no entendí'."
+    },
 
-    setTimeout(()=>{
+    {
+        titulo:"Haz algo que normalmente no harías",
+        descripcion:
+            "Puede ser pequeño. La única regla es que normalmente no lo harías.",
+        categoria:"🌱 Experiencia",
+        dificultad:"⭐⭐⭐ Difícil",
+        recompensa:
+            "🎟️ Cupón sorpresa de los ositos."
+    },
 
-        mostrarOsito();
+    {
+        titulo:"Escucha una canción completamente nueva",
+        descripcion:
+            "Busca una canción que jamás hayas escuchado y dale una oportunidad completa.",
+        categoria:"🎵 Música",
+        dificultad:"⭐ Fácil",
+        recompensa:
+            "🎟️ Cupón para agregar una canción al rincón."
+    },
 
-    },8000);
+    {
+        titulo:"Tómate una foto haciendo algo normal",
+        descripcion:
+            "No tiene que ser una foto bonita. Solo captura un momento cualquiera del día.",
+        categoria:"📸 Recuerdo",
+        dificultad:"⭐ Fácil",
+        recompensa:
+            "🎟️ Cupón para guardar esa foto en el universo de los ositos."
+    },
 
-    intervaloOsito=setInterval(()=>{
+    {
+        titulo:"Haz una misión absurda",
+        descripcion:
+            "Inventa una pequeña regla absurda para tu día y síguela durante una hora.",
+        categoria:"🐻 Tontería",
+        dificultad:"⭐⭐ Normal",
+        recompensa:
+            "🎟️ Cupón para una tontería elegida por el otro osito."
+    },
 
-        if(ositosEncontrados<8){
+    {
+        titulo:"Haz 10 minutos de algo que te guste",
+        descripcion:
+            "Sin productividad. Sin obligación. Solo diez minutos haciendo algo que realmente disfrutes.",
+        categoria:"💜 Para ti",
+        dificultad:"⭐ Fácil",
+        recompensa:
+            "🎟️ Cupón oficial de no hacer nada sin culpa."
+    },
 
-            mostrarOsito();
+    {
+        titulo:"Busca una receta que quieras probar",
+        descripcion:
+            "No necesitas cocinarla hoy. Solo encuentra algo que realmente te dé ganas de probar.",
+        categoria:"🍰 Cocina",
+        dificultad:"⭐ Fácil",
+        recompensa:
+            "🎟️ Cupón para escoger la próxima comida."
+    },
 
-        }else{
+    {
+        titulo:"Mándale algo al otro osito",
+        descripcion:
+            "Puede ser una foto, un meme, una canción o simplemente un mensaje diciendo 'osito'.",
+        categoria:"🐻 Ositos",
+        dificultad:"⭐ Fácil",
+        recompensa:
+            "🎟️ Cupón por recordar al otro osito."
+    }
 
-            clearInterval(intervaloOsito);
+];
 
-        }
+let misionActual=null;
 
-    },60*60*24*7);
+
+/* =========================
+   NUEVA MISION
+========================= */
+
+function nuevaMision(){
+
+    const indice=
+        Math.floor(
+            Math.random()*
+            misionesDisponibles.length
+        );
+
+    misionActual={
+        ...misionesDisponibles[indice],
+        fecha:new Date().toLocaleDateString()
+    };
+
+    document.getElementById(
+        "misionTitulo"
+    ).textContent=
+        misionActual.titulo;
+
+    document.getElementById(
+        "misionDescripcion"
+    ).textContent=
+        misionActual.descripcion;
+
+    document.getElementById(
+        "misionCategoria"
+    ).textContent=
+        misionActual.categoria;
+
+    document.getElementById(
+        "misionDificultad"
+    ).textContent=
+        misionActual.dificultad;
+
+    document.getElementById(
+        "misionResultado"
+    ).innerHTML="";
+
+    document.getElementById(
+        "misionVideo"
+    ).innerHTML="";
+
+}
+
+
+/* =========================
+   MARCAR MISION
+========================= */
+
+function marcarMision(resultado){
+
+    if(!misionActual){
+
+        alert(
+            "Primero tienes que sacar una misión 🎲🐻"
+        );
+
+        return;
+
+    }
+
+    const historial=
+        obtenerHistorialMisiones();
+
+    const registro={
+        titulo:misionActual.titulo,
+        categoria:misionActual.categoria,
+        estado:resultado,
+        fecha:new Date().toLocaleDateString(),
+        recompensa:
+            resultado==="completada"
+            ? misionActual.recompensa
+            : "Sin recompensa esta vez."
+    };
+
+    historial.unshift(registro);
+
+    localStorage.setItem(
+        "historialMisiones",
+        JSON.stringify(historial)
+    );
+
+    const caja=
+        document.getElementById(
+            "misionResultado"
+        );
+
+    if(resultado==="completada"){
+
+        document.getElementById(
+            "misionActual"
+        ).classList.add(
+            "mision-completada"
+        );
+
+        caja.innerHTML=`
+            <div class="cupon-recompensa">
+
+                <h3>
+                    🎉 ¡Misión completada!
+                </h3>
+
+                <br>
+
+                <p>
+                    Te ganaste:
+                </p>
+
+                <br>
+
+                <strong>
+                    ${misionActual.recompensa}
+                </strong>
+
+            </div>
+        `;
+
+    }else{
+
+        document.getElementById(
+            "misionActual"
+        ).classList.add(
+            "mision-fallada"
+        );
+
+        caja.innerHTML=`
+            <div class="cupon-recompensa">
+
+                <h3>
+                    ❌ Misión fallada
+                </h3>
+
+                <br>
+
+                <p>
+                    No pasa nada.
+                    Los ositos pueden intentarlo otra vez.
+                </p>
+
+            </div>
+        `;
+
+    }
+
+    actualizarHistorialMisiones();
+
+}
+
+
+/* =========================
+   HISTORIAL
+========================= */
+
+function obtenerHistorialMisiones(){
+
+    try{
+
+        const historial=
+            JSON.parse(
+                localStorage.getItem(
+                    "historialMisiones"
+                ) || "[]"
+            );
+
+        return Array.isArray(historial)
+            ? historial
+            : [];
+
+    }catch(error){
+
+        return [];
+
+    }
+
+}
+
+function actualizarHistorialMisiones(){
+
+    const historial=
+        obtenerHistorialMisiones();
+
+    const contenedor=
+        document.getElementById(
+            "historialMisiones"
+        );
+
+    if(!historial.length){
+
+        contenedor.innerHTML=
+            "Todavía no hay misiones completadas.";
+
+        return;
+
+    }
+
+    contenedor.innerHTML=
+        historial
+            .slice(0,10)
+            .map(mision=>`
+
+                <div
+                    style="
+                        padding:15px;
+                        margin-bottom:10px;
+                        border-radius:14px;
+                        background:rgba(255,255,255,.05);
+                    "
+                >
+
+                    ${
+                        mision.estado==="completada"
+                        ? "✅"
+                        : "❌"
+                    }
+
+                    <strong>
+                        ${mision.titulo}
+                    </strong>
+
+                    <br>
+
+                    <small>
+                        ${mision.fecha}
+                    </small>
+
+                    ${
+                        mision.estado==="completada"
+                        ?
+                        `<br><br>
+                         🎟️ ${mision.recompensa}`
+                        :
+                        ""
+                    }
+
+                </div>
+
+            `)
+            .join("");
 
 }
 
@@ -2794,18 +3899,19 @@ let intervaloFotos;
 
 function iniciarFotosFlotantes(){
 
-    intervaloFotos=setInterval(()=>{
+    intervaloFotos=
+        setInterval(()=>{
 
-        if(
-            document.visibilityState==="visible" &&
-            window.scrollY>500
-        ){
+            if(
+                document.visibilityState==="visible" &&
+                window.scrollY>500
+            ){
 
-            crearFotoFlotante();
+                crearFotoFlotante();
 
-        }
+            }
 
-    },12000);
+        },12000);
 
 }
 
@@ -2814,11 +3920,14 @@ function iniciarFotosFlotantes(){
    AUDIO
 ===================================================== */
 
-audio.addEventListener("ended",()=>{
+audio.addEventListener(
+    "ended",
+    ()=>{
 
-    cancionSiguiente();
+        cancionSiguiente();
 
-});
+    }
+);
 
 
 /* =====================================================
@@ -2833,25 +3942,33 @@ cargarRecuerdo("salidas");
 
 actualizarContador();
 
-iniciarSistemaOsitos();
+actualizarHistorialMisiones();
 
 iniciarFotosFlotantes();
 
 
 /* =====================================================
-   EVITAR FOTO FLOTANTE CUANDO SE SALE DE LA PAGINA
+   VISIBILIDAD
 ===================================================== */
 
-document.addEventListener("visibilitychange",()=>{
+document.addEventListener(
+    "visibilitychange",
+    ()=>{
 
-    if(document.visibilityState==="hidden"){
+        if(
+            document.visibilityState==="hidden"
+        ){
 
-        document.querySelectorAll(".foto-flotante")
-            .forEach(f=>f.remove());
+            document
+                .querySelectorAll(
+                    ".foto-flotante"
+                )
+                .forEach(f=>f.remove());
+
+        }
 
     }
-
-});
+);
 
 </script>
 
