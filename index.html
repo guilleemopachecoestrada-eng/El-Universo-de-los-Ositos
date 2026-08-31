@@ -1783,6 +1783,446 @@ footer .corazon{
 
 }
 
+
+/* =====================================================
+   LOGROS
+===================================================== */
+
+.logros-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(200px,1fr)
+        );
+
+    gap:15px;
+
+    margin-top:30px;
+
+}
+
+.logro-card{
+
+    padding:20px 15px;
+
+    border-radius:18px;
+
+    background:
+        rgba(255,255,255,.05);
+
+    border:
+        1px solid rgba(255,255,255,.08);
+
+    opacity:.4;
+
+    transition:.3s;
+
+}
+
+.logro-card.desbloqueado{
+
+    opacity:1;
+
+    border-color:
+        rgba(190,140,220,.4);
+
+    background:
+        rgba(123,63,145,.15);
+
+}
+
+.logro-icono{
+
+    font-size:2.2rem;
+
+    margin-bottom:8px;
+
+}
+
+
+/* =====================================================
+   LIBRO DE VISITAS
+===================================================== */
+
+.libro-form{
+
+    margin-top:25px;
+
+    text-align:left;
+
+}
+
+.libro-form input,
+.libro-form textarea{
+
+    width:100%;
+
+    padding:12px;
+
+    border-radius:14px;
+
+    border:
+        1px solid rgba(255,255,255,.15);
+
+    background:
+        rgba(255,255,255,.06);
+
+    color:#fff;
+
+    font-family:inherit;
+
+    margin-bottom:12px;
+
+    resize:vertical;
+
+}
+
+.libro-mensajes{
+
+    margin-top:25px;
+
+    text-align:left;
+
+    display:grid;
+
+    gap:12px;
+
+}
+
+.libro-mensaje-item{
+
+    padding:16px;
+
+    border-radius:14px;
+
+    background:
+        rgba(255,255,255,.045);
+
+    border:
+        1px solid rgba(255,255,255,.07);
+
+}
+
+
+/* =====================================================
+   SUPERVIVENCIA
+===================================================== */
+
+.estado-osito-grid{
+
+    margin-top:25px;
+
+    text-align:left;
+
+    display:grid;
+
+    gap:14px;
+
+}
+
+.estado-barra-label{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-bottom:4px;
+
+    font-size:.9rem;
+
+}
+
+.estado-barra-fondo{
+
+    width:100%;
+
+    height:12px;
+
+    border-radius:10px;
+
+    background:
+        rgba(255,255,255,.08);
+
+    overflow:hidden;
+
+}
+
+.estado-barra-relleno{
+
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #7b3f91,
+            #344f9b
+        );
+
+    transition:width .4s ease;
+
+}
+
+.checklist-supervivencia{
+
+    margin-top:25px;
+
+    text-align:left;
+
+    display:grid;
+
+    gap:10px;
+
+}
+
+.checklist-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:12px 15px;
+
+    border-radius:14px;
+
+    background:
+        rgba(255,255,255,.045);
+
+    border:
+        1px solid rgba(255,255,255,.07);
+
+    cursor:pointer;
+
+}
+
+.checklist-item.marcado{
+
+    background:
+        rgba(100,200,140,.15);
+
+    border-color:
+        rgba(100,200,140,.35);
+
+}
+
+.checklist-item input{
+
+    width:18px;
+
+    height:18px;
+
+}
+
+.expediente-supervivencia{
+
+    margin-top:25px;
+
+    padding:20px;
+
+    border-radius:18px;
+
+    background:
+        rgba(0,0,0,.18);
+
+    text-align:left;
+
+}
+
+.recordatorio-osito{
+
+    position:fixed;
+
+    bottom:90px;
+
+    right:16px;
+
+    max-width:280px;
+
+    z-index:180;
+
+    padding:18px;
+
+    border-radius:18px;
+
+    background:#1b1427;
+
+    border:
+        1px solid rgba(255,255,255,.15);
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.4);
+
+    animation:
+        aparecer .5s ease;
+
+}
+
+.recordatorio-osito button{
+
+    margin-top:10px;
+
+    background:none;
+
+    border:none;
+
+    color:#d8b9e8;
+
+    cursor:pointer;
+
+    font-size:.85rem;
+
+}
+
+.pregunta-supervivencia{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:200;
+
+    background:
+        rgba(0,0,0,.72);
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+}
+
+.pregunta-supervivencia-box{
+
+    max-width:500px;
+
+    width:100%;
+
+    background:#1b1427;
+
+    border:
+        1px solid rgba(255,255,255,.15);
+
+    border-radius:25px;
+
+    padding:30px;
+
+    text-align:center;
+
+}
+
+
+/* =====================================================
+   CAPSULA DEL TIEMPO
+===================================================== */
+
+.capsula-box{
+
+    margin-top:30px;
+
+    padding:30px;
+
+    border-radius:22px;
+
+    background:
+        rgba(0,0,0,.18);
+
+    border:
+        1px dashed rgba(255,255,255,.15);
+
+    text-align:center;
+
+}
+
+.capsula-box.lista{
+
+    display:none;
+
+    border-style:solid;
+
+    background:
+        rgba(123,63,145,.16);
+
+    border-color:
+        rgba(190,140,220,.25);
+
+    animation:
+        aparecer .8s ease;
+
+}
+
+.capsula-requisitos{
+
+    margin-top:15px;
+
+    text-align:left;
+
+    display:inline-block;
+
+}
+
+.mensaje-futuro-box{
+
+    display:none;
+
+    margin-top:20px;
+
+    padding:20px;
+
+    border-radius:16px;
+
+    background:
+        rgba(255,255,255,.05);
+
+    text-align:left;
+
+}
+
+
+/* =====================================================
+   GUIA DE DESCUBRIMIENTO
+===================================================== */
+
+.guia-grid{
+
+    margin-top:25px;
+
+    text-align:left;
+
+    display:grid;
+
+    gap:14px;
+
+}
+
+.guia-item{
+
+    padding:16px;
+
+    border-radius:14px;
+
+    background:
+        rgba(255,255,255,.04);
+
+    border-left:
+        3px solid #7b3f91;
+
+}
+
+.guia-item h3{
+
+    margin-bottom:6px;
+
+    font-size:1.1rem;
+
+}
+
 </style>
 
 </head>
@@ -1967,6 +2407,58 @@ footer .corazon{
 
         <span class="indice-texto">
             Necesitas
+        </span>
+
+    </button>
+
+
+    <button onclick="irA('supervivencia')">
+
+        <span class="indice-icono">
+            🐻
+        </span>
+
+        <span class="indice-texto">
+            Supervivencia
+        </span>
+
+    </button>
+
+
+    <button onclick="irA('logros')">
+
+        <span class="indice-icono">
+            🏆
+        </span>
+
+        <span class="indice-texto">
+            Logros
+        </span>
+
+    </button>
+
+
+    <button onclick="irA('libro')">
+
+        <span class="indice-icono">
+            📖
+        </span>
+
+        <span class="indice-texto">
+            Libro
+        </span>
+
+    </button>
+
+
+    <button onclick="irA('guia')">
+
+        <span class="indice-icono">
+            🌌
+        </span>
+
+        <span class="indice-texto">
+            Guía
         </span>
 
     </button>
@@ -3117,6 +3609,235 @@ footer .corazon{
         class="necesitas-mensaje"
         id="necesitasMensaje">
     </div>
+
+</section>
+
+
+<!-- =====================================================
+     SUPERVIVENCIA DEL OSITO
+===================================================== -->
+
+<section
+    class="seccion"
+    id="supervivencia">
+
+    <div class="osito-pequeno">
+        🐻
+    </div>
+
+    <h2>
+        Supervivencia del Osito
+    </h2>
+
+    <p>
+
+        Un pequeño sistema que está pendiente
+        de que sobrevivas otro día de maestría.
+
+        Esto no mide nada real, es solo para jugar
+        y para recordarte que también importas.
+
+    </p>
+
+    <div
+        class="estado-osito-grid"
+        id="estadoOsitoGrid">
+    </div>
+
+    <h3 style="margin-top:30px;">
+        ✅ Checklist de hoy
+    </h3>
+
+    <div
+        class="checklist-supervivencia"
+        id="checklistSupervivenciaGrid">
+    </div>
+
+    <div style="margin-top:25px;">
+
+        <button
+            class="boton"
+            onclick="lanzarPreguntaSupervivencia()">
+
+            ❓ Pregunta sorpresa
+
+        </button>
+
+    </div>
+
+    <div
+        class="expediente-supervivencia"
+        id="expedienteSupervivencia">
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     LOGROS DE OSITO
+===================================================== -->
+
+<section
+    class="seccion"
+    id="logros">
+
+    <div class="osito-pequeno">
+        🏆
+    </div>
+
+    <h2>
+        Logros de Osito
+    </h2>
+
+    <p>
+
+        Cosas que se van desbloqueando
+        conforme exploras el Universo de los Ositos.
+
+    </p>
+
+    <div
+        class="logros-grid"
+        id="logrosGrid">
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     LIBRO DE VISITAS
+===================================================== -->
+
+<section
+    class="seccion"
+    id="libro">
+
+    <div class="osito-pequeno">
+        📖
+    </div>
+
+    <h2>
+        Libro de Visitas
+    </h2>
+
+    <p>
+
+        Un espacio para dejar tu huella
+        dentro de este universo.
+
+    </p>
+
+    <div class="libro-form">
+
+        <input
+            type="text"
+            id="libroNombre"
+            placeholder="Tu nombre (opcional)"
+        >
+
+        <textarea
+            id="libroTexto"
+            rows="4"
+            placeholder="Escribe algo para dejar aquí..."
+            onfocus="escribiendoLibro=true"
+            onblur="escribiendoLibro=false"
+        ></textarea>
+
+        <button
+            class="boton"
+            onclick="guardarMensajeLibro()">
+
+            Dejar mi huella 🐻
+
+        </button>
+
+    </div>
+
+    <div
+        class="libro-mensajes"
+        id="libroMensajes">
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     GUIA DE DESCUBRIMIENTO
+===================================================== -->
+
+<section
+    class="seccion"
+    id="guia">
+
+    <div class="osito-pequeno">
+        🌌
+    </div>
+
+    <h2>
+        Guía del Universo de los Ositos
+    </h2>
+
+    <p>
+
+        Este universo tiene más de lo que se ve
+        a primera vista. Aquí una pequeña pista
+        de qué tipo de cosas puedes encontrar.
+
+    </p>
+
+    <div class="guia-grid">
+
+        <div class="guia-item">
+            <h3>⭐ Estrellas y constelaciones</h3>
+            <p>Algunas estrellas esconden pequeños mensajes.</p>
+        </div>
+
+        <div class="guia-item">
+            <h3>🐻 Ositos</h3>
+            <p>Hay ositos escondidos mientras navegas.</p>
+        </div>
+
+        <div class="guia-item">
+            <h3>❓ Preguntas sorpresa</h3>
+            <p>Algunas preguntas aparecen sin avisar.</p>
+        </div>
+
+        <div class="guia-item">
+            <h3>🏆 Logros</h3>
+            <p>Explorar e interactuar puede desbloquear logros.</p>
+        </div>
+
+        <div class="guia-item">
+            <h3>📖 Libro de Visitas</h3>
+            <p>Puedes dejar tu propia huella en el universo.</p>
+        </div>
+
+        <div class="guia-item">
+            <h3>🐻 Supervivencia del Osito</h3>
+            <p>Un sistema que está pendiente de tu descanso y cuidado.</p>
+        </div>
+
+        <div class="guia-item">
+            <h3>📦 Cápsula del Tiempo</h3>
+            <p>Algo que no podrá abrirse de inmediato.</p>
+        </div>
+
+        <div class="guia-item">
+            <h3>⏳ Mensaje del Futuro</h3>
+            <p>Hay un mensaje que requiere esperar.</p>
+        </div>
+
+    </div>
+
+    <p style="margin-top:25px;">
+
+        Pero no voy a decirte dónde está todo.
+
+        <br>
+
+        Tendrás que explorar, osito. 💜
+
+    </p>
 
 </section>
 
