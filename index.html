@@ -13,137 +13,137 @@
 
 /* =====================================================
    BASE
-====================================================== */
+===================================================== */
 
 *{
     box-sizing:border-box;
-    margen:0;
-    relleno:0;
+    margin:0;
+    padding:0;
 }
 
 html{
-    comportamiento de desplazamiento: suave;
+    scroll-behavior:smooth;
 }
 
-cuerpo{
+body{
     font-family:Georgia,'Times New Roman',serif;
-    fondo:#120d1f;
+    background:#120d1f;
     color:#f8f1e7;
-    desbordamiento-x:oculto;
+    overflow-x:hidden;
 }
 
-cuerpo::antes{
-    contenido:"";
-    posición:fija;
-    recuadro:0;
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
 
-    fondo:
-        gradiente radial(
-            círculo al 20% 20%,
+    background:
+        radial-gradient(
+            circle at 20% 20%,
             rgba(111,61,132,.35),
-            transparente 30%
+            transparent 30%
         ),
 
-        gradiente radial(
-            círculo al 80% 70%,
+        radial-gradient(
+            circle at 80% 70%,
             rgba(45,65,130,.35),
-            transparente 30%
+            transparent 30%
         ),
 
-        gradiente radial(
-            círculo al 50% 100%,
+        radial-gradient(
+            circle at 50% 100%,
             rgba(92,45,30,.25),
-            transparente 35%
+            transparent 35%
         );
 
-    eventos de puntero: ninguno;
-    índice z:-2;
+    pointer-events:none;
+    z-index:-2;
 }
 
 
 /* =====================================================
    ESTRELLAS
-====================================================== */
+===================================================== */
 
-.estrellas{
-    posición:fija;
-    recuadro:0;
-    eventos de puntero: ninguno;
-    índice z:-1;
+.stars{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-1;
 }
 
-.estrella{
-    posición:absoluta;
+.star{
+    position:absolute;
 
-    ancho: 3px;
-    altura: 3px;
+    width:3px;
+    height:3px;
 
-    fondo:#fff;
+    background:#fff;
 
-    radio de borde: 50%;
+    border-radius:50%;
 
-    opacidad: 0,6;
+    opacity:.6;
 
-    animación: centelleo 3s infinito alternativo;
+    animation:twinkle 3s infinite alternate;
 }
 
 .star:nth-child(1){
-    superior: 10%;
-    izquierda: 15%;
+    top:10%;
+    left:15%;
 }
 
 .star:nth-child(2){
-    superior: 25%;
-    izquierda: 80%;
-    retardo de animación: 1s;
+    top:25%;
+    left:80%;
+    animation-delay:1s;
 }
 
 .star:nth-child(3){
-    superior: 60%;
-    izquierda: 20%;
-    retardo de animación: 2 s;
+    top:60%;
+    left:20%;
+    animation-delay:2s;
 }
 
 .star:nth-child(4){
-    superior: 75%;
-    izquierda: 70%;
-    retardo de animación: 0,5 s;
+    top:75%;
+    left:70%;
+    animation-delay:.5s;
 }
 
 .star:nth-child(5){
-    superior: 40%;
-    izquierda: 50%;
-    retardo de animación: 1,5 s;
+    top:40%;
+    left:50%;
+    animation-delay:1.5s;
 }
 
 .star:nth-child(6){
-    superior: 85%;
-    izquierda: 40%;
-    retardo de animación: 2,5 s;
+    top:85%;
+    left:40%;
+    animation-delay:2.5s;
 }
 
 .star:nth-child(7){
-    superior: 18%;
-    izquierda: 55%;
-    retardo de animación: 0,8 s;
+    top:18%;
+    left:55%;
+    animation-delay:.8s;
 }
 
 .star:nth-child(8){
-    superior: 90%;
-    izquierda: 85%;
-    Retraso de animación: 1,8 s;
+    top:90%;
+    left:85%;
+    animation-delay:1.8s;
 }
 
 @keyframes twinkle{
 
-    desde{
-        opacidad: 0,2;
-        transformar: escala(.7);
+    from{
+        opacity:.2;
+        transform:scale(.7);
     }
 
-    a{
-        opacidad:1;
-        transformar: escala(1.4);
+    to{
+        opacity:1;
+        transform:scale(1.4);
     }
 
 }
@@ -151,61 +151,61 @@ cuerpo::antes{
 
 /* =====================================================
    PORTADA
-====================================================== */
+===================================================== */
 
 #inicio{
 
-    altura mínima: 100vh;
+    min-height:100vh;
 
-    pantalla:flex;
+    display:flex;
 
-    justificar-contenido:centro;
+    justify-content:center;
 
-    alinear-elementos:centro;
+    align-items:center;
 
-    alineación de texto:centro;
+    text-align:center;
 
-    relleno: 30px;
+    padding:30px;
 
 }
 
 .portada{
 
-    ancho máximo: 800px;
+    max-width:800px;
 
-    animación:aparecer 1.5s de facilidad;
+    animation:aparecer 1.5s ease;
 
 }
 
 .ositos{
 
-    tamaño de fuente: 5rem;
+    font-size:5rem;
 
-    margen inferior: 25px;
+    margin-bottom:25px;
 
-    animación:flotar 3s ease-in-out infinito;
+    animation:flotar 3s ease-in-out infinite;
 
 }
 
 .portada h1{
 
-    tamaño de fuente:clamp(3rem,10vw,6rem);
+    font-size:clamp(3rem,10vw,6rem);
 
-    espaciado entre letras: 5px;
+    letter-spacing:5px;
 
     color:#fff;
 
-    sombra de texto:
+    text-shadow:
         0 0 20px rgba(150,90,180,.6),
         0 0 40px rgba(80,100,180,.4);
 
 }
 
-.subtítulo{
+.subtitulo{
 
-    margen superior: 10px;
+    margin-top:10px;
 
-    tamaño de fuente: 1,5rem;
+    font-size:1.5rem;
 
     color:#d8b9e8;
 
@@ -213,55 +213,55 @@ cuerpo::antes{
 
 .frase{
 
-    margen:30px automático;
+    margin:30px auto;
 
-    ancho máximo: 600px;
+    max-width:600px;
 
-    tamaño de fuente: 1,2rem;
+    font-size:1.2rem;
 
-    interlineado: 1,8;
+    line-height:1.8;
 
     color:#e9dfd5;
 
 }
 
-.botón{
+.boton{
 
-    mostrar:bloque-en-línea;
+    display:inline-block;
 
-    borde:ninguno;
+    border:none;
 
-    relleno: 15px 35px;
+    padding:15px 35px;
 
-    radio de borde: 50px;
+    border-radius:50px;
 
-    fondo:
-        gradiente lineal(
-            135 grados,
+    background:
+        linear-gradient(
+            135deg,
             #7b3f91,
             #344f9b
         );
 
-    color:blanco;
+    color:white;
 
-    tamaño de fuente: 1,05rem;
+    font-size:1.05rem;
 
-    cursor:puntero;
+    cursor:pointer;
 
-    transición:.3s;
+    transition:.3s;
 
-    sombra de caja:
+    box-shadow:
         0 8px 30px rgba(0,0,0,.3);
 
 }
 
 .boton:hover{
 
-    transformar:
-        traducirY(-4px)
-        escala(1.04);
+    transform:
+        translateY(-4px)
+        scale(1.04);
 
-    sombra de caja:
+    box-shadow:
         0 12px 35px rgba(120,70,160,.5);
 
 }
@@ -269,25 +269,25 @@ cuerpo::antes{
 @keyframes flotar{
 
     0%,100%{
-        transformar:translateY(0);
+        transform:translateY(0);
     }
 
     50%{
-        transformar:translateY(-12px);
+        transform:translateY(-12px);
     }
 
 }
 
 @keyframes aparecer{
 
-    desde{
-        opacidad:0;
-        transformar:translateY(30px);
+    from{
+        opacity:0;
+        transform:translateY(30px);
     }
 
-    a{
-        opacidad:1;
-        transformar:translateY(0);
+    to{
+        opacity:1;
+        transform:translateY(0);
     }
 
 }
@@ -295,160 +295,160 @@ cuerpo::antes{
 
 /* =====================================================
    CONTENIDO
-====================================================== */
+===================================================== */
 
 #contenido{
 
-    mostrar:ninguno;
+    display:none;
 
-    altura mínima: 100vh;
+    min-height:100vh;
 
-    relleno inferior: 80px;
+    padding-bottom:80px;
 
 }
 
 
 /* =====================================================
-   ÍNDICE SUPERIOR
-====================================================== */
+   INDICE SUPERIOR
+===================================================== */
 
-.índice{
+.indice{
 
-    posición:pegajosa;
+    position:sticky;
 
-    arriba:0;
+    top:0;
 
-    índice z:100;
+    z-index:100;
 
-    pantalla:flex;
+    display:flex;
 
-    justificar-contenido:centro;
+    justify-content:center;
 
-    alinear-elementos:centro;
+    align-items:center;
 
-    espacio: 8px;
+    gap:8px;
 
-    relleno: 12px 10px;
+    padding:12px 10px;
 
-    fondo:
+    background:
         rgba(18,13,31,.88);
 
-    filtro de fondo: desenfoque (12px);
+    backdrop-filter:blur(12px);
 
-    borde inferior:
-        1px sólido rgba(255,255,255,.08);
+    border-bottom:
+        1px solid rgba(255,255,255,.08);
 
-    desbordamiento-x:automático;
+    overflow-x:auto;
 
 }
 
-.botón índice{
+.indice button{
 
-    ancho mínimo: 78px;
+    min-width:78px;
 
-    altura mínima: 48px;
+    min-height:48px;
 
-    radio de borde: 18px;
+    border-radius:18px;
 
-    borde:
-        1px sólido rgba(255,255,255,.13);
+    border:
+        1px solid rgba(255,255,255,.13);
 
-    fondo:
+    background:
         rgba(255,255,255,.06);
 
     color:#fff;
 
-    cursor:puntero;
+    cursor:pointer;
 
-    transición: 0,25 s;
+    transition:.25s;
 
-    relleno: 7px 10px;
+    padding:7px 10px;
 
-    pantalla:flex;
+    display:flex;
 
     flex-direction:column;
 
-    justificar-contenido:centro;
+    justify-content:center;
 
-    alinear-elementos:centro;
+    align-items:center;
 
-    espacio: 2px;
+    gap:2px;
 
 }
 
-.índice botón:hover{
+.indice button:hover{
 
-    transformar:translateY(-3px);
+    transform:translateY(-3px);
 
-    fondo:
+    background:
         rgba(123,63,145,.3);
 
 }
 
-.índice .icono-índice{
+.indice .indice-icono{
 
-    tamaño de fuente: 1,25rem;
+    font-size:1.25rem;
 
 }
 
-.índice .índice-texto{
+.indice .indice-texto{
 
-    tamaño de fuente: 0,68rem;
+    font-size:.68rem;
 
-    espacio en blanco:nowrap;
+    white-space:nowrap;
 
 }
 
 
 /* =====================================================
    BIENVENIDA
-====================================================== */
+===================================================== */
 
 .bienvenida{
 
-    altura mínima: 52vh;
+    min-height:52vh;
 
-    pantalla:flex;
+    display:flex;
 
-    alinear-elementos:centro;
+    align-items:center;
 
-    justificar-contenido:centro;
+    justify-content:center;
 
-    alineación de texto:centro;
+    text-align:center;
 
-    relleno: 70px 20px 45px;
+    padding:70px 20px 45px;
 
 }
 
 .bienvenida-contenido{
 
-    ancho máximo: 800px;
+    max-width:800px;
 
-    animación:aparecer 1s de facilidad;
+    animation:aparecer 1s ease;
 
 }
 
 .bienvenida-osito{
 
-    tamaño de fuente: 5rem;
+    font-size:5rem;
 
-    animación:
-        flotador 3s entrada-salida infinita;
+    animation:
+        flotar 3s ease-in-out infinite;
 
-    margen inferior: 20px;
+    margin-bottom:20px;
 
 }
 
 .bienvenida h2{
 
-    tamaño de fuente:
-        abrazadera(
+    font-size:
+        clamp(
             2.3rem,
             7vw,
             4rem
         );
 
-    margen inferior: 15px;
+    margin-bottom:15px;
 
 }
 
@@ -456,42 +456,42 @@ cuerpo::antes{
 
     color:#cbbfd1;
 
-    tamaño de fuente: 1,15rem;
+    font-size:1.15rem;
 
-    interlineado: 1,8;
+    line-height:1.8;
 
 }
 
-.bienvenida-línea{
+.bienvenida-linea{
 
-    ancho:120px;
+    width:120px;
 
-    altura: 2px;
+    height:2px;
 
-    margen:25px automático;
+    margin:25px auto;
 
-    fondo:
-        gradiente lineal(
-            90 grados,
-            transparente,
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
             #9d62b4,
-            transparente
+            transparent
         );
 
-    animación:pulsarLinea 2s infinito;
+    animation:pulsarLinea 2s infinite;
 
 }
 
 @keyframes pulsarLinea{
 
     0%,100%{
-        opacidad: 0,3;
-        transformar: escalaX(.7);
+        opacity:.3;
+        transform:scaleX(.7);
     }
 
     50%{
-        opacidad:1;
-        transformar: escalaX(1);
+        opacity:1;
+        transform:scaleX(1);
     }
 
 }
@@ -499,272 +499,272 @@ cuerpo::antes{
 
 /* =====================================================
    SECCIONES
-====================================================== */
+===================================================== */
 
-.sección{
+.seccion{
 
-    ancho máximo: 900px;
+    max-width:900px;
 
-    margen:40px automático;
+    margin:40px auto;
 
-    relleno: 40px 25px;
+    padding:40px 25px;
 
-    radio de borde: 25px;
+    border-radius:25px;
 
-    fondo:
+    background:
         rgba(255,255,255,.055);
 
-    borde:
-        1px sólido rgba(255,255,255,.1);
+    border:
+        1px solid rgba(255,255,255,.1);
 
-    filtro de fondo: desenfoque (10px);
+    backdrop-filter:blur(10px);
 
-    alineación de texto:centro;
-
-}
-
-.sección h2{
-
-    tamaño de fuente: 2,3rem;
-
-    margen inferior: 20px;
+    text-align:center;
 
 }
 
-.sección p{
+.seccion h2{
+
+    font-size:2.3rem;
+
+    margin-bottom:20px;
+
+}
+
+.seccion p{
 
     color:#ddd3df;
 
-    interlineado: 1,8;
+    line-height:1.8;
 
-    tamaño de fuente: 1,05rem;
+    font-size:1.05rem;
 
 }
 
 .osito-pequeno{
 
-    tamaño de fuente: 3rem;
+    font-size:3rem;
 
-    margen inferior: 15px;
+    margin-bottom:15px;
 
 }
 
 
 /* =====================================================
    COMO ESTAS
-====================================================== */
+===================================================== */
 
 .estados{
 
-    mostrar:cuadrícula;
+    display:grid;
 
-    columnas de plantilla de cuadrícula:
-        repetir(
-            ajuste automático,
+    grid-template-columns:
+        repeat(
+            auto-fit,
             minmax(140px,1fr)
         );
 
-    espacio: 15px;
+    gap:15px;
 
-    margen superior: 30px;
+    margin-top:30px;
 
 }
 
 .estado{
 
-    relleno: 20px 10px;
+    padding:20px 10px;
 
-    radio de borde: 18px;
+    border-radius:18px;
 
-    fondo:
+    background:
         rgba(255,255,255,.06);
 
-    cursor:puntero;
+    cursor:pointer;
 
-    transición:.3s;
+    transition:.3s;
 
 }
 
 .estado:hover{
 
-    transformar:escala(1.04);
+    transform:scale(1.04);
 
-    fondo:
+    background:
         rgba(123,63,145,.25);
 
 }
 
 .estado span{
 
-    mostrar:bloque;
+    display:block;
 
-    tamaño de fuente: 2,5rem;
+    font-size:2.5rem;
 
-    margen inferior: 8px;
+    margin-bottom:8px;
 
 }
 
 .mensaje-estado{
 
-    margen superior: 30px;
+    margin-top:30px;
 
-    relleno: 25px;
+    padding:25px;
 
-    radio de borde: 18px;
+    border-radius:18px;
 
-    fondo:
+    background:
         rgba(92,45,30,.25);
 
-    mostrar:ninguno;
+    display:none;
 
-    animación:
-        aparecer .5s facilidad;
+    animation:
+        aparecer .5s ease;
 
 }
 
 .estado-extra{
 
-    margen superior: 25px;
+    margin-top:25px;
 
-    mostrar:cuadrícula;
+    display:grid;
 
-    columnas de plantilla de cuadrícula:
-        repetir(
-            ajuste automático,
+    grid-template-columns:
+        repeat(
+            auto-fit,
             minmax(220px,1fr)
         );
 
-    espacio: 15px;
+    gap:15px;
 
 }
 
-.tarjeta-extra{
+.extra-card{
 
-    fondo:
+    background:
         rgba(255,255,255,.05);
 
-    borde:
-        1px sólido rgba(255,255,255,.08);
+    border:
+        1px solid rgba(255,255,255,.08);
 
-    radio de borde: 18px;
+    border-radius:18px;
 
-    relleno: 20px;
+    padding:20px;
 
 }
 
-.tarjeta-extra h3{
+.extra-card h3{
 
-    margen inferior: 10px;
+    margin-bottom:10px;
 
 }
 
 .recurso-estado{
 
-    altura mínima: 90px;
+    min-height:90px;
 
-    pantalla:flex;
+    display:flex;
 
-    alinear-elementos:centro;
+    align-items:center;
 
-    justificar-contenido:centro;
+    justify-content:center;
 
-    alineación de texto:centro;
+    text-align:center;
 
 }
 
 
 /* =====================================================
    HISTORIA
-====================================================== */
+===================================================== */
 
-.línea de tiempo{
+.timeline{
 
-    margen superior: 30px;
+    margin-top:30px;
 
-    alineación de texto:izquierda;
+    text-align:left;
 
 }
 
-.elemento-línea-de-tiempo{
+.timeline-item{
 
-    relleno: 22px;
+    padding:22px;
 
-    margen inferior: 15px;
+    margin-bottom:15px;
 
-    borde izquierdo:
-        3px sólido #7b3f91;
+    border-left:
+        3px solid #7b3f91;
 
-    fondo:
+    background:
         rgba(255,255,255,.035);
 
-    radio de borde:
+    border-radius:
         0 15px 15px 0;
 
 }
 
-.elemento-línea-de-tiempo h3{
+.timeline-item h3{
 
-    margen inferior: 8px;
+    margin-bottom:8px;
 
 }
 
 
 /* =====================================================
    REPRODUCTOR
-====================================================== */
+===================================================== */
 
 .reproductor{
 
-    margen superior: 30px;
+    margin-top:30px;
 
-    fondo:
+    background:
         rgba(0,0,0,.18);
 
-    borde:
-        1px sólido rgba(255,255,255,.1);
+    border:
+        1px solid rgba(255,255,255,.1);
 
-    radio de borde: 22px;
+    border-radius:22px;
 
-    relleno: 25px;
+    padding:25px;
 
 }
 
-.álbum-art{
+.album-art{
 
-    ancho:160px;
+    width:160px;
 
-    altura: 160px;
+    height:160px;
 
-    margen:
+    margin:
         0 auto 20px;
 
-    radio de borde: 18px;
+    border-radius:18px;
 
-    fondo:
-        gradiente lineal(
-            135 grados,
+    background:
+        linear-gradient(
+            135deg,
             #7b3f91,
             #344f9b
         );
 
-    pantalla:flex;
+    display:flex;
 
-    alinear-elementos:centro;
+    align-items:center;
 
-    justificar-contenido:centro;
+    justify-content:center;
 
-    tamaño de fuente: 4rem;
+    font-size:4rem;
 
-    sombra de caja:
+    box-shadow:
         0 12px 30px rgba(0,0,0,.25);
 
 }
 
 .cancion-titulo{
 
-    tamaño de fuente: 1,3rem;
+    font-size:1.3rem;
 
-    margen inferior: 5px;
+    margin-bottom:5px;
 
 }
 
@@ -772,78 +772,78 @@ cuerpo::antes{
 
     color:#aaa;
 
-    margen inferior: 20px;
+    margin-bottom:20px;
 
 }
 
 .controles{
 
-    pantalla:flex;
+    display:flex;
 
-    justificar-contenido:centro;
+    justify-content:center;
 
-    espacio: 15px;
+    gap:15px;
 
 }
 
 .control{
 
-    ancho: 50px;
+    width:50px;
 
-    altura: 50px;
+    height:50px;
 
-    radio de borde: 50%;
+    border-radius:50%;
 
-    borde:ninguno;
+    border:none;
 
-    fondo:
+    background:
         rgba(255,255,255,.1);
 
     color:#fff;
 
-    tamaño de fuente: 1,2rem;
+    font-size:1.2rem;
 
-    cursor:puntero;
+    cursor:pointer;
 
 }
 
 .control.play{
 
-    fondo:
-        gradiente lineal(
-            135 grados,
+    background:
+        linear-gradient(
+            135deg,
             #7b3f91,
             #344f9b
         );
 
 }
 
-.lista-música{
+.lista-musica{
 
-    margen superior: 25px;
+    margin-top:25px;
 
-    altura máxima: 180px;
+    max-height:180px;
 
-    desbordamiento-y:automático;
+    overflow-y:auto;
 
-    alineación de texto:izquierda;
+    text-align:left;
 
 }
 
 .cancion{
 
-    relleno: 12px;
+    padding:12px;
 
-    radio de borde: 10px;
+    border-radius:10px;
 
-    cursor:puntero;
+    cursor:pointer;
 
 }
 
 .cancion:hover,
 .cancion.activa{
 
-    fondo:
+    background:
         rgba(123,63,145,.22);
 
 }
@@ -851,165 +851,165 @@ cuerpo::antes{
 
 /* =====================================================
    RECUERDOS
-====================================================== */
+===================================================== */
 
 .recuerdo-selector{
 
-    pantalla:flex;
+    display:flex;
 
-    espacio: 10px;
+    gap:10px;
 
-    desbordamiento-x:automático;
+    overflow-x:auto;
 
-    relleno:
+    padding:
         10px 0 20px;
 
-    margen superior: 20px;
+    margin-top:20px;
 
 }
 
 .recuerdo-selector button{
 
-    doblar:
-        0 0 automático;
+    flex:
+        0 0 auto;
 
-    relleno:
+    padding:
         12px 18px;
 
-    radio de borde: 30px;
+    border-radius:30px;
 
-    borde:
-        1px sólido rgba(255,255,255,.12);
+    border:
+        1px solid rgba(255,255,255,.12);
 
-    fondo:
+    background:
         rgba(255,255,255,.06);
 
-    color:blanco;
+    color:white;
 
-    cursor:puntero;
+    cursor:pointer;
 
 }
 
 .galeria{
 
-    margen superior: 20px;
+    margin-top:20px;
 
-    posición:relativa;
+    position:relative;
 
 }
 
 .foto-principal{
 
-    altura mínima: 300px;
+    min-height:300px;
 
-    radio de borde: 22px;
+    border-radius:22px;
 
-    fondo:
+    background:
         rgba(255,255,255,.05);
 
-    pantalla:flex;
+    display:flex;
 
-    justificar-contenido:centro;
+    justify-content:center;
 
-    alinear-elementos:centro;
+    align-items:center;
 
-    tamaño de fuente: 5rem;
+    font-size:5rem;
 
-    desbordamiento:oculto;
+    overflow:hidden;
 
 }
 
 .foto-principal img{
 
-    ancho:100%;
+    width:100%;
 
-    altura máxima: 500px;
+    max-height:500px;
 
-    ajuste-objeto:cubrir;
+    object-fit:cover;
 
-    radio de borde: 22px;
+    border-radius:22px;
 
 }
 
 .galeria-controles{
 
-    pantalla:flex;
+    display:flex;
 
-    justificar-contenido:centro;
+    justify-content:center;
 
-    espacio: 15px;
+    gap:15px;
 
-    margen superior: 15px;
+    margin-top:15px;
 
 }
 
 .leyenda{
 
-    margen superior: 15px;
+    margin-top:15px;
 
     color:#d8cce0;
 
-    estilo de fuente: cursiva;
+    font-style:italic;
 
 }
 
 .foto-flotante{
 
-    posición:fija;
+    position:fixed;
 
-    ancho:110px;
+    width:110px;
 
-    altura: 130px;
+    height:130px;
 
-    ajuste-objeto:cubrir;
+    object-fit:cover;
 
-    radio de borde: 12px;
+    border-radius:12px;
 
-    relleno: 5px;
+    padding:5px;
 
-    fondo:#f8f1e7;
+    background:#f8f1e7;
 
-    sombra de caja:
+    box-shadow:
         0 10px 35px rgba(0,0,0,.4);
 
-    opacidad: 0,85;
+    opacity:.85;
 
-    índice z: 5;
+    z-index:5;
 
-    eventos de puntero: ninguno;
+    pointer-events:none;
 
-    animación:
-        flotarFoto 9s lineal hacia adelante;
+    animation:
+        flotarFoto 9s linear forwards;
 
 }
 
 @keyframes flotarFoto{
 
-    desde{
+    from{
 
-        transformar:
-            traducir(0,0)
-            rotar(-8 grados);
+        transform:
+            translate(0,0)
+            rotate(-8deg);
 
-        opacidad:0;
+        opacity:0;
 
     }
 
     15%{
-        opacidad: 0,85;
+        opacity:.85;
     }
 
     85%{
-        opacidad: 0,85;
+        opacity:.85;
     }
 
-    a{
+    to{
 
-        transformar:
-            traducir(250px,-80px)
-            rotar(10 grados);
+        transform:
+            translate(250px,-80px)
+            rotate(10deg);
 
-        opacidad:0;
+        opacity:0;
 
     }
 
@@ -1018,442 +1018,442 @@ cuerpo::antes{
 
 /* =====================================================
    RECUERDO AL AZAR
-====================================================== */
+===================================================== */
 
 .azar-box{
 
-    margen superior: 25px;
+    margin-top:25px;
 
-    relleno: 25px;
+    padding:25px;
 
-    radio de borde: 20px;
+    border-radius:20px;
 
-    fondo:
+    background:
         rgba(123,63,145,.12);
 
-    borde:
-        1px sólido rgba(255,255,255,.1);
+    border:
+        1px solid rgba(255,255,255,.1);
 
 }
 
 .azar-resultado{
 
-    altura mínima: 70px;
+    min-height:70px;
 
-    margen superior: 15px;
+    margin-top:15px;
 
 }
 
 
 /* =====================================================
    ARCHIVO
-====================================================== */
+===================================================== */
 
 .carpeta-grid{
 
-    mostrar:cuadrícula;
+    display:grid;
 
-    columnas de plantilla de cuadrícula:
-        repetir(
-            ajuste automático,
+    grid-template-columns:
+        repeat(
+            auto-fit,
             minmax(200px,1fr)
         );
 
-    espacio: 15px;
+    gap:15px;
 
-    margen superior: 30px;
+    margin-top:30px;
 
 }
 
 .carpeta{
 
-    relleno: 25px 15px;
+    padding:25px 15px;
 
-    radio de borde: 18px;
+    border-radius:18px;
 
-    fondo:
+    background:
         rgba(255,255,255,.055);
 
-    borde:
-        1px sólido rgba(255,255,255,.1);
+    border:
+        1px solid rgba(255,255,255,.1);
 
-    cursor:puntero;
+    cursor:pointer;
 
-    transición:.3s;
+    transition:.3s;
 
 }
 
 .carpeta:hover{
 
-    transformar:translateY(-5px);
+    transform:translateY(-5px);
 
-    fondo:
+    background:
         rgba(123,63,145,.2);
 
 }
 
 .expedientes{
 
-    mostrar:ninguno;
+    display:none;
 
-    margen superior: 30px;
+    margin-top:30px;
 
 }
 
 .expediente-grid{
 
-    mostrar:cuadrícula;
+    display:grid;
 
-    columnas de plantilla de cuadrícula:
-        repetir(
-            ajuste automático,
+    grid-template-columns:
+        repeat(
+            auto-fit,
             minmax(170px,1fr)
         );
 
-    espacio: 12px;
+    gap:12px;
 
-    margen superior: 20px;
+    margin-top:20px;
 
 }
 
 .expediente{
 
-    relleno: 18px 10px;
+    padding:18px 10px;
 
-    radio de borde: 15px;
+    border-radius:15px;
 
-    fondo:
+    background:
         rgba(255,255,255,.05);
 
-    borde:
-        1px sólido rgba(255,255,255,.08);
+    border:
+        1px solid rgba(255,255,255,.08);
 
-    cursor:puntero;
+    cursor:pointer;
 
-    transición:.3s;
+    transition:.3s;
 
 }
 
 .expediente:hover{
 
-    transformar:
-        traducirY(-4px);
+    transform:
+        translateY(-4px);
 
-    fondo:
+    background:
         rgba(123,63,145,.18);
 
 }
 
 .expediente.bloqueado{
 
-    opacidad: 0,4;
+    opacity:.4;
 
-    cursor:no permitido;
+    cursor:not-allowed;
 
 }
 
 .expediente.aprobado{
 
-    color del borde:
+    border-color:
         rgba(100,200,140,.4);
 
 }
 
 .progreso{
 
-    margen:15px 0;
+    margin:15px 0;
 
-    relleno: 12px;
+    padding:12px;
 
-    radio de borde: 12px;
+    border-radius:12px;
 
-    fondo:
+    background:
         rgba(255,255,255,.05);
 
 }
 
 .pregunta-box{
 
-    mostrar:ninguno;
+    display:none;
 
-    margen superior: 25px;
+    margin-top:25px;
 
-    relleno: 25px;
+    padding:25px;
 
-    radio de borde: 20px;
+    border-radius:20px;
 
-    fondo:
+    background:
         rgba(0,0,0,.18);
 
 }
 
 .opciones{
 
-    mostrar:cuadrícula;
+    display:grid;
 
-    espacio: 10px;
+    gap:10px;
 
-    margen superior: 20px;
+    margin-top:20px;
 
 }
 
-.opción{
+.opcion{
 
-    relleno: 14px;
+    padding:14px;
 
-    radio de borde: 12px;
+    border-radius:12px;
 
-    borde:
-        1px sólido rgba(255,255,255,.12);
+    border:
+        1px solid rgba(255,255,255,.12);
 
-    fondo:
+    background:
         rgba(255,255,255,.05);
 
     color:#fff;
 
-    cursor:puntero;
+    cursor:pointer;
 
-    transición: .2s;
+    transition:.2s;
 
 }
 
 .opcion:hover{
 
-    fondo:
+    background:
         rgba(123,63,145,.25);
 
 }
 
 .resultado-test{
 
-    margen superior: 20px;
+    margin-top:20px;
 
-    relleno: 15px;
+    padding:15px;
 
-    radio de borde: 12px;
+    border-radius:12px;
 
-    mostrar:ninguno;
+    display:none;
 
 }
 
 .historia-expediente{
 
-    mostrar:ninguno;
+    display:none;
 
-    margen superior: 25px;
+    margin-top:25px;
 
-    relleno: 25px;
+    padding:25px;
 
-    radio de borde: 20px;
+    border-radius:20px;
 
-    fondo:
+    background:
         rgba(92,45,30,.18);
 
-    borde:
-        1px sólido rgba(255,255,255,.08);
+    border:
+        1px solid rgba(255,255,255,.08);
 
-    alineación de texto:izquierda;
+    text-align:left;
 
-    animación:
-        aparecer .5s facilidad;
+    animation:
+        aparecer .5s ease;
 
 }
 
 .historia-expediente h3{
 
-    margen inferior: 15px;
+    margin-bottom:15px;
 
 }
 
 .historia-expediente p{
 
-    interlineado: 1,8;
+    line-height:1.8;
 
 }
 
 
 /* =====================================================
    MISIONES
-====================================================== */
+===================================================== */
 
 .misiones{
 
-    mostrar:cuadrícula;
+    display:grid;
 
-    espacio: 20px;
+    gap:20px;
 
-    margen superior: 30px;
+    margin-top:30px;
 
 }
 
-.misión{
+.mision{
 
-    relleno: 25px;
+    padding:25px;
 
-    alineación de texto:izquierda;
+    text-align:left;
 
-    radio de borde: 20px;
+    border-radius:20px;
 
-    fondo:
+    background:
         rgba(255,255,255,.05);
 
-    borde izquierdo:
-        3px sólido #7b3f91;
+    border-left:
+        3px solid #7b3f91;
 
 }
 
-.misión h3{
+.mision h3{
 
-    margen inferior: 10px;
-
-}
-
-.misión-descripción{
-
-    margen inferior: 15px;
+    margin-bottom:10px;
 
 }
 
-.misión-video{
+.mision-descripcion{
 
-    mostrar:ninguno;
-
-    margen superior: 15px;
+    margin-bottom:15px;
 
 }
 
-.misión-video a{
+.mision-video{
+
+    display:none;
+
+    margin-top:15px;
+
+}
+
+.mision-video a{
 
     color:#d8b9e8;
 
 }
 
-.misión-botones{
+.mision-botones{
 
-    pantalla:flex;
+    display:flex;
 
     flex-wrap:wrap;
 
-    espacio: 10px;
+    gap:10px;
 
-    margen superior: 20px;
+    margin-top:20px;
 
 }
 
-.botón-misión{
+.mision-boton{
 
-    relleno: 10px 16px;
+    padding:10px 16px;
 
-    radio de borde: 30px;
+    border-radius:30px;
 
-    borde:
-        1px sólido rgba(255,255,255,.12);
+    border:
+        1px solid rgba(255,255,255,.12);
 
-    fondo:
+    background:
         rgba(255,255,255,.07);
 
-    color:blanco;
+    color:white;
 
-    cursor:puntero;
+    cursor:pointer;
 
 }
 
-.botón-misión:hover{
+.mision-boton:hover{
 
-    fondo:
+    background:
         rgba(123,63,145,.3);
 
 }
 
-.misión-estado{
+.mision-estado{
 
-    margen superior: 15px;
+    margin-top:15px;
 
-    altura mínima: 30px;
+    min-height:30px;
 
 }
 
-.recompensas-históricas{
+.historial-recompensas{
 
-    margen superior: 30px;
+    margin-top:30px;
 
-    alineación de texto:izquierda;
+    text-align:left;
 
 }
 
 .recompensa-item{
 
-    relleno: 15px;
+    padding:15px;
 
-    margen inferior: 10px;
+    margin-bottom:10px;
 
-    radio de borde: 14px;
+    border-radius:14px;
 
-    fondo:
+    background:
         rgba(255,255,255,.045);
 
-    borde:
-        1px sólido rgba(255,255,255,.07);
+    border:
+        1px solid rgba(255,255,255,.07);
 
 }
 
 
 /* =====================================================
    NECESITAS
-====================================================== */
+===================================================== */
 
 .necesitas-grid{
 
-    mostrar:cuadrícula;
+    display:grid;
 
-    columnas de plantilla de cuadrícula:
-        repetir(
-            ajuste automático,
+    grid-template-columns:
+        repeat(
+            auto-fit,
             minmax(210px,1fr)
         );
 
-    espacio: 15px;
+    gap:15px;
 
-    margen superior: 30px;
+    margin-top:30px;
 
 }
 
 .necesitas-card{
 
-    relleno: 25px 18px;
+    padding:25px 18px;
 
-    radio de borde: 20px;
+    border-radius:20px;
 
-    fondo:
+    background:
         rgba(255,255,255,.05);
 
-    borde:
-        1px sólido rgba(255,255,255,.09);
+    border:
+        1px solid rgba(255,255,255,.09);
 
-    cursor:puntero;
+    cursor:pointer;
 
-    transición:.3s;
+    transition:.3s;
 
 }
 
 .necesitas-card:hover{
 
-    transformar:
-        traducirY(-5px);
+    transform:
+        translateY(-5px);
 
 }
 
 .necesitas-mensaje{
 
-    mostrar:ninguno;
+    display:none;
 
-    margen superior: 25px;
+    margin-top:25px;
 
-    relleno: 25px;
+    padding:25px;
 
-    radio de borde: 20px;
+    border-radius:20px;
 
-    fondo:
+    background:
         rgba(92,45,30,.22);
 
 }
@@ -1461,23 +1461,23 @@ cuerpo::antes{
 
 /* =====================================================
    OSITOS
-====================================================== */
+===================================================== */
 
 .osito-hallazgo{
 
-    posición:fija;
+    position:fixed;
 
-    tamaño de fuente: 2,5rem;
+    font-size:2.5rem;
 
-    cursor:puntero;
+    cursor:pointer;
 
-    índice z:150;
+    z-index:150;
 
-    animación:
+    animation:
         ositoAparece 1s ease;
 
-    filtrar:
-        sombra paralela(
+    filter:
+        drop-shadow(
             0 0 12px
             rgba(255,255,255,.5)
         );
@@ -1486,19 +1486,19 @@ cuerpo::antes{
 
 @keyframes ositoAparece{
 
-    desde{
+    from{
 
-        opacidad:0;
+        opacity:0;
 
-        transformar: escala(.3);
+        transform:scale(.3);
 
     }
 
-    a{
+    to{
 
-        opacidad:1;
+        opacity:1;
 
-        transformar: escala(1);
+        transform:scale(1);
 
     }
 
@@ -1506,144 +1506,144 @@ cuerpo::antes{
 
 .contador-flotante{
 
-    posición:fija;
+    position:fixed;
 
-    derecha: 16px;
+    right:16px;
 
-    parte inferior: 16px;
+    bottom:16px;
 
-    índice z:120;
+    z-index:120;
 
-    relleno: 9px 14px;
+    padding:9px 14px;
 
-    radio de borde: 30px;
+    border-radius:30px;
 
-    fondo:
+    background:
         rgba(27,20,39,.9);
 
-    borde:
-        1px sólido rgba(255,255,255,.12);
+    border:
+        1px solid rgba(255,255,255,.12);
 
-    filtro de fondo: desenfoque (10px);
+    backdrop-filter:blur(10px);
 
-    sombra de caja:
+    box-shadow:
         0 8px 25px rgba(0,0,0,.3);
 
-    tamaño de fuente: .9rem;
+    font-size:.9rem;
 
-    transición:.3s;
+    transition:.3s;
 
 }
 
 .contador-flotante:hover{
 
-    transformar:
-        traducirY(-3px);
+    transform:
+        translateY(-3px);
 
 }
 
 .pregunta-osito{
 
-    mostrar:ninguno;
+    display:none;
 
-    posición:fija;
+    position:fixed;
 
-    recuadro:0;
+    inset:0;
 
-    índice z:200;
+    z-index:200;
 
-    fondo:
+    background:
         rgba(0,0,0,.72);
 
-    alinear-elementos:centro;
+    align-items:center;
 
-    justificar-contenido:centro;
+    justify-content:center;
 
-    relleno: 20px;
+    padding:20px;
 
 }
 
 .pregunta-osito-box{
 
-    ancho máximo: 500px;
+    max-width:500px;
 
-    ancho:100%;
+    width:100%;
 
-    fondo:#1b1427;
+    background:#1b1427;
 
-    borde:
-        1px sólido rgba(255,255,255,.15);
+    border:
+        1px solid rgba(255,255,255,.15);
 
-    radio de borde: 25px;
+    border-radius:25px;
 
-    relleno: 30px;
+    padding:30px;
 
-    alineación de texto:centro;
+    text-align:center;
 
 }
 
 
 /* =====================================================
    FINAL
-====================================================== */
+===================================================== */
 
 .final-bloqueado{
 
-    relleno: 30px;
+    padding:30px;
 
-    radio de borde: 22px;
+    border-radius:22px;
 
-    fondo:
+    background:
         rgba(0,0,0,.18);
 
-    borde:
-        1px rgba discontinuo(255,255,255,.15);
+    border:
+        1px dashed rgba(255,255,255,.15);
 
 }
 
 .final-bloqueado .candado{
 
-    tamaño de fuente: 4rem;
+    font-size:4rem;
 
-    margen inferior: 15px;
+    margin-bottom:15px;
 
 }
 
 .final-desbloqueado{
 
-    mostrar:ninguno;
+    display:none;
 
-    relleno: 30px;
+    padding:30px;
 
-    radio de borde: 22px;
+    border-radius:22px;
 
-    fondo:
+    background:
         rgba(123,63,145,.16);
 
-    borde:
-        1px sólido rgba(190,140,220,.25);
+    border:
+        1px solid rgba(190,140,220,.25);
 
-    animación:
-        aparecer .8s facilidad;
+    animation:
+        aparecer .8s ease;
 
 }
 
 
 /* =====================================================
-   PIE DE PÁGINA
-====================================================== */
+   FOOTER
+===================================================== */
 
-pie de página{
+footer{
 
-    alineación de texto:centro;
+    text-align:center;
 
-    relleno: 50px 20px;
+    padding:50px 20px;
 
     color:#a99eac;
 
 }
 
-pie de página .corazon{
+footer .corazon{
 
     color:#c94c61;
 
@@ -1652,102 +1652,102 @@ pie de página .corazon{
 
 /* =====================================================
    CELULAR
-====================================================== */
+===================================================== */
 
 @media(max-width:600px){
 
-    .índice{
+    .indice{
 
-        justificar-contenido:flex-start;
+        justify-content:flex-start;
 
-        espacio: 5px;
+        gap:5px;
 
-        relleno:
+        padding:
             9px 5px;
 
     }
 
-    .botón índice{
+    .indice button{
 
-        ancho mínimo: 66px;
+        min-width:66px;
 
-        altura mínima: 44px;
-
-    }
-
-    .índice .icono-índice{
-
-        tamaño de fuente: 1,1rem;
+        min-height:44px;
 
     }
 
-    .índice .índice-texto{
+    .indice .indice-icono{
 
-        tamaño de fuente: 0,58rem;
+        font-size:1.1rem;
+
+    }
+
+    .indice .indice-texto{
+
+        font-size:.58rem;
 
     }
 
     .ositos{
 
-        tamaño de fuente: 4rem;
+        font-size:4rem;
 
     }
 
     .portada h1{
 
-        espaciado entre letras: 2px;
+        letter-spacing:2px;
 
     }
 
-    .subtítulo{
+    .subtitulo{
 
-        tamaño de fuente: 1,2rem;
+        font-size:1.2rem;
 
     }
 
     .frase{
 
-        tamaño de fuente: 1rem;
+        font-size:1rem;
 
     }
 
     .bienvenida{
 
-        altura mínima: 45vh;
+        min-height:45vh;
 
-        relleno superior: 50px;
+        padding-top:50px;
 
     }
 
     .bienvenida-osito{
 
-        tamaño de fuente: 4rem;
+        font-size:4rem;
 
     }
 
-    .sección{
+    .seccion{
 
-        margen: 25px 15px;
+        margin:25px 15px;
 
-        relleno: 30px 18px;
+        padding:30px 18px;
 
     }
 
     .foto-principal{
 
-        altura mínima: 230px;
+        min-height:230px;
 
     }
 
     .contador-flotante{
 
-        derecha:10px;
+        right:10px;
 
-        parte inferior: 10px;
+        bottom:10px;
 
-        tamaño de fuente: 0,78rem;
+        font-size:.78rem;
 
-        relleno: 8px 11px;
+        padding:8px 11px;
 
     }
 
@@ -1755,31 +1755,471 @@ pie de página .corazon{
 
 
 /* =====================================================
-   ANIMACIÓN DE APROBADO
-====================================================== */
+   ANIMACION DE APROBADO
+===================================================== */
 
 .expediente-aprobado-animacion{
 
-    animación:
-        aprobado .7s facilidad;
+    animation:
+        aprobado .7s ease;
 
 }
 
 @keyframes aprobado{
 
     0%{
-        transformar: escala(.9);
-        opacidad: 0,5;
+        transform:scale(.9);
+        opacity:.5;
     }
 
     50%{
-        transformar:escala(1.05);
+        transform:scale(1.05);
     }
 
     100%{
-        transformar: escala(1);
-        opacidad:1;
+        transform:scale(1);
+        opacity:1;
     }
+
+}
+
+
+/* =====================================================
+   LOGROS
+===================================================== */
+
+.logros-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(200px,1fr)
+        );
+
+    gap:15px;
+
+    margin-top:30px;
+
+}
+
+.logro-card{
+
+    padding:20px 15px;
+
+    border-radius:18px;
+
+    background:
+        rgba(255,255,255,.05);
+
+    border:
+        1px solid rgba(255,255,255,.08);
+
+    opacity:.4;
+
+    transition:.3s;
+
+}
+
+.logro-card.desbloqueado{
+
+    opacity:1;
+
+    border-color:
+        rgba(190,140,220,.4);
+
+    background:
+        rgba(123,63,145,.15);
+
+}
+
+.logro-icono{
+
+    font-size:2.2rem;
+
+    margin-bottom:8px;
+
+}
+
+
+/* =====================================================
+   LIBRO DE VISITAS
+===================================================== */
+
+.libro-form{
+
+    margin-top:25px;
+
+    text-align:left;
+
+}
+
+.libro-form input,
+.libro-form textarea{
+
+    width:100%;
+
+    padding:12px;
+
+    border-radius:14px;
+
+    border:
+        1px solid rgba(255,255,255,.15);
+
+    background:
+        rgba(255,255,255,.06);
+
+    color:#fff;
+
+    font-family:inherit;
+
+    margin-bottom:12px;
+
+    resize:vertical;
+
+}
+
+.libro-mensajes{
+
+    margin-top:25px;
+
+    text-align:left;
+
+    display:grid;
+
+    gap:12px;
+
+}
+
+.libro-mensaje-item{
+
+    padding:16px;
+
+    border-radius:14px;
+
+    background:
+        rgba(255,255,255,.045);
+
+    border:
+        1px solid rgba(255,255,255,.07);
+
+}
+
+
+/* =====================================================
+   SUPERVIVENCIA
+===================================================== */
+
+.estado-osito-grid{
+
+    margin-top:25px;
+
+    text-align:left;
+
+    display:grid;
+
+    gap:14px;
+
+}
+
+.estado-barra-label{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-bottom:4px;
+
+    font-size:.9rem;
+
+}
+
+.estado-barra-fondo{
+
+    width:100%;
+
+    height:12px;
+
+    border-radius:10px;
+
+    background:
+        rgba(255,255,255,.08);
+
+    overflow:hidden;
+
+}
+
+.estado-barra-relleno{
+
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #7b3f91,
+            #344f9b
+        );
+
+    transition:width .4s ease;
+
+}
+
+.checklist-supervivencia{
+
+    margin-top:25px;
+
+    text-align:left;
+
+    display:grid;
+
+    gap:10px;
+
+}
+
+.checklist-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:12px 15px;
+
+    border-radius:14px;
+
+    background:
+        rgba(255,255,255,.045);
+
+    border:
+        1px solid rgba(255,255,255,.07);
+
+    cursor:pointer;
+
+}
+
+.checklist-item.marcado{
+
+    background:
+        rgba(100,200,140,.15);
+
+    border-color:
+        rgba(100,200,140,.35);
+
+}
+
+.checklist-item input{
+
+    width:18px;
+
+    height:18px;
+
+}
+
+.expediente-supervivencia{
+
+    margin-top:25px;
+
+    padding:20px;
+
+    border-radius:18px;
+
+    background:
+        rgba(0,0,0,.18);
+
+    text-align:left;
+
+}
+
+.recordatorio-osito{
+
+    position:fixed;
+
+    bottom:90px;
+
+    right:16px;
+
+    max-width:280px;
+
+    z-index:180;
+
+    padding:18px;
+
+    border-radius:18px;
+
+    background:#1b1427;
+
+    border:
+        1px solid rgba(255,255,255,.15);
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.4);
+
+    animation:
+        aparecer .5s ease;
+
+}
+
+.recordatorio-osito button{
+
+    margin-top:10px;
+
+    background:none;
+
+    border:none;
+
+    color:#d8b9e8;
+
+    cursor:pointer;
+
+    font-size:.85rem;
+
+}
+
+.pregunta-supervivencia{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:200;
+
+    background:
+        rgba(0,0,0,.72);
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+}
+
+.pregunta-supervivencia-box{
+
+    max-width:500px;
+
+    width:100%;
+
+    background:#1b1427;
+
+    border:
+        1px solid rgba(255,255,255,.15);
+
+    border-radius:25px;
+
+    padding:30px;
+
+    text-align:center;
+
+}
+
+
+/* =====================================================
+   CAPSULA DEL TIEMPO
+===================================================== */
+
+.capsula-box{
+
+    margin-top:30px;
+
+    padding:30px;
+
+    border-radius:22px;
+
+    background:
+        rgba(0,0,0,.18);
+
+    border:
+        1px dashed rgba(255,255,255,.15);
+
+    text-align:center;
+
+}
+
+.capsula-box.lista{
+
+    display:none;
+
+    border-style:solid;
+
+    background:
+        rgba(123,63,145,.16);
+
+    border-color:
+        rgba(190,140,220,.25);
+
+    animation:
+        aparecer .8s ease;
+
+}
+
+.capsula-requisitos{
+
+    margin-top:15px;
+
+    text-align:left;
+
+    display:inline-block;
+
+}
+
+.mensaje-futuro-box{
+
+    display:none;
+
+    margin-top:20px;
+
+    padding:20px;
+
+    border-radius:16px;
+
+    background:
+        rgba(255,255,255,.05);
+
+    text-align:left;
+
+}
+
+
+/* =====================================================
+   GUIA DE DESCUBRIMIENTO
+===================================================== */
+
+.guia-grid{
+
+    margin-top:25px;
+
+    text-align:left;
+
+    display:grid;
+
+    gap:14px;
+
+}
+
+.guia-item{
+
+    padding:16px;
+
+    border-radius:14px;
+
+    background:
+        rgba(255,255,255,.04);
+
+    border-left:
+        3px solid #7b3f91;
+
+}
+
+.guia-item h3{
+
+    margin-bottom:6px;
+
+    font-size:1.1rem;
 
 }
 
@@ -1788,12 +2228,12 @@ pie de página .corazon{
 </head>
 
 
-<cuerpo>
+<body>
 
 
 <!-- =====================================================
      ESTRELLAS
-====================================================== -->
+===================================================== -->
 
 <div class="stars">
 
@@ -1818,7 +2258,7 @@ pie de página .corazon{
 
 <!-- =====================================================
      PORTADA
-====================================================== -->
+===================================================== -->
 
 <section id="inicio">
 
@@ -1842,8 +2282,8 @@ pie de página .corazon{
 
         </p>
 
-        <botón
-            clase="botón"
+        <button
+            class="boton"
             onclick="entrar()">
 
             Entrar al rincón 🐻
@@ -1857,37 +2297,37 @@ pie de página .corazon{
 
 <!-- =====================================================
      CONTENIDO
-====================================================== -->
+===================================================== -->
 
 <main id="contenido">
 
 
 <!-- =====================================================
-     ÍNDICE
-====================================================== -->
+     INDICE
+===================================================== -->
 
-<nav class="índice">
+<nav class="indice">
 
-    <botón onclick="irA('inicioContenido')">
+    <button onclick="irA('inicioContenido')">
 
         <span class="indice-icono">
             🏠
         </span>
 
-        <span class="índice-texto">
+        <span class="indice-texto">
             Inicio
         </span>
 
     </button>
 
 
-    <botón onclick="irA('estado')">
+    <button onclick="irA('estado')">
 
         <span class="indice-icono">
             💭
         </span>
 
-        <span class="índice-texto">
+        <span class="indice-texto">
             Cómo estás
         </span>
 
@@ -1900,7 +2340,7 @@ pie de página .corazon{
             📖
         </span>
 
-        <span class="índice-texto">
+        <span class="indice-texto">
             Historia
         </span>
 
@@ -1913,60 +2353,112 @@ pie de página .corazon{
             🎵
         </span>
 
-        <span class="índice-texto">
+        <span class="indice-texto">
             Música
         </span>
 
     </button>
 
 
-    <botón onclick="irA('recuerdos')">
+    <button onclick="irA('recuerdos')">
 
         <span class="indice-icono">
             📸
         </span>
 
-        <span class="índice-texto">
+        <span class="indice-texto">
             Recuerdos
         </span>
 
     </button>
 
 
-    <botón onclick="irA('archivo')">
+    <button onclick="irA('archivo')">
 
         <span class="indice-icono">
             😂
         </span>
 
-        <span class="índice-texto">
+        <span class="indice-texto">
             Archivo
         </span>
 
     </button>
 
 
-    <botón onclick="irA('misiones')">
+    <button onclick="irA('misiones')">
 
         <span class="indice-icono">
             🎯
         </span>
 
-        <span class="índice-texto">
+        <span class="indice-texto">
             Misiones
         </span>
 
     </button>
 
 
-    <botón onclick="irA('necesitas')">
+    <button onclick="irA('necesitas')">
 
         <span class="indice-icono">
             💌
         </span>
 
-        <span class="índice-texto">
+        <span class="indice-texto">
             Necesitas
+        </span>
+
+    </button>
+
+
+    <button onclick="irA('supervivencia')">
+
+        <span class="indice-icono">
+            🐻
+        </span>
+
+        <span class="indice-texto">
+            Supervivencia
+        </span>
+
+    </button>
+
+
+    <button onclick="irA('logros')">
+
+        <span class="indice-icono">
+            🏆
+        </span>
+
+        <span class="indice-texto">
+            Logros
+        </span>
+
+    </button>
+
+
+    <button onclick="irA('libro')">
+
+        <span class="indice-icono">
+            📖
+        </span>
+
+        <span class="indice-texto">
+            Libro
+        </span>
+
+    </button>
+
+
+    <button onclick="irA('guia')">
+
+        <span class="indice-icono">
+            🌌
+        </span>
+
+        <span class="indice-texto">
+            Guía
         </span>
 
     </button>
@@ -1978,7 +2470,7 @@ pie de página .corazon{
             🎁
         </span>
 
-        <span class="índice-texto">
+        <span class="indice-texto">
             Final
         </span>
 
@@ -1989,10 +2481,10 @@ pie de página .corazon{
 
 <!-- =====================================================
      CONTADOR DE OSITOS
-====================================================== -->
+===================================================== -->
 
 <div
-    clase="contador-flotante"
+    class="contador-flotante"
     id="contadorFlotante">
 
     🐻
@@ -2008,10 +2500,10 @@ pie de página .corazon{
 
 <!-- =====================================================
      BIENVENIDA
-====================================================== -->
+===================================================== -->
 
-<sección
-    clase="bienvenida"
+<section
+    class="bienvenida"
     id="inicioContenido">
 
     <div class="bienvenida-contenido">
@@ -2038,7 +2530,7 @@ pie de página .corazon{
 
             <br><br>
 
-            Hay cosas que están aquí para recordar.
+            Hay cosas que están aquí para recordar,
             otras para reír y algunas que todavía
             tendrás que encontrar.
 
@@ -2051,10 +2543,10 @@ pie de página .corazon{
 
 <!-- =====================================================
      COMO ESTAS
-====================================================== -->
+===================================================== -->
 
-<sección
-    clase="sección"
+<section
+    class="seccion"
     id="estado">
 
     <div class="osito-pequeno">
@@ -2081,7 +2573,7 @@ pie de página .corazon{
 
 
         <div
-            clase="estado"
+            class="estado"
             onclick="mostrarEstado('feliz')">
 
             <span>😊</span>
@@ -2092,7 +2584,7 @@ pie de página .corazon{
 
 
         <div
-            clase="estado"
+            class="estado"
             onclick="mostrarEstado('triste')">
 
             <span>😔</span>
@@ -2103,7 +2595,7 @@ pie de página .corazon{
 
 
         <div
-            clase="estado"
+            class="estado"
             onclick="mostrarEstado('enojada')">
 
             <span>😤</span>
@@ -2114,7 +2606,7 @@ pie de página .corazon{
 
 
         <div
-            clase="estado"
+            class="estado"
             onclick="mostrarEstado('aburrida')">
 
             <span>🥱</span>
@@ -2125,7 +2617,7 @@ pie de página .corazon{
 
 
         <div
-            clase="estado"
+            class="estado"
             onclick="mostrarEstado('pensando')">
 
             <span>🌙</span>
@@ -2136,7 +2628,7 @@ pie de página .corazon{
 
 
         <div
-            clase="estado"
+            class="estado"
             onclick="mostrarEstado('cansada')">
 
             <span>😴</span>
@@ -2147,7 +2639,7 @@ pie de página .corazon{
 
 
         <div
-            clase="estado"
+            class="estado"
             onclick="mostrarEstado('ansiosa')">
 
             <span>🫠</span>
@@ -2158,7 +2650,7 @@ pie de página .corazon{
 
 
         <div
-            clase="estado"
+            class="estado"
             onclick="mostrarEstado('necesito')">
 
             <span>🫂</span>
@@ -2172,7 +2664,7 @@ pie de página .corazon{
 
     <div
         id="mensajeEstado"
-        clase="mensaje-estado">
+        class="mensaje-estado">
 
     </div>
 
@@ -2187,7 +2679,7 @@ pie de página .corazon{
             </h3>
 
             <div
-                clase="recurso-estado"
+                class="recurso-estado"
                 id="cuponEstado">
 
                 Elige cómo estás
@@ -2205,7 +2697,7 @@ pie de página .corazon{
             </h3>
 
             <div
-                clase="recurso-estado"
+                class="recurso-estado"
                 id="musicaEstado">
 
                 Elige cómo estás
@@ -2223,7 +2715,7 @@ pie de página .corazon{
             </h3>
 
             <div
-                clase="recurso-estado"
+                class="recurso-estado"
                 id="fotoEstado">
 
                 Elige cómo estás
@@ -2240,10 +2732,10 @@ pie de página .corazon{
 
 <!-- =====================================================
      HISTORIA
-====================================================== -->
+===================================================== -->
 
-<sección
-    clase="sección"
+<section
+    class="seccion"
     id="historia">
 
     <div class="osito-pequeno">
@@ -2272,7 +2764,7 @@ pie de página .corazon{
 
             <p>
 
-                Aquí vamos poniendo cómo empezó todo.
+                Aquí iremos poniendo cómo empezó todo.
 
             </p>
 
@@ -2333,11 +2825,11 @@ pie de página .corazon{
 
 
 <!-- =====================================================
-     MÚSICA
-====================================================== -->
+     MUSICA
+===================================================== -->
 
-<sección
-    clase="sección"
+<section
+    class="seccion"
     id="musica">
 
     <div class="osito-pequeno">
@@ -2360,7 +2852,7 @@ pie de página .corazon{
 
 
         <div
-            clase="álbum-arte"
+            class="album-art"
             id="albumArt">
 
             🎵
@@ -2369,7 +2861,7 @@ pie de página .corazon{
 
 
         <div
-            clase="canción-título"
+            class="cancion-titulo"
             id="cancionTitulo">
 
             Elige una canción
@@ -2378,7 +2870,7 @@ pie de página .corazon{
 
 
         <div
-            clase="cancion-artista"
+            class="cancion-artista"
             id="cancionArtista">
 
             Nuestro rincón musical
@@ -2394,8 +2886,8 @@ pie de página .corazon{
         <div class="controles">
 
 
-            <botón
-                clase="control"
+            <button
+                class="control"
                 onclick="cancionAnterior()">
 
                 ⏮
@@ -2403,8 +2895,8 @@ pie de página .corazon{
             </button>
 
 
-            <botón
-                clase="controlar juego"
+            <button
+                class="control play"
                 id="playButton"
                 onclick="togglePlay()">
 
@@ -2413,8 +2905,8 @@ pie de página .corazon{
             </button>
 
 
-            <botón
-                clase="control"
+            <button
+                class="control"
                 onclick="cancionSiguiente()">
 
                 ⏭
@@ -2422,8 +2914,8 @@ pie de página .corazon{
             </button>
 
 
-            <botón
-                clase="control"
+            <button
+                class="control"
                 onclick="cancionAleatoria()">
 
                 🔀
@@ -2434,7 +2926,7 @@ pie de página .corazon{
 
 
         <div
-            clase="lista-música"
+            class="lista-musica"
             id="listaMusica">
         </div>
 
@@ -2445,10 +2937,10 @@ pie de página .corazon{
 
 <!-- =====================================================
      RECUERDOS
-====================================================== -->
+===================================================== -->
 
-<sección
-    clase="sección"
+<section
+    class="seccion"
     id="recuerdos">
 
     <div class="osito-pequeno">
@@ -2470,7 +2962,7 @@ pie de página .corazon{
     <div class="recuerdo-selector">
 
 
-        <botón
+        <button
             onclick="cargarRecuerdo('salidas')">
 
             🍦 Salidas
@@ -2478,7 +2970,7 @@ pie de página .corazon{
         </button>
 
 
-        <botón
+        <button
             onclick="cargarRecuerdo('tonterias')">
 
             😂 Tonterías
@@ -2486,7 +2978,7 @@ pie de página .corazon{
         </button>
 
 
-        <botón
+        <button
             onclick="cargarRecuerdo('momentos')">
 
             🐻 Momentos
@@ -2494,7 +2986,7 @@ pie de página .corazon{
         </button>
 
 
-        <botón
+        <button
             onclick="cargarRecuerdo('especiales')">
 
             💜 Especiales
@@ -2508,7 +3000,7 @@ pie de página .corazon{
 
 
         <div
-            clase="foto-principal"
+            class="foto-principal"
             id="fotoPrincipal">
 
             📸
@@ -2519,8 +3011,8 @@ pie de página .corazon{
         <div class="galeria-controles">
 
 
-            <botón
-                clase="botón"
+            <button
+                class="boton"
                 onclick="fotoAnterior()">
 
                 ←
@@ -2528,8 +3020,8 @@ pie de página .corazon{
             </button>
 
 
-            <botón
-                clase="botón"
+            <button
+                class="boton"
                 onclick="fotoSiguiente()">
 
                 →
@@ -2540,7 +3032,7 @@ pie de página .corazon{
 
 
         <p
-            clase="leyenda"
+            class="leyenda"
             id="leyendaFoto">
 
             Selecciona un recuerdo.
@@ -2566,8 +3058,8 @@ pie de página .corazon{
         </p>
 
 
-        <botón
-            clase="botón"
+        <button
+            class="boton"
             onclick="recuerdoAzar()">
 
             Sorpréndeme 🐻
@@ -2576,7 +3068,7 @@ pie de página .corazon{
 
 
         <div
-            clase="azar-resultado"
+            class="azar-resultado"
             id="azarResultado">
 
         </div>
@@ -2588,10 +3080,10 @@ pie de página .corazon{
 
 <!-- =====================================================
      ARCHIVO
-====================================================== -->
+===================================================== -->
 
-<sección
-    clase="sección"
+<section
+    class="seccion"
     id="archivo">
 
     <div class="osito-pequeno">
@@ -2604,7 +3096,7 @@ pie de página .corazon{
 
     <p>
 
-        Algunos requieren archivos demostrar
+        Algunos archivos requieren demostrar
         que realmente perteneces a este universo.
 
     </p>
@@ -2614,7 +3106,7 @@ pie de página .corazon{
 
 
         <div
-            clase="carpeta"
+            class="carpeta"
             onclick="abrirCarpeta('legal')">
 
             ⚖️
@@ -2635,7 +3127,7 @@ pie de página .corazon{
 
 
         <div
-            clase="carpeta"
+            class="carpeta"
             onclick="abrirCarpeta('prohibido')">
 
             🚫
@@ -2656,7 +3148,7 @@ pie de página .corazon{
 
 
         <div
-            clase="carpeta"
+            class="carpeta"
             onclick="abrirCarpeta('confidencial')">
 
             🔐
@@ -2679,7 +3171,7 @@ pie de página .corazon{
 
 
     <div
-        clase="expedientes"
+        class="expedientes"
         id="expedientes">
 
 
@@ -2693,25 +3185,25 @@ pie de página .corazon{
             Cada expediente necesita 100%.
 
             Si fallas una pregunta,
-            Tendrás que empezar nuevamente.
+            tendrás que empezar nuevamente.
 
         </p>
 
 
         <div
-            clase="progreso"
+            class="progreso"
             id="progresoExpedientes">
         </div>
 
 
         <div
-            clase="expediente-grid"
+            class="expediente-grid"
             id="expedienteGrid">
         </div>
 
 
         <div
-            clase="historia-expediente"
+            class="historia-expediente"
             id="historiaExpediente">
 
             <h3 id="tituloHistoriaExpediente">
@@ -2725,7 +3217,7 @@ pie de página .corazon{
 
 
         <div
-            clase="pregunta-box"
+            class="pregunta-box"
             id="preguntaBox">
 
 
@@ -2741,13 +3233,13 @@ pie de página .corazon{
 
 
             <div
-                clase="opciones"
+                class="opciones"
                 id="opcionesPregunta">
             </div>
 
 
             <div
-                clase="resultado-test"
+                class="resultado-test"
                 id="resultadoTest">
             </div>
 
@@ -2761,10 +3253,10 @@ pie de página .corazon{
 
 <!-- =====================================================
      MISIONES
-====================================================== -->
+===================================================== -->
 
-<sección
-    clase="sección"
+<section
+    class="seccion"
     id="misiones">
 
     <div class="osito-pequeno">
@@ -2788,16 +3280,16 @@ pie de página .corazon{
     <div class="misiones">
 
 
-        <!-- MISIÓN DIARIA -->
+        <!-- MISION DIARIA -->
 
-        <div class="misión">
+        <div class="mision">
 
             <h3>
                 🌱 Misión del día
             </h3>
 
             <p
-                clase="misión-descripción"
+                class="mision-descripcion"
                 id="misionDiaTexto">
 
                 Cargando misión...
@@ -2806,25 +3298,25 @@ pie de página .corazon{
 
 
             <div
-                clase="misión-video"
-                id="misiónDiaVideo">
+                class="mision-video"
+                id="misionDiaVideo">
             </div>
 
 
             <div class="mision-botones">
 
 
-                <botón
-                    clase="misión-botón"
-                    onclick="randomizarMisión('dia')">
+                <button
+                    class="mision-boton"
+                    onclick="randomizarMision('dia')">
 
                     🎲 Otra misión
 
                 </button>
 
 
-                <botón
-                    clase="misión-botón"
+                <button
+                    class="mision-boton"
                     onclick="marcarMision('dia','completada')">
 
                     ✅ Completada
@@ -2832,8 +3324,8 @@ pie de página .corazon{
                 </button>
 
 
-                <botón
-                    clase="misión-botón"
+                <button
+                    class="mision-boton"
                     onclick="marcarMision('dia','fallida')">
 
                     ❌ Fallada
@@ -2844,7 +3336,7 @@ pie de página .corazon{
 
 
             <div
-                clase="misión-estado"
+                class="mision-estado"
                 id="misionDiaEstado">
 
             </div>
@@ -2852,16 +3344,16 @@ pie de página .corazon{
         </div>
 
 
-        <!-- MISIÓN SEMANAL -->
+        <!-- MISION SEMANAL -->
 
-        <div class="misión">
+        <div class="mision">
 
             <h3>
                 🍦 Misión de la semana
             </h3>
 
             <p
-                clase="misión-descripción"
+                class="mision-descripcion"
                 id="misionSemanaTexto">
 
                 Cargando misión...
@@ -2870,16 +3362,16 @@ pie de página .corazon{
 
 
             <div
-                clase="misión-video"
-                id="misiónSemanaVideo">
+                class="mision-video"
+                id="misionSemanaVideo">
             </div>
 
 
             <div class="mision-botones">
 
 
-                <botón
-                    clase="misión-botón"
+                <button
+                    class="mision-boton"
                     onclick="randomizarMision('semana')">
 
                     🎲 Otra misión
@@ -2887,8 +3379,8 @@ pie de página .corazon{
                 </button>
 
 
-                <botón
-                    clase="misión-botón"
+                <button
+                    class="mision-boton"
                     onclick="marcarMision('semana','completada')">
 
                     ✅ Completada
@@ -2896,8 +3388,8 @@ pie de página .corazon{
                 </button>
 
 
-                <botón
-                    clase="misión-botón"
+                <button
+                    class="mision-boton"
                     onclick="marcarMision('semana','fallida')">
 
                     ❌ Fallada
@@ -2908,7 +3400,7 @@ pie de página .corazon{
 
 
             <div
-                clase="misión-estado"
+                class="mision-estado"
                 id="misionSemanaEstado">
 
             </div>
@@ -2916,16 +3408,16 @@ pie de página .corazon{
         </div>
 
 
-        <!-- MISIÓN MENSUAL -->
+        <!-- MISION MENSUAL -->
 
-        <div class="misión">
+        <div class="mision">
 
             <h3>
                 🌙 Misión del mes
             </h3>
 
             <p
-                clase="misión-descripción"
+                class="mision-descripcion"
                 id="misionMesTexto">
 
                 Cargando misión...
@@ -2934,25 +3426,25 @@ pie de página .corazon{
 
 
             <div
-                clase="misión-video"
-                id="misiónMesVideo">
+                class="mision-video"
+                id="misionMesVideo">
             </div>
 
 
             <div class="mision-botones">
 
 
-                <botón
-                    clase="misión-botón"
-                    onclick="randomizarMisión('mes')">
+                <button
+                    class="mision-boton"
+                    onclick="randomizarMision('mes')">
 
                     🎲 Otra misión
 
                 </button>
 
 
-                <botón
-                    clase="misión-botón"
+                <button
+                    class="mision-boton"
                     onclick="marcarMision('mes','completada')">
 
                     ✅ Completada
@@ -2960,8 +3452,8 @@ pie de página .corazon{
                 </button>
 
 
-                <botón
-                    clase="misión-botón"
+                <button
+                    class="mision-boton"
                     onclick="marcarMision('mes','fallida')">
 
                     ❌ Fallada
@@ -2972,8 +3464,8 @@ pie de página .corazon{
 
 
             <div
-                clase="misión-estado"
-                id="misiónMesEstado">
+                class="mision-estado"
+                id="misionMesEstado">
 
             </div>
 
@@ -2982,9 +3474,9 @@ pie de página .corazon{
     </div>
 
 
-    <!-- HISTÓRICO -->
+    <!-- HISTORIAL -->
 
-    <div class="recompensas-historiales">
+    <div class="historial-recompensas">
 
         <h3>
             🎁 Historial de recompensas
@@ -3006,10 +3498,10 @@ pie de página .corazon{
 
 <!-- =====================================================
      NECESITAS
-====================================================== -->
+===================================================== -->
 
-<sección
-    clase="sección"
+<section
+    class="seccion"
     id="necesitas">
 
     <div class="osito-pequeno">
@@ -3034,8 +3526,8 @@ pie de página .corazon{
 
 
         <div
-            clase="necesitas-card"
-            onclick="mostrar Necesitas('hablar')">
+            class="necesitas-card"
+            onclick="mostrarNecesitas('hablar')">
 
             🫂
 
@@ -3047,8 +3539,8 @@ pie de página .corazon{
 
 
         <div
-            clase="necesitas-card"
-            onclick="mostrar Necesitas('acompañada')">
+            class="necesitas-card"
+            onclick="mostrarNecesitas('acompanada')">
 
             🌙
 
@@ -3060,8 +3552,8 @@ pie de página .corazon{
 
 
         <div
-            clase="necesitas-card"
-            onclick="mostrar Necesitas('animo')">
+            class="necesitas-card"
+            onclick="mostrarNecesitas('animo')">
 
             🌱
 
@@ -3073,8 +3565,8 @@ pie de página .corazon{
 
 
         <div
-            clase="necesitas-card"
-            onclick="mostrar Necesita('reir')">
+            class="necesitas-card"
+            onclick="mostrarNecesitas('reir')">
 
             😂
 
@@ -3086,8 +3578,8 @@ pie de página .corazon{
 
 
         <div
-            clase="necesitas-card"
-            onclick="mostrar Necesitas('llamada')">
+            class="necesitas-card"
+            onclick="mostrarNecesitas('llamada')">
 
             📞
 
@@ -3099,8 +3591,8 @@ pie de página .corazon{
 
 
         <div
-            clase="necesitas-card"
-            onclick="mostrar Necesitas('abrazo')">
+            class="necesitas-card"
+            onclick="mostrarNecesitas('abrazo')">
 
             🐻
 
@@ -3114,7 +3606,7 @@ pie de página .corazon{
 
 
     <div
-        clase="necesitas-mensaje"
+        class="necesitas-mensaje"
         id="necesitasMensaje">
     </div>
 
@@ -3122,11 +3614,240 @@ pie de página .corazon{
 
 
 <!-- =====================================================
-     FINAL
-====================================================== -->
+     SUPERVIVENCIA DEL OSITO
+===================================================== -->
 
-<sección
-    clase="sección"
+<section
+    class="seccion"
+    id="supervivencia">
+
+    <div class="osito-pequeno">
+        🐻
+    </div>
+
+    <h2>
+        Supervivencia del Osito
+    </h2>
+
+    <p>
+
+        Un pequeño sistema que está pendiente
+        de que sobrevivas otro día de maestría.
+
+        Esto no mide nada real, es solo para jugar
+        y para recordarte que también importas.
+
+    </p>
+
+    <div
+        class="estado-osito-grid"
+        id="estadoOsitoGrid">
+    </div>
+
+    <h3 style="margin-top:30px;">
+        ✅ Checklist de hoy
+    </h3>
+
+    <div
+        class="checklist-supervivencia"
+        id="checklistSupervivenciaGrid">
+    </div>
+
+    <div style="margin-top:25px;">
+
+        <button
+            class="boton"
+            onclick="lanzarPreguntaSupervivencia()">
+
+            ❓ Pregunta sorpresa
+
+        </button>
+
+    </div>
+
+    <div
+        class="expediente-supervivencia"
+        id="expedienteSupervivencia">
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     LOGROS DE OSITO
+===================================================== -->
+
+<section
+    class="seccion"
+    id="logros">
+
+    <div class="osito-pequeno">
+        🏆
+    </div>
+
+    <h2>
+        Logros de Osito
+    </h2>
+
+    <p>
+
+        Cosas que se van desbloqueando
+        conforme exploras el Universo de los Ositos.
+
+    </p>
+
+    <div
+        class="logros-grid"
+        id="logrosGrid">
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     LIBRO DE VISITAS
+===================================================== -->
+
+<section
+    class="seccion"
+    id="libro">
+
+    <div class="osito-pequeno">
+        📖
+    </div>
+
+    <h2>
+        Libro de Visitas
+    </h2>
+
+    <p>
+
+        Un espacio para dejar tu huella
+        dentro de este universo.
+
+    </p>
+
+    <div class="libro-form">
+
+        <input
+            type="text"
+            id="libroNombre"
+            placeholder="Tu nombre (opcional)"
+        >
+
+        <textarea
+            id="libroTexto"
+            rows="4"
+            placeholder="Escribe algo para dejar aquí..."
+            onfocus="escribiendoLibro=true"
+            onblur="escribiendoLibro=false"
+        ></textarea>
+
+        <button
+            class="boton"
+            onclick="guardarMensajeLibro()">
+
+            Dejar mi huella 🐻
+
+        </button>
+
+    </div>
+
+    <div
+        class="libro-mensajes"
+        id="libroMensajes">
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     GUIA DE DESCUBRIMIENTO
+===================================================== -->
+
+<section
+    class="seccion"
+    id="guia">
+
+    <div class="osito-pequeno">
+        🌌
+    </div>
+
+    <h2>
+        Guía del Universo de los Ositos
+    </h2>
+
+    <p>
+
+        Este universo tiene más de lo que se ve
+        a primera vista. Aquí una pequeña pista
+        de qué tipo de cosas puedes encontrar.
+
+    </p>
+
+    <div class="guia-grid">
+
+        <div class="guia-item">
+            <h3>⭐ Estrellas y constelaciones</h3>
+            <p>Algunas estrellas esconden pequeños mensajes.</p>
+        </div>
+
+        <div class="guia-item">
+            <h3>🐻 Ositos</h3>
+            <p>Hay ositos escondidos mientras navegas.</p>
+        </div>
+
+        <div class="guia-item">
+            <h3>❓ Preguntas sorpresa</h3>
+            <p>Algunas preguntas aparecen sin avisar.</p>
+        </div>
+
+        <div class="guia-item">
+            <h3>🏆 Logros</h3>
+            <p>Explorar e interactuar puede desbloquear logros.</p>
+        </div>
+
+        <div class="guia-item">
+            <h3>📖 Libro de Visitas</h3>
+            <p>Puedes dejar tu propia huella en el universo.</p>
+        </div>
+
+        <div class="guia-item">
+            <h3>🐻 Supervivencia del Osito</h3>
+            <p>Un sistema que está pendiente de tu descanso y cuidado.</p>
+        </div>
+
+        <div class="guia-item">
+            <h3>📦 Cápsula del Tiempo</h3>
+            <p>Algo que no podrá abrirse de inmediato.</p>
+        </div>
+
+        <div class="guia-item">
+            <h3>⏳ Mensaje del Futuro</h3>
+            <p>Hay un mensaje que requiere esperar.</p>
+        </div>
+
+    </div>
+
+    <p style="margin-top:25px;">
+
+        Pero no voy a decirte dónde está todo.
+
+        <br>
+
+        Tendrás que explorar, osito. 💜
+
+    </p>
+
+</section>
+
+
+<!-- =====================================================
+     FINAL
+===================================================== -->
+
+<section
+    class="seccion"
     id="final">
 
     <div class="osito-pequeno">
@@ -3139,7 +3860,7 @@ pie de página .corazon{
 
 
     <div
-        clase="final-bloqueado"
+        class="final-bloqueado"
         id="finalBloqueado">
 
 
@@ -3187,7 +3908,7 @@ pie de página .corazon{
 
 
     <div
-        clase="final-desbloqueado"
+        class="final-desbloqueado"
         id="finalDesbloqueado">
 
         <div style="font-size:4rem;">
@@ -3226,10 +3947,10 @@ pie de página .corazon{
 
 
 <!-- =====================================================
-     PIE DE PÁGINA
-====================================================== -->
+     FOOTER
+===================================================== -->
 
-<pie de página>
+<footer>
 
     Hecho por un osito para otra osita
 
@@ -3249,14 +3970,14 @@ pie de página .corazon{
 
 <!-- =====================================================
      PREGUNTA OSITO
-====================================================== -->
+===================================================== -->
 
 <div
-    clase="pregunta-osito"
+    class="pregunta-osito"
     id="preguntaOsito">
 
 
-    <div class="pregunta-osito-caja">
+    <div class="pregunta-osito-box">
 
 
         <div style="font-size:3rem;">
@@ -3277,7 +3998,7 @@ pie de página .corazon{
 
 
         <div
-            clase="opciones"
+            class="opciones"
             id="opcionesOsito">
         </div>
 
@@ -3298,24 +4019,24 @@ pie de página .corazon{
 
 /* =====================================================
    CANCIONES GENERALES
-====================================================== */
+===================================================== */
 
 const canciones = [
 
     {
-        título:"Canción de prueba 1",
+        titulo:"Canción de prueba 1",
         artista:"Pon aquí tu canción",
         archivo:""
     },
 
     {
-        título:"Canción de prueba 2",
+        titulo:"Canción de prueba 2",
         artista:"Nuestro rincón",
         archivo:""
     },
 
     {
-        título:"Canción de prueba 3",
+        titulo:"Canción de prueba 3",
         artista:"Para nosotros",
         archivo:""
     }
@@ -3325,7 +4046,7 @@ const canciones = [
 
 /* =====================================================
    RECUERDOS
-====================================================== */
+===================================================== */
 
 const recuerdos = {
 
@@ -3348,7 +4069,7 @@ const recuerdos = {
     ],
 
 
-    tonterías:[
+    tonterias:[
 
         {
             imagen:"",
@@ -3378,7 +4099,7 @@ const recuerdos = {
             imagen:"",
             emoji:"🐻",
             texto:
-                "Este tendrá una historia especial".
+                "Este tendrá una historia especial."
         }
 
     ]
@@ -3388,7 +4109,7 @@ const recuerdos = {
 
 /* =====================================================
    RECURSOS POR SENTIMIENTO
-====================================================== */
+===================================================== */
 
 const recursosEstado = {
 
@@ -3405,7 +4126,7 @@ const recursosEstado = {
 
             <p>
                 Qué bueno que hoy estás feliz.
-                Guarda ese momento, disfrútalo y no.
+                Guarda ese momento, disfrútalo y no
                 busques una razón para que dure menos.
             </p>
             `,
@@ -3432,8 +4153,8 @@ const recursosEstado = {
             <br>
 
             <p>
-                Disfruta lo que estás haciendo
-                que este día se siente diferente.
+                Disfruta lo que esté haciendo
+                que este día se sienta diferente.
             </p>
             `
 
@@ -3577,7 +4298,7 @@ const recursosEstado = {
 
             `
             <h3>
-                Se declara oficialmente día de mentalar madres 😤
+                Se declara oficialmente día de mentar madres 😤
             </h3>
 
             <br>
@@ -3682,7 +4403,7 @@ const recursosEstado = {
             <br>
 
             <p>
-                Este parece un trabajo para las misiones.
+                Este parece un trabajo para las misiones
                 de los ositos.
             </p>
             `
@@ -3747,7 +4468,7 @@ const recursosEstado = {
             <br>
 
             <p>
-                A veces pienso demasiado solamente
+                A veces pensar demasiado solamente
                 necesita una pausa.
             </p>
             `,
@@ -3936,7 +4657,7 @@ const recursosEstado = {
 
         canciones:[
 
-            "🎵 Algo que te ayudará a bajar un poco el ruido.",
+            "🎵 Algo que te ayude a bajar un poco el ruido.",
 
             "🎵 Música tranquila para respirar.",
 
@@ -3948,7 +4669,7 @@ const recursosEstado = {
 
             "📸 Una memoria para respirar.",
 
-            "📸 Un recuerdo que te recuerda que las cosas cambian.",
+            "📸 Un recuerdo que te recuerde que las cosas cambian.",
 
             "📸 Una foto de un momento en que todo estaba bien."
 
@@ -3969,7 +4690,7 @@ const recursosEstado = {
             <br>
 
             <p>
-                Si necesitas hablar, distraerte, llorar.
+                Si necesitas hablar, distraerte, llorar
                 o simplemente tener compañía,
                 este espacio es para eso.
             </p>
@@ -4042,25 +4763,25 @@ const recursosEstado = {
 
 /* =====================================================
    CONTROL DE REPETICIONES DE SENTIMIENTOS
-====================================================== */
+===================================================== */
 
 let recursosUsadosEstado = {};
 
 
 /* =====================================================
    OBTENER RECURSO SIN REPETIR
-====================================================== */
+===================================================== */
 
-función obtenerAleatorioSinRepetir(
+function obtenerAleatorioSinRepetir(
 
     arreglo,
     clave
 
 ){
 
-    si(
+    if(
         !recursosUsadosEstado[clave] ||
-        recursosUsadosEstado[clave].longitud >= arreglo.longitud
+        recursosUsadosEstado[clave].length >= arreglo.length
     ){
 
         recursosUsadosEstado[clave]=[];
@@ -4068,39 +4789,39 @@ función obtenerAleatorioSinRepetir(
     }
 
 
-    sea ​​el índice;
+    let indice;
 
 
-    hacer{
+    do{
 
-        índice=
-            Matemáticas.piso(
-                Matemáticas.random()*arreglo.length
+        indice=
+            Math.floor(
+                Math.random()*arreglo.length
             );
 
-    }mientras(
+    }while(
         recursosUsadosEstado[clave].includes(indice) &&
-        recursosUsadosEstado[clave].longitud < arreglo.longitud
+        recursosUsadosEstado[clave].length < arreglo.length
     );
 
 
     recursosUsadosEstado[clave].push(indice);
 
-    devolver arreglo[índice];
+    return arreglo[indice];
 
 }
 
 
 /* =====================================================
    COMO ESTAS
-====================================================== */
+===================================================== */
 
-función mostrarEstado(tipo){
+function mostrarEstado(tipo){
 
     const datos=
         recursosEstado[tipo];
 
-    si(!datos) regresar;
+    if(!datos) return;
 
 
     const mensaje=
@@ -4110,14 +4831,14 @@ función mostrarEstado(tipo){
         );
 
 
-    const cupón=
+    const cupon=
         obtenerAleatorioSinRepetir(
             datos.cupones,
-            tipo+"_cupón"
+            tipo+"_cupon"
         );
 
 
-    const música=
+    const musica=
         obtenerAleatorioSinRepetir(
             datos.canciones,
             tipo+"_musica"
@@ -4131,38 +4852,38 @@ función mostrarEstado(tipo){
         );
 
 
-    documento.getElementById(
+    document.getElementById(
         "mensajeEstado"
     ).innerHTML=mensaje;
 
 
-    documento.getElementById(
+    document.getElementById(
         "mensajeEstado"
     ).style.display="block";
 
 
-    documento.getElementById(
+    document.getElementById(
         "cuponEstado"
-    ).innerHTML=cupón;
+    ).innerHTML=cupon;
 
 
-    documento.getElementById(
-        "músicaEstado"
-    ).innerHTML=música;
+    document.getElementById(
+        "musicaEstado"
+    ).innerHTML=musica;
 
 
-    documento.getElementById(
+    document.getElementById(
         "fotoEstado"
     ).innerHTML=foto;
 
 
-    documento.getElementById(
+    document.getElementById(
         "mensajeEstado"
     ).scrollIntoView({
 
-        comportamiento: "suave",
+        behavior:"smooth",
 
-        bloque:"centro"
+        block:"center"
 
     });
 
@@ -4170,45 +4891,45 @@ función mostrarEstado(tipo){
 
 
 /* =====================================================
-   NAVEGACIÓN
-====================================================== */
+   NAVEGACION
+===================================================== */
 
-función entrar(){
+function entrar(){
 
-    documento.getElementById(
+    document.getElementById(
         "inicio"
     ).style.display="none";
 
 
-    documento.getElementById(
+    document.getElementById(
         "contenido"
     ).style.display="block";
 
 
-    ventana.desplazarseHasta({
+    window.scrollTo({
 
-        superior:0,
+        top:0,
 
-        comportamiento: "suave"
+        behavior:"smooth"
 
     });
 
 }
 
 
-función irA(id){
+function irA(id){
 
     const elemento=
-        documento.getElementById(id);
+        document.getElementById(id);
 
 
-    si(elemento){
+    if(elemento){
 
         elemento.scrollIntoView({
 
-            comportamiento: "suave",
+            behavior:"smooth",
 
-            bloque:"inicio"
+            block:"start"
 
         });
 
@@ -4219,13 +4940,13 @@ función irA(id){
 
 /* =====================================================
    REPRODUCTOR
-====================================================== */
+===================================================== */
 
-let canciónActual=0;
+let cancionActual=0;
 
 const audio=
-    documento.getElementById(
-        "Reproductor de audio"
+    document.getElementById(
+        "audioPlayer"
     );
 
 
@@ -4234,31 +4955,31 @@ function cargarCancion(indice){
     if(!canciones[indice]) return;
 
 
-    canciónActual=índice;
+    cancionActual=indice;
 
 
-    const canción=
-        canciones[índice];
+    const cancion=
+        canciones[indice];
 
 
-    documento.getElementById(
+    document.getElementById(
         "cancionTitulo"
     ).textContent=
-        canción.título;
+        cancion.titulo;
 
 
-    documento.getElementById(
+    document.getElementById(
         "cancionArtista"
     ).textContent=
-        canción.artista;
+        cancion.artista;
 
 
-    si(cancion.archivo){
+    if(cancion.archivo){
 
         audio.src=
-            canción.archivo;
+            cancion.archivo;
 
-    }demás{
+    }else{
 
         audio.removeAttribute(
             "src"
@@ -4267,14 +4988,14 @@ function cargarCancion(indice){
     }
 
 
-    documento
+    document
         .querySelectorAll(".cancion")
         .forEach(
             (el,i)=>{
 
                 el.classList.toggle(
                     "activa",
-                    i===índice
+                    i===indice
                 );
 
             }
@@ -4283,10 +5004,10 @@ function cargarCancion(indice){
 }
 
 
-función construirListaMusica(){
+function construirListaMusica(){
 
     const lista=
-        documento.getElementById(
+        document.getElementById(
             "listaMusica"
         );
 
@@ -4295,17 +5016,17 @@ función construirListaMusica(){
 
 
     canciones.forEach(
-        (canción,i)=>{
+        (cancion,i)=>{
 
 
             const elemento=
-                documento.crearElemento(
+                document.createElement(
                     "div"
                 );
 
 
             elemento.className=
-                "canción";
+                "cancion";
 
 
             elemento.innerHTML=`
@@ -4330,10 +5051,10 @@ función construirListaMusica(){
 
                 if(canciones[i].archivo){
 
-                    audio.reproducir();
+                    audio.play();
 
-                    documento.getElementById(
-                        "Botón de reproducción"
+                    document.getElementById(
+                        "playButton"
                     ).textContent="⏸";
 
                 }
@@ -4351,33 +5072,33 @@ función construirListaMusica(){
 }
 
 
-función alternar reproducción(){
+function togglePlay(){
 
-    si(!audio.src){
+    if(!audio.src){
 
-        alerta(
-            "Esta canción todavía no tiene archivo".
+        alert(
+            "Esta canción todavía no tiene archivo."
         );
 
-        devolver;
+        return;
 
     }
 
 
-    si(audio.pausado){
+    if(audio.paused){
 
-        audio.reproducir();
+        audio.play();
 
-        documento.getElementById(
-            "Botón de reproducción"
+        document.getElementById(
+            "playButton"
         ).textContent="⏸";
 
-    }demás{
+    }else{
 
         audio.pause();
 
-        documento.getElementById(
-            "Botón de reproducción"
+        document.getElementById(
+            "playButton"
         ).textContent="▶";
 
     }
@@ -4385,52 +5106,52 @@ función alternar reproducción(){
 }
 
 
-función canciónSiguiente(){
+function cancionSiguiente(){
 
-    canciónActual=
+    cancionActual=
         (cancionActual+1)
         % canciones.length;
 
 
     cargarCancion(
-        canciónActual
+        cancionActual
     );
 
 }
 
 
-función canciónAnterior(){
+function cancionAnterior(){
 
-    canciónActual=
+    cancionActual=
         (
-            canciónActual-1+
-            canciones.longitud
+            cancionActual-1+
+            canciones.length
         )
         %
-        canciones.longitud;
+        canciones.length;
 
 
     cargarCancion(
-        canciónActual
+        cancionActual
     );
 
 }
 
 
-función cancionAleatoria(){
+function cancionAleatoria(){
 
-    deja nueva;
+    let nueva;
 
 
-    hacer{
+    do{
 
         nueva=
-            Matemáticas.piso(
-                Matemáticas.aleatorio()*
-                canciones.longitud
+            Math.floor(
+                Math.random()*
+                canciones.length
             );
 
-    }mientras(
+    }while(
         nueva===cancionActual &&
         canciones.length>1
     );
@@ -4444,10 +5165,10 @@ función cancionAleatoria(){
 
 
 audio.addEventListener(
-    "terminó",
+    "ended",
     ()=>{
 
-        canciónSiguiente();
+        cancionSiguiente();
 
     }
 );
@@ -4455,21 +5176,21 @@ audio.addEventListener(
 
 /* =====================================================
    RECUERDOS
-====================================================== */
+===================================================== */
 
 let categoriaRecuerdo=
     "salidas";
 
 
-sea ​​fotoActual=0;
+let fotoActual=0;
 
 
-función cargarRecuerdo(
-    categorías
+function cargarRecuerdo(
+    categoria
 ){
 
     categoriaRecuerdo=
-        categorías;
+        categoria;
 
 
     fotoActual=0;
@@ -4480,7 +5201,7 @@ función cargarRecuerdo(
 }
 
 
-función mostrarFoto(){
+function mostrarFoto(){
 
     const lista=
         recuerdos[
@@ -4488,10 +5209,10 @@ función mostrarFoto(){
         ];
 
 
-    si(
+    if(
         !lista ||
-        !lista.longitud
-    ) devolver;
+        !lista.length
+    ) return;
 
 
     const foto=
@@ -4499,12 +5220,12 @@ función mostrarFoto(){
 
 
     const contenedor=
-        documento.getElementById(
+        document.getElementById(
             "fotoPrincipal"
         );
 
 
-    si(foto.imagen){
+    if(foto.imagen){
 
         contenedor.innerHTML=`
 
@@ -4515,7 +5236,7 @@ función mostrarFoto(){
 
         `;
 
-    }demás{
+    }else{
 
         contenedor.innerHTML=`
 
@@ -4528,7 +5249,7 @@ función mostrarFoto(){
     }
 
 
-    documento.getElementById(
+    document.getElementById(
         "leyendaFoto"
     ).textContent=
         foto.texto;
@@ -4536,7 +5257,7 @@ función mostrarFoto(){
 }
 
 
-función fotoSiguiente(){
+function fotoSiguiente(){
 
     const lista=
         recuerdos[
@@ -4549,7 +5270,7 @@ función fotoSiguiente(){
             fotoActual+1
         )
         %
-        lista.longitud;
+        lista.length;
 
 
     mostrarFoto();
@@ -4557,7 +5278,7 @@ función fotoSiguiente(){
 }
 
 
-función fotoAnterior(){
+function fotoAnterior(){
 
     const lista=
         recuerdos[
@@ -4568,10 +5289,10 @@ función fotoAnterior(){
     fotoActual=
         (
             fotoActual-1+
-            lista.longitud
+            lista.length
         )
         %
-        lista.longitud;
+        lista.length;
 
 
     mostrarFoto();
@@ -4579,24 +5300,24 @@ función fotoAnterior(){
 }
 
 
-función crearFotoFlotante(){
+function crearFotoFlotante(){
 
-    const imágenes=[];
+    const imagenes=[];
 
 
-    Objeto.valores(
+    Object.values(
         recuerdos
-    ).paraCada(
-        categoría=>{
+    ).forEach(
+        categoria=>{
 
             categoria.forEach(
                 recuerdo=>{
 
-                    si(
+                    if(
                         recuerdo.imagen
                     ){
 
-                        imágenes.push(
+                        imagenes.push(
                             recuerdo.imagen
                         );
 
@@ -4609,20 +5330,20 @@ función crearFotoFlotante(){
     );
 
 
-    Si (!imagenes.length) regresar;
+    if(!imagenes.length) return;
 
 
     const foto=
-        documento.crearElemento(
-            "imagen"
+        document.createElement(
+            "img"
         );
 
 
     foto.src=
-        imágenes[
-            Matemáticas.piso(
-                Matemáticas.aleatorio()*
-                imágenes.longitud
+        imagenes[
+            Math.floor(
+                Math.random()*
+                imagenes.length
             )
         ];
 
@@ -4633,25 +5354,25 @@ función crearFotoFlotante(){
 
     foto.style.left=
         (
-            Matemáticas.aleatorio()*70+10
+            Math.random()*70+10
         )+"%";
 
 
     foto.style.top=
         (
-            Matemáticas.aleatorio()*65+15
+            Math.random()*65+15
         )+"%";
 
 
-    documento.cuerpo.añadirHijo(
+    document.body.appendChild(
         foto
     );
 
 
-    establecerTiempoDeEspera(
+    setTimeout(
         ()=>{
 
-            foto.eliminar();
+            foto.remove();
 
         },
         9000
@@ -4663,26 +5384,26 @@ función crearFotoFlotante(){
 /* =====================================================
    RECUERDO AL AZAR
    SOLAMENTE FOTOS
-====================================================== */
+===================================================== */
 
-función recuerdoAzar(){
+function recuerdoAzar(){
 
-    const imágenes=[];
+    const imagenes=[];
 
 
-    Objeto.entradas(
+    Object.entries(
         recuerdos
-    ).paraCada(
-        ([categoría,lista])=>{
+    ).forEach(
+        ([categoria,lista])=>{
 
             lista.forEach(
                 recuerdo=>{
 
-                    si(
+                    if(
                         recuerdo.imagen
                     ){
 
-                        imágenes.push(
+                        imagenes.push(
                             recuerdo
                         );
 
@@ -4696,12 +5417,12 @@ función recuerdoAzar(){
 
 
     const resultado=
-        documento.getElementById(
+        document.getElementById(
             "azarResultado"
         );
 
 
-    si(!imagenes.length){
+    if(!imagenes.length){
 
         resultado.innerHTML=`
 
@@ -4715,16 +5436,16 @@ función recuerdoAzar(){
 
         `;
 
-        devolver;
+        return;
 
     }
 
 
     const foto=
-        imágenes[
-            Matemáticas.piso(
-                Matemáticas.aleatorio()*
-                imágenes.longitud
+        imagenes[
+            Math.floor(
+                Math.random()*
+                imagenes.length
             )
         ];
 
@@ -4734,12 +5455,12 @@ función recuerdoAzar(){
         <img
             src="${foto.imagen}"
             alt="Recuerdo al azar"
-            estilo="
-                ancho:100%;
-                altura máxima: 400px;
-                ajuste-objeto:cubrir;
-                radio de borde: 18px;
-                margen superior: 15px;
+            style="
+                width:100%;
+                max-height:400px;
+                object-fit:cover;
+                border-radius:18px;
+                margin-top:15px;
             "
         >
 
@@ -4757,12 +5478,12 @@ función recuerdoAzar(){
 
 /* =====================================================
    PARA CUANDO LO NECESITES
-====================================================== */
+===================================================== */
 
-function mostrar Necesita(tipo){
+function mostrarNecesitas(tipo){
 
     const caja=
-        documento.getElementById(
+        document.getElementById(
             "necesitasMensaje"
         );
 
@@ -4822,7 +5543,7 @@ function mostrar Necesita(tipo){
                 No tienes que ser fuerte todo el tiempo.
 
                 También está bien necesitar que alguien
-                Te recuerda que puedes seguir.
+                te recuerde que puedes seguir.
 
             </p>
 
@@ -4859,7 +5580,7 @@ function mostrar Necesita(tipo){
             <p>
 
                 Este botón queda preparado para que
-                posteriormente podremos convertirlo
+                posteriormente podamos convertirlo
                 en una petición de llamada real.
 
             </p>
@@ -4870,7 +5591,7 @@ function mostrar Necesita(tipo){
         abrazo:`
 
             <h3>
-                🐻 Ven aquí.
+                🐻 Ven acá.
             </h3>
 
             <br>
@@ -4895,14 +5616,14 @@ function mostrar Necesita(tipo){
 
 
     caja.style.display=
-        "bloquear";
+        "block";
 
 
     caja.scrollIntoView({
 
-        comportamiento: "suave",
+        behavior:"smooth",
 
-        bloque:"centro"
+        block:"center"
 
     });
 
@@ -4911,12 +5632,12 @@ function mostrar Necesita(tipo){
 
 /* =====================================================
    BANCOS DE PREGUNTAS
-====================================================== */
+===================================================== */
 
 /*
    Cada carpeta tiene su propio banco.
 
-   De cada banco se elige solamente 4 preguntas
+   De cada banco se eligen solamente 4 preguntas
    diferentes cada vez.
 
    Si falla una:
@@ -4935,7 +5656,7 @@ const bancos={
             [
                 "Kosako de uva",
                 "Agua",
-                "Cafetería",
+                "Café",
                 "Té"
             ]
         ],
@@ -5038,7 +5759,7 @@ const bancos={
         [
             "¿Qué se encuentra en los archivos prohibidos?",
             [
-                "Historias comprometidas",
+                "Historias comprometedoras",
                 "Tareas",
                 "Recetas",
                 "Horarios"
@@ -5051,7 +5772,7 @@ const bancos={
                 "Abrirlo bajo su propio riesgo",
                 "Llamar a la policía",
                 "Borrarlo",
-                "Ignóralo"
+                "Ignorarlo"
             ]
         ],
 
@@ -5069,7 +5790,7 @@ const bancos={
             "¿Qué tan confiables son los expedientes prohibidos?",
             [
                 "Nada confiables",
-                "100% científico",
+                "100% científicos",
                 "Oficiales",
                 "Académicos"
             ]
@@ -5233,7 +5954,7 @@ const bancos={
         [
             "¿Qué significa confidencial?",
             [
-                "Solo para quienes corresponden",
+                "Solo para quienes corresponda",
                 "Público",
                 "Abierto",
                 "Temporal"
@@ -5247,7 +5968,7 @@ const bancos={
 
 /* =====================================================
    HISTORIAS DE EXPEDIENTES
-====================================================== */
+===================================================== */
 
 const historiasExpedientes={
 
@@ -5280,7 +6001,7 @@ const historiasExpedientes={
 
         "Expediente prohibido 04: Clasificación especial. Aquí se guardará una de nuestras mayores tonterías.",
 
-        "Expediente prohibido 05: Archivo recuperado. Su contenido será revelado en una futura actualización.",
+        "Expediente prohibido 05: Archivo recuperado. Su contenido será revelado en una actualización futura.",
 
         "Expediente prohibido 06: Seis expedientes y seguimos vivos. Eso ya dice bastante.",
 
@@ -5303,7 +6024,7 @@ const historiasExpedientes={
 
         "Expediente confidencial 06: Este expediente guarda espacio para otra parte importante de nuestra historia.",
 
-        "Expediente confidencial 07: Último nivel confidencial. Hay cosas que no necesitan estar a la vista para ser importantes".
+        "Expediente confidencial 07: Último nivel confidencial. Hay cosas que no necesitan estar a la vista para ser importantes."
 
     ]
 
@@ -5312,28 +6033,28 @@ const historiasExpedientes={
 
 /* =====================================================
    SISTEMA DE EXPEDIENTES
-====================================================== */
+===================================================== */
 
 let carpetaActual="";
 
-sea ​​expedienteActual=0;
+let expedienteActual=0;
 
 let preguntasActuales=[];
 
 let preguntaActual=0;
 
-sea ​​correctas=0;
+let correctas=0;
 
-sea ​​incorrectas=0;
+let incorrectas=0;
 
 
 /* =====================================================
    PROGRESO
-====================================================== */
+===================================================== */
 
-función obtenerProgreso(){
+function obtenerProgreso(){
 
-    devolver JSON.parse(
+    return JSON.parse(
 
         localStorage.getItem(
             "progresoOsitosExpedientes"
@@ -5346,13 +6067,13 @@ función obtenerProgreso(){
 }
 
 
-función guardarProgreso(datos){
+function guardarProgreso(data){
 
     localStorage.setItem(
 
         "progresoOsitosExpedientes",
 
-        JSON.stringify(datos)
+        JSON.stringify(data)
 
     );
 
@@ -5361,9 +6082,9 @@ función guardarProgreso(datos){
 
 /* =====================================================
    ABRIR CARPETA
-====================================================== */
+===================================================== */
 
-función abrirCarpeta(
+function abrirCarpeta(
     carpeta
 ){
 
@@ -5372,27 +6093,27 @@ función abrirCarpeta(
 
 
     const contenedor=
-        documento.getElementById(
+        document.getElementById(
             "expedientes"
         );
 
 
     contenedor.style.display=
-        "bloquear";
+        "block";
 
 
-    documento.getElementById(
+    document.getElementById(
         "tituloCarpeta"
     ).textContent=
 
         carpeta==="legal"
-        ¿
+        ?
         "⚖️ Archivos legales"
 
         :
 
         carpeta==="prohibido"
-        ¿
+        ?
         "🚫 Archivos prohibidos"
 
         :
@@ -5403,23 +6124,23 @@ función abrirCarpeta(
     construirExpedientes();
 
 
-    documento.getElementById(
+    document.getElementById(
         "preguntaBox"
     ).style.display=
-        "ninguno";
+        "none";
 
 
-    documento.getElementById(
+    document.getElementById(
         "historiaExpediente"
     ).style.display=
-        "ninguno";
+        "none";
 
 
     contenedor.scrollIntoView({
 
-        comportamiento: "suave",
+        behavior:"smooth",
 
-        bloque:"centro"
+        block:"center"
 
     });
 
@@ -5428,17 +6149,17 @@ función abrirCarpeta(
 
 /* =====================================================
    CONSTRUIR EXPEDIENTES
-====================================================== */
+===================================================== */
 
-función construirExpedientes(){
+function construirExpedientes(){
 
     const grid=
-        documento.getElementById(
+        document.getElementById(
             "expedienteGrid"
         );
 
 
-    cuadrícula.innerHTML="";
+    grid.innerHTML="";
 
 
     const total=7;
@@ -5452,36 +6173,36 @@ función construirExpedientes(){
         carpetaActual;
 
 
-    si(!progreso[clave]){
+    if(!progreso[clave]){
 
         progreso[clave]={};
 
     }
 
 
-    para(
-        sea ​​i=1;
+    for(
+        let i=1;
         i<=total;
-        yo++
+        i++
     ){
 
-        const bloqueado=
+        const desbloqueado=
 
             i===1
 
             ||
 
             progreso[clave][i-1]
-            ?.aprobado===verdadero;
+            ?.aprobado===true;
 
 
         const aprobado=
             progreso[clave][i]
-            ?.aprobado===verdadero;
+            ?.aprobado===true;
 
 
         const elemento=
-            documento.crearElemento(
+            document.createElement(
                 "div"
             );
 
@@ -5490,21 +6211,21 @@ función construirExpedientes(){
             "expediente "+
             (
                 !desbloqueado
-                ¿
+                ?
                 "bloqueado"
                 :
                 aprobado
-                ¿
+                ?
                 "aprobado"
                 :
                 ""
             );
 
 
-        que estado;
+        let estado;
 
 
-        si(aprobado){
+        if(aprobado){
 
             estado=
                 "✅ Aprobado<br><small>Ver expediente</small>";
@@ -5514,7 +6235,7 @@ función construirExpedientes(){
             estado=
                 "🔓 Disponible<br><small>Abrir expediente</small>";
 
-        }demás{
+        }else{
 
             estado=
                 "🔒 Bloqueado";
@@ -5540,7 +6261,7 @@ función construirExpedientes(){
         `;
 
 
-        si(desbloqueado){
+        if(desbloqueado){
 
             elemento.onclick=()=>{
 
@@ -5551,7 +6272,7 @@ función construirExpedientes(){
         }
 
 
-        cuadrícula.appendChild(
+        grid.appendChild(
             elemento
         );
 
@@ -5560,14 +6281,14 @@ función construirExpedientes(){
 
     const aprobados=
 
-        Objeto.valores(
+        Object.values(
             progreso[clave]
-        ).filtrar(
+        ).filter(
             x=>x.aprobado
-        ).longitud;
+        ).length;
 
 
-    documento.getElementById(
+    document.getElementById(
         "progresoExpedientes"
     ).innerHTML=
 
@@ -5582,17 +6303,17 @@ función construirExpedientes(){
 
 /* =====================================================
    MEZCLAR PREGUNTAS
-====================================================== */
+===================================================== */
 
-función mezclarPreguntas(
+function mezclarPreguntas(
     lista
 ){
 
-    devolver [
+    return [
 
         ...lista
 
-    ].clasificar(
+    ].sort(
         ()=>Math.random()-.5
     );
 
@@ -5601,10 +6322,10 @@ función mezclarPreguntas(
 
 /* =====================================================
    ABRIR EXPEDIENTE
-====================================================== */
+===================================================== */
 
-función abrirExpediente(
-    número
+function abrirExpediente(
+    numero
 ){
 
     const banco=
@@ -5613,13 +6334,13 @@ función abrirExpediente(
         [];
 
 
-    si(!banco.length){
+    if(!banco.length){
 
-        alerta(
+        alert(
             "Este archivo todavía está en construcción 🐻"
         );
 
-        devolver;
+        return;
 
     }
 
@@ -5628,30 +6349,30 @@ función abrirExpediente(
         obtenerProgreso();
 
 
-    const bloqueado=
+    const desbloqueado=
 
-        número===1
+        numero===1
 
         ||
 
         progreso[carpetaActual]
-        ?.[número-1]
-        ?.aprobado===verdadero;
+        ?.[numero-1]
+        ?.aprobado===true;
 
 
-    si(!desbloqueado){
+    if(!desbloqueado){
 
-        alerta(
+        alert(
             "Este expediente todavía está bloqueado 🔒"
         );
 
-        devolver;
+        return;
 
     }
 
 
-    ExpedienteActual=
-        número;
+    expedienteActual=
+        numero;
 
 
     /*
@@ -5662,7 +6383,7 @@ función abrirExpediente(
     preguntasActuales=
         mezclarPreguntas(
             banco
-        ).rebanada(
+        ).slice(
             0,
             4
         );
@@ -5675,44 +6396,44 @@ función abrirExpediente(
     incorrectas=0;
 
 
-    documento.getElementById(
+    document.getElementById(
         "preguntaBox"
     ).style.display=
-        "bloquear";
+        "block";
 
 
-    documento.getElementById(
+    document.getElementById(
         "historiaExpediente"
     ).style.display=
-        "bloquear";
+        "block";
 
 
-    documento.getElementById(
+    document.getElementById(
         "tituloHistoriaExpediente"
     ).textContent=
 
-        `📖 Historia del expediente ${String(numero).padStart(2,"0")}`;
+        `📖 Historia del Expediente ${String(numero).padStart(2,"0")}`;
 
 
-    documento.getElementById(
+    document.getElementById(
         "textoHistoriaExpediente"
     ).textContent=
 
         historiasExpedientes[
             carpetaActual
-        ][número-1];
+        ][numero-1];
 
 
     mostrarPregunta();
 
 
-    documento.getElementById(
+    document.getElementById(
         "preguntaBox"
     ).scrollIntoView({
 
-        comportamiento: "suave",
+        behavior:"smooth",
 
-        bloque:"centro"
+        block:"center"
 
     });
 
@@ -5721,18 +6442,18 @@ función abrirExpediente(
 
 /* =====================================================
    MOSTRAR PREGUNTA
-====================================================== */
+===================================================== */
 
-función mostrarPregunta(){
+function mostrarPregunta(){
 
-    si(
+    if(
         preguntaActual>=
         preguntasActuales.length
     ){
 
         terminarExpediente();
 
-        devolver;
+        return;
 
     }
 
@@ -5743,24 +6464,24 @@ función mostrarPregunta(){
         ];
 
 
-    documento.getElementById(
+    document.getElementById(
         "numeroPregunta"
     ).textContent=
 
         `Pregunta
         ${preguntaActual+1}
-        Delaware
+        de
         ${preguntasActuales.length}`;
 
 
-    documento.getElementById(
+    document.getElementById(
         "textoPregunta"
     ).textContent=
         pregunta[0];
 
 
     const opciones=
-        documento.getElementById(
+        document.getElementById(
             "opcionesPregunta"
         );
 
@@ -5772,23 +6493,23 @@ función mostrarPregunta(){
         (respuesta,i)=>{
 
 
-            const botón=
-                documento.crearElemento(
-                    "botón"
+            const boton=
+                document.createElement(
+                    "button"
                 );
 
 
-            botón.className=
-                "opción";
+            boton.className=
+                "opcion";
 
 
-            botón.textoContenido=
+            boton.textContent=
 
                 `${String.fromCharCode(65+i)})
                 ${respuesta}`;
 
 
-            botón.onclick=()=>{
+            boton.onclick=()=>{
 
                 responderExpediente(
                     i
@@ -5798,31 +6519,31 @@ función mostrarPregunta(){
 
 
             opciones.appendChild(
-                botón
+                boton
             );
 
         }
     );
 
 
-    documento.getElementById(
+    document.getElementById(
         "resultadoTest"
     ).style.display=
-        "ninguno";
+        "none";
 
 }
 
 
 /* =====================================================
    RESPONDER EXPEDIENTE
-====================================================== */
+===================================================== */
 
-función responderExpediente(
-    índice
+function responderExpediente(
+    indice
 ){
 
     const resultado=
-        documento.getElementById(
+        document.getElementById(
             "resultadoTest"
         );
 
@@ -5837,7 +6558,7 @@ función responderExpediente(
     */
 
 
-    si(índice===0){
+    if(indice===0){
 
         correctas++;
 
@@ -5847,7 +6568,7 @@ función responderExpediente(
             "✅ Correcta. Continúa el expediente.";
 
         resultado.style.display=
-            "bloquear";
+            "block";
 
 
         setTimeout(()=>{
@@ -5859,7 +6580,7 @@ función responderExpediente(
         },700);
 
 
-    }demás{
+    }else{
 
         incorrectas++;
 
@@ -5890,7 +6611,7 @@ función responderExpediente(
 
 
         resultado.style.display=
-            "bloquear";
+            "block";
 
 
         /*
@@ -5906,7 +6627,7 @@ función responderExpediente(
             preguntasActuales=
                 mezclarPreguntas(
                     bancos[carpetaActual]
-                ).rebanada(
+                ).slice(
                     0,
                     4
                 );
@@ -5929,13 +6650,13 @@ función responderExpediente(
 
 /* =====================================================
    TERMINAR EXPEDIENTE
-====================================================== */
+===================================================== */
 
-función terminarExpediente(){
+function terminarExpediente(){
 
-    porcentaje constante=
+    const porcentaje=
 
-        Matemáticas.redondo(
+        Math.round(
 
             (
                 correctas/
@@ -5947,24 +6668,24 @@ función terminarExpediente(){
 
 
     const resultado=
-        documento.getElementById(
+        document.getElementById(
             "resultadoTest"
         );
 
 
     resultado.style.display=
-        "bloquear";
+        "block";
 
 
-    si(
-        %===100
+    if(
+        porcentaje===100
     ){
 
         const progreso=
             obtenerProgreso();
 
 
-        si(
+        if(
             !progreso[
                 carpetaActual
             ]
@@ -5980,10 +6701,10 @@ función terminarExpediente(){
         progreso[
             carpetaActual
         ][
-            ExpedienteActual
+            expedienteActual
         ]={
 
-            aprobado:verdadero,
+            aprobado:true,
 
             correctas,
 
@@ -6039,7 +6760,7 @@ función terminarExpediente(){
         construirExpedientes();
 
 
-    }demás{
+    }else{
 
         resultado.innerHTML=
 
@@ -6067,17 +6788,17 @@ función terminarExpediente(){
 
 /* =====================================================
    MISIONES
-====================================================== */
+===================================================== */
 
 const misiones={
 
 
-    día:[
+    dia:[
 
         {
             texto:
                 "😂 Busca un video que te haga reír muchísimo.",
-            categorías:
+            categoria:
                 "Risa",
             video:"",
             recompensa:
@@ -6087,7 +6808,7 @@ const misiones={
         {
             texto:
                 "🍳 Busca una receta que nunca hayas preparado.",
-            categorías:
+            categoria:
                 "Cocina",
             video:"",
             recompensa:
@@ -6097,7 +6818,7 @@ const misiones={
         {
             texto:
                 "🎨 Aprende una habilidad inútil pero divertida.",
-            categorías:
+            categoria:
                 "Habilidad",
             video:"",
             recompensa:
@@ -6107,8 +6828,8 @@ const misiones={
         {
             texto:
                 "🎮 Juega algo que hace mucho no juegas.",
-            categorías:
-                "Desviación",
+            categoria:
+                "Diversión",
             video:"",
             recompensa:
                 "🎟️ Cupón de una tarde sin obligaciones."
@@ -6117,7 +6838,7 @@ const misiones={
         {
             texto:
                 "🎵 Escucha una canción que no conozcas.",
-            categorías:
+            categoria:
                 "Música",
             video:"",
             recompensa:
@@ -6127,7 +6848,7 @@ const misiones={
         {
             texto:
                 "📸 Tómate una foto haciendo algo completamente normal.",
-            categorías:
+            categoria:
                 "Recuerdo",
             video:"",
             recompensa:
@@ -6137,7 +6858,7 @@ const misiones={
         {
             texto:
                 "🖊️ Aprende a hacer un truco nuevo con un lapicero.",
-            categorías:
+            categoria:
                 "Habilidad",
             video:"",
             recompensa:
@@ -6147,7 +6868,7 @@ const misiones={
         {
             texto:
                 "🧠 Aprende un dato extraño que puedas contar después.",
-            categorías:
+            categoria:
                 "Curiosidad",
             video:"",
             recompensa:
@@ -6157,7 +6878,7 @@ const misiones={
         {
             texto:
                 "🩺 Aprende algo interesante relacionado con tu carrera.",
-            categorías:
+            categoria:
                 "Carrera",
             video:"",
             recompensa:
@@ -6167,7 +6888,7 @@ const misiones={
         {
             texto:
                 "🍦 Sal por un helado sin necesitar una razón.",
-            categorías:
+            categoria:
                 "Ositos",
             video:"",
             recompensa:
@@ -6182,17 +6903,17 @@ const misiones={
         {
             texto:
                 "🍳 Cocina algo que nunca hayas preparado.",
-            categorías:
+            categoria:
                 "Cocina",
             video:"",
             recompensa:
-                "🎟️ Cupón para elegir la siguiente comida."
+                "🎟️ Cupón para escoger la siguiente comida."
         },
 
         {
             texto:
                 "😂 Encuentra un video que haga reír a los dos ositos.",
-            categorías:
+            categoria:
                 "Risa",
             video:"",
             recompensa:
@@ -6202,7 +6923,7 @@ const misiones={
         {
             texto:
                 "🎨 Aprende una habilidad completamente nueva.",
-            categorías:
+            categoria:
                 "Habilidad",
             video:"",
             recompensa:
@@ -6212,7 +6933,7 @@ const misiones={
         {
             texto:
                 "🩺 Mira un video corto sobre un tema interesante de tu carrera.",
-            categorías:
+            categoria:
                 "Carrera",
             video:"",
             recompensa:
@@ -6222,8 +6943,8 @@ const misiones={
         {
             texto:
                 "🎮 Juega algo que nunca hayas jugado.",
-            categorías:
-                "Desviación",
+            categoria:
+                "Diversión",
             video:"",
             recompensa:
                 "🎟️ Cupón de tarde gamer."
@@ -6232,7 +6953,7 @@ const misiones={
         {
             texto:
                 "📸 Recupera una foto antigua y recuerda qué estaba pasando ese día.",
-            categorías:
+            categoria:
                 "Recuerdos",
             video:"",
             recompensa:
@@ -6242,7 +6963,7 @@ const misiones={
         {
             texto:
                 "🍦 Sal a comer algo que normalmente no pedirías.",
-            categorías:
+            categoria:
                 "Ositos",
             video:"",
             recompensa:
@@ -6257,7 +6978,7 @@ const misiones={
         {
             texto:
                 "🌱 Haz algo que normalmente no harías.",
-            categorías:
+            categoria:
                 "Experiencia",
             video:"",
             recompensa:
@@ -6267,7 +6988,7 @@ const misiones={
         {
             texto:
                 "🍳 Aprende a preparar una receta completamente nueva.",
-            categorías:
+            categoria:
                 "Cocina",
             video:"",
             recompensa:
@@ -6276,8 +6997,8 @@ const misiones={
 
         {
             texto:
-                "🩺 Aprende algo nuevo que realmente te interesa de tu carrera.",
-            categorías:
+                "🩺 Aprende algo nuevo que realmente te interese de tu carrera.",
+            categoria:
                 "Carrera",
             video:"",
             recompensa:
@@ -6287,7 +7008,7 @@ const misiones={
         {
             texto:
                 "🎨 Aprende una habilidad que puedas conservar durante años.",
-            categorías:
+            categoria:
                 "Habilidad",
             video:"",
             recompensa:
@@ -6297,7 +7018,7 @@ const misiones={
         {
             texto:
                 "📸 Crea un nuevo recuerdo que algún día podamos poner aquí.",
-            categorías:
+            categoria:
                 "Recuerdos",
             video:"",
             recompensa:
@@ -6307,7 +7028,7 @@ const misiones={
         {
             texto:
                 "😂 Busca una actividad que haga reír a los dos ositos.",
-            categorías:
+            categoria:
                 "Risa",
             video:"",
             recompensa:
@@ -6321,7 +7042,7 @@ const misiones={
 
 /* =====================================================
    DATOS DE MISIONES ACTUALES
-====================================================== */
+===================================================== */
 
 let estadoMisiones=
     JSON.parse(
@@ -6345,27 +7066,27 @@ let historialRecompensas=
 
 /* =====================================================
    FECHAS
-====================================================== */
+===================================================== */
 
-función obtenerClavePeriodo(
+function obtenerClavePeriodo(
     tipo
 ){
 
     const ahora=
-        nueva Fecha();
+        new Date();
 
 
-    si(tipo==="dia"){
+    if(tipo==="dia"){
 
-        devolver
+        return
 
         ahora.getFullYear()
         +"-"+
-        Cadena(
+        String(
             ahora.getMonth()+1
         ).padStart(2,"0")
         +"-"+
-        Cadena(
+        String(
             ahora.getDate()
         ).padStart(2,"0");
 
@@ -6375,18 +7096,18 @@ función obtenerClavePeriodo(
     if(tipo==="semana"){
 
         const fecha=
-            nueva Fecha(
+            new Date(
                 ahora
             );
 
 
-        constante dia=
+        const dia=
             fecha.getDay();
 
 
         const diferencia=
             dia===0
-            ¿
+            ?
             6
             :
             dia-1;
@@ -6399,28 +7120,28 @@ función obtenerClavePeriodo(
         );
 
 
-        devolver
+        return
 
         fecha.getFullYear()
         +"-"+
-        Cadena(
+        String(
             fecha.getMonth()+1
         ).padStart(2,"0")
         +"-"+
-        Cadena(
+        String(
             fecha.getDate()
         ).padStart(2,"0");
 
     }
 
 
-    si(tipo==="mes"){
+    if(tipo==="mes"){
 
-        devolver
+        return
 
         ahora.getFullYear()
         +"-"+
-        Cadena(
+        String(
             ahora.getMonth()+1
         ).padStart(2,"0");
 
@@ -6430,10 +7151,10 @@ función obtenerClavePeriodo(
 
 
 /* =====================================================
-   MISIÓN ALEATORIA DE OBTENER
-====================================================== */
+   OBTENER MISION RANDOM
+===================================================== */
 
-función obtenerMisionRandom(
+function obtenerMisionRandom(
     tipo
 ){
 
@@ -6441,18 +7162,18 @@ función obtenerMisionRandom(
         misiones[tipo];
 
 
-    const índice=
-        Matemáticas.piso(
-            Matemáticas.aleatorio()*
-            lista.longitud
+    const indice=
+        Math.floor(
+            Math.random()*
+            lista.length
         );
 
 
-    devolver {
+    return {
 
-        ...lista[índice],
+        ...lista[indice],
 
-        índice
+        indice
 
     };
 
@@ -6460,10 +7181,10 @@ función obtenerMisionRandom(
 
 
 /* =====================================================
-   MISIÓN CARGAR
-====================================================== */
+   CARGAR MISION
+===================================================== */
 
-función cargarMisión(
+function cargarMision(
     tipo,
     forzarNueva=false
 ){
@@ -6474,7 +7195,7 @@ función cargarMisión(
         );
 
 
-    si(
+    if(
         !estadoMisiones[tipo]
     ){
 
@@ -6492,7 +7213,7 @@ función cargarMisión(
        y abrir la página.
     */
 
-    si(
+    if(
         !estadoMisiones[tipo][periodo]
         ||
         forzarNueva
@@ -6511,7 +7232,7 @@ función cargarMisión(
             estado:"pendiente",
 
             creada:
-                nueva Fecha().toISOString()
+                new Date().toISOString()
 
         };
 
@@ -6521,7 +7242,7 @@ función cargarMisión(
     }
 
 
-    mostrarMisión(
+    mostrarMision(
         tipo
     );
 
@@ -6529,10 +7250,10 @@ función cargarMisión(
 
 
 /* =====================================================
-   MISIÓN MOSTRAR
-====================================================== */
+   MOSTRAR MISION
+===================================================== */
 
-función mostrarMisión(
+function mostrarMision(
     tipo
 ){
 
@@ -6542,31 +7263,31 @@ función mostrarMisión(
         );
 
 
-    const misión=
+    const mision=
         estadoMisiones[tipo]
         ?. [periodo];
 
 
-    si(!misión) regresar;
+    if(!mision) return;
 
 
     let textoId="";
 
-    dejar videoId="";
+    let videoId="";
 
     let estadoId="";
 
 
-    si(tipo==="dia"){
+    if(tipo==="dia"){
 
         textoId=
-            "misiónDiaTexto";
+            "misionDiaTexto";
 
         videoId=
-            "misiónDiaVideo";
+            "misionDiaVideo";
 
         estadoId=
-            "misiónDiaEstado";
+            "misionDiaEstado";
 
     }
 
@@ -6574,70 +7295,70 @@ función mostrarMisión(
     if(tipo==="semana"){
 
         textoId=
-            "misiónSemanaTexto";
+            "misionSemanaTexto";
 
         videoId=
-            "misiónSemanaVideo";
+            "misionSemanaVideo";
 
         estadoId=
-            "misiónSemanaEstado";
+            "misionSemanaEstado";
 
     }
 
 
-    si(tipo==="mes"){
+    if(tipo==="mes"){
 
         textoId=
-            "misiónMesTexto";
+            "misionMesTexto";
 
         videoId=
-            "misiónMesVideo";
+            "misionMesVideo";
 
         estadoId=
-            "misiónMesEstado";
+            "misionMesEstado";
 
     }
 
 
-    documento.getElementById(
-        ID de texto
+    document.getElementById(
+        textoId
     ).innerHTML=
 
         `<strong>
-            ${misión.categoría}
+            ${mision.categoria}
         </strong>
         <br><br>
-        ${misión.texto}`;
+        ${mision.texto}`;
 
 
     const video=
-        documento.getElementById(
-            ID de video
+        document.getElementById(
+            videoId
         );
 
 
-    si(misión.video){
+    if(mision.video){
 
         video.style.display=
-            "bloquear";
+            "block";
 
 
         video.innerHTML=
 
             `🎥
             <a
-                href="${misión.video}"
-                objetivo="_blank"
+                href="${mision.video}"
+                target="_blank"
                 rel="noopener">
 
                 Ver video de la misión
 
             </a>`;
 
-    }demás{
+    }else{
 
         video.style.display=
-            "ninguno";
+            "none";
 
         video.innerHTML="";
 
@@ -6645,26 +7366,26 @@ función mostrarMisión(
 
 
     const estado=
-        documento.getElementById(
+        document.getElementById(
             estadoId
         );
 
 
-    si(
-        misión.estado==="completada"
+    if(
+        mision.estado==="completada"
     ){
 
         estado.innerHTML=
             "✅ Misión completada. Recompensa desbloqueada.";
 
-    }else si(
-        misión.estado==="fallida"
+    }else if(
+        mision.estado==="fallida"
     ){
 
         estado.innerHTML=
             "❌ Misión marcada como fallida. Puedes probar nuevamente con otra.";
 
-    }demás{
+    }else{
 
         estado.innerHTML=
             "⏳ Misión pendiente.";
@@ -6675,26 +7396,26 @@ función mostrarMisión(
 
 
 /* =====================================================
-   MISIÓN ALEATORIA
-====================================================== */
+   RANDOMIZAR MISION
+===================================================== */
 
-función randomizarMision(
+function randomizarMision(
     tipo
 ){
 
-    cargarMisión(
+    cargarMision(
         tipo,
-        verdadero
+        true
     );
 
 }
 
 
 /* =====================================================
-   MISIÓN DE MARCAR
-====================================================== */
+   MARCAR MISION
+===================================================== */
 
-función marcarMisión(
+function marcarMision(
     tipo,
     resultado
 ){
@@ -6705,20 +7426,20 @@ función marcarMisión(
         );
 
 
-    si(
+    if(
         !estadoMisiones[tipo]
         ||
         !estadoMisiones[tipo][periodo]
     ){
 
-        cargarMisión(
+        cargarMision(
             tipo
         );
 
     }
 
 
-    const misión=
+    const mision=
         estadoMisiones[tipo][periodo];
 
 
@@ -6727,35 +7448,35 @@ función marcarMisión(
        no damos otra recompensa.
     */
 
-    si(
-        misión.estado==="completada"
+    if(
+        mision.estado==="completada"
     ){
 
-        alerta(
+        alert(
             "Esta misión ya fue completada y su recompensa ya está en el historial 🎁"
         );
 
-        devolver;
+        return;
 
     }
 
 
-    si(
+    if(
         resultado==="completada"
     ){
 
-        misión.estado=
+        mision.estado=
             "completada";
 
 
         agregarRecompensa(
             tipo,
-            misión
+            mision
         );
 
-    }demás{
+    }else{
 
-        misión.estado=
+        mision.estado=
             "fallida";
 
     }
@@ -6764,7 +7485,7 @@ función marcarMisión(
     guardarEstadoMisiones();
 
 
-    mostrarMisión(
+    mostrarMision(
         tipo
     );
 
@@ -6772,8 +7493,8 @@ función marcarMisión(
 
 
 /* =====================================================
-   MISIONES DE GUARDAR
-====================================================== */
+   GUARDAR MISIONES
+===================================================== */
 
 function guardarEstadoMisiones(){
 
@@ -6792,11 +7513,11 @@ function guardarEstadoMisiones(){
 
 /* =====================================================
    RECOMPENSAS
-====================================================== */
+===================================================== */
 
-función agregarRecompensa(
+function agregarRecompensa(
     tipo,
-    misión
+    mision
 ){
 
     const recompensa={
@@ -6804,15 +7525,15 @@ función agregarRecompensa(
         tipo,
 
         fecha:
-            nueva Fecha().toLocaleString(
+            new Date().toLocaleString(
                 "es-MX"
             ),
 
-        misión:
-            misión.texto,
+        mision:
+            mision.texto,
 
         recompensa:
-            misión.recompensa
+            mision.recompensa
 
     };
 
@@ -6851,36 +7572,36 @@ función agregarRecompensa(
 
 
 /* =====================================================
-   HISTÓRICO DE MOSTRAR
-====================================================== */
+   MOSTRAR HISTORIAL
+===================================================== */
 
-función mostrarHistorialRecompensas(){
+function mostrarHistorialRecompensas(){
 
     const contenedor=
-        documento.getElementById(
-            "recompensas históricas"
+        document.getElementById(
+            "historialRecompensas"
         );
 
 
-    si(
+    if(
         !historialRecompensas.length
     ){
 
         contenedor.innerHTML=
             "Todavía no hay recompensas.";
 
-        devolver;
+        return;
 
     }
 
 
     contenedor.innerHTML=
         historialRecompensas
-        .mapa(
+        .map(
             recompensa=>`
 
                 <div
-                    clase="recompensa-item">
+                    class="recompensa-item">
 
                     <strong>
                         🎁 ${recompensa.recompensa}
@@ -6904,7 +7625,7 @@ función mostrarHistorialRecompensas(){
 
                         Misión:
 
-                        ${recompensa.misión}
+                        ${recompensa.mision}
 
                     </p>
 
@@ -6912,20 +7633,20 @@ función mostrarHistorialRecompensas(){
 
             `
         )
-        .unirse("");
+        .join("");
 
 }
 
 
 /* =====================================================
    OSITOS
-====================================================== */
+===================================================== */
 
 let ositosEncontrados=
-    analizarEntero(
+    parseInt(
 
         localStorage.getItem(
-            "ositos encontrados"
+            "ositosEncontrados"
         )
         ||
         "0"
@@ -6936,11 +7657,11 @@ let ositosEncontrados=
 /*
    Evitamos valores imposibles.
 
-   Esto también corrige el antiguo problema.
+   Esto también corrige el antiguo problema
    de NaN / 8.
 */
 
-si(
+if(
     isNaN(ositosEncontrados)
     ||
     ositosEncontrados<0
@@ -6951,7 +7672,7 @@ si(
 }
 
 
-si(
+if(
     ositosEncontrados>8
 ){
 
@@ -6974,52 +7695,52 @@ let ositosDesbloqueados=
 
 /* =====================================================
    CONTADOR
-====================================================== */
+===================================================== */
 
-función actualizarContador(){
+function actualizarContador(){
 
-    documento.getElementById(
+    document.getElementById(
         "contadorOsitos"
     ).textContent=
         ositosEncontrados;
 
 
-    documento.getElementById(
+    document.getElementById(
         "requisitoFinal"
     ).textContent=
 
         `Progreso:
-        ${ositos encontrados}
+        ${ositosEncontrados}
         / 8 ositos`;
 
 
-    si(
+    if(
         ositosEncontrados>=8
     ){
 
-        documento.getElementById(
+        document.getElementById(
             "finalBloqueado"
         ).style.display=
-            "ninguno";
+            "none";
 
 
-        documento.getElementById(
+        document.getElementById(
             "finalDesbloqueado"
         ).style.display=
-            "bloquear";
+            "block";
 
-    }demás{
+    }else{
 
-        documento.getElementById(
+        document.getElementById(
             "finalBloqueado"
         ).style.display=
-            "bloquear";
+            "block";
 
 
-        documento.getElementById(
+        document.getElementById(
             "finalDesbloqueado"
         ).style.display=
-            "ninguno";
+            "none";
 
     }
 
@@ -7028,15 +7749,15 @@ función actualizarContador(){
 
 /* =====================================================
    GUARDAR OSITOS
-====================================================== */
+===================================================== */
 
-función guardarOsitos(){
+function guardarOsitos(){
 
     localStorage.setItem(
 
-        "ositos encontrados",
+        "ositosEncontrados",
 
-        ositos encontrados
+        ositosEncontrados
 
     );
 
@@ -7056,9 +7777,9 @@ función guardarOsitos(){
 
 /* =====================================================
    MOSTRAR OSITO
-====================================================== */
+===================================================== */
 
-función mostrarOsito(){
+function mostrarOsito(){
 
     /*
        De momento solamente tenemos
@@ -7068,22 +7789,22 @@ función mostrarOsito(){
        mediante futuras actualizaciones.
     */
 
-    si(
+    if(
         ositosEncontrados>=1
     ){
 
-        devolver;
+        return;
 
     }
 
 
-    si(
-        documento.selector de consulta(
+    if(
+        document.querySelector(
             ".osito-hallazgo"
         )
     ){
 
-        devolver;
+        return;
 
     }
 
@@ -7092,7 +7813,7 @@ función mostrarOsito(){
 
 
     const osito=
-        documento.crearElemento(
+        document.createElement(
             "div"
         );
 
@@ -7118,7 +7839,7 @@ función mostrarOsito(){
         "42%";
 
 
-    osito.título=
+    osito.title=
         "Encontraste un osito";
 
 
@@ -7127,13 +7848,13 @@ función mostrarOsito(){
         osito.remove();
 
         abrirPreguntaOsito(
-            número
+            numero
         );
 
     };
 
 
-    documento.cuerpo.añadirHijo(
+    document.body.appendChild(
         osito
     );
 
@@ -7142,7 +7863,7 @@ función mostrarOsito(){
 
 /* =====================================================
    PREGUNTAS DE OSITOS
-====================================================== */
+===================================================== */
 
 const preguntasOsitos=[
 
@@ -7155,7 +7876,7 @@ const preguntasOsitos=[
 
             "Kosako de uva",
 
-            "Cafetería",
+            "Café",
 
             "Agua",
 
@@ -7170,35 +7891,35 @@ const preguntasOsitos=[
 
 /* =====================================================
    ABRIR PREGUNTA OSITO
-====================================================== */
+===================================================== */
 
-función abrirPreguntaOsito(
-    número
+function abrirPreguntaOsito(
+    numero
 ){
 
     const pregunta=
         preguntasOsitos[
-            número-1
+            numero-1
         ];
 
 
-    si(!pregunta) regresar;
+    if(!pregunta) return;
 
 
-    documento.getElementById(
+    document.getElementById(
         "preguntaOsito"
     ).style.display=
-        "doblar";
+        "flex";
 
 
-    documento.getElementById(
+    document.getElementById(
         "textoPreguntaOsito"
     ).textContent=
         pregunta.pregunta;
 
 
     const opciones=
-        documento.getElementById(
+        document.getElementById(
             "opcionesOsito"
         );
 
@@ -7206,7 +7927,7 @@ función abrirPreguntaOsito(
     opciones.innerHTML="";
 
 
-    documento.getElementById(
+    document.getElementById(
         "resultadoOsito"
     ).innerHTML="";
 
@@ -7215,30 +7936,30 @@ función abrirPreguntaOsito(
         (respuesta,i)=>{
 
 
-            const botón=
-                documento.crearElemento(
-                    "botón"
+            const boton=
+                document.createElement(
+                    "button"
                 );
 
 
-            botón.className=
-                "opción";
+            boton.className=
+                "opcion";
 
 
-            botón.textoContenido=
+            boton.textContent=
 
                 `${String.fromCharCode(65+i)})
                 ${respuesta}`;
 
 
-            botón.onclick=()=>{
+            boton.onclick=()=>{
 
 
-                si(i===0){
+                if(i===0){
 
-                    si(
-                        !ositosDesbloqueados.incluye(
-                            número
+                    if(
+                        !ositosDesbloqueados.includes(
+                            numero
                         )
                     ){
 
@@ -7246,7 +7967,7 @@ función abrirPreguntaOsito(
 
 
                         ositosDesbloqueados.push(
-                            número
+                            numero
                         );
 
 
@@ -7258,7 +7979,7 @@ función abrirPreguntaOsito(
                     actualizarContador();
 
 
-                    documento.getElementById(
+                    document.getElementById(
                         "resultadoOsito"
                     ).innerHTML=
 
@@ -7283,17 +8004,17 @@ función abrirPreguntaOsito(
 
                     setTimeout(()=>{
 
-                        documento.getElementById(
+                        document.getElementById(
                             "preguntaOsito"
                         ).style.display=
-                            "ninguno";
+                            "none";
 
                     },2200);
 
 
-                }demás{
+                }else{
 
-                    documento.getElementById(
+                    document.getElementById(
                         "resultadoOsito"
                     ).innerHTML=
 
@@ -7317,7 +8038,7 @@ función abrirPreguntaOsito(
 
 
             opciones.appendChild(
-                botón
+                boton
             );
 
         }
@@ -7327,8 +8048,8 @@ función abrirPreguntaOsito(
 
 
 /* =====================================================
-   PROGRAMACIÓN DEL PRIMER OSITO
-====================================================== */
+   PROGRAMACION DEL PRIMER OSITO
+===================================================== */
 
 let ositoYaMostrado=
     localStorage.getItem(
@@ -7345,11 +8066,11 @@ let ositoYaMostrado=
 
 function iniciarSistemaOsitos(){
 
-    si(
+    if(
         ositosEncontrados>=1
     ){
 
-        devolver;
+        return;
 
     }
 
@@ -7360,7 +8081,7 @@ function iniciarSistemaOsitos(){
 
         localStorage.setItem(
             "primerOsitoMostrado",
-            "verdadero"
+            "true"
         );
 
     },5000);
@@ -7370,25 +8091,25 @@ function iniciarSistemaOsitos(){
 
 /* =====================================================
    FOTOS FLOTANTES
-====================================================== */
+===================================================== */
 
-dejar intervalosFotos;
+let intervaloFotos;
 
 
 function iniciarFotosFlotantes(){
 
     intervaloFotos=
-        establecerIntervalo(()=>{
+        setInterval(()=>{
 
 
-            si(
+            if(
 
-                estado.visibilidad del documento===
+                document.visibilityState===
                 "visible"
 
                 &&
 
-                ventana.scrollY>500
+                window.scrollY>500
 
             ){
 
@@ -7404,23 +8125,23 @@ function iniciarFotosFlotantes(){
 
 /* =====================================================
    VISIBILIDAD
-====================================================== */
+===================================================== */
 
-documento.addEventListener(
-    "cambio de visibilidad",
+document.addEventListener(
+    "visibilitychange",
     ()=>{
 
-        si(
-            estado.visibilidad del documento===
-            "oculto"
+        if(
+            document.visibilityState===
+            "hidden"
         ){
 
-            documento
+            document
                 .querySelectorAll(
                     ".foto-flotante"
                 )
                 .forEach(
-                    f=>f.eliminar()
+                    f=>f.remove()
                 );
 
         }
@@ -7430,8 +8151,8 @@ documento.addEventListener(
 
 
 /* =====================================================
-   INICIALIZACIÓN
-====================================================== */
+   INICIALIZACION
+===================================================== */
 
 construirListaMusica();
 
@@ -7455,20 +8176,20 @@ iniciarFotosFlotantes();
 
 /* =====================================================
    MISIONES AL CARGAR
-====================================================== */
+===================================================== */
 
-cargarMisión(
-    "día"
+cargarMision(
+    "dia"
 );
 
 
-cargarMisión(
+cargarMision(
     "semana"
 );
 
 
-cargarMisión(
-    "mí"
+cargarMision(
+    "mes"
 );
 
 
@@ -7480,3 +8201,4 @@ mostrarHistorialRecompensas();
 </body>
 
 </html>
+
