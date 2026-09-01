@@ -2308,6 +2308,19 @@ footer .corazon{
 
 <nav class="indice">
 
+    <button onclick="irA('guia')">
+
+        <span class="indice-icono">
+            🌌
+        </span>
+
+        <span class="indice-texto">
+            Guía
+        </span>
+
+    </button>
+
+
     <button onclick="irA('inicioContenido')">
 
         <span class="indice-icono">
@@ -2451,19 +2464,6 @@ footer .corazon{
     </button>
 
 
-    <button onclick="irA('guia')">
-
-        <span class="indice-icono">
-            🌌
-        </span>
-
-        <span class="indice-texto">
-            Guía
-        </span>
-
-    </button>
-
-
     <button onclick="irA('final')">
 
         <span class="indice-icono">
@@ -2496,6 +2496,88 @@ footer .corazon{
     </strong>
 
 </div>
+
+
+<!-- =====================================================
+     GUIA DE DESCUBRIMIENTO
+===================================================== -->
+
+<section
+    class="seccion"
+    id="guia">
+
+    <div class="osito-pequeno">
+        🌌
+    </div>
+
+    <h2>
+        Guía del Universo de los Ositos
+    </h2>
+
+    <p>
+
+        Este universo tiene más de lo que se ve
+        a primera vista. Aquí una pequeña pista
+        de qué tipo de cosas puedes encontrar
+        mientras exploras.
+
+    </p>
+
+    <div class="guia-grid">
+
+        <div class="guia-item">
+            <h3>⭐ Estrellas y constelaciones</h3>
+            <p>Algunas estrellas esconden pequeños mensajes.</p>
+        </div>
+
+        <div class="guia-item">
+            <h3>🐻 Ositos</h3>
+            <p>Hay ositos escondidos mientras navegas.</p>
+        </div>
+
+        <div class="guia-item">
+            <h3>❓ Preguntas sorpresa</h3>
+            <p>Algunas preguntas aparecen sin avisar.</p>
+        </div>
+
+        <div class="guia-item">
+            <h3>🏆 Logros</h3>
+            <p>Explorar e interactuar puede desbloquear logros.</p>
+        </div>
+
+        <div class="guia-item">
+            <h3>📖 Libro de Visitas</h3>
+            <p>Puedes dejar tu propia huella en el universo.</p>
+        </div>
+
+        <div class="guia-item">
+            <h3>🐻 Supervivencia del Osito</h3>
+            <p>Un sistema que está pendiente de tu descanso y cuidado.</p>
+        </div>
+
+        <div class="guia-item">
+            <h3>📦 Cápsula del Tiempo</h3>
+            <p>Algo que no podrá abrirse de inmediato.</p>
+        </div>
+
+        <div class="guia-item">
+            <h3>⏳ Mensaje del Futuro</h3>
+            <p>Hay un mensaje que requiere esperar.</p>
+        </div>
+
+    </div>
+
+    <p style="margin-top:25px;">
+
+        Pero no voy a decirte dónde está todo.
+
+        <br>
+
+        Tendrás que explorar, osito. 💜
+
+    </p>
+
+</section>
 
 
 <!-- =====================================================
@@ -2925,9 +3007,23 @@ footer .corazon{
         </div>
 
 
+        <div style="margin-top:15px;">
+
+            <button
+                class="boton"
+                onclick="toggleListaMusica()">
+
+                🎵 Ver lista de canciones
+
+            </button>
+
+        </div>
+
+
         <div
             class="lista-musica"
-            id="listaMusica">
+            id="listaMusica"
+            style="display:none;">
         </div>
 
     </div>
@@ -3762,87 +3858,6 @@ footer .corazon{
 
 
 <!-- =====================================================
-     GUIA DE DESCUBRIMIENTO
-===================================================== -->
-
-<section
-    class="seccion"
-    id="guia">
-
-    <div class="osito-pequeno">
-        🌌
-    </div>
-
-    <h2>
-        Guía del Universo de los Ositos
-    </h2>
-
-    <p>
-
-        Este universo tiene más de lo que se ve
-        a primera vista. Aquí una pequeña pista
-        de qué tipo de cosas puedes encontrar.
-
-    </p>
-
-    <div class="guia-grid">
-
-        <div class="guia-item">
-            <h3>⭐ Estrellas y constelaciones</h3>
-            <p>Algunas estrellas esconden pequeños mensajes.</p>
-        </div>
-
-        <div class="guia-item">
-            <h3>🐻 Ositos</h3>
-            <p>Hay ositos escondidos mientras navegas.</p>
-        </div>
-
-        <div class="guia-item">
-            <h3>❓ Preguntas sorpresa</h3>
-            <p>Algunas preguntas aparecen sin avisar.</p>
-        </div>
-
-        <div class="guia-item">
-            <h3>🏆 Logros</h3>
-            <p>Explorar e interactuar puede desbloquear logros.</p>
-        </div>
-
-        <div class="guia-item">
-            <h3>📖 Libro de Visitas</h3>
-            <p>Puedes dejar tu propia huella en el universo.</p>
-        </div>
-
-        <div class="guia-item">
-            <h3>🐻 Supervivencia del Osito</h3>
-            <p>Un sistema que está pendiente de tu descanso y cuidado.</p>
-        </div>
-
-        <div class="guia-item">
-            <h3>📦 Cápsula del Tiempo</h3>
-            <p>Algo que no podrá abrirse de inmediato.</p>
-        </div>
-
-        <div class="guia-item">
-            <h3>⏳ Mensaje del Futuro</h3>
-            <p>Hay un mensaje que requiere esperar.</p>
-        </div>
-
-    </div>
-
-    <p style="margin-top:25px;">
-
-        Pero no voy a decirte dónde está todo.
-
-        <br>
-
-        Tendrás que explorar, osito. 💜
-
-    </p>
-
-</section>
-
-
-<!-- =====================================================
      FINAL
 ===================================================== -->
 
@@ -3943,6 +3958,76 @@ footer .corazon{
 
     </div>
 
+
+    <div
+        class="capsula-box"
+        id="capsulaBloqueada">
+
+        <div style="font-size:3rem;">
+            📦
+        </div>
+
+        <h3 style="margin-top:10px;">
+            Cápsula del Tiempo
+        </h3>
+
+        <p style="margin-top:15px;">
+            Todavía no está lista para abrirse.
+        </p>
+
+        <div
+            class="capsula-requisitos"
+            id="capsulaRequisitos">
+        </div>
+
+    </div>
+
+
+    <div
+        class="capsula-box lista"
+        id="capsulaDesbloqueada">
+
+        <div style="font-size:3rem;">
+            📦✨
+        </div>
+
+        <h3 style="margin-top:10px;">
+            La Cápsula del Tiempo está lista para abrirse.
+        </h3>
+
+        <div style="margin-top:20px;">
+
+            <button
+                class="boton"
+                onclick="abrirCartaCapsula()">
+
+                📜 Abrir carta
+
+            </button>
+
+            <button
+                class="boton"
+                onclick="abrirMensajeFuturo()"
+                style="margin-left:10px;">
+
+                ⏳ Mensaje del Futuro
+
+            </button>
+
+        </div>
+
+        <div
+            class="mensaje-futuro-box"
+            id="cartaCapsulaBox">
+        </div>
+
+        <div
+            class="mensaje-futuro-box"
+            id="mensajeFuturoBox">
+        </div>
+
+    </div>
+
 </section>
 
 
@@ -4014,12 +4099,75 @@ footer .corazon{
 </div>
 
 
+<!-- =====================================================
+     PREGUNTA SUPERVIVENCIA
+===================================================== -->
+
+<div
+    class="pregunta-supervivencia"
+    id="preguntaSupervivencia">
+
+    <div class="pregunta-supervivencia-box">
+
+        <div style="font-size:3rem;">
+            🐻
+        </div>
+
+        <p
+            id="textoPreguntaSupervivencia"
+            style="margin-top:15px;">
+        </p>
+
+        <div
+            class="opciones"
+            id="opcionesSupervivencia">
+        </div>
+
+        <div
+            id="resultadoSupervivencia"
+            style="margin-top:20px;">
+        </div>
+
+        <button
+            class="mision-boton"
+            style="margin-top:15px;"
+            onclick="cerrarPreguntaSupervivencia()">
+
+            Cerrar
+
+        </button>
+
+    </div>
+
+</div>
+
+
 <script>
 
 
 /* =====================================================
    CANCIONES GENERALES
 ===================================================== */
+
+/* =====================================================
+   CAPSULA DEL TIEMPO Y MENSAJE DEL FUTURO
+   (constantes fáciles de editar más adelante)
+===================================================== */
+
+const FECHA_MENSAJE_FUTURO = new Date("2027-01-01T00:00:00");
+
+const TEXTO_MENSAJE_FUTURO = `
+    <h3>⏳ Mensaje del Futuro</h3>
+    <br>
+    <p>Este mensaje todavía está en blanco. Aquí irá una carta especial cuando llegue el momento.</p>
+`;
+
+const TEXTO_CARTA_CAPSULA = `
+    <h3>📜 Carta de la Cápsula</h3>
+    <br>
+    <p>Llegaste hasta aquí encontrando ositos, estrellas, dejando tu huella y desbloqueando logros. Esta carta todavía es un borrador, pero pronto tendrá algo especial escrito para ti. 💜</p>
+`;
+
 
 const canciones = [
 
@@ -4816,12 +4964,28 @@ function obtenerAleatorioSinRepetir(
    COMO ESTAS
 ===================================================== */
 
+let estadoAbierto=null;
+
 function mostrarEstado(tipo){
+
+    const panel=document.getElementById("mensajeEstado");
+
+    if(estadoAbierto===tipo && panel.style.display==="block"){
+
+        panel.style.display="none";
+
+        estadoAbierto=null;
+
+        return;
+
+    }
 
     const datos=
         recursosEstado[tipo];
 
     if(!datos) return;
+
+    estadoAbierto=tipo;
 
 
     const mensaje=
@@ -5000,6 +5164,15 @@ function cargarCancion(indice){
 
             }
         );
+
+}
+
+
+function toggleListaMusica(){
+
+    const lista=document.getElementById("listaMusica");
+
+    lista.style.display=(lista.style.display==="none")?"block":"none";
 
 }
 
@@ -5480,12 +5653,26 @@ function recuerdoAzar(){
    PARA CUANDO LO NECESITES
 ===================================================== */
 
+let necesitaAbierta=null;
+
 function mostrarNecesitas(tipo){
 
     const caja=
         document.getElementById(
             "necesitasMensaje"
         );
+
+    if(necesitaAbierta===tipo && caja.style.display==="block"){
+
+        caja.style.display="none";
+
+        necesitaAbierta=null;
+
+        return;
+
+    }
+
+    necesitaAbierta=tipo;
 
 
     const mensajes={
@@ -6088,14 +6275,23 @@ function abrirCarpeta(
     carpeta
 ){
 
-    carpetaActual=
-        carpeta;
-
-
     const contenedor=
         document.getElementById(
             "expedientes"
         );
+
+    if(carpetaActual===carpeta && contenedor.style.display==="block"){
+
+        contenedor.style.display="none";
+
+        carpetaActual="";
+
+        return;
+
+    }
+
+    carpetaActual=
+        carpeta;
 
 
     contenedor.style.display=
@@ -6718,6 +6914,9 @@ function terminarExpediente(){
         guardarProgreso(
             progreso
         );
+
+
+        desbloquearLogro("primer-expediente");
 
 
         resultado.innerHTML=
@@ -7474,6 +7673,8 @@ function marcarMision(
             mision
         );
 
+        desbloquearLogro("primera-mision");
+
     }else{
 
         mision.estado=
@@ -7973,6 +8174,14 @@ function abrirPreguntaOsito(
 
                         guardarOsitos();
 
+                        desbloquearLogro("primer-osito");
+
+                        if(ositosEncontrados>=8){
+                            desbloquearLogro("maestra-ositos");
+                        }
+
+                        verificarCapsula();
+
                     }
 
 
@@ -8151,6 +8360,884 @@ document.addEventListener(
 
 
 /* =====================================================
+   CONSTELACIONES SECRETAS
+===================================================== */
+
+const constelaciones=[
+    { id:1, tipo:"cuidadora", mensaje:"💧 Ve por un vasito de agua." },
+    { id:2, tipo:"normal", mensaje:"⭐ Encontraste una estrella escondida." },
+    { id:3, tipo:"cuidadora", mensaje:"🌳 Tómate unos minutos para descansar." },
+    { id:4, tipo:"normal", mensaje:"⭐ Esta estrella solo quería saludarte." },
+    { id:5, tipo:"cuidadora", mensaje:"⭐ No olvides darte una pausa." }
+];
+
+function obtenerConstelacionesEncontradas(){
+    return JSON.parse(localStorage.getItem("constelacionesEncontradas")||"[]");
+}
+
+function guardarConstelacionesEncontradas(lista){
+    localStorage.setItem("constelacionesEncontradas", JSON.stringify(lista));
+}
+
+let constelacionActivaEnPantalla=false;
+
+function intentarMostrarConstelacion(){
+
+    if(constelacionActivaEnPantalla) return;
+
+    if(document.visibilityState!=="visible") return;
+
+    const encontradas=obtenerConstelacionesEncontradas();
+
+    const disponibles=constelaciones.filter(c=>!encontradas.includes(c.id));
+
+    if(!disponibles.length) return;
+
+    const elegida=disponibles[Math.floor(Math.random()*disponibles.length)];
+
+    const estrella=document.createElement("div");
+
+    estrella.className="osito-hallazgo";
+    estrella.textContent="⭐";
+    estrella.style.left=(Math.random()*70+10)+"%";
+    estrella.style.top=(Math.random()*60+15)+"%";
+    estrella.title="Una estrella secreta";
+
+    constelacionActivaEnPantalla=true;
+
+    estrella.onclick=()=>{
+
+        estrella.remove();
+
+        constelacionActivaEnPantalla=false;
+
+        const encontradasAhora=obtenerConstelacionesEncontradas();
+
+        if(!encontradasAhora.includes(elegida.id)){
+
+            encontradasAhora.push(elegida.id);
+
+            guardarConstelacionesEncontradas(encontradasAhora);
+
+            if(elegida.tipo==="cuidadora"){
+                registrarSupervivenciaStat("estrellasCuidadorasEncontradas");
+            }
+
+            if(encontradasAhora.length===1){
+                desbloquearLogro("primera-constelacion");
+            }
+
+            if(encontradasAhora.length>=5){
+                desbloquearLogro("cinco-constelaciones");
+            }
+
+            verificarCapsula();
+
+        }
+
+        mostrarToastOsito(elegida.mensaje);
+
+    };
+
+    document.body.appendChild(estrella);
+
+    setTimeout(()=>{
+
+        if(estrella.parentNode){
+            estrella.remove();
+            constelacionActivaEnPantalla=false;
+        }
+
+    },15000);
+
+}
+
+function mostrarToastOsito(mensaje){
+
+    const toast=document.createElement("div");
+
+    toast.className="recordatorio-osito";
+
+    toast.innerHTML=`
+        <p>${mensaje}</p>
+        <button onclick="this.parentElement.remove()">Cerrar</button>
+    `;
+
+    document.body.appendChild(toast);
+
+    setTimeout(()=>{
+        if(toast.parentNode) toast.remove();
+    },6000);
+
+}
+
+function programarConstelaciones(){
+
+    const espera=(Math.random()*60000)+45000;
+
+    setTimeout(()=>{
+
+        intentarMostrarConstelacion();
+
+        programarConstelaciones();
+
+    },espera);
+
+}
+
+
+/* =====================================================
+   LOGROS DE OSITO
+===================================================== */
+
+const logrosDisponibles=[
+    { id:"primer-osito", icono:"🐻", nombre:"Primer Hallazgo", descripcion:"Encontraste tu primer osito escondido." },
+    { id:"maestra-ositos", icono:"🐻✨", nombre:"Maestra de Ositos", descripcion:"Encontraste los 8 ositos escondidos." },
+    { id:"primera-constelacion", icono:"⭐", nombre:"Mirando al Cielo", descripcion:"Encontraste tu primera estrella secreta." },
+    { id:"cinco-constelaciones", icono:"🌌", nombre:"Astrónoma Osita", descripcion:"Encontraste las 5 estrellas secretas." },
+    { id:"primer-expediente", icono:"⚖️", nombre:"Investigadora", descripcion:"Aprobaste tu primer expediente." },
+    { id:"primera-mision", icono:"🎯", nombre:"Misión Cumplida", descripcion:"Completaste tu primera misión." },
+    { id:"primera-supervivencia", icono:"🍏", nombre:"Osito Funcional", descripcion:"Interactuaste con el sistema de Supervivencia." },
+    { id:"checklist-completo", icono:"✅", nombre:"Día Sobrevivido", descripcion:"Completaste todo el checklist de un día." },
+    { id:"primer-mensaje-libro", icono:"📖", nombre:"Firma en el Libro", descripcion:"Dejaste tu primer mensaje en el Libro de Visitas." }
+];
+
+function obtenerLogros(){
+    return JSON.parse(localStorage.getItem("logrosOsitos")||"{}");
+}
+
+function guardarLogros(logros){
+    localStorage.setItem("logrosOsitos", JSON.stringify(logros));
+}
+
+function desbloquearLogro(id){
+
+    const logros=obtenerLogros();
+
+    if(logros[id]) return;
+
+    logros[id]=true;
+
+    guardarLogros(logros);
+
+    const info=logrosDisponibles.find(l=>l.id===id);
+
+    if(info){
+        mostrarToastOsito(`🎉 ¡Logro desbloqueado: ${info.nombre}!`);
+    }
+
+    renderizarLogros();
+
+    verificarCapsula();
+
+}
+
+function renderizarLogros(){
+
+    const grid=document.getElementById("logrosGrid");
+
+    if(!grid) return;
+
+    const logros=obtenerLogros();
+
+    grid.innerHTML=logrosDisponibles.map(l=>{
+
+        const desbloqueado=!!logros[l.id];
+
+        return `
+            <div class="logro-card ${desbloqueado?"desbloqueado":""}">
+                <div class="logro-icono">${desbloqueado?l.icono:"🔒"}</div>
+                <strong>${desbloqueado?l.nombre:"???"}</strong>
+                <p style="margin-top:8px;font-size:.9rem;">
+                    ${desbloqueado?l.descripcion:"Todavía no descubierto."}
+                </p>
+            </div>
+        `;
+
+    }).join("");
+
+}
+
+
+/* =====================================================
+   SUPERVIVENCIA DEL OSITO
+===================================================== */
+
+const estadoOsitoDefault={
+    sueno:6,
+    alimentacion:6,
+    estres:5,
+    descanso:6,
+    bienestar:6
+};
+
+const etiquetasEstadoOsito={
+    sueno:{icono:"💤",nombre:"Sueño"},
+    alimentacion:{icono:"🍎",nombre:"Alimentación"},
+    estres:{icono:"🧠",nombre:"Estrés"},
+    descanso:{icono:"🌳",nombre:"Descanso"},
+    bienestar:{icono:"💜",nombre:"Bienestar"}
+};
+
+function obtenerEstadoOsito(){
+
+    const guardado=JSON.parse(localStorage.getItem("estadoOsito")||"null");
+
+    return guardado || {...estadoOsitoDefault};
+
+}
+
+function guardarEstadoOsito(estado){
+    localStorage.setItem("estadoOsito", JSON.stringify(estado));
+}
+
+function ajustarEstadoOsito(cambios){
+
+    const estado=obtenerEstadoOsito();
+
+    Object.keys(cambios).forEach(clave=>{
+
+        if(estado[clave]===undefined) return;
+
+        estado[clave]=Math.max(0,Math.min(10,estado[clave]+cambios[clave]));
+
+    });
+
+    guardarEstadoOsito(estado);
+
+    renderizarEstadoOsito();
+
+}
+
+function renderizarEstadoOsito(){
+
+    const grid=document.getElementById("estadoOsitoGrid");
+
+    if(!grid) return;
+
+    const estado=obtenerEstadoOsito();
+
+    grid.innerHTML=Object.keys(etiquetasEstadoOsito).map(clave=>{
+
+        const info=etiquetasEstadoOsito[clave];
+
+        const valor=estado[clave];
+
+        return `
+            <div>
+                <div class="estado-barra-label">
+                    <span>${info.icono} ${info.nombre}</span>
+                    <span>${valor}/10</span>
+                </div>
+                <div class="estado-barra-fondo">
+                    <div class="estado-barra-relleno" style="width:${valor*10}%;"></div>
+                </div>
+            </div>
+        `;
+
+    }).join("");
+
+}
+
+
+/* CHECKLIST DE SUPERVIVENCIA */
+
+const checklistItems=[
+    { id:"dormir", texto:"💤 Dormí decentemente", efecto:{sueno:2,bienestar:1} },
+    { id:"comer", texto:"🍎 Comí algo nutritivo", efecto:{alimentacion:2,bienestar:1} },
+    { id:"agua", texto:"💧 Tomé agua", efecto:{bienestar:1} },
+    { id:"caminar", texto:"🚶‍♀️ Salí a caminar", efecto:{descanso:2,estres:-2} },
+    { id:"descansar", texto:"🌳 Descansé un rato", efecto:{descanso:2,estres:-2} },
+    { id:"disfrutar", texto:"🎨 Hice algo que disfruto", efecto:{bienestar:2,estres:-1} },
+    { id:"reir", texto:"😂 Me reí de una tontería", efecto:{bienestar:1} },
+    { id:"sobrevivir", texto:"🎓 Sobreviví otro día de maestría", efecto:{bienestar:2} }
+];
+
+function obtenerChecklistSupervivencia(){
+    return JSON.parse(localStorage.getItem("checklistSupervivencia")||"{}");
+}
+
+function guardarChecklistSupervivencia(data){
+    localStorage.setItem("checklistSupervivencia", JSON.stringify(data));
+}
+
+function toggleChecklistItem(id){
+
+    const periodo=obtenerClavePeriodo("dia");
+
+    const data=obtenerChecklistSupervivencia();
+
+    if(!data[periodo]) data[periodo]={};
+
+    const yaMarcado=!!data[periodo][id];
+
+    data[periodo][id]=!yaMarcado;
+
+    guardarChecklistSupervivencia(data);
+
+    const item=checklistItems.find(i=>i.id===id);
+
+    if(!yaMarcado && item){
+
+        ajustarEstadoOsito(item.efecto);
+
+        registrarSupervivenciaStat("elementosCompletados");
+
+        desbloquearLogro("primera-supervivencia");
+
+        if(checklistItems.every(i=>data[periodo][i.id])){
+
+            desbloquearLogro("checklist-completo");
+
+            registrarSupervivenciaStat("ultimoCuidado","Sobreviví otro día de maestría 🎓");
+
+        }else{
+
+            registrarSupervivenciaStat("ultimoCuidado",item.texto);
+
+        }
+
+    }
+
+    renderizarChecklistSupervivencia();
+
+    renderizarExpedienteSupervivencia();
+
+}
+
+function renderizarChecklistSupervivencia(){
+
+    const grid=document.getElementById("checklistSupervivenciaGrid");
+
+    if(!grid) return;
+
+    const periodo=obtenerClavePeriodo("dia");
+
+    const data=obtenerChecklistSupervivencia();
+
+    const marcados=data[periodo]||{};
+
+    grid.innerHTML=checklistItems.map(item=>`
+        <div class="checklist-item ${marcados[item.id]?"marcado":""}" onclick="toggleChecklistItem('${item.id}')">
+            <input type="checkbox" ${marcados[item.id]?"checked":""} onclick="event.stopPropagation();toggleChecklistItem('${item.id}')">
+            <span>${item.texto}</span>
+        </div>
+    `).join("");
+
+}
+
+
+/* ESTADÍSTICAS / EXPEDIENTE DE SUPERVIVENCIA */
+
+function obtenerSupervivenciaStats(){
+
+    return JSON.parse(localStorage.getItem("supervivenciaStats")||"null") || {
+        diasRegistrados:[],
+        preguntasRespondidas:0,
+        estrellasCuidadorasEncontradas:0,
+        elementosCompletados:0,
+        ultimoCuidado:""
+    };
+
+}
+
+function guardarSupervivenciaStats(stats){
+    localStorage.setItem("supervivenciaStats", JSON.stringify(stats));
+}
+
+function registrarSupervivenciaStat(clave,valor){
+
+    const stats=obtenerSupervivenciaStats();
+
+    const periodo=obtenerClavePeriodo("dia");
+
+    if(!stats.diasRegistrados.includes(periodo)){
+        stats.diasRegistrados.push(periodo);
+    }
+
+    if(clave==="ultimoCuidado"){
+        stats.ultimoCuidado=valor;
+    }else{
+        stats[clave]=(stats[clave]||0)+1;
+    }
+
+    guardarSupervivenciaStats(stats);
+
+    renderizarExpedienteSupervivencia();
+
+}
+
+function renderizarExpedienteSupervivencia(){
+
+    const contenedor=document.getElementById("expedienteSupervivencia");
+
+    if(!contenedor) return;
+
+    const stats=obtenerSupervivenciaStats();
+
+    const logros=obtenerLogros();
+
+    const logrosSupervivencia=["primera-supervivencia","checklist-completo"].filter(id=>logros[id]).length;
+
+    contenedor.innerHTML=`
+        <h3>🐻 Expediente de Supervivencia</h3>
+        <br>
+        <p>Días registrados: ${stats.diasRegistrados.length}</p>
+        <p>Preguntas respondidas: ${stats.preguntasRespondidas||0}</p>
+        <p>Estrellas cuidadoras encontradas: ${stats.estrellasCuidadorasEncontradas||0}</p>
+        <p>Elementos completados: ${stats.elementosCompletados||0}</p>
+        <p>Logros de supervivencia: ${logrosSupervivencia}</p>
+        <br>
+        <p>Último cuidado registrado:</p>
+        <p>"${stats.ultimoCuidado||"Todavía nada registrado."}"</p>
+    `;
+
+}
+
+
+/* RECORDATORIOS ALEATORIOS DEL OSITO */
+
+const recordatoriosSupervivencia=[
+    "⭐ Osito, toma un poquito de agua.",
+    "🐻 Llevas mucho estudiando. Ve a caminar un poquito.",
+    "🍎 Recuerda comer algo que no venga en una bolsa.",
+    "🌙 Descansar también cuenta como avanzar.",
+    "💜 Tu maestría es importante, pero tú también.",
+    "🥃 De vez en cuando también está permitido olvidarse de la maestría y divertirse."
+];
+
+let recordatorioActivo=false;
+
+function haySupervivenciaModalAbierto(){
+
+    return recordatorioActivo ||
+        escribiendoLibro ||
+        document.getElementById("preguntaOsito").style.display==="flex" ||
+        document.getElementById("preguntaSupervivencia").style.display==="flex";
+
+}
+
+function mostrarRecordatorioSupervivencia(){
+
+    if(document.visibilityState!=="visible") return;
+
+    if(haySupervivenciaModalAbierto()) return;
+
+    const mensaje=recordatoriosSupervivencia[Math.floor(Math.random()*recordatoriosSupervivencia.length)];
+
+    const toast=document.createElement("div");
+
+    toast.className="recordatorio-osito";
+
+    toast.innerHTML=`
+        <p>${mensaje}</p>
+        <button onclick="cerrarRecordatorioSupervivencia(this)">Cerrar</button>
+    `;
+
+    recordatorioActivo=true;
+
+    document.body.appendChild(toast);
+
+}
+
+function cerrarRecordatorioSupervivencia(boton){
+
+    const toast=boton.closest(".recordatorio-osito");
+
+    if(toast) toast.remove();
+
+    recordatorioActivo=false;
+
+}
+
+function programarRecordatoriosSupervivencia(){
+
+    setTimeout(function primeraVez(){
+
+        mostrarRecordatorioSupervivencia();
+
+        programarSiguienteRecordatorio();
+
+    },180000);
+
+}
+
+function programarSiguienteRecordatorio(){
+
+    const espera=(Math.random()*240000)+240000;
+
+    setTimeout(()=>{
+
+        mostrarRecordatorioSupervivencia();
+
+        programarSiguienteRecordatorio();
+
+    },espera);
+
+}
+
+
+/* PREGUNTAS SORPRESA DE SUPERVIVENCIA */
+
+const preguntasSupervivencia=[
+    {
+        pregunta:"¿Ya comiste algo decente hoy, osita?",
+        opciones:[
+            { texto:"🍎 Sí, comí bien.", respuesta:"🐻 ¡Así se hace, osito!", efecto:{alimentacion:1} },
+            { texto:"🍟 Técnicamente sí.", respuesta:"🐻 Bueno... algo es algo.", efecto:{} },
+            { texto:"☕ El café cuenta, ¿no?", respuesta:"🐻 ...eso no era comida, osito.", efecto:{alimentacion:-1,estres:1} }
+        ]
+    },
+    {
+        pregunta:"¿Dormiste suficiente anoche?",
+        opciones:[
+            { texto:"😴 Sí, descansé súper bien.", respuesta:"💤 Qué bueno, osito.", efecto:{sueno:1,estres:-1} },
+            { texto:"🌙 Más o menos, la maestría presiona.", respuesta:"🌙 Intenta dormir un poco mejor hoy.", efecto:{} },
+            { texto:"🧟‍♀️ Casi nada, puras tareas.", respuesta:"🐻 Eso hay que cuidarlo pronto.", efecto:{sueno:-1,estres:1} }
+        ]
+    },
+    {
+        pregunta:"¿Cuándo fue la última vez que saliste a caminar sin pensar en tareas?",
+        opciones:[
+            { texto:"Hoy mismo", respuesta:"🌳 Excelente, osito.", efecto:{descanso:1,estres:-1} },
+            { texto:"Hace unos días", respuesta:"🌙 Podrías intentarlo hoy.", efecto:{} },
+            { texto:"No lo recuerdo", respuesta:"🐻 Creo que ya urge una caminata.", efecto:{estres:1} }
+        ]
+    },
+    {
+        pregunta:"¿Te has reído de algo hoy?",
+        opciones:[
+            { texto:"😂 Sí, bastante.", respuesta:"💜 Eso siempre suma.", efecto:{bienestar:1} },
+            { texto:"🙂 Un poquito.", respuesta:"🐻 Algo es algo, osito.", efecto:{} },
+            { texto:"😐 Para nada.", respuesta:"🐻 Vamos a arreglar eso pronto.", efecto:{bienestar:-1} }
+        ]
+    }
+];
+
+function lanzarPreguntaSupervivencia(){
+
+    const pregunta=preguntasSupervivencia[Math.floor(Math.random()*preguntasSupervivencia.length)];
+
+    document.getElementById("preguntaSupervivencia").style.display="flex";
+
+    document.getElementById("textoPreguntaSupervivencia").textContent=pregunta.pregunta;
+
+    document.getElementById("resultadoSupervivencia").innerHTML="";
+
+    const opciones=document.getElementById("opcionesSupervivencia");
+
+    opciones.innerHTML="";
+
+    pregunta.opciones.forEach(op=>{
+
+        const boton=document.createElement("button");
+
+        boton.className="opcion";
+
+        boton.textContent=op.texto;
+
+        boton.onclick=()=>{
+
+            document.getElementById("resultadoSupervivencia").innerHTML=`<p>${op.respuesta}</p>`;
+
+            if(Object.keys(op.efecto).length){
+                ajustarEstadoOsito(op.efecto);
+            }
+
+            registrarSupervivenciaStat("preguntasRespondidas");
+
+        };
+
+        opciones.appendChild(boton);
+
+    });
+
+}
+
+function cerrarPreguntaSupervivencia(){
+
+    document.getElementById("preguntaSupervivencia").style.display="none";
+
+}
+
+
+/* =====================================================
+   CAPSULA DEL TIEMPO
+===================================================== */
+
+function verificarCapsula(){
+
+    const bloqueadaDiv=document.getElementById("capsulaBloqueada");
+
+    const desbloqueadaDiv=document.getElementById("capsulaDesbloqueada");
+
+    if(!bloqueadaDiv || !desbloqueadaDiv) return;
+
+    const ositos=ositosEncontrados;
+
+    const constelacionesCount=obtenerConstelacionesEncontradas().length;
+
+    const logrosCount=Object.keys(obtenerLogros()).length;
+
+    const libroCount=obtenerLibroVisitasCache().length;
+
+    const requisitos=[
+        { texto:"🐻 Encontrar 8 ositos", cumplido:ositos>=8, actual:ositos, meta:8 },
+        { texto:"⭐ Encontrar 5 constelaciones", cumplido:constelacionesCount>=5, actual:constelacionesCount, meta:5 },
+        { texto:"🏆 Conseguir 5 logros", cumplido:logrosCount>=5, actual:logrosCount, meta:5 },
+        { texto:"📖 Dejar al menos 1 mensaje en el Libro", cumplido:libroCount>=1, actual:libroCount, meta:1 }
+    ];
+
+    const listaReq=document.getElementById("capsulaRequisitos");
+
+    if(listaReq){
+
+        listaReq.innerHTML=requisitos.map(r=>`
+            <p>${r.cumplido?"✅":"⬜"} ${r.texto} (${r.actual}/${r.meta})</p>
+        `).join("");
+
+    }
+
+    const desbloqueada=requisitos.every(r=>r.cumplido);
+
+    if(desbloqueada){
+
+        bloqueadaDiv.style.display="none";
+
+        desbloqueadaDiv.style.display="block";
+
+    }else{
+
+        bloqueadaDiv.style.display="block";
+
+        desbloqueadaDiv.style.display="none";
+
+    }
+
+}
+
+function abrirCartaCapsula(){
+
+    const box=document.getElementById("cartaCapsulaBox");
+
+    box.innerHTML=TEXTO_CARTA_CAPSULA;
+
+    box.style.display="block";
+
+}
+
+function abrirMensajeFuturo(){
+
+    const box=document.getElementById("mensajeFuturoBox");
+
+    if(new Date() < FECHA_MENSAJE_FUTURO){
+
+        box.innerHTML="<p>Todavía no es momento, osito.</p>";
+
+    }else{
+
+        box.innerHTML=TEXTO_MENSAJE_FUTURO;
+
+    }
+
+    box.style.display="block";
+
+}
+
+
+/* =====================================================
+   LIBRO DE VISITAS — SUPABASE (compartido entre dispositivos)
+   localStorage (libroVisitasOsitos) queda como caché/respaldo,
+   no como fuente principal.
+===================================================== */
+
+const SUPABASE_URL = "https://txkrostizsernxlgrtox.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_kF7-l_lcVBO-q5J6FBBCWg_q8_Iv-W-";
+
+let escribiendoLibro = false;
+
+function supabaseConfigurado(){
+
+    return SUPABASE_URL.startsWith("http") && SUPABASE_PUBLISHABLE_KEY.length > 10;
+
+}
+
+function escaparHTML(texto){
+
+    const div = document.createElement("div");
+
+    div.textContent = texto;
+
+    return div.innerHTML;
+
+}
+
+function obtenerLibroVisitasCache(){
+
+    return JSON.parse(localStorage.getItem("libroVisitasOsitos") || "[]");
+
+}
+
+function guardarLibroVisitasCache(lista){
+
+    localStorage.setItem("libroVisitasOsitos", JSON.stringify(lista));
+
+}
+
+function renderizarLibroVisitas(lista){
+
+    const contenedor = document.getElementById("libroMensajes");
+
+    if(!contenedor) return;
+
+    if(!lista || !lista.length){
+
+        contenedor.innerHTML = "<p>Todavía no hay mensajes.</p>";
+
+        return;
+
+    }
+
+    contenedor.innerHTML = lista.map(m => `
+
+        <div class="libro-mensaje-item">
+            <strong>🐻 ${escaparHTML(m.nombre)}</strong>
+            <br><br>
+            <p>💌 ${escaparHTML(m.mensaje)}</p>
+            <br>
+            <small>📅 ${escaparHTML(m.fecha)}</small>
+        </div>
+
+    `).join("");
+
+}
+
+async function cargarLibroVisitas(){
+
+    const contenedor = document.getElementById("libroMensajes");
+
+    if(!contenedor) return;
+
+    // Mostramos primero el cache local para que no se vea vacío mientras carga
+    renderizarLibroVisitas(obtenerLibroVisitasCache());
+
+    if(!supabaseConfigurado()) return;
+
+    try{
+
+        const resp = await fetch(
+
+            `${SUPABASE_URL}/rest/v1/libro_visitas?select=*&order=id.desc`,
+
+            {
+                headers:{
+                    apikey: SUPABASE_PUBLISHABLE_KEY,
+                    Authorization: `Bearer ${SUPABASE_PUBLISHABLE_KEY}`
+                }
+            }
+
+        );
+
+        if(!resp.ok) throw new Error("respuesta no ok al leer el libro");
+
+        const datos = await resp.json();
+
+        guardarLibroVisitasCache(datos);
+
+        renderizarLibroVisitas(datos);
+
+        if(datos.length >= 1 && typeof desbloquearLogro === "function"){
+            desbloquearLogro("primer-mensaje-libro");
+        }
+
+        if(typeof verificarCapsula === "function"){
+            verificarCapsula();
+        }
+
+    }catch(error){
+
+        // Si falla la red, nos quedamos con el cache local ya mostrado arriba
+        console.warn("No se pudo cargar el Libro de Visitas compartido:", error);
+
+    }
+
+}
+
+async function guardarMensajeLibro(){
+
+    const nombreInput = document.getElementById("libroNombre");
+
+    const textoInput = document.getElementById("libroTexto");
+
+    const texto = textoInput.value.trim();
+
+    if(!texto){
+
+        alert("Escribe algo antes de guardar tu huella 🐻");
+
+        return;
+
+    }
+
+    if(!supabaseConfigurado()){
+
+        alert("El Libro de Visitas compartido todavía no está configurado. Tu mensaje no se guardó.");
+
+        return;
+
+    }
+
+    const nuevoMensaje = {
+
+        nombre: nombreInput.value.trim() || "Un osito anónimo",
+
+        mensaje: texto,
+
+        fecha: new Date().toLocaleString("es-MX")
+
+    };
+
+    try{
+
+        const resp = await fetch(
+
+            `${SUPABASE_URL}/rest/v1/libro_visitas`,
+
+            {
+                method:"POST",
+                headers:{
+                    apikey: SUPABASE_PUBLISHABLE_KEY,
+                    Authorization: `Bearer ${SUPABASE_PUBLISHABLE_KEY}`,
+                    "Content-Type":"application/json",
+                    Prefer:"return=representation"
+                },
+                body: JSON.stringify(nuevoMensaje)
+            }
+
+        );
+
+        if(!resp.ok) throw new Error("no se pudo guardar el mensaje");
+
+        nombreInput.value = "";
+
+        textoInput.value = "";
+
+        escribiendoLibro = false;
+
+        await cargarLibroVisitas();
+
+    }catch(error){
+
+        alert("No se pudo guardar tu mensaje. Revisa tu conexión e intenta de nuevo.");
+
+        console.warn(error);
+
+    }
+
+}
+
+
+/* =====================================================
    INICIALIZACION
 ===================================================== */
 
@@ -8196,9 +9283,32 @@ cargarMision(
 mostrarHistorialRecompensas();
 
 
+cargarLibroVisitas();
+
+
+renderizarLogros();
+
+
+renderizarEstadoOsito();
+
+
+renderizarChecklistSupervivencia();
+
+
+renderizarExpedienteSupervivencia();
+
+
+verificarCapsula();
+
+
+programarConstelaciones();
+
+
+programarRecordatoriosSupervivencia();
+
+
 </script>
 
 </body>
 
 </html>
-
