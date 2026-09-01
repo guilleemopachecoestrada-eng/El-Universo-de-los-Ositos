@@ -8823,6 +8823,16 @@ function mostrarRecordatorioSupervivencia(){
 
     if(haySupervivenciaModalAbierto()) return;
 
+    // 1 de cada 3 veces, en lugar de un simple mensaje, aparece una
+    // pregunta sorpresa (sin repetir hasta agotar el banco).
+    if(Math.random()<0.33){
+
+        lanzarPreguntaSupervivencia();
+
+        return;
+
+    }
+
     const mensaje=recordatoriosSupervivencia[Math.floor(Math.random()*recordatoriosSupervivencia.length)];
 
     const toast=document.createElement("div");
@@ -8914,9 +8924,43 @@ const preguntasSupervivencia=[
     }
 ];
 
-function lanzarPreguntaSupervivencia(){
+function obtenerPreguntasSupervivenciaVistas(){
 
-    const pregunta=preguntasSupervivencia[Math.floor(Math.random()*preguntasSupervivencia.length)];
+    return JSON.parse(localStorage.getItem("preguntasSupervivenciaVistas")||"[]");
+
+}
+
+function guardarPreguntasSupervivenciaVistas(lista){
+
+    localStorage.setItem("preguntasSupervivenciaVistas", JSON.stringify(lista));
+
+}
+
+function elegirPreguntaSupervivencia(){
+
+    let vistas=obtenerPreguntasSupervivenciaVistas();
+
+    if(vistas.length>=preguntasSupervivencia.length){
+        vistas=[];
+    }
+
+    const disponibles=preguntasSupervivencia
+        .map((p,i)=>i)
+        .filter(i=>!vistas.includes(i));
+
+    const indice=disponibles[Math.floor(Math.random()*disponibles.length)];
+
+    vistas.push(indice);
+
+    guardarPreguntasSupervivenciaVistas(vistas);
+
+    return preguntasSupervivencia[indice];
+
+}
+
+function lanzarPreguntaSupervivencia(pregunta){
+
+    pregunta=pregunta||elegirPreguntaSupervivencia();
 
     document.getElementById("preguntaSupervivencia").style.display="flex";
 
